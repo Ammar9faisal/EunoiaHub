@@ -7,6 +7,10 @@
     height: 50vh;
     border-radius: 10px;
     overflow: hidden;
+<<<<<<< HEAD
+=======
+    box-shadow: 0px 0px 20px 0px #000000;
+>>>>>>> origin/Abdullah
 }
 
 .chatbot-header {  /* styling for the header */
@@ -16,6 +20,7 @@
     font-size: medium;
     font-weight: bold;
     height: 3vh;
+<<<<<<< HEAD
 }
 
 #aiName {
@@ -24,6 +29,17 @@
     color: white;
     font-size: medium;
     
+=======
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#aiName {
+    margin: 0px;
+    color: white;
+    font-size: medium;
+>>>>>>> origin/Abdullah
 }
 
 #openBtn {
@@ -35,6 +51,10 @@
     position: fixed;
     bottom: 40px;
     right: 40px;
+<<<<<<< HEAD
+=======
+    box-shadow: 0px 0px 20px 0px #000000;
+>>>>>>> origin/Abdullah
 }
 
 #closeBtn {
