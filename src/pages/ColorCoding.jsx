@@ -1,29 +1,25 @@
-import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import Dashboard from './Dashboard';
+import QResults from './QResults';
 
-const ColorCoding = ({ setColor }) => {
-    const navigate = useNavigate();
+const colorMapping = {
+    A: 'green-dashboard',
+    B: 'orange-dashboard',
+    C: 'purple-dashboard',
+    D: 'white-dashboard' // Default to white
+};
+
+export default function ColorCoding() {
+    const [dashboardColor, setDashboardColor] = useState(colorMapping.D);
 
     useEffect(() => {
         const finalCategory = localStorage.getItem('finalCategory') || 'D';
-
-        const colorMap = {
-            A: 'green',
-            B: 'orange',
-            C: 'purple',
-            D: 'white'
-        };
-
-        const color = colorMap[finalCategory] || 'white';
-        setColor(color);
-    }, [setColor]);
+        setDashboardColor(colorMapping[finalCategory]);
+    }, []);
 
     return (
-        <div>
-            <h1>Welcome to your Dashboard</h1>
-            <button onClick={() => navigate('/results')}>Go Back to Results</button>
+        <div className={dashboardColor}>
+            <Dashboard />
         </div>
     );
-};
-
-export default ColorCoding;
+} 
