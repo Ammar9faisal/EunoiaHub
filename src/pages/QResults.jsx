@@ -39,9 +39,9 @@ function QResults() {
         localStorage.setItem('finalCategory', finalCategory);
 
         // Set results based on final category
-        if (finalCategory === 'A') setResultText('Seems like you may have Anxiety.');
-        else if (finalCategory === 'B') setResultText('Seems like you may have an Addiction.');
-        else if (finalCategory === 'C') setResultText('Seems like you may have Depression.');
+        if (finalCategory === 'A') setResultText('Seems like you have some Anxious traits.');
+        else if (finalCategory === 'B') setResultText('Seems like you may have some symptoms similar to Addiction.');
+        else if (finalCategory === 'C') setResultText('Seems like you may have traits that are likely related with Depression.');
         else setResultText('Your responses suggest general uncertainty. No worries, that just means you get the general Dashboard.');
 
     }, []);
