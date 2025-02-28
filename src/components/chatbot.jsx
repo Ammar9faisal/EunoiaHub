@@ -22,7 +22,7 @@ const Chatbot = () => {
         }
     };
 
-    const toggleChat = () => {
+     const toggleChat = () => {
         const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
         chatbot.classList.toggle('hidden');
     }

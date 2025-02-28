@@ -23,8 +23,8 @@ export function Sidebar() {
           <BarChart2 className="sidebar-icon" color="white"/>
         </button>
         <button
-          className={`sidebar-button ${activeButton === 'heart' ? 'sidebar-button-active' : ''}`}
-          onClick={() => handleButtonClick('heart')}  // sets the button as active when a button is clicekd
+          className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/survey")}  // sets the button as active when a button is clicekd
         >
           <Smile className="sidebar-icon"  color="white"/>
         </button>
