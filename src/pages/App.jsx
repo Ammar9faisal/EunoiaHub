@@ -13,6 +13,16 @@ function App() {
         {/* Routes is container for all route components */}
       <Routes>
         <Route path="/Question1" element={<Question1 />} />
+        <Route path="/Question1" element={<Question2 />} />
+        <Route path="/Question1" element={<Question3 />} />
+        <Route path="/Question1" element={<Question4 />} />
+        <Route path="/Question1" element={<Question5 />} />
+        <Route path="/Question1" element={<Question6 />} />
+        <Route path="/Question1" element={<Question7 />} />
+        <Route path="/Question1" element={<Question8 />} />
+        <Route path="/Question1" element={<Question9 />} />
+        <Route path="/Question1" element={<Question10 />} />
+
         <Route path="/QResults" element={<QResults />} />
         <Route path="/dashboard" element={<dashboard />} />
 
