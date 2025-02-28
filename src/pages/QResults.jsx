@@ -51,7 +51,7 @@ function QResults() {
     // Reset answers and restart survey
     const redoSurvey = () => {
         localStorage.removeItem('surveyAnswers');
-        navigate('/question1');
+        navigate('/Question1');
     };
 
     return (
