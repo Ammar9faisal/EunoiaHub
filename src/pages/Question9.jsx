@@ -5,6 +5,7 @@ import background from '../assets/Purple.png';
 
 function Question9() {
     const navigate = useNavigate();
+    navigate('/Question9'); // Navigate to the ninth question
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     
     const answers = [
