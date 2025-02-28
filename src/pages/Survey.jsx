@@ -1,8 +1,12 @@
 import backgroundImage from '../assets/Purple.png';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Survey.css';
 import { useNavigate } from 'react-router-dom'; //navigation to another page
 import { questions, handleNext, handleBack, handleNumberClick } from '../services/surveyService';
+
+import { stubData } from '../stubdata';
+const completionStatus = stubData.wellnessIndexDaily.isCompleted; // Get the completion status from stubData
+
 
 // Here's our main Survey component - think of it as the whole happiness survey experience
 const Survey = () => {
@@ -33,6 +37,7 @@ const Survey = () => {
   const renderScale = () => {
     return (
       <div className="scale-container">
+
         <div className="scale-numbers">
           {/* Loop to create 10 clickable number buttons */}
           {[...Array(10)].map((_, i) => (
@@ -53,9 +58,10 @@ const Survey = () => {
             </div>
           ))}
         </div>
+
         {/* Emojis below the scale to give a visual cue */}
         <div className="scale-emojis">
-          <div className="number-group"><span className="emoji">😔</span></div> {/* Sad at 1 */}
+          <div className="number-group"><span className="emoji">😔</span></div> {/* </div>Sad at 1 */}
           <div className="number-group"></div>
           <div className="number-group"></div>
           <div className="number-group"></div>
@@ -83,6 +89,7 @@ const Survey = () => {
           <div className="intro-text">
             Rate how you’re feeling on a scale of 1 to 10 and track your mental well-being over time.
           </div>
+
           {/* Show some emojis and a gradient bar to set the mood */}
           <div className="emoji-scale">
             <div className="emoji-row">
@@ -97,17 +104,23 @@ const Survey = () => {
             </div>
             <div className="gradient-bar"></div> {/* Fancy color gradient */}
           </div>
+
           <button className="next-button" onClick={() => handleNext(0, responses, setResponses, setCurrentPage, navigate)}>Next</button> {/* Start the survey */}
         </div>
       ) : currentPage === 8 ? (
         // Completion page (currentPage === 8)
+
+        stubData.wellnessIndexDaily.isCompleted = true,
+
         <div className="container">
           <div className="header-bar">
             <div className="header-text">Daily Check-In Completed!</div> {/* Completion message */}
           </div>
+
           <div className="completion-text">
             Thank you for completing your daily check-in. Your responses have been recorded.
           </div>
+
           <button className="dashboard-button" onClick={() => navigate('/dashboard')}>Go to Dashboard</button> {/* Button to navigate to dashboard */}
         </div>
       ) : (

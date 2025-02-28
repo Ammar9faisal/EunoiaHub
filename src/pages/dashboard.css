@@ -47,7 +47,8 @@ html {
 .dashboard-content {
   flex: 1;
   padding: 1rem;
-  /* Remove overflow-y: auto; */
+  display: flex;
+  flex-direction: column;
 }
 
 .dashboard-section {
@@ -175,4 +176,53 @@ html, body {  /* Resetting the default margin and padding */
   height: 100%;
   width: 100%;
   box-sizing: border-box;
+}
+
+.daily-quote {
+  height: 250px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.daily-quote .overlap-group {
+  background-color: #d7d7d780;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.daily-quote .quote-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.daily-quote .text-wrapper {
+  font-size: 18px;
+  color: #555;
+}
+
+.daily-quote .div {
+  font-size: 14px;
+  color: #888;
+}
+
+.dashboard-section-title {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  width: auto;
+  text-align: center;
+}
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: 0;
+  display: inline;
+
 }
