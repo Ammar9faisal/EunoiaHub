@@ -5,6 +5,8 @@ import background from '../assets/Purple.png';
 
 function QResults() {
     const navigate = useNavigate();
+    navigate('/QResults'); // Navigate to the results page
+
     const [resultText, setResultText] = useState('');
 
     useEffect(() => {
