@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Dashboard from './Dashboard';
+import Dashboard from './dashboard';
 import QResults from './QResults';
 
 const colorMapping = {
