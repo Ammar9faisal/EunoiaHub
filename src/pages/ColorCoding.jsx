@@ -1,53 +1,42 @@
-// ColorCoding.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
+// ColorCoding - function that determines the color of the dashboard based on the final category
 const ColorCoding = () => {
-  // State to store the color based on questionnaire results
-  const [dashboardColor, setDashboardColor] = useState('white');
+  //dashboardColor - stores the current state of the dashboard
+  //set DashboardColor - updates the state of the dashboard
+  //useState - initializes the state of the dashboard to white
+  const [dashboardColor, setDashboardColor] = useState('dashboard-white');
 
-  // Function to set the color based on the result category
-  const setDashboardColorBasedOnResult = () => {
-    // Get the final category from localStorage
-    const finalCategory = localStorage.getItem('finalCategory');
-
-    // Set the dashboard color based on the category
-    switch (finalCategory) {
-      case 'A':
-        setDashboardColor('green');
-        break;
-      case 'B':
-        setDashboardColor('orange');
-        break;
-      case 'C':
-        setDashboardColor('purple');
-        break;
-      default:
-        setDashboardColor('white');
-        break;
-    }
-  };
-
-  // UseEffect hook to apply the color once the component mounts
+  //useEffect - runs when the component renders. checks local storage value and updates the dashboard color
   useEffect(() => {
-    setDashboardColorBasedOnResult();
-  }, []); // Runs once when the component is mounted
+   
+    //fetch final category from local storage or
+    //set the final category to 'D' if it does not exist
+    const finalCategory = localStorage.getItem('finalCategory') || 'D';
 
-  return (
-    <div
-      style={{
-        backgroundColor: dashboardColor,
-        minHeight: '100vh',
-        transition: 'background-color 0.5s ease',
-      }}
-    >
-      <h1 style={{ textAlign: 'center', paddingTop: '50px' }}>
-        Welcome to Your Wellness App
-      </h1>
-      <p style={{ textAlign: 'center', fontSize: '20px' }}>
-        Your dashboard color is based on your answers. Current color: {dashboardColor}
-      </p>
-    </div>
-  );
+    //takes choice A, B, C or D and returns the corresponding color
+    const determineColor = (choice) => {
+      switch (choice) {
+        case 'A': //maps to green
+          return 'dashboard-green';
+        case 'B': //maps to purple
+          return 'dashboard-purple';
+        case 'C': //maps to orange
+          return 'dashboard-orange';
+        default: //Anything else (or if no valid choice) defaults to white
+          return 'dashboard-white';
+      }
+    };
+
+    //color is set by calling determineColor with the final category
+    const color = determineColor(finalCategory);
+    //updates the dashboard color and local storage
+    setDashboardColor(color);
+    //saves color in localStorage so it persists even if the user refreshes the page or navigates to another page.
+    localStorage.setItem('dashboardColor', color);
+  }, []);
+
+  return null;
 };
 
 export default ColorCoding;
