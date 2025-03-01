@@ -225,4 +225,22 @@ html, body {  /* Resetting the default margin and padding */
   margin-right: 0;
   display: inline;
 
+
+  /*background colors for the dashboard*/
+  .dashboard-green {
+    background-color: #a8e6cf; /* Soft green */
+  }
+  
+  .dashboard-orange {
+    background-color: #ffab91; /* Soft orange */
+  }
+  
+  .dashboard-purple {
+    background-color: #d1c4e9; /* Soft purple */
+  }
+  
+  .dashboard-white {
+    background-color: #ffffff; /* Default white */
+  }
+
 }
