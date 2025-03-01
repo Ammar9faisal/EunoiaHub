@@ -16,7 +16,7 @@ import Question8 from './pages/Question8.jsx'
 import Question9 from './pages/Question9.jsx'
 import Question10 from './pages/Question10.jsx'
 import QResults from './pages/QResults.jsx'
-
+import Intro from './pages/Intro.jsx';
 
 
 const router = createBrowserRouter([  //initialize the browser rerouter to navigate between pages
@@ -93,6 +93,11 @@ const router = createBrowserRouter([  //initialize the browser rerouter to navig
   {
     path: '/QResults',    //creates path to login page
     element: <QResults />,
+  },
+
+  {
+    path: '/intro',    //creates path to login page
+    element: <Intro />,
   }
 ])
 

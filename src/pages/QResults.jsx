@@ -37,10 +37,32 @@ function QResults() {
         }
 
         // Set results based on final category
-        if (finalCategory === 'A') setResultText('Seems like you may have Anxiety.');
-        else if (finalCategory === 'B') setResultText('Seems like you may have an Addiction.');
-        else if (finalCategory === 'C') setResultText('Seems like you may have Depression.');
-        else setResultText('Your responses suggest general uncertainty. No worries, that just means you get the general Dashboard.');
+        // if (finalCategory === 'A') setResultText('Seems like you may have Anxiety.');
+        // else if (finalCategory === 'B') setResultText('Seems like you may have an Addiction.');
+        // else if (finalCategory === 'C') setResultText('Seems like you may have Depression.');
+        // else setResultText('Your responses suggest general uncertainty. No worries, that just means you get the general Dashboard.');
+
+        if (finalCategory === 'A') {
+            setResultText(
+                <>
+                    Seems like you may have <span className="gradient-anxiety">Anxiety</span>.
+                </>
+            );
+        } else if (finalCategory === 'B') {
+            setResultText(
+                <>
+                    Seems like you may have an <span className="gradient-addiction">Addiction</span>.
+                </>
+            );
+        } else if (finalCategory === 'C') {
+            setResultText(
+                <>
+                    Seems like you may have <span className="gradient-depression">Depression</span>.
+                </>
+            );
+        } else {
+            setResultText('Your responses suggest general uncertainty. No worries, that just means you get the general Dashboard.');
+        }
 
     }, []);
 

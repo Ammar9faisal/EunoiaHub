@@ -39,7 +39,7 @@ function Login() {
     
     promise.then(function (response) {   //error handling for account creation - same thing as try catch statements
       console.log(response); // Success
-      navigate('/dashboard') // Redirect to dashboard after successful account creation  
+      navigate('/intro') // Redirect to dashboard after successful account creation  
 
   }, function (error) {
       console.log(error); // Failure
