@@ -4,6 +4,7 @@ import { validateEmail, handleLogin, handleCreateAccount, handleExistingAccount 
 import GoogleButton from 'react-google-button';
 import background from '../assets/Purple.png';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 function Login() {
   const navigate = useNavigate();
@@ -66,6 +67,8 @@ function Login() {
       </div>
     </div>
   );
+
+  
 }
 
 export default Login;

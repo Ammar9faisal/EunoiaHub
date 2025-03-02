@@ -1,0 +1,213 @@
+.question-page {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.background {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    top: 0;
+    left: 0;
+    z-index: -1; 
+}
+
+
+.question-container {
+    background: rgba(255, 255, 255, 0.9);
+    width: 70%;
+    max-width: 1100px;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    height: auto;
+    max-height: 85vh; 
+    overflow: hidden;
+}
+
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 2rem; 
+    justify-content: center;
+    width: 100%;
+}
+
+.dashes {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%; 
+}
+
+.dash {
+    flex: 1;
+    height: 8px; 
+    background: black;
+    display: inline-block;
+    margin: 0 5px; 
+    max-width: 80px; 
+}
+
+.dash.active {
+    background: blue;
+}
+
+h1 {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+}
+
+p {
+    font-size: 1.4rem; 
+}
+
+.answer-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.answer-button {
+    background: white;
+    border: 1px solid #ccc;
+    padding: 18px; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.3rem; 
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+}
+
+.answer-button:hover, .answer-button.selected {
+    background: #ddd;
+}
+
+
+.next-button {
+    background: purple;
+    color: white;
+    padding: 14px 28px; 
+    border: none;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    position: absolute;
+    right: 3rem;
+    bottom: 2rem;
+}
+
+.back-button {
+    background: purple;
+    color: white;
+    padding: 14px 28px; 
+    border: none;
+    border-radius: 10px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    position: absolute;
+    left: 3rem;
+    bottom: 2rem;
+}
+
+
+.back-button:hover {
+    background: #3d678e;
+}
+
+.next-button:hover {
+    background: #3d678e;
+}
+
+.next-button.disabled {
+    background: gray !important;
+    cursor: not-allowed !important;
+    opacity: 0.7;
+}
+
+/* RADIO BUTTON CONTAINER */
+.radio-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 1.5rem;
+}
+
+/* STYLING RADIO LABELS */
+.radio-label {
+    display: flex;
+    align-items: center;
+    background: white;
+    border: 2px solid purple;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* SELECTED RADIO BUTTON STYLES */
+.radio-label.selected {
+    background: purple;
+    color: white;
+    border-color: darkviolet;
+}
+
+/* HIDE DEFAULT RADIO BUTTONS */
+.radio-label input {
+    display: none;
+}
+
+/* DISABLE NEXT BUTTON IF NO OPTION IS SELECTED */
+.next-button.disabled {
+    background: gray !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+}
+
+.eunoia-gradient {
+    background: linear-gradient(to right, #7F58BB, #C343B4); /* Same gradient as login */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Anxiety - Greenish Gradient */
+.gradient-anxiety {
+    font-weight: bold;
+    background: linear-gradient(to right, #3AA76D, #8DDC94); /* Light green gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Addiction - Purple Gradient */
+.gradient-addiction {
+    font-weight: bold;
+    background: linear-gradient(to right, #7F58BB, #C343B4); /* Purple gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Depression - Orange Gradient */
+.gradient-depression {
+    font-weight: bold;
+    background: linear-gradient(to right, #F59E42, #F8C471); /* Orange gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
