@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSurvey } from '../services/surveyService';
+import { useSurvey } from '../services/questionnaireService';
 import background from '../assets/Purple.png';
 import './Question.css';
 import './QResults.css';
