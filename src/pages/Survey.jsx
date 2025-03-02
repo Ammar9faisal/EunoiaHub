@@ -2,7 +2,7 @@ import backgroundImage from '../assets/Purple.png';
 import React, { useState, useEffect } from 'react';
 import './Survey.css';
 import { useNavigate } from 'react-router-dom'; //navigation to another page
-import { questions, handleNext, handleBack, handleNumberClick } from '../services/surveyService';
+import { questions, handleNext, handleBack, handleNumberClick, happinessIndex } from '../services/surveyService';
 
 import { stubData } from '../stubdata';
 const completionStatus = stubData.wellnessIndexDaily.isCompleted; // Get the completion status from stubData
@@ -118,8 +118,18 @@ const Survey = () => {
           </div>
 
           <div className="completion-text">
-            Thank you for completing your daily check-in. Your responses have been recorded.
-          </div>
+          {(() => {
+              stubData.wellnessIndexDaily.isCompleted = true;
+              const average = happinessIndex(responses).toFixed(1); // Use happinessIndex from surveyService
+              if (average <= 5) {
+                return `Your average score is ${average} today 😔. It’s okay to have tough days, try talking to a friend or some meditation. Take care of yourself, see you tomoroow!`;
+              } else if (average <= 7) {
+                return `Your average score is ${average} today 🙂. You’re doing alright—keep going! `;
+              } else {
+                return `Your average score is ${average} today 😊. Great job! You’re doing well—keep up the positive vibes! `;
+              }
+            })()}   
+            </div>
 
           <button className="dashboard-button" onClick={() => navigate('/dashboard')}>Go to Dashboard</button> {/* Button to navigate to dashboard */}
         </div>
