@@ -3,12 +3,13 @@ import { Rocket, Brain, Bot } from 'lucide-react';
 import ChatBot from '../components/chatbot.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
-import './dashboard.css';
+import '../../styles/dashboard.css';
 import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
-import bottlePic from '../assets/bottle.png';  // Imported bottle image
+import bottlePic from '../assets/bottle.png';
+import achievementsPic from '../assets/Achievements.png'; // <-- Import Achievements Image
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -16,8 +17,8 @@ import { fetchWellnessIndexData } from '../services/dashboardService.js';
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [currentQuote, setCurrentQuote] = useState(quotes[0]);  
-  const [dashboardColor, setDashboardColor] = useState('dashboard-white'); 
+  const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+  const [dashboardColor, setDashboardColor] = useState('dashboard-white');
   const [userId, setUserId] = useState(null);
   const [user, setUser] = useState(null);
   const [wellnessIndexData, setWellnessIndexData] = useState([]);
@@ -76,7 +77,7 @@ export default function Dashboard() {
     const index = diffDays % quotes.length;
     setCurrentQuote(quotes[index]);
   }, []);
-  
+
   const toggleChat = () => {
     const chatbot = document.querySelector('.chatbot-container');
     chatbot.classList.toggle('hidden');
@@ -156,13 +157,21 @@ export default function Dashboard() {
               onClick={() => navigate('/DailyExercises')}
             />
 
-            {/* Bottle Dashboard Card */}
             <DashboardCard
               title="Mystery Bottle"
               description="Click to reveal something special!"
               bgColor="dashboard-card"
               image={bottlePic}
-              onClick={() => navigate('/messageinabottle')} // Redirect to a new webpage
+              onClick={() => navigate('/messageinabottle')}
+            />
+
+            {/* Added Achievements Card */}
+            <DashboardCard
+              title="My Achievements"
+              description="See the badges you've unlocked!"
+              bgColor="dashboard-card"
+              image={achievementsPic}
+              onClick={() => navigate('/achievements')}
             />
           </div>
         </div>
