@@ -116,7 +116,7 @@ const Survey = () => {
             <div className="survey-header-text">Daily Check-In Completed!</div> {/* Completion message */}
           </div>
 
-          <div className="completion-text">
+          <div className="survey-completion-text">
           {(() => {
               stubData.wellnessIndexDaily.isCompleted = true;
               const average = happinessIndex(responses).toFixed(1); // Use happinessIndex from surveyService
