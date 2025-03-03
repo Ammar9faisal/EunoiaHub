@@ -4,8 +4,8 @@ import './index.css'
 import Login from './pages/Login.jsx'
 import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
 import Dashboard from './pages/dashboard.jsx'
-import { account } from './appwrite'
 import Survey from './pages/Survey.jsx'
+import Questionnaire from './pages/questionnaire.jsx';
 
 
 
@@ -19,17 +19,19 @@ const router = createBrowserRouter([
     element: <Survey />,    //creates default path to login page
   },
   {
-    path: '/dashboard',
-    element: <Dashboard />, // Use the new App component for the dashboard
+    path: '/dashboard', // Path to dashboard page
+    element: <Dashboard />,
   },
   {
-    path: '/questionaire',
-    element: <Survey />, // ----------------> Change to the new questionaire component
+    path: '/questionnaire', // Path to questionnaire page
+    element: <Questionnaire />, // Corrected the typo
   },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
-  </StrictMode>,
+  </StrictMode>
 );
+
+
