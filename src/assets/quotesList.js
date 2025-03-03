@@ -1,0 +1,22 @@
+export const quotes = [
+    { quote: "Failure is simply the opportunity to begin again, this time more intelligently.", author: "Henry Ford", date: "2/21/2025" },
+    { quote: "Do what you can, with what you have, where you are.", author: "Theodore Roosevelt", date: "2/22/2025" },
+    { quote: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs", date: "2/23/2025" },
+    { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs", date: "2/24/2025" },
+    { quote: "Success is not the key to happiness. Happiness is the key to success.", author: "Albert Schweitzer", date: "2/25/2025" },
+    { quote: "Believe you can and you're halfway there.", author: "Theodore Roosevelt", date: "2/26/2025" },
+    { quote: "The best way to predict the future is to invent it.", author: "Alan Kay", date: "2/27/2025" },
+    { quote: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt", date: "2/28/2025" },
+    { quote: "The purpose of our lives is to be happy.", author: "Dalai Lama", date: "3/1/2025" },
+    { quote: "Life is what happens when you're busy making other plans.", author: "John Lennon", date: "3/2/2025" },
+    { quote: "Get busy living or get busy dying.", author: "Stephen King", date: "3/3/2025" },
+    { quote: "You have within you right now, everything you need to deal with whatever the world can throw at you.", author: "Brian Tracy", date: "3/4/2025" },
+    { quote: "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle.", author: "Christian D. Larson", date: "3/5/2025" },
+    { quote: "The only way to achieve the impossible is to believe it is possible.", author: "Charles Kingsleigh", date: "3/6/2025" },
+    { quote: "The future belongs to those who believe in the beauty of their dreams.", author: "Eleanor Roosevelt", date: "3/7/2025" },
+    { quote: "Don't watch the clock; do what it does. Keep going.", author: "Sam Levenson", date: "3/8/2025" },
+    { quote: "Keep your face always toward the sunshine—and shadows will fall behind you.", author: "Walt Whitman", date: "3/9/2025" },
+    { quote: "The best revenge is massive success.", author: "Frank Sinatra", date: "3/10/2025" },
+    { quote: "The only place where success comes before work is in the dictionary.", author: "Vidal Sassoon", date: "3/11/2025" },
+    { quote: "Don't be afraid to give up the good to go for the great.", author: "John D. Rockefeller", date: "3/12/2025" }
+  ]

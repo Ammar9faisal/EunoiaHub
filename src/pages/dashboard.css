@@ -1,5 +1,5 @@
 html {
-    background-color: white;
+  background-color: white;
 }
 
 .dashboard-container {
@@ -12,8 +12,8 @@ html {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto; /* Make the entire main container scrollable */
 }
-
 
 .dashboard-header {
   display: flex;
@@ -22,32 +22,33 @@ html {
   background-color: white;
   border-bottom: 1px solid #e5e7eb;
 }
+
 .dashboard-header-subtitle {
-    display: flex;
-    width: 100%;
-    margin-top: 0.5rem;
-    font-size: 3vh;
-    color: #6b7280;
-    float: right;
-    justify-content: flex-end;
+  display: flex;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 3vh;
+  color: #6b7280;
+  float: right;
+  justify-content: flex-end;
 }
 
 .dashboard-header-icon {
-    height: 4vh;
-    width: 3vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:rgb(235, 235, 132);
-    border-radius: 10px;
-    margin: 5px
+  height: 4vh;
+  width: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color:rgb(235, 235, 132);
+  border-radius: 10px;
+  margin: 5px;
 }
-
 
 .dashboard-content {
   flex: 1;
   padding: 1rem;
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .dashboard-section {
@@ -94,27 +95,27 @@ html {
 
 @media (min-width: 768px) {
   .dashboard-cards {
-    grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1029px) {
-    .dashboard-cards {
-      grid-template-columns: repeat(3, 1fr);
-    }
+  .dashboard-cards {
+  grid-template-columns: repeat(3, 1fr);
   }
+}
 
 /* 
 Will be used in ITR2
 @media (min-width: 1024px) {
   .dashboard-cards {
-    grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   }
 } */
 
 .dashboard-card {
-  padding: 1rem;
-  border-radius: 0.375rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   background-color: #f3e8ff;
   cursor: pointer;
@@ -126,34 +127,41 @@ Will be used in ITR2
   background-color: #d8b4fd;
 }
 
+.dashboard-card-button, .dashboard-card-button {
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+
 .dashboard-card-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.dashboard-card-title {
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+.dashboard-card-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 20rem;
+    width: 20rem;
+}
+
+.dashboard-card-description {
+    font-size: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 1rem;
-}
-
-.dashboard-card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.dashboard-card-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 10rem; /* Reduced from 20rem */
-  width: auto;   /* auto width */
-  object-fit: contain; /* apsect ratio to fit in container */
-}
-
-.dashboard-card-description {
-    font-size: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 0.75rem;
-    font-weight: 800;
+    font-weight: 900;
 }
 
 .dashboard-card-icon {
@@ -165,9 +173,58 @@ Will be used in ITR2
 }
 
 html, body {  /* Resetting the default margin and padding */
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.daily-quote {
+  height: 250px;
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.daily-quote .overlap-group {
+  background-color: #d7d7d780;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.daily-quote .quote-text {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.daily-quote .text-wrapper {
+  font-size: 18px;
+  color: #555;
+}
+
+.daily-quote .div {
+  font-size: 14px;
+  color: #888;
+}
+
+.dashboard-section-title {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  width: auto;
+  text-align: center;
+}
+.chart-container {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: 0;
+  display: inline;
+
 }

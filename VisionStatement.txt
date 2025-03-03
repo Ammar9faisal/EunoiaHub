@@ -1,0 +1,36 @@
+Our wellness app, Eunoia Hub, is an application for well-being and mental health created for and by students.
+Our objective is to provide a tool that easily integrates within students' hectic schedules so they can attain
+their own personal wellness objectives, develop healthier behaviours, and enhance their mental health with little effort.
+Since students frequently have little time between sessions, we made the program conveniently and readily available as a web
+application on laptops, iPads, and other devices, guaranteeing ease and wide accessibility.
+
+With tools including a daily journal, habit tracker, goal setting, and tailored suggestions, Eunoia offers students an 
+extensive tool to monitor their everyday feelings, routines, and development.
+The application also provides a variety of local mental health resources that are suited to the requirements of students, 
+educational materials, and an AI chatbot for assistance.
+
+The approach is mainly intended for students that wish to balance overall personal and academic obligations while improving 
+their state of mind.   
+With little effort, users can record their everyday events, keep tabs on their state of mind, and assess how they're doing 
+towards individual objectives. 
+The application contains inspirational quotations, affirmations, and interactive activities to maintain young people 
+interested and inspired.
+
+A database of local student support services, blog entries, and instructional materials are all accessible through Eunoia, 
+which also acts as a reference centre. 
+According to the user's demands, the AI chatbot will provide prompt, individualized assistance by responding to inquiries 
+and offering advice.
+
+The application offers a sign-up questionnaire to collect information on how users deal with certain situations in order to 
+provide a tailored experience. 
+In order to keep suggestions and material current, the user profile will be updated constantly in response to engagements.   
+By turning on alerts and reminders or choosing a simpler design, users may personalize their experience. 
+Users will be made aware of the app's limits and encouraged to seek professional assistance when needed thanks to a disclaimer 
+page.
+
+The work will be deemed successful when users express greater contentment about the app's accessibility and customisation, 
+enhanced engagement using its functions, and better mental wellness.  
+Lower stress levels as indicated by students and higher attainment of individual wellness objectives will also be used as 
+indicators of success. 
+Making this software in-house guarantees that it will continue to be affordable, responsive to user input, and genuinely 
+created for students, by students.
