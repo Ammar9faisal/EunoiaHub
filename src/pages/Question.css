@@ -8,8 +8,7 @@
     overflow: hidden;
 }
 
-
-.background {
+.question-background {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -18,7 +17,6 @@
     left: 0;
     z-index: -1; 
 }
-
 
 .question-container {
     background: rgba(255, 255, 255, 0.9);
@@ -33,8 +31,7 @@
     overflow: hidden;
 }
 
-
-.progress-bar {
+.question-progress-bar {
     display: flex;
     align-items: center;
     gap: 12px;
@@ -43,13 +40,13 @@
     width: 100%;
 }
 
-.dashes {
+.question-dashes {
     display: flex;
     justify-content: space-between; 
     width: 100%; 
 }
 
-.dash {
+.question-dash {
     flex: 1;
     height: 8px; 
     background: black;
@@ -58,28 +55,28 @@
     max-width: 80px; 
 }
 
-.dash.active {
+.question-dash.active {
     background: blue;
 }
 
-h1 {
+.question-h1 {
     font-size: 2.2rem;
     font-weight: bold;
     margin-bottom: 0.7rem;
 }
 
-p {
+.question-p {
     font-size: 1.4rem; 
 }
 
-.answer-options {
+.question-answer-options {
     display: flex;
     flex-direction: column;
     gap: 15px;
     margin-top: 1.5rem;
 }
 
-.answer-button {
+.question-answer-button {
     background: white;
     border: 1px solid #ccc;
     padding: 18px; 
@@ -92,12 +89,11 @@ p {
     width: 100%;
 }
 
-.answer-button:hover, .answer-button.selected {
+.question-answer-button:hover, .question-answer-button.selected {
     background: #ddd;
 }
 
-
-.next-button {
+.question-next-button {
     background: purple;
     color: white;
     padding: 14px 28px; 
@@ -111,7 +107,7 @@ p {
     bottom: 2rem;
 }
 
-.back-button {
+.question-back-button {
     background: purple;
     color: white;
     padding: 14px 28px; 
@@ -125,23 +121,22 @@ p {
     bottom: 2rem;
 }
 
-
-.back-button:hover {
+.question-back-button:hover {
     background: #3d678e;
 }
 
-.next-button:hover {
+.question-next-button:hover {
     background: #3d678e;
 }
 
-.next-button.disabled {
+.question-next-button.disabled {
     background: gray !important;
     cursor: not-allowed !important;
     opacity: 0.7;
 }
 
 /* RADIO BUTTON CONTAINER */
-.radio-options {
+.question-radio-options {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -149,7 +144,7 @@ p {
 }
 
 /* STYLING RADIO LABELS */
-.radio-label {
+.question-radio-label {
     display: flex;
     align-items: center;
     background: white;
@@ -162,32 +157,32 @@ p {
 }
 
 /* SELECTED RADIO BUTTON STYLES */
-.radio-label.selected {
+.question-radio-label.selected {
     background: purple;
     color: white;
     border-color: darkviolet;
 }
 
 /* HIDE DEFAULT RADIO BUTTONS */
-.radio-label input {
+.question-radio-label input {
     display: none;
 }
 
 /* DISABLE NEXT BUTTON IF NO OPTION IS SELECTED */
-.next-button.disabled {
+.question-next-button.disabled {
     background: gray !important;
     cursor: not-allowed !important;
     opacity: 0.6;
 }
 
-.eunoia-gradient {
+.question-eunoia-gradient {
     background: linear-gradient(to right, #7F58BB, #C343B4); /* Same gradient as login */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* Anxiety - Greenish Gradient */
-.gradient-anxiety {
+.question-gradient-anxiety {
     font-weight: bold;
     background: linear-gradient(to right, #3AA76D, #8DDC94); /* Light green gradient */
     -webkit-background-clip: text;
@@ -195,7 +190,7 @@ p {
 }
 
 /* Addiction - Purple Gradient */
-.gradient-addiction {
+.question-gradient-addiction {
     font-weight: bold;
     background: linear-gradient(to right, #7F58BB, #C343B4); /* Purple gradient */
     -webkit-background-clip: text;
@@ -203,7 +198,7 @@ p {
 }
 
 /* Depression - Orange Gradient */
-.gradient-depression {
+.question-gradient-depression {
     font-weight: bold;
     background: linear-gradient(to right, #F59E42, #F8C471); /* Orange gradient */
     -webkit-background-clip: text;

@@ -26,19 +26,19 @@ function Questionnaire() {
         if (resultText.includes('Anxiety')) {
             return (
                 <>
-                    Seems like you may have <span className="gradient-anxiety">Anxiety</span>.
+                    Seems like you may have <span className="question-gradient-anxiety">Anxiety</span>.
                 </>
             );
         } else if (resultText.includes('Addiction')) {
             return (
                 <>
-                    Seems like you may have an <span className="gradient-addiction">Addiction</span>.
+                    Seems like you may have an <span className="question-gradient-addiction">Addiction</span>.
                 </>
             );
         } else if (resultText.includes('Depression')) {
             return (
                 <>
-                    Seems like you may have <span className="gradient-depression">Depression</span>.
+                    Seems like you may have <span className="question-gradient-depression">Depression</span>.
                 </>
             );
         } else {
@@ -49,13 +49,13 @@ function Questionnaire() {
     if (currentQuestion === -1) {
         return (
             <div className="question-page">
-                <img src={background} alt="background" className="background" />
+                <img src={background} alt="background" className="question-background" />
                 <div className="question-container">
-                    <h1 className="eunoia-gradient">Welcome to Eunoia Hub!</h1>
+                    <h1 className="question-eunoia-gradient">Welcome to Eunoia Hub!</h1>
                     <p>Would you like to take a survey or do you already know why you're here?</p>
 
-                    <div className="radio-options">
-                        <label className={`radio-label ${selectedOption === 'Anxiety' ? 'selected' : ''}`}>
+                    <div className="question-radio-options">
+                        <label className={`question-radio-label ${selectedOption === 'Anxiety' ? 'selected' : ''}`}>
                             <input 
                                 type="radio" 
                                 name="category" 
@@ -65,7 +65,7 @@ function Questionnaire() {
                             Anxiety
                         </label>
 
-                        <label className={`radio-label ${selectedOption === 'Addiction' ? 'selected' : ''}`}>
+                        <label className={`question-radio-label ${selectedOption === 'Addiction' ? 'selected' : ''}`}>
                             <input 
                                 type="radio" 
                                 name="category" 
@@ -75,7 +75,7 @@ function Questionnaire() {
                             Addiction
                         </label>
 
-                        <label className={`radio-label ${selectedOption === 'Depression' ? 'selected' : ''}`}>
+                        <label className={`question-radio-label ${selectedOption === 'Depression' ? 'selected' : ''}`}>
                             <input 
                                 type="radio" 
                                 name="category" 
@@ -85,7 +85,7 @@ function Questionnaire() {
                             Depression
                         </label>
 
-                        <label className={`radio-label ${selectedOption === 'Survey' ? 'selected' : ''}`}>
+                        <label className={`question-radio-label ${selectedOption === 'Survey' ? 'selected' : ''}`}>
                             <input 
                                 type="radio" 
                                 name="category" 
@@ -97,7 +97,7 @@ function Questionnaire() {
                     </div>
 
                     <button 
-                        className={`next-button ${!selectedOption ? 'disabled' : ''}`} 
+                        className={`question-next-button ${!selectedOption ? 'disabled' : ''}`} 
                         onClick={handleIntroNext} 
                         disabled={!selectedOption}
                     >
@@ -110,17 +110,17 @@ function Questionnaire() {
 
     if (currentQuestion === questions.length) {
         return (
-            <div className="question-page">
-                <img src={background} alt='background' className='background' />
-                <div className="question-container">
+            <div className="results-page">
+                <img src={background} alt='background' className='results-background' />
+                <div className="results-container">
                     <h1>Survey Results</h1>
                     <p>{renderResultText()}</p>
                     
-                    <div className="result-buttons">
-                        <button className="redo-button" onClick={redoSurvey}>
+                    <div className="results-buttons">
+                        <button className="results-redo-button" onClick={redoSurvey}>
                             Redo
                         </button>
-                        <button className="dashboard-button" onClick={() => navigate('/dashboard')}>
+                        <button className="results-dashboard-button" onClick={() => navigate('/dashboard')}>
                             Head to Dashboard
                         </button>
                     </div>
@@ -131,15 +131,14 @@ function Questionnaire() {
 
     return (
         <div className="question-page">
-            <img src={background} alt="background" className="background" />
+            <img src={background} alt="background" className="question-background" />
             <div className="question-container">
                 {currentQuestion < questions.length ? (
                     <>
-                        <div className="progress-bar">
-                            <div className="progress"></div>
-                            <div className="dashes">
+                        <div className="question-progress-bar">
+                            <div className="question-dashes">
                                 {[...Array(10)].map((_, i) => (
-                                    <div key={i} className={`dash ${i === currentQuestion ? 'active' : ''}`}></div>
+                                    <div key={i} className={`question-dash ${i === currentQuestion ? 'active' : ''}`}></div>
                                 ))}
                             </div>
                         </div>
@@ -147,11 +146,11 @@ function Questionnaire() {
                         <h1>Question {currentQuestion + 1}</h1>
                         <p>{questions[currentQuestion].text}</p>
 
-                        <div className="answer-options">
+                        <div className="question-answer-options">
                             {questions[currentQuestion].answers.map((answer) => (
                                 <button
                                     key={answer.id}
-                                    className={`answer-button ${selectedAnswer === answer.id ? 'selected' : ''}`}
+                                    className={`question-answer-button ${selectedAnswer === answer.id ? 'selected' : ''}`}
                                     onClick={() => handleSelect(answer.id)}
                                 >
                                     {answer.id}. {answer.text}
@@ -159,15 +158,15 @@ function Questionnaire() {
                             ))}
                         </div>
 
-                        <div className="navigation-buttons">
+                        <div className="question-navigation-buttons">
                             {currentQuestion > 0 && (
-                                <button className="back-button" onClick={handleBack}>
+                                <button className="question-back-button" onClick={handleBack}>
                                     Back
                                 </button>
                             )}
 
                             <button
-                                className={`next-button ${!selectedAnswer ? 'disabled' : ''}`}
+                                className={`question-next-button ${!selectedAnswer ? 'disabled' : ''}`}
                                 onClick={handleNext}
                                 disabled={!selectedAnswer}
                             >
@@ -180,11 +179,11 @@ function Questionnaire() {
                         <h1>Survey Results</h1>
                         <p>{renderResultText()}</p>
 
-                        <div className="result-buttons">
-                            <button className="redo-button" onClick={redoSurvey}>
+                        <div className="results-buttons">
+                            <button className="results-redo-button" onClick={redoSurvey}>
                                 Redo
                             </button>
-                            <button className="dashboard-button" onClick={() => navigate('/dashboard')}>
+                            <button className="results-dashboard-button" onClick={() => navigate('/dashboard')}>
                                 Head to Dashboard
                             </button>
                         </div>

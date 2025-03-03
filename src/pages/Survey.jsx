@@ -7,7 +7,6 @@ import { questions, handleNext, handleBack, handleNumberClick } from '../service
 import { stubData } from '../stubdata';
 const completionStatus = stubData.wellnessIndexDaily.isCompleted; // Get the completion status from stubData
 
-
 // Here's our main Survey component - think of it as the whole happiness survey experience
 const Survey = () => {
   // currentPage tracks which screen we’re on: 0 is the intro, 1-7 are questions, 8 is the completion page
@@ -20,13 +19,13 @@ const Survey = () => {
   // Renders the progress bar at the top - shows which question we’re on
   const renderProgressBar = () => {
     return (
-      <div className="progress-bar">
+      <div className="survey-progress-bar">
         {/* Create 7 dashes, one for each question */}
         {[...Array(7)].map((_, index) => (
           // Highlight the dash for the current page with 'active-dash'
           <div
             key={index}
-            className={`dash ${index + 1 === currentPage ? 'active-dash' : ''}`}
+            className={`survey-dash ${index + 1 === currentPage ? 'survey-active-dash' : ''}`}
           ></div>
         ))}
       </div>
@@ -36,14 +35,14 @@ const Survey = () => {
   // Renders the 1-10 scale with numbers and emojis for rating
   const renderScale = () => {
     return (
-      <div className="scale-container">
+      <div className="survey-scale-container">
 
-        <div className="scale-numbers">
+        <div className="survey-scale-numbers">
           {/* Loop to create 10 clickable number buttons */}
           {[...Array(10)].map((_, i) => (
-            <div className="number-group" key={i}>
+            <div className="survey-number-group" key={i}>
               <div
-                className="number"
+                className="survey-number"
                 // Highlight the selected number by changing its background color
                 style={{
                   backgroundColor: responses[currentPage] === i + 1 ? '#54166e' : '#9c27b0',
@@ -60,17 +59,17 @@ const Survey = () => {
         </div>
 
         {/* Emojis below the scale to give a visual cue */}
-        <div className="scale-emojis">
-          <div className="number-group"><span className="emoji">😔</span></div> {/* </div>Sad at 1 */}
-          <div className="number-group"></div>
-          <div className="number-group"></div>
-          <div className="number-group"></div>
-          <div className="number-group"><span className="emoji">😐</span></div> {/* Neutral at 5 */}
-          <div className="number-group"></div>
-          <div className="number-group"></div>
-          <div className="number-group"></div>
-          <div className="number-group"></div>
-          <div className="number-group"><span className="emoji">😊</span></div> {/* Happy at 10 */}
+        <div className="survey-scale-emojis">
+          <div className="survey-number-group"><span className="survey-emoji">😔</span></div> {/* </div>Sad at 1 */}
+          <div className="survey-number-group"></div>
+          <div className="survey-number-group"></div>
+          <div className="survey-number-group"></div>
+          <div className="survey-number-group"><span className="survey-emoji">😐</span></div> {/* Neutral at 5 */}
+          <div className="survey-number-group"></div>
+          <div className="survey-number-group"></div>
+          <div className="survey-number-group"></div>
+          <div className="survey-number-group"></div>
+          <div className="survey-number-group"><span className="survey-emoji">😊</span></div> {/* Happy at 10 */}
         </div>
       </div>
     );
@@ -79,63 +78,63 @@ const Survey = () => {
   // The main rendering logic - decides what to show based on currentPage
   return (
     // Set the background image for the whole survey using our imported image
-    <div className="body" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <div className="survey-body" style={{ backgroundImage: `url(${backgroundImage})` }}>
       {/* Intro page (currentPage === 0) */}
       {currentPage === 0 ? (
-        <div className="container">
-          <div className="header-bar">
-            <div className="header-text">Check in with yourself!</div> {/* Big welcoming title */}
+        <div className="survey-container">
+          <div className="survey-header-bar">
+            <div className="survey-header-text">Check in with yourself!</div> {/* Big welcoming title */}
           </div>
-          <div className="intro-text">
+          <div className="survey-intro-text">
             Rate how you’re feeling on a scale of 1 to 10 and track your mental well-being over time.
           </div>
 
           {/* Show some emojis and a gradient bar to set the mood */}
-          <div className="emoji-scale">
-            <div className="emoji-row">
-              <span className="emoji">😄</span>
-              <span className="emoji">😊</span>
-              <span className="emoji">🙂</span>
-              <span className="emoji">😐</span>
-              <span className="emoji">😕</span>
-              <span className="emoji">😣</span>
-              <span className="emoji">😢</span>
-              <span className="emoji">😭</span>
+          <div className="survey-emoji-scale">
+            <div className="survey-emoji-row">
+              <span className="survey-emoji">😄</span>
+              <span className="survey-emoji">😊</span>
+              <span className="survey-emoji">🙂</span>
+              <span className="survey-emoji">😐</span>
+              <span className="survey-emoji">😕</span>
+              <span className="survey-emoji">😣</span>
+              <span className="survey-emoji">😢</span>
+              <span className="survey-emoji">😭</span>
             </div>
-            <div className="gradient-bar"></div> {/* Fancy color gradient */}
+            <div className="survey-gradient-bar"></div> {/* Fancy color gradient */}
           </div>
 
-          <button className="next-button" onClick={() => handleNext(0, responses, setResponses, setCurrentPage, navigate)}>Next</button> {/* Start the survey */}
+          <button className="survey-next-button" onClick={() => handleNext(0, responses, setResponses, setCurrentPage, navigate)}>Next</button> {/* Start the survey */}
         </div>
       ) : currentPage === 8 ? (
         // Completion page (currentPage === 8)
 
         stubData.wellnessIndexDaily.isCompleted = true,
 
-        <div className="container">
-          <div className="header-bar">
-            <div className="header-text">Daily Check-In Completed!</div> {/* Completion message */}
+        <div className="survey-container">
+          <div className="survey-header-bar">
+            <div className="survey-header-text">Daily Check-In Completed!</div> {/* Completion message */}
           </div>
 
-          <div className="completion-text">
+          <div className="survey-completion-text">
             Thank you for completing your daily check-in. Your responses have been recorded.
           </div>
 
-          <button className="dashboard-button" onClick={() => navigate('/dashboard')}>Go to Dashboard</button> {/* Button to navigate to dashboard */}
+          <button className="survey-dashboard-button" onClick={() => navigate('/dashboard')}>Go to Dashboard</button> {/* Button to navigate to dashboard */}
         </div>
       ) : (
         // Question pages (currentPage 1-7)
-        <div className="container">
+        <div className="survey-container">
           {renderProgressBar()} {/* Show progress at the top */}
-          <div className="header-bar">
-            <div className="header-text">Question {currentPage}</div> {/* Display current question number */}
+          <div className="survey-header-bar">
+            <div className="survey-header-text">Question {currentPage}</div> {/* Display current question number */}
           </div>
-          <div className="question">{questions[currentPage - 1].text}</div> {/* Show the question text */}
+          <div className="survey-question">{questions[currentPage - 1].text}</div> {/* Show the question text */}
           {renderScale()} {/* Show the rating scale */}
-          {showWarning && <div className="warning">Please select an answer before proceeding.</div>} {/* Show warning if no answer is selected */}
+          {showWarning && <div className="survey-warning">Please select an answer before proceeding.</div>} {/* Show warning if no answer is selected */}
           {/* Next button changes to "Finish" on the last page */}
           <button
-            className="next-button"
+            className="survey-next-button"
             onClick={() => {
               if (!responses[currentPage]) {
                 setShowWarning(true); // Show warning if no response is selected
@@ -148,7 +147,7 @@ const Survey = () => {
           </button>
           {/* Back button appears starting from page 2 */}
           {currentPage > 1 && (
-            <button className="back-button" onClick={() => handleBack(currentPage, setCurrentPage)}>Back</button>
+            <button className="survey-back-button" onClick={() => handleBack(currentPage, setCurrentPage)}>Back</button>
           )}
         </div>
       )}
