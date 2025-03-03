@@ -12,13 +12,13 @@ import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
 import VisionBoard from './pages/VisionBoard.jsx';
 import DailyExercises from './pages/DailyExercises.jsx';
+import { AuthProvider } from './components/AuthContext.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
 import MessageBottle from './pages/MessageBottle.jsx';
 import Achievements from './pages/Achievements.jsx';
 import BubbleGame from './pages/BubbleGame.jsx';
-import { AuthProvider } from './components/AuthContext.jsx';
-import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -109,8 +109,13 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+
   {
-    path: '/messageinabottle',
+    path: '/',
+    element: <WelcomePage />
+  },
+  {
+    path: '/messageinabottle', 
     element: (
       <ProtectedRoute>
         <MessageBottle />
@@ -118,26 +123,15 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/bubblegame',
+    path: '/habittracker', 
     element: (
       <ProtectedRoute>
-        <BubbleGame />
+        <HabitTracker />
       </ProtectedRoute>
     ),
-  },
-  {
-    path: '/achievements',
-    element: (
-      <ProtectedRoute>
-        <Achievements />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: '/',
-    element: <WelcomePage />
   },
 ]);
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

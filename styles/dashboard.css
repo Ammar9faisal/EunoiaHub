@@ -186,6 +186,24 @@ html {
   display: inline;
 }
 
+.streak-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffcc00;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+}
+
+.streak-badge span {
+  font-size: 24px;
+  margin-right: 8px;
+}
+
 /* Global Styles */
 html, body {
   margin: 0;

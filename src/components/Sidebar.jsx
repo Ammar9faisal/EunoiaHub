@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book, Wind, Gamepad2 } from 'lucide-react';
+import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book, Wind, Gamepad2, CalendarRange } from 'lucide-react';
 
 import './sidebar.css';
 import logo from '../assets/logo.png';
@@ -46,6 +46,9 @@ export function Sidebar() {
       case '/dailyexercises':
         setActiveButton('dailyexercises');
         break;
+      case '/HabitTracker':
+          setActiveButton('habittracker');
+          break;
       default:
         setActiveButton('dashboard'); // Default to dashboard if no match
         break;
@@ -118,14 +121,12 @@ export function Sidebar() {
         >
           <LayoutList className="sidebar-icon" color="white" />
         </button>
-
         <button
           className={`sidebar-button ${activeButton === 'BubbleGame' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/bubblegame")}
         >
           <Gamepad2 className="sidebar-icon" color="white" />
         </button>
-
         <button
           className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/resources")}
@@ -140,4 +141,4 @@ export function Sidebar() {
   );
 }
 
-export default Sidebar;
+  export default Sidebar;

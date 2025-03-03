@@ -9,7 +9,6 @@ import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
 import bottlePic from '../assets/bottle.png';
-import achievementsPic from '../assets/Achievements.png'; // <-- Import Achievements Image
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
