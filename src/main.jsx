@@ -1,30 +1,32 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Login from './pages/Login.jsx'
-import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
-import Dashboard from './pages/dashboard.jsx'
-import { account } from './appwrite'
-import Survey from './pages/Survey.jsx'
-
-
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import Login from './pages/Login.jsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Dashboard from './pages/dashboard.jsx';
+import Survey from './pages/Survey.jsx';
+import Settings from './pages/Settings.jsx'; // Settings component 
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />,
+    element: <Login />, // Default path to login page
   },
   {
     path: '/survey',
-    element: <Survey />,    //creates default path to login page
+    element: <Survey />, // Path for the survey/check-in
   },
   {
     path: '/dashboard',
-    element: <Dashboard />, // Use the new App component for the dashboard
+    element: <Dashboard />, // Path for the dashboard
   },
   {
     path: '/questionaire',
-    element: <Survey />, // ----------------> Change to the new questionaire component
+    element: <Survey />, // Path for the questionnaire
+  },
+  {
+    path: '/settings', // New route for settings page
+    element: <Settings />, 
   },
 ]);
 

@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowUpRight, Rocket, Target, Moon, PieChart, Brain, Bot } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Rocket, Brain, Bot } from 'lucide-react';
 import ChatBot from '../components/Chatbot.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
