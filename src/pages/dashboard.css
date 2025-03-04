@@ -21,16 +21,31 @@ html {
   padding: 1rem;
   background-color: white;
   border-bottom: 1px solid #e5e7eb;
+  justify-content: space-between; 
 }
 
 .dashboard-header-subtitle {
-  display: flex;
-  width: 100%;
+  display: inline-flex; 
   margin-top: 0.5rem;
   font-size: 3vh;
   color: #6b7280;
-  float: right;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: flex-end; 
+  cursor: pointer;  
+  transition: all 0.3s ease; 
+  padding: 0; 
+}
+
+.dashboard-header-subtitle:hover {
+  color: #4b5563;  
+  transform: scale(1.05);  
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.dashboard-header-subtitle:focus {
+  outline: none;  
+  border-bottom: 2px solid #6b7280; 
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);  
 }
 
 .dashboard-header-icon {
@@ -39,7 +54,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color:rgb(235, 235, 132);
+  background-color: rgb(235, 235, 132);
   border-radius: 10px;
   margin: 5px;
 }
@@ -95,23 +110,15 @@ html {
 
 @media (min-width: 768px) {
   .dashboard-cards {
-  grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (min-width: 1029px) {
   .dashboard-cards {
-  grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
-
-/* 
-Will be used in ITR2
-@media (min-width: 1024px) {
-  .dashboard-cards {
-  grid-template-columns: repeat(3, 1fr);
-  }
-} */
 
 .dashboard-card {
   border-radius: 0.5rem;
@@ -125,13 +132,13 @@ Will be used in ITR2
   background-color: #d8b4fd;
 }
 
-.dashboard-card-button, .dashboard-card-button {
+.dashboard-card-button,
+.dashboard-card-button {
   background-color: transparent;
   border: none;
   width: 100%;
   height: 100%;
 }
-
 
 .dashboard-card-header {
   display: flex;
@@ -170,7 +177,9 @@ Will be used in ITR2
   justify-content: center;
 }
 
-html, body {  /* Resetting the default margin and padding */
+html,
+body {
+  /* Resetting the default margin and padding */
   margin: 0;
   padding: 0;
   height: 100%;
@@ -218,11 +227,12 @@ html, body {  /* Resetting the default margin and padding */
   width: auto;
   text-align: center;
 }
+
 .chart-container {
   width: 100%;
   max-width: 600px;
   margin-left: auto;
   margin-right: 0;
   display: inline;
-
 }
+

@@ -38,7 +38,14 @@ export default function Dashboard() {
             <Rocket className="w-6 h-6" />
           </div>
           <h1 className="dashboard-header-title">Dashboard</h1>
-          <h2 className="dashboard-header-subtitle">Welcome back, {username}!</h2>
+          <h2
+  className="dashboard-header-subtitle"
+  onClick={() => navigate('/user')}
+>
+  Welcome back, {username}!
+  {/* Use this to navigate to user profile */}
+</h2>
+
         </div>
 
         <div className="dashboard-content">

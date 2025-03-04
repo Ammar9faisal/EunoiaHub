@@ -4,7 +4,10 @@ export const stubData = {
         username: 'John Doe',  
         email: 'johndoe@gmail.com',
         password: 'password',
-        age: 30
+        age: 30,
+        address: 'Keele St, York University, CA',
+        accountAge: '30 days',
+        dob: 'January 1, 2000'
     },
     wellnessIndexDaily: {
         data: [
