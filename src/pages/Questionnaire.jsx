@@ -49,6 +49,24 @@ function Questionnaire() {
         }
     };
 
+    //changes made by Harnain
+    const handleResultNavigation = () => {
+        // Save the result (color) to localStorage
+        if (resultText.includes('Anxiety')) {
+            localStorage.setItem('dashboardColor', 'dashboard-green');
+        } else if (resultText.includes('Addiction')) {
+            localStorage.setItem('dashboardColor', 'dashboard-orange');
+        } else if (resultText.includes('Depression')) {
+            localStorage.setItem('dashboardColor', 'dashboard-purple');
+        } else {
+            localStorage.setItem('dashboardColor', 'dashboard-white');
+        }
+
+        // Navigate to the dashboard
+        navigate('/dashboard');
+    };
+    //changes end here
+
     if (currentQuestion === -1) {
         return (
             <div className="question-page">
