@@ -1,11 +1,12 @@
 html {
-  background-color: white;
+  background-color: orange;
 }
 
 .dashboard-container {
   display: flex;
   height: 100vh;
-  background-color: white; /* default background */
+
+  /*background-color: white; /* default background */
 }
 /* changes made by harnain */
 /* For color-specific themes */
@@ -21,9 +22,11 @@ html {
   background-color: rgb(217, 149, 217);
 }
 
+/*
 .dashboard-container.dashboard-white {
-  background-color: white; /* Ensure that this doesn't override the default white */
-}
+  background-color: white; /* Ensure that this doesn't override the default white 
+  } */
+
 
 .dashboard-main {
   flex: 1;
