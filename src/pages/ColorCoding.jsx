@@ -1,26 +1,28 @@
-import React from 'react';
-import { useQuestionnaireContext } from './QuestionnaireContext';  // Import the context
+import React, { useEffect, useState } from 'react';
 
-const ColorCoding = () => {
-  const { surveyResult } = useQuestionnaireContext();  // Access the survey result from context
+const getColor = () => {
+  const storedColor = localStorage.getItem('dashboardColor');
+  switch (storedColor) {
+    case 'dashboard-green':
+      return 'dashboard-green';
+    case 'dashboard-purple':
+      return 'dashboard-purple';
+    case 'dashboard-orange':
+      return 'dashboard-orange';
+    default:
+      return 'dashboard-white';
+  }
+};
 
-  const getColor = () => {
-    if (surveyResult === 'Anxiety') {
-      return 'dashboard-green';  
-    } else if (surveyResult === 'Addiction') {
-      return 'dashboard-orange';    
-    } else if (surveyResult === 'Depression') {
-      return 'dashboard-purple';   
-    } else {
-      return 'dashboard-white'; // Default color
-    }
-  };
+const ColorCoding = ({ children }) => {
+  const [backgroundColor, setBackgroundColor] = useState('dashboard-white');
 
-  return (
-    <div className={`dashboard ${getColor()}`}>
-      {/* Render your dashboard here */}
-    </div>
-  );
+  useEffect(() => {
+    const color = getColor();
+    setBackgroundColor(color);
+  }, []);
+
+  return <div className={`${backgroundColor} min-h-screen`}>{children}</div>;
 };
 
 export default ColorCoding;
