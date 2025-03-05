@@ -9,6 +9,9 @@ import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 
+//changes made by Harnain
+import ColorCoding from './ColorCoding';
+
 import { stubData } from '../stubdata.js';  //--------------------> Importing stubData from stubdata.js
 
 export default function Dashboard() {
