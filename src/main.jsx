@@ -8,7 +8,7 @@ import Survey from './pages/Survey.jsx'
 import Questionnaire from './pages/questionnaire.jsx';
 
 //harnain added
-import { QuestionnaireProvider } from './QuestionnaireContext';
+import { QuestionnaireProvider } from './pages/QuestionnaireContext';
 
 
 
