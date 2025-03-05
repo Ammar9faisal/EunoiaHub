@@ -1,28 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-const getColor = () => {
-  const storedColor = localStorage.getItem('dashboardColor');
-  switch (storedColor) {
-    case 'dashboard-green':
-      return 'dashboard-green';
-    case 'dashboard-purple':
-      return 'dashboard-purple';
-    case 'dashboard-orange':
-      return 'dashboard-orange';
-    default:
-      return 'dashboard-white';
-  }
-};
-
-const ColorCoding = ({ children }) => {
-  const [backgroundColor, setBackgroundColor] = useState('dashboard-white');
-
+const ColorCoding = ({ result }) => {
   useEffect(() => {
-    const color = getColor();
-    setBackgroundColor(color);
-  }, []);
+    const root = document.documentElement;
+    root.classList.remove('dashboard-green', 'dashboard-orange', 'dashboard-purple');
 
-  return <div className={`${backgroundColor} min-h-screen`}>{children}</div>;
+    switch (result) {
+      case 'A':
+        root.classList.add('dashboard-green');
+        break;
+      case 'B':
+        root.classList.add('dashboard-purple');
+        break;
+      case 'C':
+        root.classList.add('dashboard-orange');
+        break;
+      default:
+        break;
+    }
+  }, [result]);
+
+  return null;
 };
 
 export default ColorCoding;
