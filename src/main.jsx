@@ -7,6 +7,9 @@ import Dashboard from './pages/dashboard.jsx'
 import Survey from './pages/Survey.jsx'
 import Questionnaire from './pages/questionnaire.jsx';
 
+//harnain added
+import { QuestionnaireProvider } from './QuestionnaireContext';
+
 
 
 const router = createBrowserRouter([
@@ -28,8 +31,11 @@ const router = createBrowserRouter([
   },
 ]);
 
+//changes made by Harnain
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+     <QuestionnaireProvider> 
     <RouterProvider router={router} />
+    </QuestionnaireProvider>
   </StrictMode>
 );

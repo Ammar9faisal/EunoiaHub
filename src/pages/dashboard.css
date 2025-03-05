@@ -5,7 +5,24 @@ html {
 .dashboard-container {
   display: flex;
   height: 100vh;
-  background-color: white;
+  background-color: white; /* default background */
+}
+/* changes made by harnain */
+/* For color-specific themes */
+.dashboard-container.dashboard-green {
+  background-color: rgb(146, 201, 146);
+}
+
+.dashboard-container.dashboard-orange {
+  background-color: rgb(255, 195, 83);
+}
+
+.dashboard-container.dashboard-purple {
+  background-color: rgb(217, 149, 217);
+}
+
+.dashboard-container.dashboard-white {
+  background-color: white; /* Ensure that this doesn't override the default white */
 }
 
 .dashboard-main {
@@ -224,23 +241,4 @@ html, body {  /* Resetting the default margin and padding */
   margin-left: auto;
   margin-right: 0;
   display: inline;
-
-
-  /*background colors for the dashboard*/
-  .dashboard-green {
-    background-color: #a8e6cf; /* Soft green */
-  }
-  
-  .dashboard-orange {
-    background-color: #ffab91; /* Soft orange */
-  }
-  
-  .dashboard-purple {
-    background-color: #d1c4e9; /* Soft purple */
-  }
-  
-  .dashboard-white {
-    background-color: #ffffff; /* Default white */
-  }
-
 }

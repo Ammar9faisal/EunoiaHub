@@ -15,10 +15,16 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+  //changes made by Harnain
+  const [dashboardColor, setDashboardColor] = useState('dashboard-white'); // Default color
 
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
+
+    //changes made by Harnain
+    const savedColor = localStorage.getItem('dashboardColor') || 'dashboard-white';
+    setDashboardColor(savedColor);
   }, []);
 
   const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
