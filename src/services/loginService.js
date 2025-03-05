@@ -21,7 +21,7 @@ export const handleCreateAccount = async (email, password, navigate) => { // Cre
     const promise = account.create(ID.unique(), email, password);
     promise.then(function (response) {   // Error handling for account creation - similar to try-catch statements
         console.log(response); // Success
-        navigate('/dashboard'); // Redirect to dashboard after successful account creation  
+        navigate('/questionnaire'); // Redirect to questionnaire after successful account creation  
     }, function (error) {
         console.log(error); // Failure
     });

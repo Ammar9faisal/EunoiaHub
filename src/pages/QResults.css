@@ -8,7 +8,7 @@
     overflow: hidden;
 }
 
-.background {
+.results-background {
     position: fixed;
     width: 100vw;
     height: 100vh;
@@ -32,19 +32,19 @@
     overflow: hidden;
 }
 
-h1 {
+.results-h1 {
     font-size: 2.5rem; /* Slightly larger for emphasis */
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
-p {
+.results-p {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
 }
 
 /* RESULT BUTTON CONTAINER */
-.result-buttons {
+.results-buttons {
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -53,7 +53,7 @@ p {
 }
 
 /* BUTTON STYLING */
-.redo-button, .dashboard-button {
+.results-redo-button, .results-dashboard-button {
     position: relative !important; /* Makes sure buttons aren’t behind anything */
     z-index: 10 !important;  /* Ensures buttons stay above everything */
     background: purple !important; /* Forces correct background */
@@ -69,6 +69,6 @@ p {
 }
 
 /* HOVER EFFECT */
-.redo-button:hover, .dashboard-button:hover {
+.results-redo-button:hover, .results-dashboard-button:hover {
     background: darkviolet !important;
 }

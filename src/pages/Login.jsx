@@ -36,9 +36,9 @@ function Login() {
 
   return (
     <div className="loginPage">
-      <img src={background} alt='background' className='login-background'/> {/* Background image*/}
+      <img src={background} alt='background' className='login-background' /> {/* Background image*/}
       <div className='login-container'>
-        <div className='signUp' style={{display: 'none'}}>   {/* Sign up hidden by default*/}
+        <div className='signUp' style={{ display: 'none' }}>   {/* Sign up hidden by default*/}
           <h1>Sign Up</h1>
           <input className="email" type="email" placeholder="Email" onChange={e => setUser(e.target.value)} />       {/* Inputs for signup*/}
           {email && !validateEmail(email) && <p style={{ color: 'red' }}>Invalid email format</p>} {/* Error message for invalid email format*/}

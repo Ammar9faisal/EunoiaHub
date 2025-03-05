@@ -1,5 +1,5 @@
 /* Styles for the main body of the questionaaire - this sets up the whole page */
-.body {
+.survey-body { 
   margin: 0;
   padding: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -11,7 +11,7 @@
   align-items: center;
   }
   /* The main box where all the questionaaire stuff lives */
-  .container {
+  .survey-container {
   width: 80vw;
   height: 70vh;
   flex-shrink: 0;
@@ -27,7 +27,7 @@
   transform: translate(-50%, -50%);
   }
   /* The progress bar at the top - shows how far along we are */
-  .progress-bar {
+  .survey-progress-bar {
   width: 100%;
   height: 0.5vh;
   position: absolute;
@@ -39,17 +39,17 @@
   gap: 0.5vw;
   }
   /* Each little dash in the progress bar */
-  .dash {
+  .survey-dash {
   width: 10vw;
   height: 0.7vh;
   background-color: #808080;
   }
   /* The active dash - highlights the current question */
-  .active-dash {
+  .survey-active-dash {
   background-color: #8a2be2;
   }
   /* Container for the big header text */
-  .header-bar {
+  .survey-header-bar {
   width: 100%;
   padding: 1vh 0;
   position: absolute;
@@ -57,7 +57,7 @@
   left: 4vw;
   }
   /* The big bold title text - like "Question 1" or the intro */
-  .header-text {
+  .survey-header-text {
   font-size: 5vh;
   font-style: normal;
   font-weight: 700;
@@ -67,7 +67,7 @@
   text-align: left;
   }
   /* Intro text on the first page - sets the stage */
-  .intro-text {
+  .survey-intro-text {
   font-size: 2.9vh;
   color: #1C0227;
   text-align: left;
@@ -76,7 +76,7 @@
   max-width: 90%;
   }
   /* Styles for each question text */
-  .question {
+  .survey-question {
   font-size: 2.9vh;
   color: #1C0227;
   text-align: left;
@@ -85,14 +85,14 @@
   max-width: 90%;
   }
   /* Holds the rating scale (numbers and emojis) */
-  .scale-container {
+  .survey-scale-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 15vh 0 5vh 0;
   }
   /* The row of clickable numbers (1-10) */
-  .scale-numbers {
+  .survey-scale-numbers {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -100,7 +100,7 @@
   gap: 2.5vw;
   }
   /* The row of emojis below the numbers */
-  .scale-emojis {
+  .survey-scale-emojis {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -108,22 +108,22 @@
   gap: 7vw;
   }
   /* Container for the intro page’s emoji scale */
-  .emoji-scale {
+  .survey-emoji-scale {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 15vh 0 5vh 0;
   }
   /* The row of emojis on the intro page */
-  .emoji-row {
+  .survey-emoji-row {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 2.5vw;
+  gap: 2.7vw;
   margin-bottom: 1vh;
   }
   /* Cool gradient bar under the intro emojis */
-  .gradient-bar {
+  .survey-gradient-bar {
   width: 100%;
   height: 1vh;
   background: linear-gradient(to right, #00ff00, #ffff00, #ff9900, #ff0000);
@@ -131,13 +131,13 @@
   margin-top: 1vh;
   }
   /* Groups each number or emoji in the scale */
-  .number-group {
+  .survey-number-group {
   display: flex;
   flex-direction: column;
   align-items: center;
   }
   /* The clickable number buttons in the scale */
-  .number {
+  .survey-number {
   background-color: #9c27b0;
   color: white;
   padding: 1vh 2vw;
@@ -146,14 +146,14 @@
   transition: background-color 0.3s;
   }
   /* Hover effect for the numbers */
-  .number:hover {
+  .survey-number:hover {
   background-color: #7b1fa2;
   }
   /* Styles for the emojis */
-  .emoji {
+  .survey-emoji {
   font-size: 2.4vh;
   }
-.warning { 
+.survey-warning { 
   color: #54166e;
   border: 0.2vh solid #54166e;  
   width: fit-content;
@@ -161,7 +161,7 @@
 }
 
 /* Styles for the completion text */
-.completion-text {
+.survey-completion-text {
   font-size: 2.9vh;
   color: #1C0227;
   text-align: left;
@@ -171,7 +171,7 @@
 }
 
 /* Styles for the dashboard button */
-.dashboard-button {
+.survey-dashboard-button {
   background-color: #673ab7;
   color: white;
   padding: 1.2vh 3vw;
@@ -187,7 +187,7 @@
 
 
   /* The "Next" button - moves us forward */
-  .next-button {
+  .survey-next-button {
   background-color: #673ab7;
   color: white;
   padding: 1.2vh 3vw;
@@ -201,11 +201,11 @@
   right: 3vw;
   }
   /* Hover effect for the Next button */
-  .next-button:hover {
+  .survey-next-button:hover {
   background-color: #512da8;
   }
   /* Back button - takes us to the previous page */
-  .back-button {
+  .survey-back-button {
   background-color: #673ab7;
   color: white;
   padding: 1.2vh 3vw;
@@ -219,6 +219,6 @@
   left: 3vw;
   }
   /* Hover effect for the Back button */
-  .back-button:hover {
+  .survey-back-button:hover {
   background-color: #512da8;
   }
