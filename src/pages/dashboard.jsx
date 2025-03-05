@@ -15,7 +15,7 @@ export default function Dashboard() {
   const navigate = useNavigate();
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
-
+const [dashboardColor, setDashboardColor] = useState('dashboard-white'); // Default color
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
