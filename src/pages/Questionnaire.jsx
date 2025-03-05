@@ -186,9 +186,17 @@ function Questionnaire() {
                             <button className="results-redo-button" onClick={redoSurvey}>
                                 Redo
                             </button>
-                            <button className="results-dashboard-button" onClick={() => navigate('/dashboard')}>
-                                Head to Dashboard
+                            <button 
+                                className="results-dashboard-button" 
+                                onClick={() => {
+                                    // Save the result (color) to localStorage
+                                    localStorage.setItem('dashboardColor', resultText.toLowerCase());  // You can adjust the color logic here
+                                navigate('/dashboard');
+                                }}
+                                >
+                                    Head to Dashboard
                             </button>
+                               
                         </div>
                     </>
                 )}

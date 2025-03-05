@@ -36,7 +36,7 @@ export default function Dashboard() {
 }
 
   return (
-    <div className="dashboard-container">
+    <div className={`dashboard-container ${dashboardColor}`}>
       <Sidebar />
       <div className="dashboard-main">  {/*Main dashboard container*/}
         <div className="dashboard-header">  {/*Displays the header of the dashboard*/}
@@ -118,15 +118,6 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      {/*changes made by Harnain*/}
-      {/* Color change buttons (for testing purposes) */}
-      <div className="color-change-buttons">
-        <button onClick={() => changeDashboardColor('dashboard-white')}>White</button>
-        <button onClick={() => changeDashboardColor('dashboard-orange')}>Orange</button>
-        <button onClick={() => changeDashboardColor('dashboard-purple')}>Purple</button>
-        <button onClick={() => changeDashboardColor('dashboard-green')}>Green</button>
-      </div>
-      {/*changes end here*/}
     </div>
 
     
