@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom';
 import { useQuestionnaireContext } from './QuestionnaireContext'; 
 
 function Questionnaire() {
+    const { updateSurveyResult } = useQuestionnaireContext();
+    
     const {
         questions,
         selectedAnswer,
@@ -22,6 +24,7 @@ function Questionnaire() {
         handleIntroSelect,
         handleIntroNext
     } = useSurvey();
+
 
     const navigate = useNavigate();
 

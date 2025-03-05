@@ -1,5 +1,5 @@
 html {
-  background-color: orange;
+  background-color: white;
 }
 
 .dashboard-container {
@@ -25,7 +25,7 @@ html {
 /*
 .dashboard-container.dashboard-white {
   background-color: white; /* Ensure that this doesn't override the default white 
-  } */
+  }*/
 
 
 .dashboard-main {
