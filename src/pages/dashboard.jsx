@@ -118,7 +118,18 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      {/*changes made by Harnain*/}
+      {/* Color change buttons (for testing purposes) */}
+      <div className="color-change-buttons">
+        <button onClick={() => changeDashboardColor('dashboard-white')}>White</button>
+        <button onClick={() => changeDashboardColor('dashboard-orange')}>Orange</button>
+        <button onClick={() => changeDashboardColor('dashboard-purple')}>Purple</button>
+        <button onClick={() => changeDashboardColor('dashboard-green')}>Green</button>
+      </div>
+      {/*changes end here*/}
     </div>
+
+    
   );
 }
 
