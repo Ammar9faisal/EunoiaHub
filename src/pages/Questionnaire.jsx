@@ -210,13 +210,9 @@ function Questionnaire() {
                             </button>
                             <button 
                                 className="results-dashboard-button" 
-                                onClick={() => {
-                                    // Save the result (color) to localStorage
-                                    localStorage.setItem('dashboardColor', resultText.toLowerCase());  // You can adjust the color logic here
-                                navigate('/dashboard');
-                                }}
-                                >
-                                    Head to Dashboard
+                                    onClick={handleResultNavigation}
+                                    >
+                                    Head to Dashboard       
                             </button>
                                
                         </div>

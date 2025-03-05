@@ -14,10 +14,14 @@ import ColorCoding from './ColorCoding';
 
 import { stubData } from '../stubdata.js';  //--------------------> Importing stubData from stubdata.js
 
+//changes made by Harnain
+const allowedColors = ['dashboard-green', 'dashboard-orange', 'dashboard-purple', 'dashboard-white'];
+
 export default function Dashboard() {
   const navigate = useNavigate();
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+
   //changes made by Harnain
   const [dashboardColor, setDashboardColor] = useState('dashboard-white'); // Default color
 
@@ -26,8 +30,12 @@ export default function Dashboard() {
     setCurrentQuote(quotes[randomIndex]);
 
     //changes made by Harnain
-    const savedColor = localStorage.getItem('dashboardColor') || 'dashboard-white';
-    setDashboardColor(savedColor);
+    const savedColor = localStorage.getItem('dashboardColor');
+    if (savedColor && allowedColors.includes(savedColor)) {
+      setDashboardColor(savedColor);
+    } else {
+      setDashboardColor('dashboard-white');
+    }
   }, []);
 
   const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
