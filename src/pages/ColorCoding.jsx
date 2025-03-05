@@ -6,13 +6,13 @@ const ColorCoding = () => {
 
   const getColor = () => {
     if (surveyResult === 'Anxiety') {
-      return 'green';  
+      return 'dashboard-green';  
     } else if (surveyResult === 'Addiction') {
-      return 'purple';    
+      return 'dashboard-orange';    
     } else if (surveyResult === 'Depression') {
-      return 'orange';   
+      return 'dashboard-purple';   
     } else {
-      return 'default'; // Default color
+      return 'dashboard-white'; // Default color
     }
   };
 
