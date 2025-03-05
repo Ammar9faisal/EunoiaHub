@@ -140,3 +140,14 @@ MAR 5 – 50 mins
 
 
 RATIONALE BEHIND CHANGES ON THE PLAN AND BIG DECISION CHANGES
+- APP NAME : We changed it from Wellness App to Eunoia Hub as it sounded more inviting and interesting
+
+- CHNAGING THE TARGET CUSTOMER - we changed the app to be made for just students and people who spend most of their time 
+working on their laptop/desktop.
+
+- CHANGING FROM MOBILE APP TO WEB APP - since the app is just going to be focused on a specific user base, i only made sense
+for us to change it to a web app. It was also easier for us to work on a web application as the team did not have any experience
+for a mobile app
+
+- ADDING CHATBOT TO ITR0 - CHATBOT was supposed to be a part of iteration 3 but was moved to be done earlier as it was one of
+the main features that a user can have access to early on into the development.
