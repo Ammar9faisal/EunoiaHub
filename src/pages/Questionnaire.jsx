@@ -5,10 +5,6 @@ import './Question.css';
 import './QResults.css';
 import { useNavigate } from 'react-router-dom';
 
-//Harnain added
-import { useQuestionnaireContext } from './QuestionnaireContext'; 
-import Dashboard from './dashboard';
-
 function Questionnaire() {
     const { updateSurveyResult } = useQuestionnaireContext();
 
@@ -52,24 +48,6 @@ function Questionnaire() {
             return resultText;
         }
     };
-
-    //changes made by Harnain
-    const handleResultNavigation = () => {
-        // Save the result (color) to localStorage
-        if (resultText.includes('Anxiety')) {
-            localStorage.setItem('dashboardColor', 'dashboard-green');
-        } else if (resultText.includes('Addiction')) {
-            localStorage.setItem('dashboardColor', 'dashboard-orange');
-        } else if (resultText.includes('Depression')) {
-            localStorage.setItem('dashboardColor', 'dashboard-purple');
-        } else {
-            localStorage.setItem('dashboardColor', 'dashboard-white');
-        }
-
-        // Navigate to the dashboard
-        navigate('/dashboard');
-    };
-    //changes end here
 
     if (currentQuestion === -1) {
         return (
