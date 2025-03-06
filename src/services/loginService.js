@@ -1,12 +1,21 @@
 import { account, ID } from '../appwrite';
 
+export const isLoggedIn = async (navigate) => {
+    try {
+        const user = await account.get();
+        console.log('User is logged in:', user); // Debugging log
+        return true;
+    }
+    catch (error) {
+        console.log('User is not logged in:', error); // Debugging log
+        navigate('/');
+        return false;
+    }
+}
+
 export const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;   // Regex statement to validate email format
     return re.test(String(email).toLowerCase());  // Returns the email in lowercase to keep the email format consistent
-};
-
-export const handleLogin = async () => { // Login with Google by creating an OAuth2 session
-    account.createOAuth2Session('google', 'http://localhost:5173/dashboard', 'http://localhost:5173/fail');
 };
 
 export const handleCreateAccount = async (email, password, navigate) => { // Create an account using username and password

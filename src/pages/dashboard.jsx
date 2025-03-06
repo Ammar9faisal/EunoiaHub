@@ -8,56 +8,90 @@ import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
-
-
-
-import { stubData } from '../stubdata.js';  //--------------------> Importing stubData from stubdata.js
-
-
+import db from '../database.js';
+import { account } from '../appwrite.js';
+import { fetchWellnessIndexData } from '../services/dashboardService.js';
 
 export default function Dashboard() {
   const navigate = useNavigate();
-
-  const [currentQuote, setCurrentQuote] = useState(quotes[0]);
-
-  //changes made by Harnain
+  const [currentQuote, setCurrentQuote] = useState(quotes[0]);   //sets the current quote to the a random quote
   const [dashboardColor, setDashboardColor] = useState('dashboard-white'); // Default color
+  const [userId, setUserId] = useState(null); // State to store the user ID
+  const [user, setUser] = useState(null); // State to store the user document
+  const [wellnessIndexData, setWellnessIndexData] = useState([]);
 
   useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await account.get();
+        setUserId(user.$id);
+        console.log('Logged-in user ID:', user.$id); // Log the user ID for debugging
+      } catch (error) {
+        console.error('Error fetching user account:', error);
+        navigate('/'); // Redirect to login if not logged in
+      }
+    };
+
+    fetchUser();
+  }, [navigate]);
+
+  useEffect(() => {
+    const fetchUserDocument = async () => {
+      if (userId) {
+        try {
+          const response = await db.users.get(userId); // Fetch the user document
+          setUser(response);
+          console.log('User document:', response); // Log the user document for debugging
+        } catch (error) {
+          console.error('Error fetching user document:', error);
+        }
+      }
+    };
+
+    fetchUserDocument();
+  }, [userId]);
+
+  useEffect(() => {  //fetches the wellness index data
+    const fetchWellnessData = async () => {
+      if (userId) {
+        try {
+          const data = await fetchWellnessIndexData(userId);
+          setWellnessIndexData(data);
+        } catch (error) {
+          console.error('Error fetching wellness index data:', error);
+        }
+      }
+    };
+
+    fetchWellnessData();
+  }, [userId]);
+
+  useEffect(() => { //sets the quotes randomly from a list of quotes
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
-
-    //changes made by Harnain
-    const savedColor = localStorage.getItem('dashboardColor');
-    if (savedColor && allowedColors.includes(savedColor)) {
-      setDashboardColor(savedColor);
-    } else {
-      setDashboardColor('dashboard-white');
-    }
   }, []);
 
-  const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
-  const wellnessIndex = stubData.wellnessIndexDaily.data;  //--------------------> Getting wellnessIndex from stubData
-  
   const toggleChat = () => {
     const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
     chatbot.classList.toggle('hidden');
-}
+  };
 
   return (
     <div className={`dashboard-container ${dashboardColor}`}>
-      <Sidebar />
+      <Sidebar />   {/*Displays the sidebar*/}
       <div className="dashboard-main">  {/*Main dashboard container*/}
         <div className="dashboard-header">  {/*Displays the header of the dashboard*/}
           <div className="dashboard-header-icon">
             <Rocket className="w-6 h-6" />
           </div>
           <h1 className="dashboard-header-title">Dashboard</h1>
-          <h2 className="dashboard-header-subtitle">Welcome back, {username}!</h2>
+          <h2 className="dashboard-header-subtitle">
+            Welcome back, {user ? user.name : 'Loading...'}!
+          </h2>
         </div>
 
         <div className="dashboard-content">
-          <ChatBot />
+          <ChatBot />  {/*Displays the chatbot*/}
 
           <section className="daily-quote">  {/*Displays the daily quote*/}
             <div className="overlap-group">
@@ -73,7 +107,7 @@ export default function Dashboard() {
             <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2> {/*Displays the chart*/}
             <div className="chart-container">
               <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={wellnessIndex} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
+                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
                   <Label value="Wellness Index" offset={0} position="top" />
                   <XAxis dataKey="day">
                     <Label value="Day" offset={-5} position="bottom" />
@@ -88,24 +122,7 @@ export default function Dashboard() {
             </div>
           </section>
 
-          {/* <section className="dashboard-section">     ----------> To be implemented in ITR2
-            <h2 className="dashboard-section-title">Earn Badges as you reach milestones and stay motivated</h2>
-            <div className="dashboard-badges">
-              <Badge icon={<Target className="w-8 h-8" />} color="badge-red" />
-              <Badge icon={<Moon className="w-8 h-8" />} color="badge-yellow" />
-            </div>
-          </section> */}
-
           <div className="dashboard-cards">
-
-            {/* 
-            Feature will arrive in ITR2
-            <DashboardCard         
-              title="Macro Tracker"
-              description="Track your daily macros effortlessly!"
-              icon={<PieChart className="w-16 h-16 text-gray-600" />}
-              bgColor="dashboard-card-purple"
-            /> */}
             
             <DashboardCard    //creates a dashboard card for the daily check-in
               title="Mindful Check-in"
@@ -128,8 +145,6 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
-
-    
   );
 }
 
