@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
 import Dashboard from './pages/dashboard.jsx'
 import Survey from './pages/Survey.jsx'
 import Questionnaire from './pages/questionnaire.jsx';
-
+import FindHelp from './pages/FindHelp.jsx';
 
 
 const router = createBrowserRouter([
@@ -17,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: '/survey',
     element: <Survey />,    //creates default path to login page
+  },
+  {
+    path: '/findhelp',
+    element: <FindHelp />,    //creates default path to login page
   },
   {
     path: '/dashboard', // Path to dashboard page
