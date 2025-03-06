@@ -23,7 +23,7 @@ function FindHelp() {
 
   // Load Google Maps API script with the specified API key and libraries
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyCBrCCATdvrmGWLsH-kQhOdhRkgl4AE7vE', libraries,
+    googleMapsApiKey: 'KEY', libraries, //key
   });
 
   // Handles functionality like : validates postal code, geocodes it, fetches nearby therapists, and calculates distances
@@ -92,7 +92,7 @@ function FindHelp() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Goog-Api-Key': 'AIzaSyCBrCCATdvrmGWLsH-kQhOdhRkgl4AE7vE',
+          'X-Goog-Api-Key': 'KEY',//KEY
           'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.primaryType,places.location',
         },
         body: JSON.stringify(requestBody),
@@ -143,7 +143,7 @@ function FindHelp() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'X-Goog-Api-Key': 'AIzaSyCBrCCATdvrmGWLsH-kQhOdhRkgl4AE7vE',
+              'X-Goog-Api-Key': 'KEY',//KEY
               'X-Goog-FieldMask': 'routes.distanceMeters',
             },
             body: JSON.stringify(routesRequestBody),
