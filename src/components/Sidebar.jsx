@@ -3,6 +3,7 @@ import { BarChart2, Smile, NotepadText , Settings, LogOut } from 'lucide-react';
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
+import { account } from '../appwrite';
 
 export function Sidebar() {
   const [activeButton, setActiveButton] = useState('dashboard');  // 'dashboard' is the default active button
@@ -11,6 +12,15 @@ export function Sidebar() {
   const handleButtonClick = (buttonName) => {  // sets the button as active when a button is clicekd
     setActiveButton(buttonName);
   };
+
+  const handleLogout = async () => {     //handles the logout functionality for the app
+  try {
+    await account.deleteSession('current');
+    navigate('/');
+  } catch (error) {
+    console.error('Failed to logout:', error);
+  }
+};
 
   return (
     <div className="sidebar">
@@ -41,7 +51,7 @@ export function Sidebar() {
           <Settings className="sidebar-icon"  color="white"/>
         </button>
       </nav>
-      <button className="sidebar-button" onClick={() => navigate('/')}>
+      <button className="sidebar-button" onClick={handleLogout}> 
         <LogOut className="sidebar-icon"  color="white"/>
       </button>
     </div>
