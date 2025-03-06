@@ -15,11 +15,12 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
+    "@react-google-maps/api": "^2.20.6",
     "@react-oauth/google": "^0.12.1",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
     "appwrite": "^17.0.0",
-    "axios": "^1.7.9",
+    "axios": "^1.8.1",
     "dotenv": "^16.4.7",
     "ldrs": "^1.0.2",
     "lucide-react": "^0.475.0",
