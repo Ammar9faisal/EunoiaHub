@@ -1,0 +1,39 @@
+.blog-container {
+    width: 60%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .blog-post {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    cursor: pointer;
+    color: blue;
+  }
+  
+  li:hover {
+    text-decoration: underline;
+  }
+  
+  .latest-post-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .latest-post-btn:hover {
+    background-color: #0056b3;
+  }
