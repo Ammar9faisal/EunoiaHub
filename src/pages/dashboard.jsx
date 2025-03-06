@@ -8,14 +8,15 @@ import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+import { isLoggedIn } from '../services/loginService.js';  //--------------------> Importing isLoggedin from loginService.js
 
 import { stubData } from '../stubdata.js';  //--------------------> Importing stubData from stubdata.js
 
 export default function Dashboard() {
   const navigate = useNavigate();
+  isLoggedIn(navigate);  //--------------------> Checking if user is logged in
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
-
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
