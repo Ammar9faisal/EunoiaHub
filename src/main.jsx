@@ -5,10 +5,9 @@ import Login from './pages/Login.jsx'
 import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
 import Dashboard from './pages/dashboard.jsx'
 import Survey from './pages/Survey.jsx'
-import Questionnaire from './pages/questionnaire.jsx';
+import Questionnaire from './pages/Questionnaire.jsx';
 
-//harnain added
-import { QuestionnaireProvider } from './pages/QuestionnaireContext';
+import ToDoList from './pages/ToDoList.jsx';
 
 
 
@@ -29,13 +28,17 @@ const router = createBrowserRouter([
     path: '/questionnaire', // Path to questionnaire page
     element: <Questionnaire />, // Corrected the typo
   },
+
+  {
+    path: '/todo', // Path for the to-do list page
+    element: <ToDoList />,
+  },
 ]);
 
-//changes made by Harnain
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <QuestionnaireProvider> 
+     
     <RouterProvider router={router} />
-    </QuestionnaireProvider>
+    
   </StrictMode>
 );
