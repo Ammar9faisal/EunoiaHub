@@ -22,9 +22,8 @@ function FindHelp() {
   const [loading, setLoading] = useState(false); 
 
   // Load Google Maps API script with the specified API key and libraries
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'KEY', libraries, //key
-  });
+  const { isLoaded, loadError } = useLoadScript({googleMapsApiKey: 'KKEEYY', libraries,
+  }); //PUT KEY
 
   // Handles functionality like : validates postal code, geocodes it, fetches nearby therapists, and calculates distances
   const handleSearch = async () => {
@@ -92,7 +91,7 @@ function FindHelp() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Goog-Api-Key': 'KEY',//KEY
+          'X-Goog-Api-Key': 'KKEEYY', //PUT KEY
           'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.primaryType,places.location',
         },
         body: JSON.stringify(requestBody),
@@ -143,7 +142,7 @@ function FindHelp() {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'X-Goog-Api-Key': 'KEY',//KEY
+              'X-Goog-Api-Key': 'KKEEYY', //PUT KEY
               'X-Goog-FieldMask': 'routes.distanceMeters',
             },
             body: JSON.stringify(routesRequestBody),
