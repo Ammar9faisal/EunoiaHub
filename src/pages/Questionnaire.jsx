@@ -6,6 +6,7 @@ import './QResults.css';
 import { useNavigate } from 'react-router-dom';
 
 function Questionnaire() {
+    // Destructure the necessary state and functions from the useSurvey hook
     const {
         questions,
         selectedAnswer,
@@ -22,6 +23,7 @@ function Questionnaire() {
 
     const navigate = useNavigate();
 
+    // Function to render the result text based on the survey outcome
     const renderResultText = () => {
         if (resultText.includes('Anxiety')) {
             return (
@@ -46,6 +48,7 @@ function Questionnaire() {
         }
     };
 
+    // Render the intro section if the current question is -1
     if (currentQuestion === -1) {
         return (
             <div className="question-page">
@@ -108,6 +111,7 @@ function Questionnaire() {
         );
     }
 
+    // Render the results section if the survey is complete
     if (currentQuestion === questions.length) {
         return (
             <div className="results-page">
@@ -129,6 +133,7 @@ function Questionnaire() {
         );
     }
 
+    // Render the survey questions if the survey is in progress
     return (
         <div className="question-page">
             <img src={background} alt="background" className="question-background" />
