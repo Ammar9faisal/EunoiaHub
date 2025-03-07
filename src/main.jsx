@@ -1,15 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Login from './pages/Login.jsx'
-import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
-import Dashboard from './pages/dashboard.jsx'
-import Survey from './pages/Survey.jsx'
-import Questionnaire from './pages/Questionnaire.jsx';
-
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import Login from './pages/Login.jsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Dashboard from './pages/dashboard.jsx';
+import Survey from './pages/Survey.jsx';
+import Questionnaire from './pages/questionnaire.jsx';
+import FindHelp from './pages/FindHelp.jsx';
 import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
-
+import Resources from './pages/Resources.jsx';
+import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
+import { AuthProvider } from './components/AuthContext.jsx';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -18,31 +21,80 @@ const router = createBrowserRouter([
   },
   {
     path: '/survey',
-    element: <Survey />,    //creates default path to login page
+    element: (
+      <ProtectedRoute>
+        <Survey />
+      </ProtectedRoute>
+    ),
   },
   {
-    path: '/dashboard', // Path to dashboard page
-    element: <Dashboard />,
+    path: '/dashboard',
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
   },
   {
-    path: '/questionnaire', // Path to questionnaire page
-    element: <Questionnaire />, // Corrected the typo
+    path: '/questionnaire',
+    element: <Questionnaire />
+  },
+  {
+    path: '/findhelp',
+    element: (
+      <ProtectedRoute>
+        <FindHelp />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/todo',
+    element: (
+      <ProtectedRoute>
+        <ToDoList />
+      </ProtectedRoute>
+    ),
+    },
+  {
+    path: '/resources', // Path to resources page
+    element: (
+      <ProtectedRoute>
+        <Resources />
+      </ProtectedRoute>
+    ), // Corrected the typo
+  },
+  {
+    path: '/usertickets',
+    element: (
+      <ProtectedRoute>
+        <UserTickets />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/visionboard', 
+    element: (
+      <ProtectedRoute>
+        <VisionBoard/>
+      </ProtectedRoute>
+    ),
   },
 
   {
-    path: '/todo', // Path for the to-do list page
-    element: <ToDoList />,
+    path: '/vision-board', // Add the Vision Board route
+    element: (
+      <ProtectedRoute>
+        <VisionBoard />
+      </ProtectedRoute>
+    ),
   },
-{
-  path: '/usertickets',
-  element: <UserTickets />,
-},
+
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     
-    <RouterProvider router={router} />
-    
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
