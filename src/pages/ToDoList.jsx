@@ -1,35 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ToDoList.css';
+import { fetchUserAndTasks, addTask, removeTask, startEditing, saveEdit } from '../services/todoService';
 
 const ToDoList = () => {
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState([]);   //sets up the state for the tasks
     const [newTask, setNewTask] = useState('');
     const [editingIndex, setEditingIndex] = useState(null);
     const [editingText, setEditingText] = useState('');
+    const [userId, setUserId] = useState(null);
 
-    const addTask = () => {
-        if (newTask.trim()) {
-            setTasks([...tasks, newTask]);
-            setNewTask('');
-        }
-    };
-
-    const removeTask = (index) => {
-        const updatedTasks = tasks.filter((task, i) => i !== index);
-        setTasks(updatedTasks);
-    };
-
-    const startEditing = (index, task) => {
-        setEditingIndex(index);
-        setEditingText(task);
-    };
-
-    const saveEdit = (index) => {
-        const updatedTasks = tasks.map((task, i) => (i === index ? editingText : task));
-        setTasks(updatedTasks);
-        setEditingIndex(null);
-        setEditingText('');
-    };
+    useEffect(() => {   //loads the users tasks from the database when the page loads
+        fetchUserAndTasks(setUserId, setTasks);    //calls the function to fetch the user and tasks
+    }, []);
 
     return (
         <div className='todo-list'>
@@ -40,27 +22,28 @@ const ToDoList = () => {
                         className="todo-list-input"
                         type="text"
                         value={newTask}
-                        onChange={(e) => setNewTask(e.target.value)}
+                        onChange={(e) => setNewTask(e.target.value)}  //updates the new task
                         placeholder="Add a new task"
                     />
-                    <button className="todo-list-add" onClick={addTask}>+</button>
+                    <button className="todo-list-add" onClick={() => addTask(userId, newTask, tasks, setTasks, setNewTask)}>+</button>
                 </div>
                 <ul className="todo-list-items">
                     {tasks.map((task, index) => (
-                        <li className="todo-list-item" key={index}>
+                        <li className="todo-list-item" key={task.$id}>
                             {editingIndex === index ? (
-                                <input
+                                <input   //allows the user to edit the task
                                     type="text"
                                     value={editingText}
                                     onChange={(e) => setEditingText(e.target.value)}
+                                    className="todo-list-edit-input"
                                 />
                             ) : (
-                                <span onClick={() => startEditing(index, task)}>{task}</span>
+                                <span onClick={() => startEditing(index, task, setEditingIndex, setEditingText)}>{task.description}</span>
                             )}
                             {editingIndex === index ? (
-                                <button onClick={() => saveEdit(index)}>✔️</button>
+                                <button className="todo-list-save-edit" onClick={() => saveEdit(index, tasks, setTasks, editingText, setEditingIndex, setEditingText)}>✔</button>
                             ) : (
-                                <button className="todo-list-remove" onClick={() => removeTask(index)}>-</button>
+                                <button className="todo-list-remove" onClick={() => removeTask(task.$id, tasks, setTasks)}>-</button>
                             )}
                         </li>
                     ))}
