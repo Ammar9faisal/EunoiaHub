@@ -18,22 +18,25 @@ const ToDoList = () => {
     };
 
     return (
-        <div>
-            <h1>To-Do List</h1>
-            <input
-                type="text"
-                value={newTask}
-                onChange={(e) => setNewTask(e.target.value)}
-                placeholder="Add a new task"
-            />
-            <button onClick={addTask}>Add</button>
-            <ul>
-                {tasks.map((task, index) => (
-                    <li key={index}>
-                        {task} <button onClick={() => removeTask(index)}>Remove</button>
-                    </li>
-                ))}
-            </ul>
+        <div className='todo-list'>
+            <div className='to-do-container'>
+                <h1 className='todo-list-title'>To-Do List</h1>
+                <input 
+                    className="todo-list-input"
+                    type="text"
+                    value={newTask}
+                    onChange={(e) => setNewTask(e.target.value)}
+                    placeholder="Add a new task"
+                />
+                <button className="todo-list-add" onClick={addTask}>Add</button>
+                <ul className="todo-list-items">
+                    {tasks.map((task, index) => (
+                        <li className="todo-list-item" key={index}>
+                            {task} <button className="todo-list-remove" onClick={() => removeTask(index)}>Remove</button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
         </div>
     );
 };
