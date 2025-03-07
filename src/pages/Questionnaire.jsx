@@ -59,7 +59,7 @@ function Questionnaire() {
                     <button className="results-redo-button" onClick={redoSurvey}>
                         Redo
                     </button>
-                    <button className="results-dashboard-button" onClick={() => navigate('/')}>
+                    <button className="results-dashboard-button" onClick={() => navigate('/login')}>
                         Head to Login
                     </button>
                 </div>
