@@ -5,7 +5,9 @@ import Login from './pages/Login.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/dashboard.jsx';
 import Survey from './pages/Survey.jsx';
-import Questionnaire from './pages/questionnaire.jsx';
+import Questionnaire from './pages/Questionnaire.jsx';
+
+import ToDoList from './pages/ToDoList.jsx';
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -38,6 +40,16 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+
+  {
+    path: '/todo', // Path for the to-do list page
+    element: (
+    <ProtectedRoute>
+      <ToDoList />
+    </ProtectedRoute>
+    ),
+  },
+  
 ]);
 
 createRoot(document.getElementById('root')).render(
@@ -47,5 +59,3 @@ createRoot(document.getElementById('root')).render(
     </AuthProvider>
   </StrictMode>
 );
-
-

@@ -6,7 +6,8 @@ import './QResults.css';
 import { useNavigate } from 'react-router-dom';
 
 function Questionnaire() {
-    // Destructure the necessary state and functions from the useSurvey hook
+    const { updateSurveyResult } = useQuestionnaireContext();
+
     const {
         questions,
         selectedAnswer,
@@ -20,6 +21,7 @@ function Questionnaire() {
         handleIntroSelect,
         handleIntroNext
     } = useSurvey();
+
 
     const navigate = useNavigate();
 
@@ -188,9 +190,13 @@ function Questionnaire() {
                             <button className="results-redo-button" onClick={redoSurvey}>
                                 Redo
                             </button>
-                            <button className="results-dashboard-button" onClick={() => navigate('/dashboard')}>
-                                Head to Dashboard
+                            <button 
+                                className="results-dashboard-button" 
+                                    onClick={handleResultNavigation}
+                                    >
+                                    Head to Dashboard       
                             </button>
+                               
                         </div>
                     </>
                 )}
