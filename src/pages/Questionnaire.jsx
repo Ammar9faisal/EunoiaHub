@@ -6,7 +6,6 @@ import './QResults.css';
 import { useNavigate } from 'react-router-dom';
 
 function Questionnaire() {
-    const { updateSurveyResult } = useQuestionnaireContext();
 
     const {
         questions,

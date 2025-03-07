@@ -40,7 +40,7 @@ export function Sidebar() {
         </button>
         <button
           className={`sidebar-button ${activeButton === 'users' ? 'sidebar-button-active' : ''}`}
-          onClick={() => handleButtonClick('users')} // sets the button as active when a button is clicekd
+          onClick={() => navigate('/todo')} // sets the button as active when a button is clicekd
         >
           <NotepadText className="sidebar-icon"  color="white"/>
         </button>

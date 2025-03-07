@@ -1,5 +1,5 @@
 /* ToDoList.css */
-body {
+.todo-list {
     font-family: Arial, sans-serif;
     background-color: #d6aef0; /* Pastel purple */
     display: flex;
@@ -11,58 +11,59 @@ body {
 
 .to-do-container {
     background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    padding: 2vh;
+    border-radius: 1.2vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
+    width: 30vh;
 }
 
-h1 {
+.todo-list-title {
     text-align: center;
     color: #333;
 }
 
-input[type="text"] {
+.todo-list-input {
     width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 0.8vh;
+    margin-bottom: 1vh;
+    border: 0.1vh solid #ccc;
+    border-radius: 0.8vh;
+    background-color: white;
 }
 
-button {
+.todo-list-add {
     width: 100%;
-    padding: 8px;
+    padding: 0.8vh;
     background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.8vh;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.6vh;
 }
 
-button:hover {
+.todo-list-add:hover {
     background-color: #45a049;
 }
 
-ul {
+.todo-list-items {
     list-style: none;
     padding: 0;
 }
 
-li {
+.todo-list-item {
     display: flex;
     justify-content: space-between;
     background: #e8e8e8;
-    padding: 8px;
-    border-radius: 8px;
-    margin-bottom: 8px;
+    padding: 0.8vh;
+    border-radius: 0.8vh;
+    margin-bottom: 0.8vh;
 }
 
-li button {
+.todo-list-remove {
     background-color: #ff4d4d;
 }
 
-li button:hover {
+.todo-list-remove:hover {
     background-color: #ff3333;
 }
