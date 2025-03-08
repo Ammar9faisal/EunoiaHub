@@ -1,0 +1,96 @@
+/* Page Background */
+.resources-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(to bottom, #7F58BB, #C343B4);
+    padding: 3rem 0;
+  }
+  
+  /* Title */
+  .resources-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  /* Main Container */
+  .resources-container {
+    width: 90%;
+    max-width: 800px;
+  }
+  
+  /* Category Button */
+  .resource-header {
+    width: 100%;
+    background: white;
+    color: #5a2d82;
+    font-size: 1.4rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .resource-header.active {
+    background: #5a2d82;
+    color: white;
+  }
+  
+  /* Content Area */
+  .resource-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Resource Items */
+  .resource-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .resource-item:last-child {
+    border-bottom: none;
+  }
+  
+  .resource-item h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #5a2d82;
+  }
+  
+  .resource-item p {
+    font-size: 1rem;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  /* Link Styling */
+  .resource-item a {
+    color: #5a2d82;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 5px;
+  }
+  
+  .resource-item a:hover {
+    text-decoration: underline;
+  }
+  

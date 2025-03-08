@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
 import Dashboard from './pages/dashboard.jsx'
 import Survey from './pages/Survey.jsx'
 import Questionnaire from './pages/questionnaire.jsx';
+import Resources from './pages/Resources.jsx'; 
 
 
 
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: '/questionnaire', // Path to questionnaire page
     element: <Questionnaire />, // Corrected the typo
+  },
+  {
+    path: '/resources', // Path to resources page
+    element: <Resources />, // Corrected the typo
   },
 ]);
 
