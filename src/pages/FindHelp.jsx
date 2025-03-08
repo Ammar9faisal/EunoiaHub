@@ -25,7 +25,7 @@ function FindHelp() {
 
   // Load Google Maps API script with the specified API key and libraries
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'KEY', // *******************PUT KEY (Consider using environment variables)
+    googleMapsApiKey: 'KEY', // ************************************************************************PUT KEY 
     libraries,
   });
 
@@ -44,19 +44,18 @@ function FindHelp() {
           type="text"
           value={postalCode}
           onChange={(e) => setPostalCode(e.target.value.toUpperCase())}
-          onKeyPress={(e) => handleKeyPress(e, searchHandler)}
+          onKeyPress={(e) => handleKeyPress(e, searchHandler)} 
           placeholder="Enter postal code (e.g., M5V 2T6)"
           maxLength="7"
           className="find-help-search-input"
           disabled={!isLoaded || loading}
         />
-        <button onClick={searchHandler} className="find-help-search-button" disabled={!isLoaded || loading}>
+        <button onClick={searchHandler} className="find-help-search-button" disabled={!isLoaded || loading}> 
           {loading ? 'Searching...' : 'Search'}
         </button>
       </div>
 
-      {loadError && <p className="find-help-error-message">Error loading Google Maps API: {loadError.message}</p>}
-      {error && <p className="find-help-error-message">{error}</p>}
+      {(loadError || error) && <p className="find-help-error-message">{loadError?.message || error}</p>}
 
       {resources.length > 0 && (
         <div className="find-help-resources-list">
@@ -72,7 +71,7 @@ function FindHelp() {
         </div>
       )}
 
-      <button onClick={() => navigate('/dashboard')} className="find-help-back-button">
+      <button onClick={() => navigate('/dashboard')} className="find-help-back-button"> 
         Back to Dashboard
       </button>
     </div>
