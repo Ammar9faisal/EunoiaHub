@@ -14,10 +14,11 @@ import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
+import WelcomePage from './pages/Welcome.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/login',
     element: <Login />,
   },
   {
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
     ),
   },
 
+  {
+    path: '/',
+    element: <WelcomePage />
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(
