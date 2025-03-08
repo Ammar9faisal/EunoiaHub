@@ -115,7 +115,6 @@ export function Sidebar() {
         >
           <LayoutList className="sidebar-icon" color="white" />
         </button>
-        
         <button
           className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/resources")}
