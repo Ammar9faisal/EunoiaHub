@@ -157,3 +157,44 @@ export const videos = [
     }
 ];
 
+export const supportGroups = [
+    { title: "7 Cups", description: "Free online therapy & emotional support.", link: "https://www.7cups.com" },
+    { title: "Mental Health America Groups", description: "Find support groups for mental well-being.", link: "https://www.mhanational.org" },
+    { title: "NAMI Connection Recovery", description: "A peer-led support group for mental health.", link: "https://www.nami.org/Support-Education/Support-Groups/NAMI-Connection" },
+    { title: "Anxiety and Depression Association of America (ADAA)", description: "Find support for anxiety and depression.", link: "https://adaa.org/supportgroups" },
+    { title: "Depression and Bipolar Support Alliance (DBSA)", description: "Online and in-person groups for mood disorders.", link: "https://www.dbsalliance.org" },
+    { title: "SMART Recovery", description: "Science-based support for addiction recovery.", link: "https://www.smartrecovery.org" },
+    { title: "Alcoholics Anonymous (AA)", description: "Support for individuals struggling with alcohol addiction.", link: "https://www.aa.org" },
+    { title: "Crisis Text Line Peer Support", description: "Online peer support for mental health challenges.", link: "https://www.crisistextline.org" },
+    { title: "Survivors of Suicide Loss Support Groups", description: "Support for those affected by suicide loss.", link: "https://afsp.org/find-a-support-group" },
+    { title: "Eating Disorder Hope Support Groups", description: "A community for those struggling with eating disorders.", link: "https://www.eatingdisorderhope.com/recovery/support-groups" }
+];
+
+export const hotlines = [
+    { title: "National Suicide Prevention Lifeline (U.S.)", description: "Confidential support 24/7.", link: "https://988lifeline.org" },
+    { title: "Crisis Text Line", description: "Text HOME to 741741 for free support.", link: "https://www.crisistextline.org" },
+    { title: "Samaritans (UK)", description: "24/7 confidential support for mental distress.", link: "https://www.samaritans.org" },
+    { title: "Kids Help Phone (Canada)", description: "Free counseling for youth in Canada.", link: "https://kidshelpphone.ca" },
+    { title: "Lifeline Australia", description: "24/7 support for anyone in distress.", link: "https://www.lifeline.org.au" },
+    { title: "Trevor Project (LGBTQ+ Support)", description: "Support for LGBTQ+ youth in crisis.", link: "https://www.thetrevorproject.org" },
+    { title: "Veterans Crisis Line", description: "Mental health support for veterans.", link: "https://www.veteranscrisisline.net" },
+    { title: "RAINN (Sexual Assault Hotline)", description: "Support for survivors of sexual violence.", link: "https://www.rainn.org" },
+    { title: "National Domestic Violence Hotline", description: "Confidential support for domestic abuse victims.", link: "https://www.thehotline.org" },
+    { title: "Trans Lifeline", description: "Peer support for the transgender community.", link: "https://www.translifeline.org" }
+];
+
+export const workbooks = [
+    { title: "CBT Self-Help Workbook", description: "A guide to managing thoughts & emotions.", link: "https://www.getselfhelp.co.uk" },
+    { title: "Daily Gratitude Journal", description: "A printable gratitude workbook.", link: "https://www.gratefulness.org" },
+    { title: "Mindfulness-Based Stress Reduction Workbook", description: "Techniques for reducing stress and anxiety.", link: "https://www.mindfulnesscds.com" },
+    { title: "The Anxiety and Phobia Workbook", description: "Exercises to manage anxiety disorders.", link: "https://www.goodreads.com/book/show/196186.The_Anxiety_and_Phobia_Workbook" },
+    { title: "Overcoming Depression Workbook", description: "Cognitive therapy exercises for depression.", link: "https://www.goodreads.com/book/show/106988.Overcoming_Depression" },
+    { title: "Radical Acceptance Workbook", description: "A guide to self-acceptance and emotional healing.", link: "https://www.tarabrach.com/radical-acceptance/" },
+    { title: "The PTSD Workbook", description: "Coping strategies for trauma survivors.", link: "https://www.goodreads.com/book/show/86425.The_PTSD_Workbook" },
+    { title: "The Self-Compassion Workbook", description: "Practical exercises for self-kindness.", link: "https://www.selfcompassion.org" },
+    { title: "DBT Skills Workbook", description: "Dialectical Behavior Therapy exercises.", link: "https://www.goodreads.com/book/show/8603486-the-dialectical-behavior-therapy-skills-workbook" },
+    { title: "The Happiness Trap Workbook", description: "ACT exercises to overcome negative thinking.", link: "https://www.goodreads.com/book/show/38743979-the-happiness-trap-workbook" }
+];
+
+
+
