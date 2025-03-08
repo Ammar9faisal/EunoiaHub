@@ -6,7 +6,6 @@ import './QResults.css';
 import { useNavigate } from 'react-router-dom';
 
 function Questionnaire() {
-
     const {
         questions,
         selectedAnswer,
@@ -20,7 +19,6 @@ function Questionnaire() {
         handleIntroSelect,
         handleIntroNext
     } = useSurvey();
-
 
     const navigate = useNavigate();
 
@@ -48,6 +46,26 @@ function Questionnaire() {
             return resultText;
         }
     };
+
+    // Function to render the results section
+    const renderResultsSection = () => (
+        <div className="results-page">
+            <img src={background} alt='background' className='results-background' />
+            <div className="results-container">
+                <h1>Survey Results</h1>
+                <p>{renderResultText()}</p>
+                <p>You can now either login with your credentionals or redo the survey</p>
+                <div className="results-buttons">
+                    <button className="results-redo-button" onClick={redoSurvey}>
+                        Redo
+                    </button>
+                    <button className="results-dashboard-button" onClick={() => navigate('/')}>
+                        Head to Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    );
 
     // Render the intro section if the current question is -1
     if (currentQuestion === -1) {
@@ -114,24 +132,7 @@ function Questionnaire() {
 
     // Render the results section if the survey is complete
     if (currentQuestion === questions.length) {
-        return (
-            <div className="results-page">
-                <img src={background} alt='background' className='results-background' />
-                <div className="results-container">
-                    <h1>Survey Results</h1>
-                    <p>{renderResultText()}</p>
-                    
-                    <div className="results-buttons">
-                        <button className="results-redo-button" onClick={redoSurvey}>
-                            Redo
-                        </button>
-                        <button className="results-dashboard-button" onClick={() => navigate('/dashboard')}>
-                            Head to Dashboard
-                        </button>
-                    </div>
-                </div>
-            </div>
-        );
+        return renderResultsSection();
     }
 
     // Render the survey questions if the survey is in progress
@@ -181,23 +182,7 @@ function Questionnaire() {
                         </div>
                     </>
                 ) : (
-                    <>
-                        <h1>Survey Results</h1>
-                        <p>{renderResultText()}</p>
-
-                        <div className="results-buttons">
-                            <button className="results-redo-button" onClick={redoSurvey}>
-                                Redo
-                            </button>
-                            <button 
-                                className="results-dashboard-button" 
-                                    onClick={handleResultNavigation}
-                                    >
-                                    Head to Dashboard       
-                            </button>
-                               
-                        </div>
-                    </>
+                    renderResultsSection()
                 )}
             </div>
         </div>
