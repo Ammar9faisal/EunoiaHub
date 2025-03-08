@@ -5,27 +5,28 @@ import Login from './pages/Login.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/dashboard.jsx';
 import Survey from './pages/Survey.jsx';
-import Settings from './pages/Settings.jsx'; // Settings component 
+import Settings from './pages/Settings.jsx';
+import VisionBoard from './pages/VisionBoard.jsx'; // Import Vision Board page
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />, // Default path to login page
+    element: <Login />, 
   },
   {
     path: '/survey',
-    element: <Survey />, // Path for the survey/check-in
+    element: <Survey />, 
   },
   {
     path: '/dashboard',
-    element: <Dashboard />, // Path for the dashboard
+    element: <Dashboard />, 
   },
   {
-    path: '/questionaire',
-    element: <Survey />, // Path for the questionnaire
+    path: '/vision-board', // Add the Vision Board route
+    element: <VisionBoard />, 
   },
   {
-    path: '/settings', // New route for settings page
+    path: '/settings',
     element: <Settings />, 
   },
 ]);
