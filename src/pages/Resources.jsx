@@ -11,7 +11,13 @@ const Resources = () => {
 
     return (
         <div className="resources-page">
-            <h1 className="resources-title">Mental Health Resources</h1>
+            <h1 className="resources-title">RESOURCE HUB</h1>
+            <p className="resources-description">
+                Welcome to EunoiaHub’s resource hub! Here, you’ll find handpicked podcasts, 
+                books, and videos to help you navigate your mental health journey. Click on 
+                a category to explore recommended content.
+            </p>
+
 
             <div className="resources-container">
                 {/* Podcasts Section */}
