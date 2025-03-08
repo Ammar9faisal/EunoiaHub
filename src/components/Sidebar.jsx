@@ -32,10 +32,10 @@ export function Sidebar() {
           <Smile className="sidebar-icon" color="white" />
         </button>
         <button
-          className={`sidebar-button ${activeButton === 'users' ? 'sidebar-button-active' : ''}`}
-          onClick={() => handleButtonClick('users', '/users')} // Navigate to users (if implemented)
+        className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
+        onClick={() => handleButtonClick('visionboard', '/vision-board')} // NEW: Navigates to Vision Board
         >
-          <NotepadText className="sidebar-icon" color="white" />
+           <NotepadText className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'settings' ? 'sidebar-button-active' : ''}`}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Rocket, Brain, Bot } from 'lucide-react';
+import { Rocket, Brain, Bot, NotepadText } from 'lucide-react';
 import ChatBot from '../components/Chatbot.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
@@ -100,6 +100,14 @@ export default function Dashboard() {
               image= {mindfulPic}
               onClick={() => navigate('/survey')}
             />
+
+          <DashboardCard  // Creates a dashboard card for Vision Board
+            title="Vision Board"
+            description="Plan your goals visually!"
+            icon={<NotepadText className="w-16 h-16 text-gray-600" />}
+            bgColor="dashboard-card"
+            onClick={() => navigate('/vision-board')}
+          />                     
 
             <DashboardCard  //creates a dashboard card for the wellness bot
               title="Wellness bot"
