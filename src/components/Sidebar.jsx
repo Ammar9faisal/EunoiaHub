@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { BarChart2, Smile, NotepadText , Settings, LogOut } from 'lucide-react';
+import { BarChart2, Smile, NotepadText , Settings, LogOut, Map } from 'lucide-react';
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
+
 
 export function Sidebar() {
   const [activeButton, setActiveButton] = useState('dashboard');  // 'dashboard' is the default active button
@@ -20,6 +21,8 @@ export function Sidebar() {
           className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('dashboard')}  // sets the button as active when a button is clicekd
         >
+          
+          
           <BarChart2 className="sidebar-icon" color="white"/>
         </button>
         <button
@@ -28,6 +31,14 @@ export function Sidebar() {
         >
           <Smile className="sidebar-icon"  color="white"/>
         </button>
+        
+        <button 
+          className={`sidebar-button ${activeButton === 'find' ? 'sidebar-button-active' : ''}`}//button to navigate to the find help page
+          onClick={() => navigate("/FindHelp")}  // sets the button as active when a button is clicekd
+        >
+          <Map className="sidebar-icon"  color="white"/> 
+        </button>
+        
         <button
           className={`sidebar-button ${activeButton === 'users' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('users')} // sets the button as active when a button is clicekd
