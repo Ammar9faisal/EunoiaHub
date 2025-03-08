@@ -1,0 +1,156 @@
+/* Vision Board Container */
+.visionboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Aligns content towards the top */
+    height: 100vh;
+    background-color: #f5f5f5;
+    padding: 40px 20px; /* More padding at the top */
+  
+    /* Grid Background */
+    background-image: radial-gradient(#aaa 1px, transparent 1px);
+    background-size: 25px 25px;
+  }
+  
+  /* Title: Centered at the Top */
+  .visionboard-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Input Container */
+  .input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px; /* More space below */
+  }
+  
+  /* Input Field */
+  .input-container input {
+    padding: 12px;
+    width: 350px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background-color: white;
+    color: black;
+    text-align: left;
+  }
+  
+  /* Buttons */
+  .visionboard-container button {
+    padding: 12px 15px;
+    background-color: #6200ea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .visionboard-container button:hover {
+    background-color: #4b00b5;
+  }
+  
+  /* Grid Container for Sticky Notes */
+  .visionboard-container .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    width: 80%;
+    max-width: 900px;
+    margin-top: 20px;
+  }
+  
+  /* Sticky Note */
+  .visionboard-container .sticky-note {
+    background-color: #ffeb3b;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+  }
+
+  /* Sticky Note */
+.sticky-note {
+    background-color: #ffeb3b;
+    padding: 20px 15px; /* More padding to make it longer */
+    width: 200px; /* Keep width smaller */
+    min-height: 80px; /* Increase height */
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+ /* Light Tape Effect at the Top */
+.sticky-note::before {
+    content: "";
+    position: absolute;
+    top: -5px; /* Adjust to be slightly above the note */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px; /* Length of the tape */
+    height: 12px; /* Height of the tape */
+    background-color: rgba(255, 235, 205, 0.8); /* Light beige tape color */
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Subtle shadow to look realistic */
+  }   
+  
+  /* Delete Button on Sticky Notes */
+.delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+    background: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .delete-btn:hover {
+    background: darkred;
+    transform: scale(1.1);
+  }
+  
+  /* Back to Dashboard Button */
+  .visionboard-container .back-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .visionboard-container .back-button:hover {
+    background-color: #222;
+  }
+  
+  
