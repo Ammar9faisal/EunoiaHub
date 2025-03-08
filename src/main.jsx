@@ -34,11 +34,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/questionnaire',
-    element: (
-      <ProtectedRoute>
-        <Questionnaire />
-      </ProtectedRoute>
-    ),
+    element: <Questionnaire />
   },
 
   {
