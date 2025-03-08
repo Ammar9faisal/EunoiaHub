@@ -17,7 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
 import MessageBottle from './pages/MessageBottle.jsx';
-import Achievements from './pages/Achievements.jsx';
+import HabitTracker from './pages/HabitTracker.jsx';
 import BubbleGame from './pages/BubbleGame.jsx';
 
 const router = createBrowserRouter([
@@ -127,6 +127,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <HabitTracker />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/bubblegame', 
+    element: (
+      <ProtectedRoute>
+        <BubbleGame />
       </ProtectedRoute>
     ),
   },
