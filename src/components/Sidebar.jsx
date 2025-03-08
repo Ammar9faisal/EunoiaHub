@@ -94,7 +94,7 @@ export function Sidebar() {
           className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate('/visionboard')}
         >
-          <NotepadText className="sidebar-icon" color="white" />
+           <NotepadText className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'BlogPage' ? 'sidebar-button-active' : ''}`}

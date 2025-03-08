@@ -168,6 +168,8 @@ export default function Dashboard() {
               onClick={() => navigate('/survey')}
             />
 
+                            
+
             <DashboardCard
               title="Wellness bot"
               description="Meet your personal wellness bot!"
