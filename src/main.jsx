@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/dashboard.jsx';
 import Survey from './pages/Survey.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
+import FindHelp from './pages/FindHelp.jsx';
 
 import ToDoList from './pages/ToDoList.jsx';
 import { AuthProvider } from './components/AuthContext.jsx';
@@ -36,7 +37,14 @@ const router = createBrowserRouter([
     path: '/questionnaire',
     element: <Questionnaire />
   },
-
+  {
+    path: '/findhelp',
+    element: (
+      <ProtectedRoute>
+        <FindHelp />
+      </ProtectedRoute>
+    ),
+  },
   {
     path: '/todo', // Path for the to-do list page
     element: (
