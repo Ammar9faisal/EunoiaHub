@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { podcasts, books, videos, supportGroups, hotlines, workbooks } from '../services/resourcesService';
 import './Resources.css';
 
 const Resources = () => {
     const [openSection, setOpenSection] = useState(null);
+    const navigate = useNavigate();
 
     const toggleSection = (section) => {
         setOpenSection(openSection === section ? null : section);
@@ -11,6 +13,11 @@ const Resources = () => {
 
     return (
         <div className="resources-page">
+
+            <button className="back-button" onClick={() => navigate('/dashboard')}>
+                ← Back to Dashboard
+            </button>
+
             <h1 className="resources-title">Additional Resources</h1>
             <p className="resources-description">
             Welcome to EunoiaHub’s resource hub! Here, you’ll find a 

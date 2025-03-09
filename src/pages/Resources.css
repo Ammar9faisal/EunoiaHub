@@ -106,5 +106,28 @@
     line-height: 1.5;
 }
 
+/* Back to Dashboard Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    color: #5a2d82;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 2px solid #5a2d82;
+    border-radius: 8px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    z-index: 10;
+}
+
+.back-button:hover {
+    background: #5a2d82;
+    color: white;
+}
+
+
 
   
