@@ -8,7 +8,7 @@ import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
-import bottlePic from '../assets/bottle.png';
+import bottlePic from '../assets/bottle.png';  // Imported bottle image
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -17,10 +17,11 @@ import calender from '../assets/calender.png';
 import StreakBadge from '../components/streakBadge.jsx'; // Import StreakBadge component
 import { Query } from 'appwrite';
 
+
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [currentQuote, setCurrentQuote] = useState(quotes[0]);
-  const [dashboardColor, setDashboardColor] = useState('dashboard-white');
+  const [currentQuote, setCurrentQuote] = useState(quotes[0]);  
+  const [dashboardColor, setDashboardColor] = useState('dashboard-white'); 
   const [userId, setUserId] = useState(null);
   const [user, setUser] = useState(null);
   const [wellnessIndexData, setWellnessIndexData] = useState([]);
@@ -64,7 +65,7 @@ export default function Dashboard() {
 
     fetchStreakData();
   }, [userId]);
-
+  
   useEffect(() => {
     const fetchUserDocument = async () => {
       if (userId) {
@@ -104,7 +105,7 @@ export default function Dashboard() {
     const index = diffDays % quotes.length;
     setCurrentQuote(quotes[index]);
   }, []);
-
+  
   const toggleChat = () => {
     const chatbot = document.querySelector('.chatbot-container');
     chatbot.classList.toggle('hidden');
@@ -168,8 +169,6 @@ export default function Dashboard() {
               onClick={() => navigate('/survey')}
             />
 
-                            
-
             <DashboardCard
               title="Wellness bot"
               description="Meet your personal wellness bot!"
@@ -185,23 +184,23 @@ export default function Dashboard() {
               icon={<Rocket className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
               image={dailyExercisesPic}
-              onClick={() => navigate('/DailyExercises')}
+              onClick={() => navigate('/dailyexercises')}
             />
 
+            {/* Bottle Dashboard Card */}
             <DashboardCard
               title="Mystery Bottle"
               description="Click to reveal something special!"
               bgColor="dashboard-card"
               image={bottlePic}
-              onClick={() => navigate('/messageinabottle')}
+              onClick={() => navigate('/messageinabottle')} // Redirect to a new webpage
             />
-
             <DashboardCard
               title="Weekly Habit Tracker"
               description="Track your weekly habits!"
               bgColor="dashboard-card"
               image={calender}
-              onClick={() => navigate('/HabitTracker')} // Redirect to a new webpage     
+              onClick={() => navigate('/HabitTracker')} // Redirect to a new webpage
             />
           </div>
         </div>
