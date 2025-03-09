@@ -43,14 +43,14 @@ export function Sidebar() {
 
         <button
           className={`sidebar-button ${activeButton === 'UserTickets' ? 'sidebar-button-active' : ''}`}
-          onClick={() => handleButtonClick('UserTickets')}   // sets the button as active when a button is clicekd
+          onClick={() => navigate("/usertickets")}    // sets the button as active when a button is clicekd
         >
           <Star className="sidebar-icon"  color="white"/>
         </button>
 
         <button
           className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
-          onClick={() => handleButtonClick('ToDoList')}   // sets the button as active when a button is clicekd
+          onClick={() => navigate("/todo")}    // sets the button as active when a button is clicekd
         >
           <LayoutList className="sidebar-icon"  color="white"/>
         </button>
