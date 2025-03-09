@@ -18,7 +18,7 @@ export const handleSearch = async (
     const cleanedPostalCode = postalCode.replace(/\s/g, '');
     if (!postalCodeRegex.test(cleanedPostalCode)) {
       setError('Please enter a valid Canadian postal code (e.g., M5V 2T6).');
-      setLoading(false);
+      setLoading(false); 
       console.log('Invalid postal code');
       return;
     }
