@@ -1,17 +1,20 @@
 import React, { useState } from 'react';
 import './UserTickets.css';
 
-const UserReviewsTickets = () => {
+const UserTickets = () => {
   const [review, setReview] = useState('');
   const [ticket, setTicket] = useState('');
   const [reviews, setReviews] = useState([]);
   const [tickets, setTickets] = useState([]);
+  const [submissionMessage, setSubmissionMessage] = useState(''); // State for submission message
 
   const handleReviewSubmit = (e) => {
     e.preventDefault();
     if (review.trim()) {
       setReviews([...reviews, review]);
       setReview('');
+      setSubmissionMessage('Review has been submitted!'); // Set the message
+      setTimeout(() => setSubmissionMessage(''), 3000); // Clear the message after 3 seconds
     }
   };
 
@@ -20,6 +23,8 @@ const UserReviewsTickets = () => {
     if (ticket.trim()) {
       setTickets([...tickets, ticket]);
       setTicket('');
+      setSubmissionMessage('Ticket has been submitted!'); // Set the message
+      setTimeout(() => setSubmissionMessage(''), 3000); // Clear the message after 3 seconds
     }
   };
 
@@ -51,27 +56,10 @@ const UserReviewsTickets = () => {
         </form>
       </div>
 
-      <div className="feedback-display">
-        <div>
-          <h2>Reviews</h2>
-          <ul>
-            {reviews.map((r, index) => (
-              <li key={index}>{r}</li>
-            ))}
-          </ul>
-        </div>
+      {submissionMessage && <div className="usertickets-submission-message">{submissionMessage}</div>}
 
-        <div>
-          <h2>Tickets</h2>
-          <ul>
-            {tickets.map((t, index) => (
-              <li key={index}>{t}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
     </div>
   );
 };
 
-export default UserReviewsTickets;
+export default UserTickets;

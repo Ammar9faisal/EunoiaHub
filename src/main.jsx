@@ -8,7 +8,7 @@ import Survey from './pages/Survey.jsx'
 import Questionnaire from './pages/Questionnaire.jsx';
 
 import ToDoList from './pages/ToDoList.jsx';
-
+import UserTickets from './pages/UserTickets.jsx';
 
 
 const router = createBrowserRouter([
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
     path: '/todo', // Path for the to-do list page
     element: <ToDoList />,
   },
+{
+  path: '/usertickets',
+  element: <UserTickets />,
+},
 ]);
 
 createRoot(document.getElementById('root')).render(
