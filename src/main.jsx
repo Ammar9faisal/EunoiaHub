@@ -1,13 +1,15 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import Login from './pages/Login.jsx'
-import { createBrowserRouter, RouterProvider, redirect} from 'react-router-dom'
-import Dashboard from './pages/dashboard.jsx'
-import Survey from './pages/Survey.jsx'
-import Questionnaire from './pages/questionnaire.jsx';
-import FindHelp from './pages/FindHelp.jsx';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import './index.css';
+import Login from './pages/Login.jsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Dashboard from './pages/dashboard.jsx';
+import Survey from './pages/Survey.jsx';
+import Questionnaire from './pages/Questionnaire.jsx';
 
+import ToDoList from './pages/ToDoList.jsx';
+import { AuthProvider } from './components/AuthContext.jsx';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const router = createBrowserRouter([
   {
@@ -16,26 +18,40 @@ const router = createBrowserRouter([
   },
   {
     path: '/survey',
-    element: <Survey />,    //creates default path to login page
+    element: (
+      <ProtectedRoute>
+        <Survey />
+      </ProtectedRoute>
+    ),
   },
   {
-    path: '/findhelp',
-    element: <FindHelp />,    //creates default path to login page
+    path: '/dashboard',
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
   },
   {
-    path: '/dashboard', // Path to dashboard page
-    element: <Dashboard />,
+    path: '/questionnaire',
+    element: <Questionnaire />
   },
+
   {
-    path: '/questionnaire', // Path to questionnaire page
-    element: <Questionnaire />, // Corrected the typo
+    path: '/todo', // Path for the to-do list page
+    element: (
+    <ProtectedRoute>
+      <ToDoList />
+    </ProtectedRoute>
+    ),
   },
+  
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
-
-

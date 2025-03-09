@@ -9,15 +9,31 @@ import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 
+
+
 import { stubData } from '../stubdata.js';  //--------------------> Importing stubData from stubdata.js
+
+
 
 export default function Dashboard() {
   const navigate = useNavigate();
 
   const [currentQuote, setCurrentQuote] = useState(quotes[0]);
+
+  //changes made by Harnain
+  const [dashboardColor, setDashboardColor] = useState('dashboard-white'); // Default color
+
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
+
+    //changes made by Harnain
+    const savedColor = localStorage.getItem('dashboardColor');
+    if (savedColor && allowedColors.includes(savedColor)) {
+      setDashboardColor(savedColor);
+    } else {
+      setDashboardColor('dashboard-white');
+    }
   }, []);
 
   const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
@@ -29,7 +45,7 @@ export default function Dashboard() {
 }
 
   return (
-    <div className="dashboard-container">
+    <div className={`dashboard-container ${dashboardColor}`}>
       <Sidebar />
       <div className="dashboard-main">  {/*Main dashboard container*/}
         <div className="dashboard-header">  {/*Displays the header of the dashboard*/}
@@ -112,6 +128,8 @@ export default function Dashboard() {
         </div>
       </div>
     </div>
+
+    
   );
 }
 
