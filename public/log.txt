@@ -207,3 +207,127 @@ decided to keep it as an added feature with low priority
 
 - ADDING TO DO LIST AS PART OF ITR 1 - To do list was something out client also emphasized in the client meeting, so it was
 something we wanted to add early on the project deliverable.
+
+INDIVIDUAL CONTRIBUTIONS
+
+-> MANJOT KAUR 
+
+ITR 1 Assigned User Story: Daily Questionnaire
+Planned Cost: 2 days
+Actual Cost: 2 days
+The user questionnaire is completed by user daily to log their moods and then get a recap after few days. It consists of bunch of questions about feelings, motivation and stress. The task required UI and logic and was done within planned cost.
+ITR 2 Assigned User Story: Find Help near you
+Planned Cost:  2 days
+Actual Cost: 2.5 days
+Find help near you feature allows user to find any resources, counselors or therapists in area by inputting the postal code. The task took .5 day more as it was a bit challenging task. I had to look for API’s and then learning to integrate them properly took some extra time.
+
+-> ABDULLAH BAJWA 
+
+Vision Board Component
+Visionboard.jsx (15 hours)
+- Developed vision board functionality with note-taking and image upload.
+- Implemented local storage for persistent data to ensure notes and images are saved across sessions.
+- Added image compression for efficient storage, reducing file size while maintaining quality.
+- Designed and optimized user interactions, including adding/deleting notes and handling multiple images.
+- Ensured smooth UI interactions with error handling for empty notes and invalid image uploads.
+Visionboard.css (10 hours)
+- Styled the vision board layout with a clean, grid-based UI for better organization.
+- Implemented a sticky note appearance with a realistic tape effect for an engaging visual design.
+- Designed an interactive image upload system with hover effects and a delete option for better user experience.
+- Improved button styling and transitions for a smoother UX.
+Dashboard UI & Functionality
+Dashboard.jsx (40 hours, including Figma design)
+- Designed the overall dashboard UI and UX in Figma, ensuring a seamless user experience.
+- Created interactive dashboard cards for navigation, allowing quick access to different sections.
+- Integrated sidebar navigation/buttons for routing between different pages.
+Dashboard.css (10 hours)
+- Designed card components with hover effects for a modern and interactive feel.
+- Implemented a flexible grid layout for an adaptive UI that adjusts dynamically.
+- Enhanced the styling of text, buttons, and icons for improved readability
+- Added spacing and padding for a cleaner layout.
+Sidebar Component
+Sidebar.jsx (8 hours)
+- Developed an interactive sidebar for navigation between sections.
+- Implemented state management for active button highlighting to improve user
+experience.
+- Integrated navigation functionality using useNavigate();, allowing efficient routing
+to different pages.
+- Added support for future expansion, making it easy to add new navigation
+options if needed.
+Sidebar.css (4 hours)
+- Styled the sidebar layout with a minimalistic, dark-themed design for contrast and
+readability.
+- Created an intuitive button UI with hover and active states for better user
+experience.
+- Optimized spacing between navigation buttons for ease of use.
+
+
+-> JAKUB Przystupa
+
+JAKUB PRZYSTUPA - LOG
+JAN 24 – 1 hr 45 mins
+Task: Working on the dashboard
+• Set up foundational elements, including layout structure.
+• Tweaked UI components to improve responsiveness.
+JAN 26 – 1 hr 30 mins
+Task: Refining the dashboard layout
+• Adjusted element placements for better user flow.
+• Experimented with styling variations.
+JAN 30 – 2 hrs
+Task: Implementing daily quotes
+• Integrated quote display section into the dashboard.
+• Ensured text formatting is clean and readable.
+FEB 3 – 1 hr 20 mins
+Task: Finalizing quote functionality
+• Added logic for rotating quotes dynamically.
+• Tweaked transitions and animations.
+FEB 4 – 45 mins
+Task: Debugging early dashboard issues
+• Identified inconsistencies in layout rendering.
+• Fixed minor display bugs in different viewports.
+FEB 8 – 2 hrs
+Task: User profile implementation
+• Started structuring user profile page.
+• Defined key sections for user details.
+FEB 9 – 1 hr 10 mins
+
+Task: User profile data handling
+• Ensured dynamic data binding to display user information.
+• Styled input fields and display components.
+FEB 12 – 50 mins
+Task: Debugging profile page
+• Resolved alignment issues and minor UI glitches.
+• Improved data update flow for better responsiveness.
+FEB 13 – 1 hr 40 mins
+Task: Linking pages together
+• Connected dashboard to user profile.
+• Set up basic navigation between key sections.
+FEB 22 – 1 hr 55 mins
+Task: Sidebar integration setup
+• Placed sidebar into the layout.
+• Defined navigation structure within sidebar.
+FEB 23 – 35 mins
+Task: Sidebar functionality implementation
+• Added interactivity to sidebar buttons.
+• Ensured smooth navigation transitions.
+FEB 26 – 1 hr 25 mins
+Task: Blog page setup
+• Structured the initial layout for the blog section.
+• Placed placeholder content for design testing.
+MAR 1 – 1 hr 50 mins
+Task: Refining blog page content display
+• Adjusted styling for readability.
+
+• Ensured smooth scrolling and proper spacing.
+MAR 3 – 20 mins
+Task: Debugging minor inconsistencies
+• Fixed text wrapping issues.
+• Adjusted spacing inconsistencies in layouts.
+MAR 5 – 1 hr 15 mins
+Task: Connecting more pages
+• Established links between all major sections.
+• Ensured smooth navigation between pages.
+MAR 6 – 1 hr 35 mins
+Task: Fixing layout and interaction issues
+• Polished transition effects for better user experience.
+• Refined positioning of elements across different screen sizes.
