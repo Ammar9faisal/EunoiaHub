@@ -7,10 +7,14 @@ import Dashboard from './pages/dashboard.jsx';
 import Survey from './pages/Survey.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
 import FindHelp from './pages/FindHelp.jsx';
-
 import ToDoList from './pages/ToDoList.jsx';
+import UserTickets from './pages/UserTickets.jsx';
+import Resources from './pages/Resources.jsx';
+import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute';
+
+
 
 const router = createBrowserRouter([
   {
@@ -46,14 +50,44 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/todo', // Path for the to-do list page
+    path: '/todo',
     element: (
-    <ProtectedRoute>
-      <ToDoList />
-    </ProtectedRoute>
+      <ProtectedRoute>
+        <ToDoList />
+      </ProtectedRoute>
+    ),
+    },
+  {
+    path: '/resources', // Path to resources page
+    element: (
+      <ProtectedRoute>
+        <Resources />
+      </ProtectedRoute>
+    ), // Corrected the typo
+  },
+  {
+    path: '/usertickets',
+    element: (
+      <ProtectedRoute>
+        <UserTickets />
+      </ProtectedRoute>
     ),
   },
-  
+
+  {
+    path: '/vision-board', // Add the Vision Board route
+    element: (
+      <ProtectedRoute>
+        <VisionBoard />
+      </ProtectedRoute>
+    ),
+  },
+
+  {
+    path: '/settings',
+    element: <Settings />, 
+  },
+
 ]);
 
 createRoot(document.getElementById('root')).render(
