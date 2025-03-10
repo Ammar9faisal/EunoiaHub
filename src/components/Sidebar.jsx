@@ -48,7 +48,6 @@ export function Sidebar() {
           className={`sidebar-button ${activeButton === 'users' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate('/todo')}
         >
-
           <NotepadText className="sidebar-icon" color="white" />
         </button>
         {/* NEW Vision Board Button */}
@@ -58,7 +57,6 @@ export function Sidebar() {
         >
           <NotepadText className="sidebar-icon"  color="white"/>
         </button>
-        
         <button
           className={`sidebar-button ${activeButton === 'settings' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('settings')}
