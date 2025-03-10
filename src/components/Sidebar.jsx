@@ -44,12 +44,7 @@ export function Sidebar() {
         >
           <LayoutList className="sidebar-icon"  color="white"/>
         </button>
-        <button
-          className={`sidebar-button ${activeButton === 'users' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate('/todo')}
-        >
-          <NotepadText className="sidebar-icon" color="white" />
-        </button>
+        
         {/* NEW Vision Board Button */}
         <button
           className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
@@ -76,6 +71,13 @@ export function Sidebar() {
           onClick={() => navigate("/todo")}    // sets the button as active when a button is clicekd
         >
           <LayoutList className="sidebar-icon"  color="blue"/>
+        </button>
+
+        <button
+          className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/resources")}  // sets the button as active when a button is clicekd
+        >
+          <Plus className="sidebar-icon"  color="blue"/>
         </button>
 
       </nav>
