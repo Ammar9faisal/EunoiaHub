@@ -1,4 +1,7 @@
-// This is our list of survey questions - each has an ID and text to display
+import db from '../database';
+import { account } from '../appwrite';
+import { Query } from 'appwrite';
+
 export const questions = [
     { id: 1, text: "How happy do you feel today? (1 = Not happy at all, 10 = Extremely happy)" },
     { id: 2, text: "How overwhelmed do you feel today? (1 = Extremely overwhelmed, 10 = Not at all)" },
@@ -9,30 +12,51 @@ export const questions = [
     { id: 7, text: "How hopeful do you feel about tomorrow? (1 = Not hopeful, 10 = Very hopeful)" },
 ];
 
-// Handles clicking the "Next" button - moves to the next page or finishes the survey
-export const handleNext = (pageNum, responses, setResponses, setCurrentPage, navigate) => {
-    // If we’re on the last question (page 7), move to the completion page
+export const handleNext = async (pageNum, responses, setResponses, setCurrentPage, navigate, userId) => {
     if (pageNum === 7) {
-        setCurrentPage(8);
+        const date = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+        const wellnessIndex = happinessIndex(responses);
+        try {
+            await db.surveyResponses.create({
+                userID: userId,
+                date,
+                wellnessIndex
+            });
+            setCurrentPage(8);
+        } catch (error) {
+            console.error('Error creating survey response:', error);
+        }
         return;
     }
-    // Otherwise, just bump up to the next page
     setCurrentPage(pageNum + 1);
 };
 
-// Calculates the average of all responses
 export const happinessIndex = (responses) => {
-    const total = Object.values(responses).reduce((sum, value) => sum + value, 0);
+    const total = responses.reduce((sum, value) => sum + value, 0);
     return total / questions.length;
 };
 
-// Moves us back one page when the "Back" button is clicked
 export const handleBack = (currentPage, setCurrentPage) => {
     setCurrentPage(currentPage - 1);
 };
 
-// Records the user’s rating (1-10) when they click a number
 export const handleNumberClick = (value, currentPage, responses, setResponses) => {
-    // Spread the old responses and add the new one for the current page
-    setResponses({ ...responses, [currentPage]: value });
+    const updatedResponses = [...responses];
+    updatedResponses[currentPage - 1] = value;
+    setResponses(updatedResponses);
+};
+
+export const fetchSurveyResponse = async (userId) => {
+    const date = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+
+    try {
+        const response = await db.surveyResponses.list([
+            Query.equal('userID', userId),
+            Query.equal('date', date)
+        ]);
+        return response.documents.length > 0 ? response.documents[0] : null;
+    } catch (error) {
+        console.error('Error fetching survey response:', error);
+        return null;
+    }
 };
