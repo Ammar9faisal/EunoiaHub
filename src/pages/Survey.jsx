@@ -2,7 +2,7 @@ import backgroundImage from '../assets/Purple.png';
 import React, { useState, useEffect } from 'react';
 import './Survey.css';
 import { useNavigate } from 'react-router-dom'; //navigation to another page
-import { questions, handleNext, handleBack, handleNumberClick, happinessIndex, fetchSurveyResponse } from '../services/surveyService';
+import { questions, handleNext, handleBack, handleNumberClick, fetchSurveyResponse, fetchMostRecentWellnessIndex } from '../services/surveyService';
 import { account } from '../appwrite';
 
 const Survey = () => {
@@ -10,6 +10,7 @@ const Survey = () => {
   const [responses, setResponses] = useState(new Array(questions.length).fill(null));
   const [showWarning, setShowWarning] = useState(false); // State to show warning message
   const [userId, setUserId] = useState(null); // State to store the user ID
+  const [wellnessIndex, setWellnessIndex] = useState(null); // State to store the wellness index
   const navigate = useNavigate(); //hook to navigate to another page
 
   useEffect(() => {
@@ -29,6 +30,17 @@ const Survey = () => {
 
     fetchUser();
   }, [navigate]);
+
+  useEffect(() => {
+    const fetchWellnessIndex = async () => {
+      if (userId) {
+        const index = await fetchMostRecentWellnessIndex(userId);
+        setWellnessIndex(index);
+      }
+    };
+
+    fetchWellnessIndex();
+  }, [userId]);
 
   const renderProgressBar = () => {
     return (
@@ -112,13 +124,15 @@ const Survey = () => {
           </div>
           <div className="survey-completion-text">
             {(() => {
-              const average = happinessIndex(responses).toFixed(1);
-              if (average <= 5) {
-                return `Your average score is ${average} today 😔. It’s okay to have tough days, try talking to a friend or some meditation. Take care of yourself, see you tomorrow!`;
-              } else if (average <= 7) {
-                return `Your average score is ${average} today 🙂. You’re doing alright—keep going! `;
+              if (wellnessIndex === null) {
+                return 'Loading your wellness index...';
+              }
+              if (wellnessIndex <= 5) {
+                return `Your average score is ${wellnessIndex.toFixed(2)} today 😔. It’s okay to have tough days, try talking to a friend or some meditation. Take care of yourself, see you tomorrow!`;
+              } else if (wellnessIndex <= 7) {
+                return `Your average score is ${wellnessIndex.toFixed(2)} today 🙂. You’re doing alright—keep going! `;
               } else {
-                return `Your average score is ${average} today 😊. Great job! You’re doing well—keep up the positive vibes! `;
+                return `Your average score is ${wellnessIndex.toFixed(2)} today 😊. Great job! You’re doing well—keep up the positive vibes! `;
               }
             })()}
           </div>

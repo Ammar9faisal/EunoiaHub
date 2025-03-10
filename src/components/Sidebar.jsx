@@ -54,12 +54,6 @@ export function Sidebar() {
           <NotepadText className="sidebar-icon"  color="white"/>
         </button>
         
-        <button
-          className={`sidebar-button ${activeButton === 'settings' ? 'sidebar-button-active' : ''}`}
-          onClick={() => handleButtonClick('settings')}
-        >
-          <Settings className="sidebar-icon"  color="white"/>
-        </button>
 
         <button
           className={`sidebar-button ${activeButton === 'UserTickets' ? 'sidebar-button-active' : ''}`}
