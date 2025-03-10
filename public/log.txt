@@ -390,8 +390,11 @@ Task: Fixing layout and interaction issues
 • Polished transition effects for better user experience.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 364bf92 (Merge branch 'master' of https://github.com/Ammar9faisal/EunoiaHub)
+=======
+>>>>>>> 551d457 (ADDED LOG FOR HARNAIN AND BAM)
 • Refined positioning of elements across different screen sizes.
 
 -> HARNAINDEEP KAUR
@@ -559,6 +562,7 @@ Checked for any UI inconsistencies before finalizing changes.
 Prepared project for final review and documentation.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ->Ammar Faisal 
 February 18
 
@@ -612,3 +616,5 @@ Conducted final test cases for authentication and storage.
 >>>>>>> 99ca1cf (UPDATED LOG.TXT)
 =======
 >>>>>>> 364bf92 (Merge branch 'master' of https://github.com/Ammar9faisal/EunoiaHub)
+=======
+>>>>>>> 551d457 (ADDED LOG FOR HARNAIN AND BAM)
