@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart2, Smile, NotepadText , Settings, LogOut } from 'lucide-react';
+import { BarChart2, Smile, NotepadText , Settings, LogOut, Star, LayoutList, Plus } from 'lucide-react';
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';

@@ -9,6 +9,7 @@ import Questionnaire from './pages/Questionnaire.jsx';
 
 import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
+import Resources from './pages/Resources.jsx';
 
 
 const router = createBrowserRouter([
