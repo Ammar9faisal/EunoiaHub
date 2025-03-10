@@ -14,8 +14,6 @@ import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute';
 
-
-
 const router = createBrowserRouter([
   {
     path: '/',

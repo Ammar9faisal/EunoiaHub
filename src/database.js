@@ -1,6 +1,8 @@
 import { databases } from "./appwrite";
 import { ID } from "appwrite";
 
+//This file contains shorthand wrappers to be used to interact with the Appwrite database.
+//It contains methods to create, update, delete, list, and get documents from the database.
 const db = {};
 
 const collections = [
@@ -23,11 +25,6 @@ const collections = [
         dbId: import.meta.env.VITE_DATABASE_ID,
         id: import.meta.env.VITE_COLLECTION_ID_TODOLISTS,
         name: "todoLists",
-    },
-    {
-        dbId: import.meta.env.VITE_DATABASE_ID,
-        id: import.meta.env.VITE_COLLECTION_ID_TODOITEMS,
-        name: "todoItems",
     },
 ];
 collections.forEach((col) => {

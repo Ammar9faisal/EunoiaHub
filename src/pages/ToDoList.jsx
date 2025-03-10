@@ -1,34 +1,76 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ToDoList.css';
+import db from '../database';
+import { account } from '../appwrite';
+import { Query } from 'appwrite';
 
 const ToDoList = () => {
-    const [tasks, setTasks] = useState([]);
+    const [tasks, setTasks] = useState([]);   //sets up the state for the tasks
     const [newTask, setNewTask] = useState('');
     const [editingIndex, setEditingIndex] = useState(null);
     const [editingText, setEditingText] = useState('');
+    const [userId, setUserId] = useState(null);
 
-    const addTask = () => {
+    useEffect(() => {   //loads the users tasks from the database when the page loads
+        const fetchUserAndTasks = async () => {
+            try {
+                const user = await account.get();
+                setUserId(user.$id);
+                const response = await db.todoLists.list([
+                    Query.equal('userID', user.$id) // Query to get tasks belonging to the user
+                ]);
+                setTasks(response.documents);      //sets the tasks to the response from the database
+            } catch (error) {
+                console.error('Error fetching user or tasks:', error);
+            }
+        };
+
+        fetchUserAndTasks();    //calls the function to fetch the user and tasks
+    }, []);
+
+    const addTask = async () => {   //adds a new task to the database
         if (newTask.trim()) {
-            setTasks([...tasks, newTask]);
-            setNewTask('');
+            try {
+                const response = await db.todoLists.create({  //creates a new task in the database
+                    userID: userId,
+                    description: newTask,
+                });
+                setTasks([...tasks, response]);
+                setNewTask('');
+            } catch (error) {  //logs an error if the task cannot be added
+                console.error('Error adding task:', error);
+            }
         }
     };
 
-    const removeTask = (index) => {
-        const updatedTasks = tasks.filter((task, i) => i !== index);
-        setTasks(updatedTasks);
+    const removeTask = async (taskId) => {  //removes a task from the database
+        try {
+            await db.todoLists.delete(taskId);  //deletes the task from the database
+            setTasks(tasks.filter((task) => task.$id !== taskId)); //filters out the task that was deleted
+        } catch (error) {
+            console.error('Error removing task:', error);
+        }
     };
 
-    const startEditing = (index, task) => {
+    const startEditing = (index, task) => {  //starts editing a task
         setEditingIndex(index);
-        setEditingText(task);
+        setEditingText(task.description);
     };
 
-    const saveEdit = (index) => {
-        const updatedTasks = tasks.map((task, i) => (i === index ? editingText : task));
-        setTasks(updatedTasks);
-        setEditingIndex(null);
-        setEditingText('');
+    const saveEdit = async (index) => {   //saves the edited task
+        const task = tasks[index];      //gets the task to be edited
+        try {
+            const response = await db.todoLists.update(task.$id, {  //updates the task in the database
+                userID: task.userID,
+                description: editingText,
+            });
+            const updatedTasks = tasks.map((t, i) => (i === index ? response : t)); //updates the task in the state
+            setTasks(updatedTasks);
+            setEditingIndex(null);
+            setEditingText('');
+        } catch (error) {
+            console.error('Error updating task:', error);
+        }
     };
 
     return (
@@ -40,27 +82,28 @@ const ToDoList = () => {
                         className="todo-list-input"
                         type="text"
                         value={newTask}
-                        onChange={(e) => setNewTask(e.target.value)}
+                        onChange={(e) => setNewTask(e.target.value)}  //updates the new task
                         placeholder="Add a new task"
                     />
                     <button className="todo-list-add" onClick={addTask}>+</button>
                 </div>
                 <ul className="todo-list-items">
                     {tasks.map((task, index) => (
-                        <li className="todo-list-item" key={index}>
+                        <li className="todo-list-item" key={task.$id}>
                             {editingIndex === index ? (
-                                <input
+                                <input   //allows the user to edit the task
                                     type="text"
                                     value={editingText}
                                     onChange={(e) => setEditingText(e.target.value)}
+                                    className="todo-list-edit-input"
                                 />
                             ) : (
-                                <span onClick={() => startEditing(index, task)}>{task}</span>
+                                <span onClick={() => startEditing(index, task)}>{task.description}</span>
                             )}
                             {editingIndex === index ? (
-                                <button onClick={() => saveEdit(index)}>✔️</button>
+                                <button className="todo-list-save-edit" onClick={() => saveEdit(index)}>✔</button>
                             ) : (
-                                <button className="todo-list-remove" onClick={() => removeTask(index)}>-</button>
+                                <button className="todo-list-remove" onClick={() => removeTask(task.$id)}>-</button>
                             )}
                         </li>
                     ))}
