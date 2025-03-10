@@ -1,4 +1,5 @@
 import { account, ID } from '../appwrite';
+import db from "../database";
 
 export const isLoggedIn = async (navigate) => {
     try {
@@ -17,7 +18,7 @@ export const validateEmail = (email) => {
     return re.test(String(email).toLowerCase());  // Returns the email in lowercase to keep the email format consistent
 };
 
-export const handleCreateAccount = async (email, password, navigate, setError) => { // Create an account using username and password
+export const handleCreateAccount = async (email, password, name , navigate, setError) => { // Create an account using username and password
     if (!email || !password) {
         setError('Please enter a valid email and password'); // Set error if email or password is empty
         return;
@@ -27,8 +28,13 @@ export const handleCreateAccount = async (email, password, navigate, setError) =
         return;
     }
     try {
-        const response = await account.create(ID.unique(), email, password);
+        const userId = ID.unique(); // Generate a unique user ID
+        const response = await account.create(userId, email, password, name);
         console.log(response); // Success
+
+        db.users.createUser(userId, { email: email, userID: userId, name: name}); // Create a new user document in the database
+        console.log('User document created'); // Debugging log
+
         navigate('/questionnaire'); // Redirect to questionnaire after successful account creation  
     } catch (error) {
         console.log(error); // Failure
@@ -58,6 +64,7 @@ export const handleExistingAccount = async (loginEmail, loginPassword, navigate,
     try {
         const response = await account.createEmailPasswordSession(loginEmail, loginPassword);
         console.log(response); // Success
+
         navigate('/dashboard'); // Redirect to dashboard after successful login
     } catch (error) {
         console.log("Login Error: " + error); // Failure
