@@ -13,6 +13,8 @@ import Resources from './pages/Resources.jsx';
 import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute';
+import BlogPage from './pages/BlogPage.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -78,6 +80,13 @@ const router = createBrowserRouter([
         <VisionBoard/>
       </ProtectedRoute>
     ),
+  },
+  {
+    path: '/blog',  // New route for Blog Page
+    element: (
+    <ProtectedRoute>
+     <BlogPage />,
+    </ProtectedRoute> ),
   },
 
   {

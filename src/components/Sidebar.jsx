@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart2, Smile, NotepadText , Settings, LogOut,  Map, Clipboard, Star, LayoutList, Plus } from 'lucide-react';
+import { BarChart2, Smile, NotepadText , Settings, LogOut,  Map, Clipboard, Star, LayoutList, Plus, Logs} from 'lucide-react';
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
@@ -44,6 +44,12 @@ export function Sidebar() {
           onClick={() => navigate("/FindHelp")}  // sets the button as active when a button is clicekd
         >
           <Map className="sidebar-icon"  color="white"/> 
+        </button>
+        <button 
+          className={`sidebar-button ${activeButton === 'find' ? 'sidebar-button-active' : ''}`}//button to navigate to the find help page
+          onClick={() => navigate("/blog")}  // sets the button as active when a button is clicekd
+        >
+          <Logs className="sidebar-icon"  color="white"/> 
         </button>
         
         {/* NEW Vision Board Button */}
