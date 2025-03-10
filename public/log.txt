@@ -212,14 +212,34 @@ INDIVIDUAL CONTRIBUTIONS
 
 -> MANJOT KAUR 
 
-ITR 1 Assigned User Story: Daily Questionnaire
+•	ITR 1: Daily Questionnaire
 Planned Cost: 2 days
 Actual Cost: 2 days
 The user questionnaire is completed by user daily to log their moods and then get a recap after few days. It consists of bunch of questions about feelings, motivation and stress. The task required UI and logic and was done within planned cost.
-ITR 2 Assigned User Story: Find Help near you
+Jan 24: 2 hr (Research and planning)
+Jan 26: 3 hr (Learning to implement UI)
+Jan 20: 3 hr (Learning to use React)
+Feb 2: 6 hr (Implementing UI)
+	Feb 3: 3 hr (Implementing UI)
+Feb 4: 8 hr (Implementing Logic)
+Feb 5: 5 hr (Improving design)
+Feb 6: 10 hr (Debugging)
+Feb 7: 5 hr (Testing code)
+Feb 8: 3 hr (Final testing and uploading)
+•	ITR 2 : Find Help near you
 Planned Cost:  2 days
 Actual Cost: 2.5 days
 Find help near you feature allows user to find any resources, counselors or therapists in area by inputting the postal code. The task took .5 day more as it was a bit challenging task. I had to look for API’s and then learning to integrate them properly took some extra time.
+Feb 11: 3 hr (Research and planning)
+Feb 12: 6 hr (Learning to use API)
+Feb 13: 4 hr (Learning to use API and implementing them in React)
+Feb 15: 2 hr (Made goggle cloud account, generating keys)
+Feb 17: 8 hr (Designing UI)
+Feb 18: 5 hr (Implementing UI)
+Feb 20: 6 hr (Designing Logic)
+Feb 21-22: 10 hr (Implementing UI and Logic)
+Feb 24-26: 8 hr (Implementing APIs and Testing)
+March 1- 3 : 8 hr (Testing , Debugging)
 
 -> ABDULLAH BAJWA 
 
@@ -331,3 +351,168 @@ MAR 6 – 1 hr 35 mins
 Task: Fixing layout and interaction issues
 • Polished transition effects for better user experience.
 • Refined positioning of elements across different screen sizes.
+
+-> HARNAINDEEP KAUR
+
+- Researching Topics (3-5 hours)
+Explored and gathered information on key wellness and mental health topics to shape app content and features while also 
+considering other possible project ideas
+
+- Project Proposal Documentation (2 hours)
+Drafted the initial project proposal outlining objectives, scope, and expected outcomes.
+
+- Talking to Customers (10 hours)
+Collected user feedback and requirements through interviews and discussions to align the app with user needs and choose a client
+to make the client video for
+
+Project Service Discussions (10 hours)
+- Collaborated with team members to define and refine backend services and API requirements.
+
+Vision Statement (6 hours)
+- Created a clear vision statement to guide the development and goals of the Eunoia Hub app.
+- Made edits and updates to the vision statement
+
+User Stories (3-4 hours)
+- Brainstormed big user stories and user stories
+- Developed detailed user stories to capture functionality from the end-user perspective in collaboration with other team members
+
+Client Video and Video Editing (8-10 hours)
+- Arranged meetings with the client 
+- Came up with questions in collaboration with another team members
+- Filmed and Produced the client video
+- Edited client video for the deliverable
+- Edited client video for presentation 
+
+Questionnaire UI Design (Figma) (8 hours)
+- Designed the visual layout and user flow of the questionnaire in Figma, ensuring a seamless and engaging user experience.
+- Created an intuitive and responsive design with clear, accessible navigation and easy-to-select options.
+- Included visual feedback for selected answers and a progress indicator for a more interactive experience.
+
+Color Coding Research (6 hours)
+- Researched effective color coding strategies for representing user emotions and wellness states.
+- Selected a color palette (green, orange, purple, white) aligned with user responses and psychological associations.
+
+Colorcoding.jsx (20-25 hours)
+- Developed the color coding component to dynamically update the dashboard background based on questionnaire results.
+- Implemented logic to determine the dominant answer category and apply the corresponding color.
+- Ensured efficient state management and seamless integration with the routing system.
+- Tested with dashboard 
+
+Colorcoding.css (8-10 hours)
+- Styled the dashboard background with smooth color transitions for a visually appealing experience.
+- Applied responsive design principles to maintain consistency across different screen sizes.
+- Enhanced accessibility by ensuring text readability against different background colors.
+
+Todolist.jsx (12-15 hours)
+- Developed the to-do list component with task creation, completion, editing and deletion functionalities.
+- Implemented local storage to preserve the task list across sessions.
+- Ensured smooth user interactions with real-time task updates and error handling for empty task entries.
+
+Todolist.css (5 hours)
+- Styled the to-do list with a clean, minimalistic design for better readability and organization.
+- Added hover effects and completion indicators for an interactive user experience.
+- Improved button and input styling for better usability and consistency with the overall app theme.
+
+Usertickets.jsx (10 hours)
+- Created the user tickets component for submitting and managing support requests.
+- Adding user review component to get any feedback from users
+- Developed form validation to prevent empty or incomplete ticket submissions.
+- Integrated state management for real-time ticket updates and feedback.
+
+Usertickets.css (4 hours)
+- Styled the user tickets form with clear labels, input fields, and submission feedback.
+- Applied consistent spacing and alignment for a polished, professional appearance.
+- Enhanced button and message styling to improve user guidance and experience.
+
+-> OLUWAGBEMINIYI Adewumi
+
+January 24 – 1 hr 30 mins
+Task: Initial Research & Planning
+Reviewed project requirements for mental health resources.
+Considered possible sections (podcasts, books, videos).
+Researched UI/UX best practices for accessibility.
+January 26 – 2 hrs
+Task: Setting Up the Questionnaire Structure
+Created the base JSX file for the questionnaire.
+Implemented state handling for user responses.
+Ensured questions rendered dynamically based on user input.
+January 29 – 2 hrs
+Task: Expanding Questionnaire Logic
+Added more structured validation for required questions.
+Refined the conditional logic for question flow.
+Tested UI responsiveness across different screen sizes.
+January 31 – 1 hr 45 mins
+Task: Initial Work on Resources Page
+Created Resources.jsx and basic category structure.
+Added placeholder data for Podcasts, Books, and Videos.
+Implemented dropdown functionality for each category.
+
+February 2 – 2 hrs 30 mins
+Task: Improving Resources Page Structure
+Adjusted button spacing for a cleaner layout.
+Fixed minor UI inconsistencies with dropdowns.
+Started work on integrating more resources dynamically.
+February 5 – 1 hr 50 mins
+Task: Expanding Resource Listings
+Added more Podcasts, Books, and Videos (10 each).
+Improved hover effects and transitions for dropdowns.
+Ensured consistent formatting across all sections.
+February 7 – 2 hrs 15 mins
+Task: Sidebar Component Setup
+Began integrating a sidebar for better navigation.
+Created a simple sidebar structure with placeholder icons.
+Ensured sidebar styling aligned with the overall theme.
+February 9 – 2 hrs
+Task: Connecting Resources Page to Sidebar
+Linked the "Resources" button in the sidebar to the Resources page.
+Adjusted sidebar positioning to prevent layout shifts.
+Ensured active states worked correctly for navigation buttons.
+February 12 – 2 hrs 10 mins
+Task: Expanding Resource Categories
+Introduced three new sections: Support Groups, Hotlines, and Self-Help Workbooks.
+Populated each with 10 relevant resources.
+Updated JSX logic to dynamically handle new sections.
+February 13 – 2 hrs
+Task: Adjusting UI for Additional Sections
+Resized category buttons to fit additional sections.
+Adjusted dropdown behavior for more intuitive interaction.
+Ensured smooth scrolling within expanded sections.
+February 14 – 2 hrs 30 mins
+Task: Adding "Back to Dashboard" Button
+Created a button to navigate back to the dashboard.
+Initially positioned it in top left, but later moved it to bottom right.
+Ensured button styling matched the theme.
+
+(February 15 - February 22: Reading Week – No Work Logged)
+
+February 23 – 2 hrs
+Task: UI Refinements for Resources Page
+Adjusted text alignment for consistency across sections.
+Ensured external links opened in new tabs.
+Fixed a small issue where dropdowns weren’t fully pushing content down when expanded.
+February 25 – 1 hr 40 mins
+Task: Sidebar Navigation Enhancements
+Added a "Plus" icon in the sidebar to link directly to the Resources page.
+Ensured the icon properly redirected without page reloads.
+February 27 – 2 hrs 15 mins
+Task: Additional Refinements
+Updated the introductory paragraph on the Resources page to reflect new sections.
+Adjusted spacing between sections for a cleaner UI.
+Finalized dropdown animations to be smoother.
+
+March 1 – 1 hr 50 mins
+Task: Fixing Layout Bugs
+Resolved sidebar white space issue that caused a gap on the right.
+Adjusted background gradient to ensure full coverage.
+Re-tested dropdown behavior after previous fixes.
+March 3 – 2 hrs
+Task: Testing & Debugging
+Verified that all links and buttons worked correctly.
+Ensured mobile responsiveness for sidebar and resource sections.
+Fixed a minor issue with hover states on buttons.
+March 5 – 2 hrs 10 mins
+Task: Final Adjustments
+Improved "Back to Dashboard" button positioning to ensure it didn’t interfere with dropdowns.
+Checked for any UI inconsistencies before finalizing changes.
+Prepared project for final review and documentation.
+
