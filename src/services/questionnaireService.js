@@ -133,24 +133,24 @@ export const useSurvey = () => {
         }
     };
 
-    const handleBack = () => {
+    const handleBack = () => {  // Go back to previous question
         if (currentQuestion > 0) {
             setCurrentQuestion(currentQuestion - 1);
             setSelectedAnswer(null);
         }
     };
 
-    const redoSurvey = () => {
+    const redoSurvey = () => {  // Clear saved answers and start over
         localStorage.removeItem('surveyAnswers');
         setCurrentQuestion(0);
         setSelectedAnswer(null);
     };
 
-    const handleIntroSelect = (option) => {
+    const handleIntroSelect = (option) => {  // Select either Survey or Dashboard
         setSelectedOption(option);
     };
 
-    const handleIntroNext = () => {
+    const handleIntroNext = () => {  // Move to first question or Dashboard
         if (selectedOption) {
             if (selectedOption === 'Survey') {
                 setCurrentQuestion(0);
@@ -160,7 +160,7 @@ export const useSurvey = () => {
         }
     };
 
-    useEffect(() => {
+    useEffect(() => {  // Calculate results based on final category
         if (currentQuestion === questions.length) {
             const savedAnswers = JSON.parse(localStorage.getItem('surveyAnswers')) || [];
 

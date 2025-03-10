@@ -1,4 +1,4 @@
-export const podcasts = [
+export const podcasts = [  // Array of objects
     {
         title: "The Happiness Lab",
         description: "Dr. Laurie Santos shares the science of happiness and how to apply it in everyday life.",

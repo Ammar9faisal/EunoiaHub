@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSurvey } from '../services/questionnaireService';
-import background from '../assets/Purple.png';
+import background from '../assets/Purple.png';   
 import './Question.css';
 import './QResults.css';
 import { useNavigate } from 'react-router-dom';
 
-function Questionnaire() {
-    const {
+function Questionnaire() {  
+    const {  
         questions,
         selectedAnswer,
         currentQuestion,
@@ -20,7 +20,7 @@ function Questionnaire() {
         handleIntroNext
     } = useSurvey();
 
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // Hook to navigate to different pages
 
     // Function to render the result text based on the survey outcome
     const renderResultText = () => {
