@@ -15,13 +15,13 @@ export function Sidebar() {
   };
 
   const handleLogout = async () => {     //handles the logout functionality for the app
-  try {
-    await account.deleteSession('current');
-    navigate('/');
-  } catch (error) {
-    console.error('Failed to logout:', error);
-  }
-};
+    try {
+      await account.deleteSession('current');
+      navigate('/');
+    } catch (error) {
+      console.error('Failed to logout:', error);
+    }
+  };  
 
   return (
     <div className="sidebar">
@@ -31,7 +31,7 @@ export function Sidebar() {
           className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('dashboard')}  // sets the button as active when a button is clicekd
         >
-          
+
           
           <BarChart2 className="sidebar-icon" color="white"/>
         </button>
