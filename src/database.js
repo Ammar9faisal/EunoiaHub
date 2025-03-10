@@ -1,10 +1,13 @@
-import { databases } from "./appwrite";
+import { databases as appwriteDatabases} from "./appwrite";
 import { ID } from "appwrite";
+import stubDatabase from "./stubDatabase";
+
+const useStubDatabase = import.meta.env.VITE_USE_STUB_DATABASE === 'true';
+const databases = useStubDatabase ? stubDatabase : appwriteDatabases;
 
 //This file contains shorthand wrappers to be used to interact with the Appwrite database.
 //It contains methods to create, update, delete, list, and get documents from the database.
 const db = {};
-
 const collections = [
     {
         dbId: import.meta.env.VITE_DATABASE_ID,
