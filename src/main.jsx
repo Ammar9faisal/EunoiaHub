@@ -31,6 +31,10 @@ const router = createBrowserRouter([
   },
 
   {
+    path: '/todo',
+    element: <ToDoList/>,
+  },
+  {
     path: '/usertickets',
     element: <UserTickets />,
   },
