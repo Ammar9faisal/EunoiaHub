@@ -12,12 +12,12 @@ export const questions = [
     { id: 7, text: "How hopeful do you feel about tomorrow? (1 = Not hopeful, 10 = Very hopeful)" },
 ];
 
-export const handleNext = async (pageNum, responses, setResponses, setCurrentPage, navigate, userId) => {
+export const handleNext = async (pageNum, responses, setResponses, setCurrentPage, navigate, userId) => {  //handleNext function to handle the next button click
     if (pageNum === 7) {
         const date = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
         const wellnessIndex = happinessIndex(responses);
         try {
-            await db.surveyResponses.create({
+            await db.surveyResponses.create({ // Create a new survey response
                 userID: userId,
                 date,
                 wellnessIndex
@@ -31,18 +31,18 @@ export const handleNext = async (pageNum, responses, setResponses, setCurrentPag
     setCurrentPage(pageNum + 1);
 };
 
-export const happinessIndex = (responses) => {
+export const happinessIndex = (responses) => {  //happinessIndex function to calculate the average of the responses
     console.log('Responses:', responses);
     const total = responses.reduce((sum, value) => sum + value, 0);
     console.log('Total:', total/questions.length);
     return total / questions.length;
 };
 
-export const handleBack = (currentPage, setCurrentPage) => {
+export const handleBack = (currentPage, setCurrentPage) => {  //handleBack function to handle the back button click
     setCurrentPage(currentPage - 1);
 };
 
-export const handleNumberClick = (value, currentPage, responses, setResponses) => {
+export const handleNumberClick = (value, currentPage, responses, setResponses) => {  //handleNumberClick function to handle the number button click
     const updatedResponses = [...responses];
     updatedResponses[currentPage - 1] = value;
     setResponses(updatedResponses);
@@ -63,7 +63,7 @@ export const fetchSurveyResponse = async (userId) => {
     }
 };
 
-export const fetchMostRecentWellnessIndex = async (userId) => {
+export const fetchMostRecentWellnessIndex = async (userId) => {  //fetchMostRecentWellnessIndex function to fetch the most recent wellness index
     try {
         const response = await db.surveyResponses.list([
             Query.equal('userID', userId),

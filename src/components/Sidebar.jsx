@@ -9,11 +9,11 @@ export function Sidebar() {
   const [activeButton, setActiveButton] = useState('dashboard');
   const navigate = useNavigate();
 
-  const handleButtonClick = (buttonName) => {
+  const handleButtonClick = (buttonName) => { // function to handle button click
     setActiveButton(buttonName);
   };
 
-  const handleLogout = async () => {
+  const handleLogout = async () => {  // function to handle logout
     try {
       await account.deleteSession('current');
       navigate('/');
@@ -27,13 +27,13 @@ export function Sidebar() {
       <img className="sidebar-logo" src={logo} />
       <nav className="sidebar-nav">
         <button
-          className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}
+          className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}  //button to navigate to the dashboard page
           onClick={() => handleButtonClick('dashboard')}
         >
           <BarChart2 className="sidebar-icon" color="white" />
         </button>
         <button
-          className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
+          className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}  //button to navigate to the checkin page
           onClick={() => navigate("/survey")}
         >
           <Smile className="sidebar-icon" color="white" />

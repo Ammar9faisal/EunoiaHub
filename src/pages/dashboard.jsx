@@ -51,7 +51,7 @@ export default function Dashboard() {
     fetchUserDocument();
   }, [userId]);
 
-  useEffect(() => {
+  useEffect(() => {  //fetches the wellness index data
     const fetchWellnessData = async () => {
       if (userId) {
         try {
@@ -66,7 +66,7 @@ export default function Dashboard() {
     fetchWellnessData();
   }, [userId]);
 
-  useEffect(() => {
+  useEffect(() => { //sets the quotes randomly from a list of quotes
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
   }, []);

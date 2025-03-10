@@ -55,7 +55,7 @@ const Survey = () => {
     );
   };
 
-  const renderScale = () => {
+  const renderScale = () => {  //rendering the scale of 1-10
     return (
       <div className="survey-scale-container">
         <div className="survey-scale-numbers">
@@ -92,7 +92,7 @@ const Survey = () => {
     );
   };
 
-  return (
+  return (  //returning the survey page
     <div className="survey-body" style={{ backgroundImage: `url(${backgroundImage})` }}>
       {currentPage === 0 ? (
         <div className="survey-container">

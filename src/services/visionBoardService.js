@@ -16,7 +16,7 @@ export const fetchUserAndVisionBoard = async (setUserId, setNotes) => {
     }
 };
 
-export const addNote = async (userId, newNote, notes, setNotes, setNewNote) => {
+export const addNote = async (userId, newNote, notes, setNotes, setNewNote) => {  // Add a new note to the vision board
     if (newNote.trim()) {
         try {
             const response = await db.visionboard.create({
@@ -31,7 +31,7 @@ export const addNote = async (userId, newNote, notes, setNotes, setNewNote) => {
     }
 };
 
-export const deleteNote = async (index, notes, setNotes, userId) => {
+export const deleteNote = async (index, notes, setNotes, userId) => {  // Delete a note from the vision board
     try {
         const noteToDelete = notes[index];
         const response = await db.visionboard.list([
