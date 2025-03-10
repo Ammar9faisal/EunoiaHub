@@ -27,7 +27,7 @@ const collections = [
         name: "visionboard",
     },
 ];
-collections.forEach((col) => {
+collections.forEach((col) => {  //wrapper for the database methods to simplify the interaction with the Appwrite database
     db[col.name] = {
         create: (payload, permissions, id = ID.unique()) =>
             databases.createDocument(

@@ -22,13 +22,13 @@ const Chatbot = () => {
         }
     };
 
-     const toggleChat = () => {
+     const toggleChat = () => { //toggles the chatbot
         const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
         chatbot.classList.toggle('hidden');
     }
 
     return (
-        <div className="chatbot">
+        <div className="chatbot">  
             <div>
                 <button id="openBtn" onClick={toggleChat}>Open EunoiaBot</button> {/*button to open chatbot*/}
             </div>

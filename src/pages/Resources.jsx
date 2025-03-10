@@ -3,11 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { podcasts, books, videos, supportGroups, hotlines, workbooks } from '../services/resourcesService';
 import './Resources.css';
 
-const Resources = () => {
-    const [openSection, setOpenSection] = useState(null);
+const Resources = () => { 
+    const [openSection, setOpenSection] = useState(null);  
     const navigate = useNavigate();
 
-    const toggleSection = (section) => {
+    // Function to toggle the visibility of resource sections
+    const toggleSection = (section) => {  
         setOpenSection(openSection === section ? null : section);
     };
 

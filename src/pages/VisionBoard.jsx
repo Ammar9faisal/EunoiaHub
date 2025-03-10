@@ -6,19 +6,19 @@ import { fetchUserAndVisionBoard, addNote, deleteNote } from '../services/vision
 export default function VisionBoard() {
   const navigate = useNavigate();
 
-  const [notes, setNotes] = useState([]);
+  const [notes, setNotes] = useState([]);  //array of notes
   const [newNote, setNewNote] = useState("");
   const [userId, setUserId] = useState(null);
 
-  useEffect(() => {
+  useEffect(() => {   //fetching the user and vision board
     fetchUserAndVisionBoard(setUserId, setNotes);
   }, []);
 
-  const handleAddNote = () => {
+  const handleAddNote = () => {  //adding a note
     addNote(userId, newNote, notes, setNotes, setNewNote);
   };
 
-  const handleDeleteNote = (index) => {
+  const handleDeleteNote = (index) => {  //deleting a note
     deleteNote(index, notes, setNotes, userId);
   };
 
