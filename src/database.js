@@ -40,6 +40,14 @@ collections.forEach((col) => {
                 payload,
                 permissions
             ),
+        createUser: (id, payload, permissions) =>
+            databases.createDocument(
+                col.dbId,
+                col.id,
+                id,
+                payload,
+                permissions
+            ),
         update: (id, payload, permissions) =>
             databases.updateDocument(
                 col.dbId,

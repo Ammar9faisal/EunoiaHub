@@ -25,6 +25,7 @@ function Login() {
 
   const [email, setUser] = useState(""); // State for sign-up email
   const [password, setPassword] = useState(""); // State for sign-up password
+  const [name, setName] = useState(""); // State for sign-up name
 
   const [loginEmail, setLoginUser] = useState(""); // State for login email
   const [loginPassword, setLoginPassword] = useState(""); // State for login password
@@ -65,7 +66,8 @@ function Login() {
           <input className="password" type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
           {password && (password.length < 8 || password.length > 256) && <p style={{ color: 'red' }}>Password must be between 8-256 chars long</p>}
           {error && <p style={{ color: 'red' }}>{error}</p>} {/* Display error message */}
-          <button className="button" onClick={() => handleCreateAccount(email, password, navigate, setError)}>Create Account</button> {/* Button to create account */}
+          <input className="email" type="text" placeholder="Name" onChange={e => setName(e.target.value)} />
+          <button className="button" onClick={() => handleCreateAccount(email, password, name , navigate, setError)}>Create Account</button> {/* Button to create account */}
           <h3>Or Sign-In Using</h3>
           <button className='signin-btn' onClick={toggle}>Sign-In</button> {/* Button to toggle to sign-in screen */}
         </div>
