@@ -516,3 +516,51 @@ Improved "Back to Dashboard" button positioning to ensure it didn’t interfere 
 Checked for any UI inconsistencies before finalizing changes.
 Prepared project for final review and documentation.
 
+->Ammar Faisal 
+February 18
+
+Started developing EunoiaBot using Gemini AI.
+Implemented core chatbot functionality for generating responses.
+Began structuring chatbot as a reusable component.
+February 19
+
+Refined chatbot’s response system to ensure supportive and non-judgmental interactions.
+Added project-specific answers for client queries.
+Completed initial testing on chatbot responses.
+February 21
+
+Integrated chatbot into a test webpage for validation.
+Fixed minor response inconsistencies.
+February 23
+
+Began working on the login system using Appwrite.
+Set up authentication with email/password signup and login.
+February 24
+
+Linked persistent storage to the authentication system.
+Ensured new users in auth system are automatically added to SQL database.
+February 26
+
+Fixed routing issues to prevent unauthorized access to sensitive data.
+Debugged various authentication-related problems.
+February 28
+
+Worked on protected routing for user-specific data.
+Conducted security testing for login system.
+March 1
+
+Helped debug other team members' components.
+Started refactoring dashboard and sidebar to improve structure and UI.
+March 3
+
+Completed dashboard refactoring, making it functional and aesthetically improved.
+Separated code into a three-layer architecture for better maintainability.
+March 6
+
+Continued bug fixing for other components.
+Cleaned up messy code and improved component structures.
+March 9
+
+Finalized SQL integration for user authentication and data storage.
+Ensured seamless linkage between Appwrite and SQL database.
+Conducted final test cases for authentication and storage.

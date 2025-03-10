@@ -5,7 +5,6 @@ import { fetchMostRecentWellnessIndex } from './surveyService';
 const user = await account.get(); //gets the user account
 
 const username = user.name; //gets the username
-const wellnessIndex = fetchMostRecentWellnessIndex(user.$id); //fetches the most recent wellness index
 
 const apiKey = import.meta.env.VITE_GEMINI_API_KEY; // imports the gemini api key from environment variables
 const genAI = new GoogleGenerativeAI(apiKey); // loads the gemini api key
