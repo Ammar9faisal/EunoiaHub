@@ -569,6 +569,9 @@ Prepared project for final review and documentation.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6f042ca (commited ammar log)
 ->Ammar Faisal 
 February 18
 
@@ -616,6 +619,7 @@ March 9
 
 Finalized SQL integration for user authentication and data storage.
 Ensured seamless linkage between Appwrite and SQL database.
+<<<<<<< HEAD
 Conducted final test cases for authentication and storage.
 =======
 • Refined positioning of elements across different screen sizes.
@@ -624,3 +628,6 @@ Conducted final test cases for authentication and storage.
 >>>>>>> 364bf92 (Merge branch 'master' of https://github.com/Ammar9faisal/EunoiaHub)
 =======
 >>>>>>> 551d457 (ADDED LOG FOR HARNAIN AND BAM)
+=======
+Conducted final test cases for authentication and storage.
+>>>>>>> 6f042ca (commited ammar log)

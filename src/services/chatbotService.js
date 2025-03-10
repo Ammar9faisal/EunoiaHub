@@ -31,4 +31,3 @@ export async function generateResponse(AIrequest, history) {  //generates the re
         return "I'm sorry, I'm having trouble with connecting to the server. Please try again later.";
     }
 }
-
