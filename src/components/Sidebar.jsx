@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart2, Smile, NotepadText , Settings, LogOut, Star, LayoutList } from 'lucide-react';
+import { BarChart2, Smile, NotepadText , Settings, LogOut } from 'lucide-react';
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
@@ -53,6 +53,12 @@ export function Sidebar() {
           onClick={() => navigate("/todo")}    // sets the button as active when a button is clicekd
         >
           <LayoutList className="sidebar-icon"  color="blue"/>
+        </button>
+        <button
+          className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/resources")}  // sets the button as active when a button is clicekd
+        >
+          <Plus className="sidebar-icon"  color="blue"/>
         </button>
 
       </nav>

@@ -30,13 +30,14 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/todo', // Path for the to-do list page
-    element: <ToDoList />,
+    path: '/usertickets',
+    element: <UserTickets />,
   },
-{
-  path: '/usertickets',
-  element: <UserTickets />,
-},
+  {
+    path: '/resources', // Path to resources page
+    element: <Resources />, // Corrected the typo
+  },
+
 ]);
 
 createRoot(document.getElementById('root')).render(
