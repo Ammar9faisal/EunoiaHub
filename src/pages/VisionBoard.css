@@ -84,6 +84,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    word-wrap: break-word; /* Ensure text wraps within the sticky note */
+    overflow-wrap: break-word; /* Ensure text wraps within the sticky note */
 }
 
 /* Light Tape Effect at the Top */
