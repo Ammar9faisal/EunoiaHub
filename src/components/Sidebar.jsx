@@ -36,13 +36,14 @@ export function Sidebar() {
           className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/survey")}
         >
-          <Smile className="sidebar-icon" color="white" />
+          <Smile className="sidebar-icon" color="blue" />
         </button>
-        <button
-          className={`sidebar-button ${activeButton === 'find' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/FindHelp")}
+
+        <button 
+          className={`sidebar-button ${activeButton === 'find' ? 'sidebar-button-active' : ''}`}//button to navigate to the find help page
+          onClick={() => navigate("/FindHelp")}  // sets the button as active when a button is clicekd
         >
-          <LayoutList className="sidebar-icon"  color="white"/>
+          <Map className="sidebar-icon"  color="blue"/> 
         </button>
         
         {/* NEW Vision Board Button */}
@@ -50,8 +51,9 @@ export function Sidebar() {
           className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate('/visionboard')}
         >
-          <NotepadText className="sidebar-icon"  color="white"/>
+          <NotepadText className="sidebar-icon"  color="blue"/>
         </button>
+        
         <button
           className={`sidebar-button ${activeButton === 'settings' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('settings')}
