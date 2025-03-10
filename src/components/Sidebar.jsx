@@ -45,6 +45,7 @@ export function Sidebar() {
         >
           <Map className="sidebar-icon"  color="white"/> 
         </button>
+        
         {/* NEW Vision Board Button */}
         <button
           className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
