@@ -30,55 +30,55 @@ export function Sidebar() {
           className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('dashboard')}
         >
-          <BarChart2 className="sidebar-icon" color="blue" />
+          <BarChart2 className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/survey")}
         >
-          <Smile className="sidebar-icon" color="blue" />
+          <Smile className="sidebar-icon" color="white" />
         </button>
 
         <button 
           className={`sidebar-button ${activeButton === 'find' ? 'sidebar-button-active' : ''}`}//button to navigate to the find help page
           onClick={() => navigate("/FindHelp")}  // sets the button as active when a button is clicekd
         >
-          <Map className="sidebar-icon"  color="blue"/> 
+          <Map className="sidebar-icon"  color="white"/> 
         </button>
         {/* NEW Vision Board Button */}
         <button
           className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate('/visionboard')}
         >
-          <NotepadText className="sidebar-icon"  color="blue"/>
+          <NotepadText className="sidebar-icon"  color="white"/>
         </button>
         
         <button
           className={`sidebar-button ${activeButton === 'settings' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('settings')}
         >
-          <Settings className="sidebar-icon"  color="blue"/>
+          <Settings className="sidebar-icon"  color="white"/>
         </button>
 
         <button
           className={`sidebar-button ${activeButton === 'UserTickets' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/usertickets")}    // sets the button as active when a button is clicekd
         >
-          <Star className="sidebar-icon"  color="blue"/>
+          <Star className="sidebar-icon"  color="white"/>
         </button>
 
         <button
           className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/todo")}    // sets the button as active when a button is clicekd
         >
-          <LayoutList className="sidebar-icon"  color="blue"/>
+          <LayoutList className="sidebar-icon"  color="white"/>
         </button>
 
         <button
           className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/resources")}  // sets the button as active when a button is clicekd
         >
-          <Plus className="sidebar-icon"  color="blue"/>
+          <Plus className="sidebar-icon"  color="white"/>
         </button>
 
       </nav>

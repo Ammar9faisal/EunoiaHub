@@ -73,6 +73,14 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+  {
+    path: '/visionboard', 
+    element: (
+      <ProtectedRoute>
+        <VisionBoard/>
+      </ProtectedRoute>
+    ),
+  },
 
   {
     path: '/vision-board', // Add the Vision Board route
