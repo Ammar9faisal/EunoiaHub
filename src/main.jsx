@@ -7,8 +7,8 @@ import Dashboard from './pages/dashboard.jsx';
 import Survey from './pages/Survey.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
 import FindHelp from './pages/FindHelp.jsx';
-
 import ToDoList from './pages/ToDoList.jsx';
+import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -46,14 +46,21 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/todo', // Path for the to-do list page
+    path: '/todo',
     element: (
-    <ProtectedRoute>
-      <ToDoList />
-    </ProtectedRoute>
+      <ProtectedRoute>
+        <ToDoList />
+      </ProtectedRoute>
     ),
   },
-  
+  {
+    path: '/visionboard', // Added VisionBoard route
+    element: (
+      <ProtectedRoute>
+        <VisionBoard />
+      </ProtectedRoute>
+    ),
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(
