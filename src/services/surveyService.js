@@ -32,7 +32,9 @@ export const handleNext = async (pageNum, responses, setResponses, setCurrentPag
 };
 
 export const happinessIndex = (responses) => {
+    console.log('Responses:', responses);
     const total = responses.reduce((sum, value) => sum + value, 0);
+    console.log('Total:', total/questions.length);
     return total / questions.length;
 };
 
@@ -57,6 +59,20 @@ export const fetchSurveyResponse = async (userId) => {
         return response.documents.length > 0 ? response.documents[0] : null;
     } catch (error) {
         console.error('Error fetching survey response:', error);
+        return null;
+    }
+};
+
+export const fetchMostRecentWellnessIndex = async (userId) => {
+    try {
+        const response = await db.surveyResponses.list([
+            Query.equal('userID', userId),
+            Query.orderDesc('date'),
+            Query.limit(1)
+        ]);
+        return response.documents.length > 0 ? response.documents[0].wellnessIndex : null;
+    } catch (error) {
+        console.error('Error fetching most recent wellness index:', error);
         return null;
     }
 };
