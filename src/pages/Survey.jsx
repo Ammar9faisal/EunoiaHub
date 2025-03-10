@@ -24,7 +24,7 @@ const Survey = () => {
         }
       } catch (error) {
         console.error('Error fetching user account or survey response:', error);
-        navigate('/'); // Redirect to login if not logged in
+        navigate('/login'); // Redirect to login if not logged in
       }
     };
 
