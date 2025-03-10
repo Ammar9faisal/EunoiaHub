@@ -72,6 +72,13 @@ export function Sidebar() {
           <LayoutList className="sidebar-icon"  color="blue"/>
         </button>
 
+        <button
+          className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/resources")}  // sets the button as active when a button is clicekd
+        >
+          <Plus className="sidebar-icon"  color="blue"/>
+        </button>
+
       </nav>
       <button className="sidebar-button" onClick={handleLogout}>
         <LogOut className="sidebar-icon"  color="white"/>
