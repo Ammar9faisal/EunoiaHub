@@ -27,14 +27,9 @@ export default function Dashboard() {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
 
-    //changes made by Harnain
-    const savedColor = localStorage.getItem('dashboardColor');
-    if (savedColor && allowedColors.includes(savedColor)) {
-      setDashboardColor(savedColor);
-    } else {
-      setDashboardColor('dashboard-white');
-    }
-  }, []);
+   
+  }, []
+);
 
   const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
   const wellnessIndex = stubData.wellnessIndexDaily.data;  //--------------------> Getting wellnessIndex from stubData
