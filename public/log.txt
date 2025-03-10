@@ -214,6 +214,9 @@ INDIVIDUAL CONTRIBUTIONS
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> f676db9 (Updated log for Manjpt)
 •	ITR 1: Daily Questionnaire
 Planned Cost: 2 days
 Actual Cost: 2 days
@@ -242,6 +245,7 @@ Feb 20: 6 hr (Designing Logic)
 Feb 21-22: 10 hr (Implementing UI and Logic)
 Feb 24-26: 8 hr (Implementing APIs and Testing)
 March 1- 3 : 8 hr (Testing , Debugging)
+<<<<<<< HEAD
 =======
 ITR 1 Assigned User Story: Daily Questionnaire
 =======
@@ -278,6 +282,8 @@ Feb 21-22: 10 hr (Implementing UI and Logic)
 Feb 24-26: 8 hr (Implementing APIs and Testing)
 March 1- 3 : 8 hr (Testing , Debugging)
 >>>>>>> 364bf92 (Merge branch 'master' of https://github.com/Ammar9faisal/EunoiaHub)
+=======
+>>>>>>> f676db9 (Updated log for Manjpt)
 
 -> ABDULLAH BAJWA 
 
