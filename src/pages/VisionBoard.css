@@ -195,16 +195,19 @@
 
 /* Back to Dashboard Button */
 .visionboard-container .back-button {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background-color: #333;
+    display: inline-block;
+    padding: 10px 15px; /* Match the Upload an Image button */
+    background-color: #333; /* Match the color */
     color: white;
-    padding: 10px 20px;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+    text-align: center;
+    text-decoration: none; /* Remove default link styling if applicable */
+    border: none;
 }
 
 .visionboard-container .back-button:hover {
-    background-color: #222;
+    background-color: #222; /* Same hover effect */
 }
