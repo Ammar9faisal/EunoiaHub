@@ -404,7 +404,7 @@ Usertickets.css (4 hours)
 - Applied consistent spacing and alignment for a polished, professional appearance.
 - Enhanced button and message styling to improve user guidance and experience.
 
--> OLUWAGBEMINIYI Adewumi
+-> OLUWAGBEMINIYI ADEWUMI
 
 January 24 – 1 hr 30 mins
 Task: Initial Research & Planning
@@ -494,4 +494,4 @@ March 5 – 2 hrs 10 mins
 Task: Final Adjustments
 Improved "Back to Dashboard" button positioning to ensure it didn’t interfere with dropdowns.
 Checked for any UI inconsistencies before finalizing changes.
-Prepared project for final review and documentation.
+
