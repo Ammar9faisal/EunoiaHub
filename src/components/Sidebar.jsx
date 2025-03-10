@@ -53,14 +53,14 @@ export function Sidebar() {
     setActiveButton(buttonName);
   };
 
-  const handleLogout = async () => {
-    try {
-      await account.deleteSession('current');
-      navigate('/');
-    } catch (error) {
-      console.error('Failed to logout:', error);
-    }
-  };
+  const handleLogout = async () => {     //handles the logout functionality for the app
+  try {
+    await account.deleteSession('current');
+    navigate('/');
+  } catch (error) {
+    console.error('Failed to logout:', error);
+  }
+};
 
   return (
     <div className="sidebar">
@@ -70,7 +70,9 @@ export function Sidebar() {
           className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate('/dashboard')}
         >
-          <BarChart2 className="sidebar-icon" color="white" />
+          
+          
+          <BarChart2 className="sidebar-icon" color="white"/>
         </button>
         <button
           className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
