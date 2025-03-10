@@ -22,7 +22,7 @@ export const fetchWellnessIndexData = async (userId) => {
         const wellnessIndexData = dates.map(date => {  // Map the survey responses to the dates
             const entry = response.documents.find(doc => {
                 const docDate = new Date(doc.date).toISOString().split('T')[0];
-                console.log(`Comparing ${date} with ${docDate}`); // Debug
+                // console.log(`Comparing ${date} with ${docDate}`); // Debug
                 return docDate === date;
             });
             return {
