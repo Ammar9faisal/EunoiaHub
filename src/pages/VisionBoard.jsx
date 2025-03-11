@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Visionboard.css";
+import "./VisionBoard.css";
 import { fetchUserAndVisionBoard, addNote, deleteNote } from '../services/visionBoardService';
 
 export default function VisionBoard() {

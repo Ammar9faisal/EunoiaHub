@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import './index.css';
 import Login from './pages/Login.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Dashboard from './pages/dashboard.jsx';
+import Dashboard from './pages/Dashboard.jsx';
 import Survey from './pages/Survey.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
 import FindHelp from './pages/FindHelp.jsx';
@@ -11,8 +11,8 @@ import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
 import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
-import { AuthProvider } from './components/AuthContext.jsx';
-import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './components/authContext.jsx';
+import ProtectedRoute from './components/protectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
