@@ -11,8 +11,8 @@ import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
 import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
-import { AuthProvider } from './components/authContext.jsx';
-import ProtectedRoute from './components/protectedRoute.jsx';
+import { AuthProvider } from './components/AuthContext.jsx';
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
