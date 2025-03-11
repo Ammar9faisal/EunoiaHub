@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Rocket, Brain, Bot } from 'lucide-react';
 import ChatBot from '../components/chatbot.jsx';
-import Sidebar from '../components/sidebar.jsx';
+import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
-import './Dashboard.css';
+import './dashboard.css';
 import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
