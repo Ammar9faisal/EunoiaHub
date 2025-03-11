@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoadScript } from '@react-google-maps/api';
 import './FindHelp.css';
-import { handleSearch, handleKeyPress } from '../services/FindHelpServices';
+import { handleSearch, handleKeyPress } from '../services/findHelpServices';
 
 // Mock data as backup in case API calls fail or no results are found
 const mockResources = [
