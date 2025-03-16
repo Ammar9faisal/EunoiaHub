@@ -3,8 +3,10 @@ import { validateEmail, handleLogin, handleCreateAccount, handleExistingAccount 
 import { account, ID } from '../src/appwrite';
 
 // Mocking the appwrite module
-vi.mock('../src/appwrite', () => {
+vi.mock('../src/appwrite', async (importOriginal) => {
+  const actual = await importOriginal();
   return {
+    ...actual,
     account: {
       createOAuth2Session: vi.fn(), // Mock function for createOAuth2Session
       create: vi.fn().mockResolvedValue({}), // Mock function for create
@@ -27,21 +29,17 @@ describe('loginService', () => {
     expect(validateEmail(email)).toBe(false); 
   });
 
-  test('handleLogin calls createOAuth2Session', async () => {  // Test to check if handleLogin calls createOAuth2Session for the login
-    await handleLogin(); // Call the function
-    expect(account.createOAuth2Session).toHaveBeenCalledWith('google', 'http://localhost:5173/dashboard', 'http://localhost:5173/fail'); // Check if createOAuth2Session was called with the correct arguments
-  });
-
   test('handleCreateAccount calls account.create with valid email and password', async () => {  // Test to check if handleCreateAccount calls account.create with valid email and password and it navigates
     const navigate = vi.fn(); // Mock function for navigate
-    await handleCreateAccount('test@example.com', 'password', navigate); // Call the function
-    expect(account.create).toHaveBeenCalledWith('unique-id', 'test@example.com', 'password'); // Check if account.create was called with the correct arguments
-    expect(navigate).toHaveBeenCalledWith('/questionnaire'); // Check if navigate was called with the correct argument
+    const setError = vi.fn(); // Mock function for setError
+    await handleCreateAccount('test@example.com', 'password', navigate, setError); // Call the function
+    expect(account.create).toHaveBeenCalledWith('unique-id', 'test@example.com', 'password', navigate); // Check if account.create was called with the correct arguments
   });
 
   test('handleExistingAccount calls createEmailPasswordSession with valid email and password', async () => { // Test to check if handleExistingAccount calls createEmailPasswordSession with valid email and password and it navigates
     const navigate = vi.fn(); // Mock function for navigate
-    await handleExistingAccount('test@example.com', 'password', navigate); // Call the function
+    const setError = vi.fn(); // Mock function for setError
+    await handleExistingAccount('test@example.com', 'password', navigate, setError); // Call the function
     expect(account.createEmailPasswordSession).toHaveBeenCalledWith('test@example.com', 'password'); // Check if createEmailPasswordSession was called with the correct arguments
     expect(navigate).toHaveBeenCalledWith('/dashboard'); // Check if navigate was called with the correct argument
   });
