@@ -1,9 +1,9 @@
 import { describe, expect, test, vi } from 'vitest';
-import { validateEmail, handleLogin, handleCreateAccount, handleExistingAccount } from '../src/services/loginService';
-import { account, ID } from '../src/appwrite';
+import { validateEmail, handleLogin, handleCreateAccount, handleExistingAccount } from '../../src/services/loginService';
+import { account, ID } from '../../src/appwrite';
 
 // Mocking the appwrite module
-vi.mock('../src/appwrite', async (importOriginal) => {
+vi.mock('../../src/appwrite', async (importOriginal) => {
   const actual = await importOriginal();
   return {
     ...actual,

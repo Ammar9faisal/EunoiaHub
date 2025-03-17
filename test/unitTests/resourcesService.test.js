@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { podcasts, books, videos, supportGroups, hotlines, workbooks } from '../src/services/resourcesService';
+import { podcasts, books, videos, supportGroups, hotlines, workbooks } from '../../src/services/resourcesService';
 
 describe('resourcesService', () => {
     test('podcasts array contains expected data', () => {

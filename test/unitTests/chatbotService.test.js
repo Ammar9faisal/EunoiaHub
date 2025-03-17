@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest';
-import { generateResponse } from '../src/services/chatbotService';
+import { generateResponse } from '../../src/services/chatbotService';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // Mocking the GoogleGenerativeAI module

@@ -1,11 +1,11 @@
 import { describe, expect, test, vi } from "vitest";
 import '@testing-library/jest-dom';
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import Chatbot from "../src/components/chatbot.jsx";
-import { generateResponse } from "../src/services/chatbotService";
+import Chatbot from "../../src/components/chatbot.jsx";
+import { generateResponse } from "../../src/services/chatbotService"; 
 
 // Mock the generateResponse function
-vi.mock("../src/services/chatbotService", () => ({
+vi.mock("../../src/services/chatbotService", () => ({
     generateResponse: vi.fn(),
 }));
 
