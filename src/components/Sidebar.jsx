@@ -91,39 +91,15 @@ export function Sidebar() {
           <Map className="sidebar-icon" color="white" />
         </button>
         <button
-          className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate('/visionboard')}
+        className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
+        onClick={() => handleButtonClick('visionboard', '/vision-board')} // NEW: Navigates to Vision Board
         >
            <NotepadText className="sidebar-icon" color="white" />
         </button>
-        <button
-          className={`sidebar-button ${activeButton === 'BlogPage' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/blogpage")}
-        >
-          <Book className="sidebar-icon" color="white" />
-        </button>
-        <button
-          className={`sidebar-button ${activeButton === 'UserTickets' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/usertickets")}
-        >
-          <Star className="sidebar-icon" color="white" />
-        </button>
-        <button
-          className={`sidebar-button ${activeButton === 'dailyexercises' ? 'sidebar-button-active' : ''}`}
-          onClick={() => { handleButtonClick('dailyexercises'); navigate('/dailyexercises'); }}
-        >
-          <Wind className="sidebar-icon" color="white" />
-        </button>
 
         <button
-          className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/todo")}
-        >
-          <LayoutList className="sidebar-icon" color="white" />
-        </button>
-        <button
-          className={`sidebar-button ${activeButton === 'BubbleGame' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/bubblegame")}
+          className={`sidebar-button ${activeButton === 'settings' ? 'sidebar-button-active' : ''}`}
+          onClick={() => handleButtonClick('settings', '/settings')} // Navigate to settings
         >
           <Gamepad2 className="sidebar-icon" color="white" />
         </button>
@@ -133,6 +109,7 @@ export function Sidebar() {
         >
           <Plus className="sidebar-icon" color="white" />
         </button>
+
       </nav>
       <button className="sidebar-button" onClick={handleLogout}>
         <LogOut className="sidebar-icon" color="white" />
