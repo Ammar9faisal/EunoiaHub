@@ -78,6 +78,7 @@ export function Sidebar() {
         >
           <BarChart2 className="sidebar-icon" color="white" />
         </button>
+
         <button
           className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/survey")}
@@ -94,25 +95,51 @@ export function Sidebar() {
         className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
         onClick={() => handleButtonClick('visionboard', '/vision-board')} // NEW: Navigates to Vision Board
         >
-           <NotepadText className="sidebar-icon" color="white" />
+          <NotepadText className="sidebar-icon"  color="white"/>
+        </button>
+        <button
+          className={`sidebar-button ${activeButton === 'BlogPage' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/blogpage")}
+        >
+          <Book className="sidebar-icon" color="white" />
         </button>
 
         <button
-          className={`sidebar-button ${activeButton === 'settings' ? 'sidebar-button-active' : ''}`}
-          onClick={() => handleButtonClick('settings', '/settings')} // Navigate to settings
+          className={`sidebar-button ${activeButton === 'UserTickets' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/usertickets")}    // sets the button as active when a button is clicekd
         >
-          <Gamepad2 className="sidebar-icon" color="white" />
+          <Star className="sidebar-icon"  color="white"/>
+        </button>
+
+        <button
+          className={`sidebar-button ${activeButton === 'dailyexercises' ? 'sidebar-button-active' : ''}`}
+          onClick={() => { handleButtonClick('dailyexercises'); navigate('/dailyexercises'); }}
+        >
+          <Wind className="sidebar-icon" color="white" />
         </button>
         <button
+          className={`sidebar-button ${activeButton === 'habittracker' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/HabitTracker")}
+        >
+          <CalendarRange className="sidebar-icon" color="white" />
+        </button>
+
+        <button
+          className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/todo")}    // sets the button as active when a button is clicekd
+        >
+          <LayoutList className="sidebar-icon"  color="white"/>
+        </button>
+        <button
+          title="Resources"
           className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/resources")}
         >
           <Plus className="sidebar-icon" color="white" />
         </button>
-
       </nav>
       <button className="sidebar-button" onClick={handleLogout}>
-        <LogOut className="sidebar-icon" color="white" />
+        <LogOut className="sidebar-icon"  color="white"/>
       </button>
     </div>
   );
