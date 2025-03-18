@@ -36,7 +36,7 @@ describe('loginService', () => {
     const navigate = vi.fn(); // Mock function for navigate
     await handleCreateAccount('test@example.com', 'password', navigate); // Call the function
     expect(account.create).toHaveBeenCalledWith('unique-id', 'test@example.com', 'password'); // Check if account.create was called with the correct arguments
-    expect(navigate).toHaveBeenCalledWith('/dashboard'); // Check if navigate was called with the correct argument
+    expect(navigate).toHaveBeenCalledWith('/questionnaire'); // Check if navigate was called with the correct argument
   });
 
   test('handleExistingAccount calls createEmailPasswordSession with valid email and password', async () => { // Test to check if handleExistingAccount calls createEmailPasswordSession with valid email and password and it navigates

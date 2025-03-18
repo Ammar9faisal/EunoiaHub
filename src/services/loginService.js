@@ -1,46 +1,79 @@
 import { account, ID } from '../appwrite';
+import db from "../database";
+
+export const isLoggedIn = async (navigate) => {
+    try {
+        const user = await account.get();
+        console.log('User is logged in:', user); // Debugging log
+        return true;
+    } catch (error) {
+        console.log('User is not logged in:', error); // Debugging log
+        navigate('/');
+        return false;
+    }
+}
 
 export const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;   // Regex statement to validate email format
     return re.test(String(email).toLowerCase());  // Returns the email in lowercase to keep the email format consistent
 };
 
-export const handleLogin = async () => { // Login with Google by creating an OAuth2 session
-    account.createOAuth2Session('google', 'http://localhost:5173/dashboard', 'http://localhost:5173/fail');
-};
-
-export const handleCreateAccount = async (email, password, navigate) => { // Create an account using username and password
+export const handleCreateAccount = async (email, password, name , navigate, setError) => { // Create an account using username and password
     if (!email || !password) {
-        alert('Please enter a valid email and password'); // Alert if email or password is empty
+        setError('Please enter a valid email and password'); // Set error if email or password is empty
         return;
     }
     if (!validateEmail(email)) {
-        alert('Please enter a valid email'); // Alert if email is invalid
+        setError('Please enter a valid email'); // Set error if email is invalid
         return;
     }
-    const promise = account.create(ID.unique(), email, password);
-    promise.then(function (response) {   // Error handling for account creation - similar to try-catch statements
+    try {
+        const userId = ID.unique(); // Generate a unique user ID
+        const response = await account.create(userId, email, password, name);
         console.log(response); // Success
-        navigate('/dashboard'); // Redirect to dashboard after successful account creation  
-    }, function (error) {
+
+        db.users.createUser(userId, { email: email, userID: userId, name: name}); // Create a new user document in the database
+        console.log('User document created'); // Debugging log
+
+        navigate('/questionnaire'); // Redirect to questionnaire after successful account creation  
+    } catch (error) {
         console.log(error); // Failure
-    });
+        if (error.code === 409) {
+            setError('Email is already in use'); // Set error if email is already in use
+        } else if (error.code === 429) {
+            setError('Rate limit reached. Please try again later.'); // Set error if rate limit is reached
+        }
+        else if (error.code === 401) {
+            setError('Incorrect user credentials'); // Set error if rate limit is reached
+        } 
+        else {
+            setError('An error occurred. Please try again.'); // Set generic error
+        }
+    }
 };
 
-export const handleExistingAccount = async (loginEmail, loginPassword, navigate) => { // Login with an existing account
+export const handleExistingAccount = async (loginEmail, loginPassword, navigate, setError) => { // Login with an existing account
     if (!loginEmail || !loginPassword) {
-        alert('Please enter a valid email and password'); // Alert if email or password is empty
+        setError('Please enter a valid email and password'); // Set error if email or password is empty
         return;
     }
     if (!validateEmail(loginEmail)) {
-        alert('Please enter a valid email'); // Alert if email is invalid
+        setError('Please enter a valid email'); // Set error if email is invalid
         return;
     }
-    const promise = account.createEmailPasswordSession(loginEmail, loginPassword);
-    promise.then(function (response) {  // Error handling for login - same thing as try-catch statements
+    try {
+        const response = await account.createEmailPasswordSession(loginEmail, loginPassword);
         console.log(response); // Success
+
         navigate('/dashboard'); // Redirect to dashboard after successful login
-    }, function (error) {
-        console.log(error); // Failure
-    });
+    } catch (error) {
+        console.log("Login Error: " + error); // Failure
+        if (error.code === 401) {
+            setError('Invalid credentials. Please try again.'); // Set error if credentials are wrong
+        } else if (error.code === 429) {
+            setError('Rate limit reached. Please try again later.'); // Set error if rate limit is reached
+        } else {
+            setError('An error occurred. Please try again.'); // Set generic error
+        }
+    }
 };

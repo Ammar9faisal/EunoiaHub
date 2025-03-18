@@ -39,7 +39,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color:rgb(235, 235, 132);
+  background-color: rgb(235, 235, 132);
   border-radius: 10px;
   margin: 5px;
 }
@@ -59,38 +59,14 @@ html {
   font-size: 1.125rem;
   font-weight: 500;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
-.dashboard-badges {
-  display: flex;
-  gap: 1rem;
-}
-
-.badge {
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.badge-red {
-  background-color: #fee2e2;
-}
-
-.badge-yellow {
-  background-color: #fef3c7;
-}
-
-.badge-orange {
-  background-color: #ffedd5;
-}
-
+/* Dashboard Card Grid */
 .dashboard-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem; /* Reduced from 1.5rem */
+  gap: 1rem; /* Reduced gap for better alignment */
 }
 
 @media (min-width: 768px) {
@@ -105,22 +81,16 @@ html {
   }
 }
 
-/* 
-Will be used in ITR2
-@media (min-width: 1024px) {
-  .dashboard-cards {
-  grid-template-columns: repeat(3, 1fr);
-  }
-} */
-
+/* Dashboard Cards */
 .dashboard-card {
   padding: 1rem;
-  border-radius: 0.375rem; 
+  border-radius: 0.375rem;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   background-color: #f3e8ff;
   cursor: pointer;
+  text-align: center;
   max-width: 100%;
-  height: auto; /* dynamic height */
+  height: auto;
 }
 
 .dashboard-card:hover {
@@ -128,36 +98,32 @@ Will be used in ITR2
   background-color: #d8b4fd;
 }
 
-.dashboard-card-button, .dashboard-card-button {
-  background-color: transparent;
-  border: none;
-  width: 100%;
-  height: 100%;
-}
-
-
+/* Dashboard Card Header */
 .dashboard-card-header {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
+/* Dashboard Card Title */
 .dashboard-card-title {
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
 
+/* Ensuring Correct Image Sizing */
 .dashboard-card-image {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
-  height: 10rem;
-  width: auto;
+  margin: 0 auto;
+  height: 10rem; /* Adjusted to prevent stretching */
+  width: auto; /* Keeps aspect ratio */
+  max-width: 80%; /* Ensures consistent sizing across different screens */
   object-fit: contain;
 }
 
+/* Description Styling */
 .dashboard-card-description {
   font-size: 1rem;
   display: flex;
@@ -167,22 +133,16 @@ Will be used in ITR2
   font-weight: 700;
 }
 
+/* Dashboard Card Icon Styling */
 .dashboard-card-icon {
-  width: 8rem;
-  height: 8rem;
+  width: 6rem; /* Reduced size to avoid stretching */
+  height: 6rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-html, body {  /* Resetting the default margin and padding */
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-}
-
+/* Daily Quote Section */
 .daily-quote {
   height: 250px;
   width: 500px;
@@ -216,18 +176,20 @@ html, body {  /* Resetting the default margin and padding */
   color: #888;
 }
 
-.dashboard-section-title {
-  font-size: 1.5em;
-  font-weight: 500;
-  margin-bottom: 1rem;
-  width: auto;
-  text-align: center;
-}
+/* Chart Container */
 .chart-container {
   width: 100%;
   max-width: 600px;
   margin-left: auto;
   margin-right: 0;
   display: inline;
+}
 
+/* Global Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
 }

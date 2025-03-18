@@ -1,0 +1,89 @@
+/* ToDoList.css */
+.todo-list {
+    font-family: Arial, sans-serif;
+    background-color: #ecdcf6; /* Pastel purple */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.todo-list-save-edit {
+    background-color: #94d396;
+}
+
+.todo-list-edit-input {
+background-color: white;
+color: rgb(0, 0, 0);
+}
+
+.to-do-container {
+    background: #ffffff;
+    padding: 2vh;
+    border-radius: 1.2vh;
+    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
+    width: 30vh;
+}
+
+.todo-list-title {
+    text-align: center;
+    color: #333;
+}
+
+.todo-list-input-container {
+    display: flex;
+    align-items: center;
+}
+
+.todo-list-input {
+    flex: 1;
+    padding: 0.8vh;
+    border: 0.1vh solid #ccc;
+    border-radius: 0.8vh;
+    background-color: white;
+}
+
+.todo-list-add {
+    margin-left: 0.8vh;
+    padding: 0.8vh 1.2vh;
+    background-color: #94d396;
+    color: white;
+    border: none;
+    border-radius: 0.8vh;
+    cursor: pointer;
+    font-size: 1.6vh;
+}
+
+.todo-list-add:hover {
+    background-color:  #94d396;
+}
+
+.todo-list-items {
+    list-style: none;
+    padding: 0;
+}
+
+.todo-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #e8e8e8;
+    padding: 0.8vh;
+    border-radius: 0.8vh;
+    margin-bottom: 0.8vh;
+}
+
+.todo-list-remove {
+    padding: 0.4vh 0.8vh;
+    font-size: 1.6vh;
+    background-color: #f6b0b0;
+    color: white;
+    border: none;
+    border-radius: 0.8vh;
+    cursor: pointer;
+}
+
+.todo-list-remove:hover {
+    background-color: #f6b0b0;
+}
