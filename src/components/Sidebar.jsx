@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BarChart2, Smile, NotepadText , Settings, LogOut,  Map, Clipboard, Star, LayoutList, Plus } from 'lucide-react';
+import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus } from 'lucide-react';
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
@@ -9,11 +9,11 @@ export function Sidebar() {
   const [activeButton, setActiveButton] = useState('dashboard');
   const navigate = useNavigate();
 
-  const handleButtonClick = (buttonName) => { // function to handle button click
+  const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
   };
 
-  const handleLogout = async () => {  // function to handle logout
+  const handleLogout = async () => {
     try {
       await account.deleteSession('current');
       navigate('/');
@@ -24,61 +24,75 @@ export function Sidebar() {
 
   return (
     <div className="sidebar">
-      <img className="sidebar-logo" src={logo} />
+      <img className="sidebar-logo" src={logo} alt="Logo" />
       <nav className="sidebar-nav">
         <button
-          className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}  //button to navigate to the dashboard page
+          title="Dashboard"
+          className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('dashboard')}
         >
           <BarChart2 className="sidebar-icon" color="white" />
         </button>
+
         <button
-          className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}  //button to navigate to the checkin page
+          title="Mindful Check-in"
+          className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/survey")}
         >
           <Smile className="sidebar-icon" color="white" />
         </button>
 
         <button 
-          className={`sidebar-button ${activeButton === 'find' ? 'sidebar-button-active' : ''}`}//button to navigate to the find help page
-          onClick={() => navigate("/FindHelp")}  // sets the button as active when a button is clicekd
+          title="Find Help"
+          className={`sidebar-button ${activeButton === 'find' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/FindHelp")}
         >
-          <Map className="sidebar-icon"  color="white"/> 
+          <Map className="sidebar-icon" color="white" /> 
         </button>
         
-        {/* NEW Vision Board Button */}
         <button
+          title="Vision Board"
           className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate('/visionboard')}
         >
-          <NotepadText className="sidebar-icon"  color="white"/>
+          <NotepadText className="sidebar-icon" color="white" />
         </button>
         
+        <button
+          title="Settings"
+          className={`sidebar-button ${activeButton === 'settings' ? 'sidebar-button-active' : ''}`}
+          onClick={() => handleButtonClick('settings')}
+        >
+          <Settings className="sidebar-icon" color="white" />
+        </button>
 
         <button
+          title="User Tickets"
           className={`sidebar-button ${activeButton === 'UserTickets' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/usertickets")}    // sets the button as active when a button is clicekd
+          onClick={() => navigate("/usertickets")}
         >
-          <Star className="sidebar-icon"  color="white"/>
+          <Star className="sidebar-icon" color="white" />
         </button>
 
         <button
+          title="To-Do List"
           className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/todo")}    // sets the button as active when a button is clicekd
+          onClick={() => navigate("/todo")}
         >
-          <LayoutList className="sidebar-icon"  color="white"/>
+          <LayoutList className="sidebar-icon" color="white" />
         </button>
 
         <button
+          title="Resources"
           className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/resources")}  // sets the button as active when a button is clicekd
+          onClick={() => navigate("/resources")}
         >
-          <Plus className="sidebar-icon"  color="white"/>
+          <Plus className="sidebar-icon" color="white" />
         </button>
-
       </nav>
-      <button className="sidebar-button" onClick={handleLogout}>
-        <LogOut className="sidebar-icon"  color="white"/>
+
+      <button title="Logout" className="sidebar-button" onClick={handleLogout}>
+        <LogOut className="sidebar-icon" color="white" />
       </button>
     </div>
   );
