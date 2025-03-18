@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { podcasts, books, videos, supportGroups, hotlines, workbooks } from '../services/resourcesService';
 import { Sidebar } from '../components/Sidebar.jsx';
-import './Resources.css';
+import '../../styles/Resources.css';
 
 const Resources = () => { 
     const [openSection, setOpenSection] = useState(null);  
