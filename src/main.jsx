@@ -13,6 +13,7 @@ import Resources from './pages/Resources.jsx';
 import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import BlogPage from './pages/BlogPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <FindHelp />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/blogpage',
+    element: (
+      <ProtectedRoute>
+        <BlogPage />
       </ProtectedRoute>
     ),
   },
