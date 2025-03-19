@@ -1,0 +1,56 @@
+.welcome-page {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('../assets/WelcomeBackground.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .welcome-page .welcome-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1200px;
+    color: #333;
+    text-align: left;
+  }
+  
+  .welcome-page .content {
+    max-width: 50%;
+  }
+  
+  .welcome-page .logo {
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .welcome-page .highlight {
+    color: #7c4dff;
+    font-weight: bold;
+  }
+  
+  .welcome-page .get-started {
+    background: #6fcf97;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .welcome-page .get-started:hover {
+    background: #5abf80;
+  }
+  
+  .welcome-page .side-image {
+    max-width: 45%;
+    height: auto;
+    align-self: flex-start;
+  }
+  
