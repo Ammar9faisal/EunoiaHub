@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
     return <div>Loading...</div>; // Show loading state
   }
 
-  if (!user) {
+  if (!user) { // If user is not logged in, redirect to login page
     return <Navigate to="/" replace />;
   }
 

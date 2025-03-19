@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     getUser();
   }, []);
 
-  return (
+  return ( // Add loading state to the context value
     <AuthContext.Provider value={{ user, setUser, loading }}>
       {children}
     </AuthContext.Provider>

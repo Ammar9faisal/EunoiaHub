@@ -10,7 +10,7 @@ import { quotes } from '../assets/quotesList.js';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
-import { stubData } from '../stubdata.js';  //--------------------> Importing stubData from stubdata.js
+import { fetchWellnessIndexData } from '../services/dashboardService.js';
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -18,6 +18,7 @@ export default function Dashboard() {
   const [dashboardColor, setDashboardColor] = useState('dashboard-white'); // Default color
   const [userId, setUserId] = useState(null); // State to store the user ID
   const [user, setUser] = useState(null); // State to store the user document
+  const [wellnessIndexData, setWellnessIndexData] = useState([]);
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -50,17 +51,26 @@ export default function Dashboard() {
     fetchUserDocument();
   }, [userId]);
 
-  useEffect(() => {
+  useEffect(() => {  //fetches the wellness index data
+    const fetchWellnessData = async () => {
+      if (userId) {
+        try {
+          const data = await fetchWellnessIndexData(userId);
+          setWellnessIndexData(data);
+        } catch (error) {
+          console.error('Error fetching wellness index data:', error);
+        }
+      }
+    };
+
+    fetchWellnessData();
+  }, [userId]);
+
+  useEffect(() => { //sets the quotes randomly from a list of quotes
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setCurrentQuote(quotes[randomIndex]);
+  }, []);
 
-   
-  }, []
-);
-
-  const username = stubData.userProfile.username;  //--------------------> Getting username from stubData
-  const wellnessIndex = stubData.wellnessIndexDaily.data;  //--------------------> Getting wellnessIndex from stubData
-  
   const toggleChat = () => {
     const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
     chatbot.classList.toggle('hidden');
@@ -97,7 +107,7 @@ export default function Dashboard() {
             <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2> {/*Displays the chart*/}
             <div className="chart-container">
               <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={wellnessIndex} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
+                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
                   <Label value="Wellness Index" offset={0} position="top" />
                   <XAxis dataKey="day">
                     <Label value="Day" offset={-5} position="bottom" />

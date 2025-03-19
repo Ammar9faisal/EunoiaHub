@@ -12,9 +12,7 @@ import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
 import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
 import { AuthProvider } from './components/AuthContext.jsx';
-import ProtectedRoute from './components/ProtectedRoute';
-
-
+import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -70,6 +68,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <UserTickets />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/visionboard', 
+    element: (
+      <ProtectedRoute>
+        <VisionBoard/>
       </ProtectedRoute>
     ),
   },
