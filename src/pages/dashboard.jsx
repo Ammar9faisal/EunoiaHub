@@ -28,7 +28,7 @@ export default function Dashboard() {
         console.log('Logged-in user ID:', user.$id); // Log the user ID for debugging
       } catch (error) {
         console.error('Error fetching user account:', error);
-        navigate('/'); // Redirect to login if not logged in
+        navigate('/login'); // Redirect to login if not logged in
       }
     };
 
