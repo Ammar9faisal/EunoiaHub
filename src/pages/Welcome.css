@@ -1,68 +1,66 @@
 .welcome-page {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-  }
-  
-  .background-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
-  .welcome-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
-    max-width: 1200px;
-    color: #333;
-    text-align: left;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .content {
-    max-width: 50%;
-  }
-  
-  .logo {
-    width: 100px;
-    margin-bottom: 20px;
-  }
-  
-  .highlight {
-    color: #7c4dff;
-    font-weight: bold;
-  }
-  
-  .get-started {
-    background: #6fcf97;
-    border: none;
-    padding: 15px 30px;
-    font-size: 18px;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
-  
-  .get-started:hover {
-    background: #5abf80;
-  }
-  
-  .side-image {
-    max-width: 45%;
-    height: auto;
-    align-self: flex-start;
-  }
-  
-  
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.welcome-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw;
+  max-width: 90vw;
+  color: #333;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.content {
+  max-width: 50vw;
+}
+
+.logo {
+  width: 7vw;
+  margin-bottom: 2vh;
+}
+
+.highlight {
+  color: #7c4dff;
+  font-weight: bold;
+}
+
+.get-started {
+  background: #6fcf97;
+  border: none;
+  padding: 1.5vh 3vw;
+  font-size: 1.8vh;
+  color: white;
+  border-radius: 1vh;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.get-started:hover {
+  background: #5abf80;
+}
+
+.side-image {
+  max-width: 45vw;
+  height: auto;
+  align-self: flex-start;
+}

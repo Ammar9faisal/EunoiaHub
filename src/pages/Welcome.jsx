@@ -3,8 +3,10 @@ import "./Welcome.css";
 import logo from '../assets/logo.png';
 import sideImage from "../assets/Laptop.png"; 
 import background from "../assets/WelcomeBackground.png"; 
+import { useNavigate } from "react-router-dom";
 
 const WelcomePage = () => {
+  const navigate = useNavigate();
   return (
     <div className="welcome-page">
       {/* Background Image */}
@@ -30,7 +32,7 @@ const WelcomePage = () => {
             Sign up or log in to begin your personalized wellness experience.
             Let’s make mental health a priority—together.
           </p>
-          <button className="get-started">Get Started</button>
+          <button onClick={() => navigate("/login")} className="get-started">Get Started</button>
         </div>
         <img src={sideImage} alt="EunoiaHub Preview" className="side-image" />
       </div>

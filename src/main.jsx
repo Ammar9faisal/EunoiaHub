@@ -18,7 +18,7 @@ import WelcomePage from './pages/Welcome.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/login',
     element: <Login />,
   },
   {
@@ -100,7 +100,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/welcome',
+    path: '/',
     element: <WelcomePage />
   },
 ]);
