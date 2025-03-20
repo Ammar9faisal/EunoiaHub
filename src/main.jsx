@@ -1,8 +1,9 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import Login from './pages/Login.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import Login from './pages/Login.jsx';
 import Dashboard from './pages/dashboard.jsx';
 import Survey from './pages/Survey.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
@@ -10,14 +11,15 @@ import FindHelp from './pages/FindHelp.jsx';
 import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
-import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
+import VisionBoard from './pages/VisionBoard.jsx';
+import Achievements from './pages/Achievements.jsx'; // Import Achievements page
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Login />,
+    element: <Login />, 
   },
   {
     path: '/survey',
@@ -32,6 +34,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/achievements',
+    element: (
+      <ProtectedRoute>
+        <Achievements />
       </ProtectedRoute>
     ),
   },
@@ -54,14 +64,14 @@ const router = createBrowserRouter([
         <ToDoList />
       </ProtectedRoute>
     ),
-    },
+  },
   {
-    path: '/resources', // Path to resources page
+    path: '/resources',
     element: (
       <ProtectedRoute>
         <Resources />
       </ProtectedRoute>
-    ), // Corrected the typo
+    ),
   },
   {
     path: '/usertickets',
@@ -72,23 +82,21 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/visionboard', 
-    element: (
-      <ProtectedRoute>
-        <VisionBoard/>
-      </ProtectedRoute>
-    ),
-  },
-
-  {
-    path: '/vision-board', // Add the Vision Board route
+    path: '/visionboard',
     element: (
       <ProtectedRoute>
         <VisionBoard />
       </ProtectedRoute>
     ),
   },
-
+  {
+    path: '/vision-board',
+    element: (
+      <ProtectedRoute>
+        <VisionBoard />
+      </ProtectedRoute>
+    ),
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(
