@@ -15,6 +15,7 @@ import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
+import TimeCapsule from './pages/timeCapsule.jsx';
 
 const router = createBrowserRouter([
   {
@@ -102,6 +103,11 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <WelcomePage />
+  },
+
+  {
+    path: '/timecapsule',
+    element: <TimeCapsule />
   },
 ]);
 
