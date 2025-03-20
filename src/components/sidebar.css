@@ -1,5 +1,5 @@
 .sidebar {
-    position: fixed;  /* Ensure sidebar stays fixed in place */
+    position: fixed;
     width: 5vw;
     height: 100vh;
     background-color: rgb(14, 13, 13);
@@ -25,21 +25,21 @@
 .sidebar-button {
     padding: 0.5vw;
     border-radius: 0.5vw;
-    transition: background-color 0.2s ease;  /* Smooth color transition */
-    background-color: transparent;  /* Default background */
-    color: white;  /* White text color */
-    border: none;  /* Remove default button border */
-    width: 100%;  /* Ensure button takes full width of the sidebar */
-    text-align: center;  /* Center text inside button */
-    font-size: 1vw;  /* Adjust font size to fit */
+    transition: background-color 0.2s ease;
+    background-color: transparent; 
+    color: white;  
+    border: none;
+    width: 100%; 
+    text-align: center; 
+    font-size: 1vw; 
 }
 
 .sidebar-button:hover {
-    background-color: #d6a3ff;  /* Darker purple on hover */
+    background-color: #d6a3ff; 
 }
 
 .sidebar-button-active {
-    background-color: #e9d5ff;  /* Lighter purple when active */
+    background-color: #e9d5ff;  
 }
 
 .sidebar-icon {
