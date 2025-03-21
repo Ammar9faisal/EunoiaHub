@@ -16,21 +16,30 @@
     overflow-y: auto;
 }
 
+.todo-list-empty {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 /* Main content container */
 .to-do-container {
-    width: auto;
     grid-column: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding: 2rem;
-    overflow-y: auto;
+    overflow-y: auto; /* Allow scrolling if content exceeds max height */
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     margin: 2rem auto;
     max-width: 800px;
+    min-width: 600px;    
+    min-height: 200px; /* Minimum height for the container */
+    max-height: 80vh; /* Maximum height to prevent it from growing too large */
+    height: auto; /* Automatically adjust height based on content */
+    transition: height 0.3s ease; /* Smooth transition when height changes */
 }
 
 /* Title styling */
