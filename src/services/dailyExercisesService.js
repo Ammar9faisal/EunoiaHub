@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Wind, Heart, Eye, Smile, AlertTriangle, Clock } from 'lucide-react';
 
-// Import images
+// Import images 
 import boxBreathingImage from '../assets/Box-B.png';
 import gratitudeJournalImage from '../assets/Gratitude.png';
 import groundingImage from '../assets/54321-image.png';
@@ -9,21 +9,21 @@ import selfCompassionImage from '../assets/Self-Com.png';
 import triggerIdentificationImage from '../assets/Triggers.png';
 import mindfulnessTimerImage from '../assets/meditate.png';
 
-// Import audio
+// Import the audio file 
 import upliftingAudio from '../assets/uplifting.mp3';
 
-// Define the exercises array without JSX
+// Define the exercises array 
 export const exercises = [
   {
     id: 'breathing',
     title: 'Box Breathing',
     description: 'Follow the circle to inhale, hold, and exhale in a calming 4-second rhythm.\nHelps reduce stress and improve focus.',
-    duration: 60,
+    duration: 60, // Total duration in seconds
     type: 'breathing',
-    cycle: 12,
+    cycle: 12, // Each cycle (inhale, hold, exhale) takes 12 seconds
     theme: 'calm',
-    icon: Wind, // Store the icon component reference
-    iconClass: 'de-exercise-icon', // Store the class name separately
+    icon: Wind, 
+    iconClass: 'de-exercise-icon',
     image: boxBreathingImage,
   },
   {
@@ -70,7 +70,7 @@ export const exercises = [
     id: 'mindfulness',
     title: 'Mindfulness Timer',
     description: 'A 5-minute timer for a mindful meditation session.\nPromotes relaxation and mental clarity.',
-    duration: 300,
+    duration: 300, // 5 minutes in seconds
     type: 'mindfulness',
     theme: 'peace',
     icon: Clock,
@@ -79,6 +79,7 @@ export const exercises = [
   },
 ];
 
+// Triggers for the Trigger Identification exercise
 export const triggersList = [
   { id: 'stress', label: 'Feeling stressed at work', coping: 'Try deep breathing or a short walk.' },
   { id: 'social', label: 'Social gatherings', coping: 'Set boundaries and take breaks as needed.' },
@@ -88,12 +89,14 @@ export const triggersList = [
   { id: 'sleep', label: 'Lack of sleep', coping: 'Prioritize rest and a consistent sleep schedule.' },
 ];
 
+// Prompts for the Self-Compassion exercise
 export const selfCompassionPrompts = [
   'I am proud of myself because...',
   'I am strong because...',
   'I deserve love because...',
 ];
 
+// Steps in Grounding exercise
 export const requiredGroundingCounts = {
   see: 5,
   touch: 4,
@@ -104,29 +107,43 @@ export const requiredGroundingCounts = {
 
 export const stepOrder = ['see', 'touch', 'hear', 'smell', 'taste'];
 
+// Custom hook to manage all the logic for the Daily Exercises page
 export const useDailyExercisesLogic = () => {
+
+  // State for managing the selected exercise and its timer
   const [selectedExercise, setSelectedExercise] = useState(null);
   const [timeLeft, setTimeLeft] = useState(0);
-  const [phase, setPhase] = useState('');
+  const [phase, setPhase] = useState(''); // For breathing: inhale, hold, exhale
   const [paused, setPaused] = useState(false);
   const [breathingStarted, setBreathingStarted] = useState(false);
+
+  // State for the Gratitude Journal exercise
   const [gratitudeEntries, setGratitudeEntries] = useState([]);
   const [gratitudeInput, setGratitudeInput] = useState('');
+
+  // State for Grounding exercise
   const [groundingAnswers, setGroundingAnswers] = useState({
     see: [], touch: [], hear: [], smell: [], taste: [],
   });
   const [groundingStep, setGroundingStep] = useState('see');
   const [furthestGroundingStep, setFurthestGroundingStep] = useState('see');
   const [currentGroundingInput, setCurrentGroundingInput] = useState('');
+
+  // State for the Self-Compassion exercise
   const [selfCompassionAnswers, setSelfCompassionAnswers] = useState({});
   const [selfCompassionStep, setSelfCompassionStep] = useState(0);
   const [currentSelfCompassionInput, setCurrentSelfCompassionInput] = useState('');
+
+  // State for the Trigger Identification exercise
   const [triggers, setTriggers] = useState([]);
+
+  // State for the Mindfulness Timer exercise
   const [mindfulnessStarted, setMindfulnessStarted] = useState(false);
   const [playMusic, setPlayMusic] = useState(true);
 
   const audioRef = useRef(null);
 
+  // Start a new exercise and reset all relevant state
   const startExercise = (exercise) => {
     setSelectedExercise(exercise.id);
     setTimeLeft(exercise.duration || 0);
@@ -147,6 +164,7 @@ export const useDailyExercisesLogic = () => {
     setPlayMusic(true);
   };
 
+  // Go back to the exercise list and reset everything
   const goBack = () => {
     setSelectedExercise(null);
     setTimeLeft(0);
@@ -160,6 +178,7 @@ export const useDailyExercisesLogic = () => {
     }
   };
 
+  // Pause or resume the current exercise (affects timers and audio)
   const pauseExercise = () => {
     setPaused(!paused);
     if (audioRef.current && playMusic) {
@@ -171,10 +190,12 @@ export const useDailyExercisesLogic = () => {
     }
   };
 
+  // Start the Box Breathing exercise
   const startBreathingExercise = () => {
     setBreathingStarted(true);
   };
 
+  // Start the Mindfulness Timer and play background music if enabled
   const startMindfulnessTimer = () => {
     setMindfulnessStarted(true);
     if (audioRef.current && playMusic) {
@@ -182,6 +203,7 @@ export const useDailyExercisesLogic = () => {
     }
   };
 
+  // Handle the audio playback for the Mindfulness Timer based on playMusic and paused state
   useEffect(() => {
     if (audioRef.current && mindfulnessStarted) {
       if (playMusic && !paused) {
@@ -192,6 +214,7 @@ export const useDailyExercisesLogic = () => {
     }
   }, [playMusic, mindfulnessStarted, paused]);
 
+  // Timer logic for exercises with a duration (Box Breathing and Mindfulness Timer)
   useEffect(() => {
     if (
       !selectedExercise ||
@@ -206,6 +229,7 @@ export const useDailyExercisesLogic = () => {
     const timer = setInterval(() => {
       setTimeLeft((prev) => prev - 1);
 
+      // Update the breathing phase (inhale, hold, exhale) for Box Breathing
       const exercise = exercises.find((ex) => ex.id === selectedExercise);
       if (exercise.type === 'breathing') {
         const cycleTime = exercise.cycle;
@@ -216,6 +240,7 @@ export const useDailyExercisesLogic = () => {
       }
     }, 1000);
 
+    // When the timer reaches 0, reset the exercise
     if (timeLeft === 0) {
       setSelectedExercise(null);
       setPhase('');
@@ -231,6 +256,7 @@ export const useDailyExercisesLogic = () => {
     return () => clearInterval(timer);
   }, [selectedExercise, timeLeft, paused, mindfulnessStarted, breathingStarted]);
 
+  // Handle form submission for the Gratitude Journal
   const handleGratitudeSubmit = (e) => {
     e.preventDefault();
     if (gratitudeInput.trim() && gratitudeEntries.length < 3) {
@@ -239,6 +265,7 @@ export const useDailyExercisesLogic = () => {
     }
   };
 
+  // Handle form submission for the 5-4-3-2-1 Grounding exercise
   const handleGroundingSubmit = (e) => {
     e.preventDefault();
     if (!currentGroundingInput.trim()) return;
@@ -257,6 +284,7 @@ export const useDailyExercisesLogic = () => {
       [groundingStep]: [...currentAnswers, currentGroundingInput],
     };
 
+    // Move to the next step if the current step is complete
     if (updatedAnswers[groundingStep].length === requiredGroundingCounts[groundingStep]) {
       const nextStep = {
         see: 'touch',
@@ -278,6 +306,7 @@ export const useDailyExercisesLogic = () => {
     }
   };
 
+  // Delete an item from the Grounding exercise answers and adjust the step if needed
   const handleGroundingDelete = (category, index) => {
     setGroundingAnswers({
       ...groundingAnswers,
@@ -291,6 +320,7 @@ export const useDailyExercisesLogic = () => {
     }
   };
 
+  // Handle form submission for the Self-Compassion exercise
   const handleSelfCompassionSubmit = (e) => {
     e.preventDefault();
     if (!currentSelfCompassionInput.trim()) return;
@@ -310,6 +340,7 @@ export const useDailyExercisesLogic = () => {
     }
   };
 
+  // Toggle a trigger in the Trigger Identification exercise
   const handleTriggerSelect = (triggerId) => {
     if (triggers.includes(triggerId)) {
       setTriggers(triggers.filter((id) => id !== triggerId));
@@ -318,6 +349,7 @@ export const useDailyExercisesLogic = () => {
     }
   };
 
+  // Return all the state and functions to be used in the DailyExercises component
   return {
     selectedExercise,
     timeLeft,
