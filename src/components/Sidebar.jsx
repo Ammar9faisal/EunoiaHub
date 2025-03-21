@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { BarChart2, Smile, NotepadText , Settings, LogOut,  Map, Clipboard, Star, LayoutList, Plus } from 'lucide-react';
+import { BarChart2, Smile, NotepadText , Settings, LogOut,  Map, Clipboard, Star, LayoutList, Plus, Wind } from 'lucide-react';
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { account } from '../appwrite';
+
 
 export function Sidebar() {
   const [activeButton, setActiveButton] = useState('dashboard');
@@ -60,6 +61,13 @@ export function Sidebar() {
           onClick={() => navigate("/usertickets")}    // sets the button as active when a button is clicekd
         >
           <Star className="sidebar-icon"  color="white"/>
+        </button>
+
+        <button
+          className={`sidebar-button ${activeButton === 'dailyexercises' ? 'sidebar-button-active' : ''}`}
+          onClick={() => { handleButtonClick('dailyexercises'); navigate('/dailyexercises'); }}
+        >
+          <Wind className="sidebar-icon" color="white" />
         </button>
 
         <button

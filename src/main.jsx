@@ -11,6 +11,7 @@ import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
 import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
+import DailyExercises from './pages/DailyExercises.jsx';
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 
@@ -85,6 +86,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <VisionBoard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/dailyexercises',
+    element: (
+      <ProtectedRoute>
+        <DailyExercises />
       </ProtectedRoute>
     ),
   },
