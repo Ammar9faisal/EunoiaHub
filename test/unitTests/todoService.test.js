@@ -1,9 +1,9 @@
 import { describe, expect, test, vi } from 'vitest';
-import { fetchUserAndTasks, addTask, removeTask, startEditing, saveEdit } from '../src/services/todoService';
-import { account } from '../src/appwrite';
+import { fetchUserAndTasks, addTask, removeTask, startEditing, saveEdit } from '../../src/services/todoService'; 
+import { account } from '../../src/appwrite'; 
 
 // Mock the database and account modules
-vi.mock('../src/database', () => ({
+vi.mock('../../src/database', () => ({
     todoLists: {
         list: vi.fn(),
         create: vi.fn(),
@@ -12,7 +12,7 @@ vi.mock('../src/database', () => ({
     },
 }));
 
-vi.mock('../src/appwrite', () => ({
+vi.mock('../../src/appwrite', () => ({
     account: {
         get: vi.fn(),
     },

@@ -1,10 +1,10 @@
 import { describe, expect, test, vi } from 'vitest';
-import { questions, handleNext, handleBack, handleNumberClick, happinessIndex, fetchSurveyResponse, fetchMostRecentWellnessIndex } from '../src/services/surveyService';
-import db from '../src/database';
-import { account } from '../src/appwrite';
+import { questions, handleNext, handleBack, handleNumberClick, happinessIndex, fetchSurveyResponse, fetchMostRecentWellnessIndex } from '../../src/services/surveyService';
+import db from '../../src/database';
+import { account } from '../../src/appwrite';
 
 // Mock the database and account modules
-vi.mock('../src/database', () => ({
+vi.mock('../../src/database', () => ({
     default: {
         surveyResponses: {
             create: vi.fn(),
@@ -13,7 +13,7 @@ vi.mock('../src/database', () => ({
     },
 }));
 
-vi.mock('../src/appwrite', () => ({
+vi.mock('../../src/appwrite', () => ({
     account: {
         get: vi.fn(),
     },
