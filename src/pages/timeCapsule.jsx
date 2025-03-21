@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "./timeCapsule.css";
 
 export default function TimeCapsule() {
   const [goals, setGoals] = useState([]);

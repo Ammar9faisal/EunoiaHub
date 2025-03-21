@@ -1,89 +1,150 @@
 /* ToDoList.css */
+/* Main container for the To-Do List page */
 .todo-list {
-    font-family: Arial, sans-serif;
-    background-color: #ecdcf6; /* Pastel purple */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
+    display: grid;
+    grid-template-columns: 100px 1fr; /* Sidebar takes 250px, main content takes the remaining space */
+    height: 100vh; /* Full viewport height */
+    overflow: hidden;
+    background-color: #f7f3fc; /* Light pastel background */
+    background: linear-gradient(to bottom, #7F58BB, #C343B4);
 }
 
-.todo-list-save-edit {
-    background-color: #94d396;
+/* Sidebar styling */
+.todo-list .sidebar {
+    grid-column: 1;
+    color: white;
+    overflow-y: auto;
 }
 
-.todo-list-edit-input {
-background-color: white;
-color: rgb(0, 0, 0);
-}
-
+/* Main content container */
 .to-do-container {
-    background: #ffffff;
-    padding: 2vh;
-    border-radius: 1.2vh;
-    box-shadow: 0 0.4vh 0.8vh rgba(0, 0, 0, 0.1);
-    width: 30vh;
+    width: auto;
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    overflow-y: auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
 }
 
+/* Title styling */
 .todo-list-title {
-    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
     color: #333;
+    margin-bottom: 1.5rem;
 }
 
+/* Input container styling */
 .todo-list-input-container {
     display: flex;
     align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
 }
 
 .todo-list-input {
+    background-color: lightgrey;
     flex: 1;
-    padding: 0.8vh;
-    border: 0.1vh solid #ccc;
-    border-radius: 0.8vh;
-    background-color: white;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px; 
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .todo-list-add {
-    margin-left: 0.8vh;
-    padding: 0.8vh 1.2vh;
-    background-color: #94d396;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
     color: white;
+    background-color: #6fcf97;
     border: none;
-    border-radius: 0.8vh;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1.6vh;
+    transition: background-color 0.3s ease;
 }
 
 .todo-list-add:hover {
-    background-color:  #94d396;
+    background-color: #5abf80;
 }
 
+/* Task list styling */
 .todo-list-items {
     list-style: none;
     padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 600px;
 }
 
 .todo-list-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    background: #e8e8e8;
-    padding: 0.8vh;
-    border-radius: 0.8vh;
-    margin-bottom: 0.8vh;
+    justify-content: space-between;
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.8rem;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.todo-list-remove {
-    padding: 0.4vh 0.8vh;
-    font-size: 1.6vh;
-    background-color: #f6b0b0;
-    color: white;
-    border: none;
-    border-radius: 0.8vh;
+.todo-list-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.todo-list-task {
+    flex: 1;
+    font-size: 1rem;
+    color: #333;
     cursor: pointer;
 }
 
+.todo-list-edit-input {
+    background-color: lightgrey;
+    flex: 1;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.todo-list-save-edit {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: white;
+    background-color: #6fcf97;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.todo-list-save-edit:hover {
+    background-color: #5abf80;
+}
+
+.todo-list-remove {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    color: white;
+    background-color: #eb5757;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
 .todo-list-remove:hover {
-    background-color: #f6b0b0;
+    background-color: #d9534f;
 }
