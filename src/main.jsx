@@ -14,10 +14,13 @@ import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
 import DailyExercises from './pages/DailyExercises.jsx';
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
+import BlogPage from './pages/BlogPage.jsx';
+import WelcomePage from './pages/Welcome.jsx';
+import TimeCapsule from './pages/timeCapsule.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/login',
     element: <Login />,
   },
   {
@@ -45,6 +48,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <FindHelp />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/blogpage',
+    element: (
+      <ProtectedRoute>
+        <BlogPage />
       </ProtectedRoute>
     ),
   },
@@ -98,6 +109,15 @@ const router = createBrowserRouter([
     ),
   },
 
+  {
+    path: '/',
+    element: <WelcomePage />
+  },
+
+  {
+    path: '/timecapsule',
+    element: <TimeCapsule />
+  },
 ]);
 
 createRoot(document.getElementById('root')).render(

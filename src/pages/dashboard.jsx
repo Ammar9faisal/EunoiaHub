@@ -29,7 +29,7 @@ export default function Dashboard() {
         console.log('Logged-in user ID:', user.$id); // Log the user ID for debugging
       } catch (error) {
         console.error('Error fetching user account:', error);
-        navigate('/'); // Redirect to login if not logged in
+        navigate('/login'); // Redirect to login if not logged in
       }
     };
 
@@ -67,11 +67,17 @@ export default function Dashboard() {
     fetchWellnessData();
   }, [userId]);
 
-  useEffect(() => { //sets the quotes randomly from a list of quotes
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setCurrentQuote(quotes[randomIndex]);
+  useEffect(() => {
+    const startDate = new Date("03/20/2025"); // First quote date
+    const today = new Date();
+    // Calculate the number of days since the start date
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    // Get the quote for today, looping back if we exceed the list length
+    const index = diffDays % quotes.length;
+    setCurrentQuote(quotes[index]);
   }, []);
-
+  
   const toggleChat = () => {
     const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
     chatbot.classList.toggle('hidden');
