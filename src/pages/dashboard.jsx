@@ -7,6 +7,7 @@ import './dashboard.css';
 import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
+import dailyExercisesPic from '../assets/DE-Dashboard.png';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -66,11 +67,17 @@ export default function Dashboard() {
     fetchWellnessData();
   }, [userId]);
 
-  useEffect(() => { //sets the quotes randomly from a list of quotes
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setCurrentQuote(quotes[randomIndex]);
+  useEffect(() => {
+    const startDate = new Date("03/20/2025"); // First quote date
+    const today = new Date();
+    // Calculate the number of days since the start date
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    // Get the quote for today, looping back if we exceed the list length
+    const index = diffDays % quotes.length;
+    setCurrentQuote(quotes[index]);
   }, []);
-
+  
   const toggleChat = () => {
     const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
     chatbot.classList.toggle('hidden');
@@ -141,6 +148,14 @@ export default function Dashboard() {
               image= {botPic}
               onClick={() => toggleChat()}
             />
+            <DashboardCard
+            title="Daily Exercises"
+            description="Start your daily wellness exercises now"
+            icon={<Rocket className="w-16 h-16 text-gray-600" />}
+            bgColor="dashboard-card"
+            image={dailyExercisesPic}
+            onClick={() => navigate('/DailyExercises')}
+          />
           </div>
         </div>
       </div>
