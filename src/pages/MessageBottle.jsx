@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import waveBackground from "../assets/waves.png";
 import bottleImage from "../assets/bottle.png";
 import "./MessageBottle.css";
 
@@ -70,19 +69,7 @@ export default function MessageInABottle() {
   };
 
   return (
-    <div
-      className="message-bottle-container"
-      style={{
-        background: `url(${waveBackground}) center/cover no-repeat`,
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "flex-start", // Aligns content to the top
-        alignItems: "center",
-        flexDirection: "column",
-        padding: "20px",
-        width: "100%",
-      }}
-    >
+    <div className="message-bottle-container">
       {!state.sent ? (
         <>
           <h2 className="message-bottle-title">Send a Message in a Bottle</h2>
