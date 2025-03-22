@@ -1,3 +1,16 @@
+/* Container for the entire Survey page with sidebar */
+.survey-wrapper {
+  display: flex; 
+  height: 100vh; 
+  overflow: hidden; 
+}
+
+/* Main content area */
+.survey-main {
+  flex: 1; 
+  overflow-y: auto; 
+}
+
 /* Styles for the main body of the questionaaire - this sets up the whole page */
 .survey-body { 
   margin: 0;
@@ -9,9 +22,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  }
-  /* The main box where all the questionaaire stuff lives */
-  .survey-container {
+}
+
+/* The main box where all the questionaaire stuff lives */
+.survey-container {
   width: 80vw;
   height: 70vh;
   flex-shrink: 0;
@@ -25,9 +39,10 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  }
-  /* The progress bar at the top - shows how far along we are */
-  .survey-progress-bar {
+}
+
+/* The progress bar at the top - shows how far along we are */
+.survey-progress-bar {
   width: 100%;
   height: 0.5vh;
   position: absolute;
@@ -37,27 +52,31 @@
   justify-content: flex-start;
   align-items: center;
   gap: 0.5vw;
-  }
-  /* Each little dash in the progress bar */
-  .survey-dash {
+}
+
+/* Each little dash in the progress bar */
+.survey-dash {
   width: 10vw;
   height: 0.7vh;
   background-color: #808080;
-  }
-  /* The active dash - highlights the current question */
-  .survey-active-dash {
+}
+
+/* The active dash - highlights the current question */
+.survey-active-dash {
   background-color: #8a2be2;
-  }
-  /* Container for the big header text */
-  .survey-header-bar {
+}
+
+/* Container for the big header text */
+.survey-header-bar {
   width: 100%;
   padding: 1vh 0;
   position: absolute;
   top: 10vh;
   left: 4vw;
-  }
-  /* The big bold title text - like "Question 1" or the intro */
-  .survey-header-text {
+}
+
+/* The big bold title text - like "Question 1" or the intro */
+.survey-header-text {
   font-size: 5vh;
   font-style: normal;
   font-weight: 700;
@@ -65,94 +84,107 @@
   color: #4a148c;
   margin-top: 0.5vh;
   text-align: left;
-  }
-  /* Intro text on the first page - sets the stage */
-  .survey-intro-text {
+}
+
+/* Intro text on the first page - sets the stage */
+.survey-intro-text {
   font-size: 2.9vh;
   color: #1C0227;
   text-align: left;
   margin: 15vh 0 5vh 0;
   line-height: 1.5;
   max-width: 90%;
-  }
-  /* Styles for each question text */
-  .survey-question {
+}
+
+/* Styles for each question text */
+.survey-question {
   font-size: 2.9vh;
   color: #1C0227;
   text-align: left;
   margin: 23vh 0 5vh 0;
   line-height: 1.5;
   max-width: 90%;
-  }
-  /* Holds the rating scale (numbers and emojis) */
-  .survey-scale-container {
+}
+
+/* Holds the rating scale (numbers and emojis) */
+.survey-scale-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 15vh 0 5vh 0;
-  }
-  /* The row of clickable numbers (1-10) */
-  .survey-scale-numbers {
+}
+
+/* The row of clickable numbers (1-10) */
+.survey-scale-numbers {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: nowrap;
   gap: 2.5vw;
-  }
-  /* The row of emojis below the numbers */
-  .survey-scale-emojis {
+}
+
+/* The row of emojis below the numbers */
+.survey-scale-emojis {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-top: 1vh;
   gap: 7vw;
-  }
-  /* Container for the intro page’s emoji scale */
-  .survey-emoji-scale {
+}
+
+/* Container for the intro page’s emoji scale */
+.survey-emoji-scale {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin: 15vh 0 5vh 0;
-  }
-  /* The row of emojis on the intro page */
-  .survey-emoji-row {
+}
+
+/* The row of emojis on the intro page */
+.survey-emoji-row {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 2.7vw;
   margin-bottom: 1vh;
-  }
-  /* Cool gradient bar under the intro emojis */
-  .survey-gradient-bar {
+}
+
+/* Cool gradient bar under the intro emojis */
+.survey-gradient-bar {
   width: 100%;
   height: 1vh;
   background: linear-gradient(to right, #00ff00, #ffff00, #ff9900, #ff0000);
   border-radius: 0.5vh;
   margin-top: 1vh;
-  }
-  /* Groups each number or emoji in the scale */
-  .survey-number-group {
+}
+
+/* Groups each number or emoji in the scale */
+.survey-number-group {
   display: flex;
   flex-direction: column;
   align-items: center;
-  }
-  /* The clickable number buttons in the scale */
-  .survey-number {
+}
+
+/* The clickable number buttons in the scale */
+.survey-number {
   background-color: #9c27b0;
   color: white;
   padding: 1vh 2vw;
   border-radius: 0.5vh;
   cursor: pointer;
   transition: background-color 0.3s;
-  }
-  /* Hover effect for the numbers */
-  .survey-number:hover {
+}
+
+/* Hover effect for the numbers */
+.survey-number:hover {
   background-color: #7b1fa2;
-  }
-  /* Styles for the emojis */
-  .survey-emoji {
+}
+
+/* Styles for the emojis */
+.survey-emoji {
   font-size: 2.4vh;
-  }
+}
+
 .survey-warning { 
   color: #54166e;
   border: 0.2vh solid #54166e;  
@@ -185,9 +217,8 @@
   right: 3vw;
 }
 
-
-  /* The "Next" button - moves us forward */
-  .survey-next-button {
+/* The "Next" button - moves us forward */
+.survey-next-button {
   background-color: #673ab7;
   color: white;
   padding: 1.2vh 3vw;
@@ -199,13 +230,15 @@
   position: absolute;
   bottom: 3vh;
   right: 3vw;
-  }
-  /* Hover effect for the Next button */
-  .survey-next-button:hover {
+}
+
+/* Hover effect for the Next button */
+.survey-next-button:hover {
   background-color: #512da8;
-  }
-  /* Back button - takes us to the previous page */
-  .survey-back-button {
+}
+
+/* Back button - takes us to the previous page */
+.survey-back-button {
   background-color: #673ab7;
   color: white;
   padding: 1.2vh 3vw;
@@ -217,8 +250,9 @@
   position: absolute;
   bottom: 3vh;
   left: 3vw;
-  }
-  /* Hover effect for the Back button */
-  .survey-back-button:hover {
+}
+
+/* Hover effect for the Back button */
+.survey-back-button:hover {
   background-color: #512da8;
-  }
+}
