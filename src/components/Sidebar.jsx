@@ -8,7 +8,7 @@ import { account } from '../appwrite';
 
 
 export function Sidebar() {
-  const [activeButton, setActiveButton] = useState('dashboard');
+  const [activeButton, setActiveButton] = useState('');
   const navigate = useNavigate();
   const location = useLocation(); // Get current location (page)
 
