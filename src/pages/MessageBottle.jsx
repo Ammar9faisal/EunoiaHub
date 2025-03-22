@@ -1,139 +1,132 @@
 import { useState, useEffect } from "react";
-import waveBackground from "../assets/waves.png"; 
-import bottleImage from "../assets/bottle.png"; 
+import waveBackground from "../assets/waves.png";
+import bottleImage from "../assets/bottle.png";
 import "./MessageBottle.css";
 
 export default function MessageInABottle() {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState("");
-  const [sent, setSent] = useState(false);
-  const [unlockDate, setUnlockDate] = useState(null);
-  const [canOpen, setCanOpen] = useState(false);
+  const [state, setState] = useState({
+    messages: [],
+    input: "",
+    unlockDate: null,
+    sent: false,
+    opened: false,
+  });
+
   const [timeLeft, setTimeLeft] = useState(null);
-  const [opened, setOpened] = useState(false); 
 
   useEffect(() => {
     const storedBottle = JSON.parse(localStorage.getItem("messageBottle"));
     if (storedBottle) {
       const savedUnlockDate = new Date(storedBottle.unlockDate);
-      setMessages(storedBottle.messages);
-      setUnlockDate(savedUnlockDate);
-      setSent(true);
+      setState({ ...state, messages: storedBottle.messages, unlockDate: savedUnlockDate, sent: true });
       updateCountdown(savedUnlockDate);
     }
   }, []);
 
   useEffect(() => {
-    if (unlockDate) {
-      const interval = setInterval(() => updateCountdown(unlockDate), 1000);
+    if (state.unlockDate) {
+      const interval = setInterval(() => updateCountdown(state.unlockDate), 1000);
       return () => clearInterval(interval);
     }
-  }, [unlockDate]);
+  }, [state.unlockDate]);
 
   const updateCountdown = (date) => {
     const now = new Date();
-    const difference = date - now;
-    if (difference <= 0) {
-      setCanOpen(true);
+    const diff = date - now;
+    if (diff <= 0) {
       setTimeLeft(null);
     } else {
-      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((difference / (1000 * 60)) % 60);
-      const seconds = Math.floor((difference / 1000) % 60);
-      setTimeLeft({ days, hours, minutes, seconds });
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      });
     }
   };
 
   const addMessage = () => {
-    if (input.trim()) {
-      setMessages([...messages, input]);
-      setInput("");
+    if (state.input.trim()) {
+      setState({ ...state, messages: [...state.messages, state.input], input: "" });
     }
   };
 
   const sendBottle = () => {
-    if (messages.length === 0) return;
+    if (state.messages.length === 0) return;
 
     const unlockTime = new Date();
-    unlockTime.setMinutes(unlockTime.getMinutes() + 1); // Set to 1 minute for testing
+    unlockTime.setMinutes(unlockTime.getMinutes() + 1); // 1 min for testing
 
-    localStorage.setItem("messageBottle", JSON.stringify({ messages, unlockDate: unlockTime }));
-
-    setUnlockDate(unlockTime);
-    setSent(true);
+    localStorage.setItem("messageBottle", JSON.stringify({ messages: state.messages, unlockDate: unlockTime }));
+    setState({ ...state, unlockDate: unlockTime, sent: true });
     updateCountdown(unlockTime);
   };
 
-  const openBottle = () => {
-    setOpened(true); // When user clicks on the bottle, messages will be revealed
+  const openBottle = () => setState({ ...state, opened: true });
+
+  const resetBottle = () => {
+    localStorage.removeItem("messageBottle");
+    setState({ messages: [], input: "", unlockDate: null, sent: false, opened: false });
   };
 
   return (
     <div
       className="message-bottle-container"
       style={{
-        backgroundImage: `url(${waveBackground})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        background: `url(${waveBackground}) center/cover no-repeat`,
         minHeight: "100vh",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "flex-start", // Aligns content to the top
         alignItems: "center",
         flexDirection: "column",
         padding: "20px",
+        width: "100%",
       }}
     >
-      {!sent ? (
+      {!state.sent ? (
         <>
           <h2 className="message-bottle-title">Send a Message in a Bottle</h2>
           <input
             type="text"
             className="message-bottle-input"
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
+            value={state.input}
+            onChange={(e) => setState({ ...state, input: e.target.value })}
             placeholder="Write your message..."
           />
           <button className="message-bottle-button" onClick={addMessage}>Add Message</button>
-          <button className="message-bottle-button" onClick={sendBottle} disabled={messages.length === 0}>
+          <button className="message-bottle-button" onClick={sendBottle} disabled={state.messages.length === 0}>
             Send Bottle
           </button>
           <ul className="message-bottle-list">
-            {messages.map((message, i) => <li key={i}>{message}</li>)}
+            {state.messages.map((msg, i) => <li key={i}>{msg}</li>)}
           </ul>
         </>
       ) : (
         <>
           <h2 className="message-bottle-title">Your Bottle Has Been Sent!</h2>
-          {canOpen && !opened ? (
-            <>
-              <p className="message-bottle-message">
-                Your bottle has arrived! Click below to open it and retrieve your messages.
-              </p>
-              <button onClick={openBottle} className="message-bottle-open-button">
-                <img src={bottleImage} alt="Bottle" className="bottle-image" />
-              </button>
-            </>
-          ) : opened ? (
+          {state.opened ? (
             <div>
               <h3>Messages Retrieved from the Bottle:</h3>
               <ul className="message-bottle-list">
-                {messages.map((message, i) => <li key={i}>{message}</li>)}
+                {state.messages.map((msg, i) => <li key={i}>{msg}</li>)}
               </ul>
+              <button className="message-bottle-button" onClick={resetBottle}>Make Another Message</button>
             </div>
-          ) : (
+          ) : timeLeft ? (
             <>
               <p className="message-bottle-message">
-                Your bottle will wash ashore on <strong>{unlockDate.toDateString()}</strong>! Come back then to read your messages.
+                Your bottle will wash ashore on <strong>{state.unlockDate.toDateString()}</strong>!
               </p>
-              {timeLeft && (
-                <div className="message-bottle-countdown">
-                  <p>
-                    Your bottle arrives in: <strong>{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</strong>
-                  </p>
-                </div>
-              )}
+              <p className="message-bottle-countdown">
+                Arrives in: <strong>{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</strong>
+              </p>
+            </>
+          ) : (
+            <>
+              <p className="message-bottle-message">Your bottle has arrived! Click below to open it.</p>
+              <button onClick={openBottle} className="message-bottle-open-button">
+                <img src={bottleImage} alt="Bottle" className="bottle-image" />
+              </button>
             </>
           )}
         </>
@@ -141,3 +134,4 @@ export default function MessageInABottle() {
     </div>
   );
 }
+
