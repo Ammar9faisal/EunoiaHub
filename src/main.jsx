@@ -10,12 +10,12 @@ import FindHelp from './pages/FindHelp.jsx';
 import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
-import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
+import VisionBoard from './pages/VisionBoard.jsx'; 
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
-import TimeCapsule from './pages/timeCapsule.jsx';
+import MessageBottle from './pages/MessageBottle.jsx'; 
 
 const router = createBrowserRouter([
   {
@@ -65,14 +65,14 @@ const router = createBrowserRouter([
         <ToDoList />
       </ProtectedRoute>
     ),
-    },
+  },
   {
-    path: '/resources', // Path to resources page
+    path: '/resources', 
     element: (
       <ProtectedRoute>
         <Resources />
       </ProtectedRoute>
-    ), // Corrected the typo
+    ), 
   },
   {
     path: '/usertickets',
@@ -90,24 +90,21 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-
   {
-    path: '/vision-board', // Add the Vision Board route
+    path: '/vision-board',
     element: (
       <ProtectedRoute>
         <VisionBoard />
       </ProtectedRoute>
     ),
   },
-
   {
     path: '/',
     element: <WelcomePage />
   },
-
   {
-    path: '/timecapsule',
-    element: <TimeCapsule />
+    path: '/messageinabottle', 
+    element: <MessageBottle />
   },
 ]);
 
