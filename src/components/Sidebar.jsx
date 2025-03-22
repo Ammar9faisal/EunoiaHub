@@ -40,6 +40,9 @@ export function Sidebar() {
       case '/resources':
         setActiveButton('resources');
         break;
+      case '/dailyexercises':
+        setActiveButton('dailyexercises');
+        break;
       default:
         setActiveButton('dashboard'); // Default to dashboard if no match
         break;

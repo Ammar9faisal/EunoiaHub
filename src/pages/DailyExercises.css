@@ -1,45 +1,60 @@
 /* Container for the Daily Exercises page */
 .de-container {
-  display: flex;
-  height: 100vh;
-  background-image: url('../assets/Purple.png');
+  display: flex; /* Use flexbox to align the sidebar and main content */
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Prevent overflow issues */
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
+.de-sidebar {
+  width: 20vw; /* Sidebar takes 20% of the viewport width */
+  min-width: 250px; /* Ensure a minimum width for the sidebar */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  z-index: 2; /* Ensure the sidebar is above other elements */
+}
+
 /* Main content area */
 .de-main {
-  flex: 1;
+  flex: 1; /* Main content takes the remaining space */
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  background: linear-gradient(to bottom, #7F58BB, #C343B4);
+  overflow-y: auto; /* Allow scrolling for the main content */
+  padding: 2rem; /* Add padding for spacing */
+  background-color: #ffffff; /* Main content background color */
 }
 
 .de-content {
-  flex: 1;
-  padding: 1rem;
+  flex: 1; /* Ensure the content area grows to fill available space */
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .de-section {
+  width: 100%;
+  max-width: 1200px; /* Limit the width of the content */
+  margin: 0 auto; /* Center the section */
   margin-bottom: 2rem;
 }
 
 .de-section-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
-  color: white;
+  color: #fffdfd;
 }
 
 /* Grid layout for exercise cards */
 .de-cards {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1.5rem; /* Space between cards */
+  margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -56,17 +71,23 @@
 
 /* Individual exercise card styling with hover effects */
 .de-card {
-  padding: 1.5rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
   text-align: center;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .de-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.de-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 /* Styling for the exercise image within cards */
@@ -110,17 +131,17 @@
 
 /* Button styling  */
 .de-button {
-  padding: 0.5rem 1rem;
-  background-color: #d8b4fd;
+  background-color: #6fcf97;
+  color: white;
   border: none;
-  border-radius: 0.375rem;
-  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s ease;
 }
 
 .de-button:hover {
-  background-color: #c084fc;
+  background-color: #5abf80;
 }
 
 /* Focused view for when an exercise is selected */
