@@ -71,7 +71,7 @@ export const handleSearch = async (
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-Goog-Api-Key': 'KEY', //*************************************************PUT KEY (Consider using environment variables)
+          'X-Goog-Api-Key': 'KEY', //*************************************************PUT KEY 
         
           'X-Goog-FieldMask': 'places.displayName,places.formattedAddress,places.primaryType,places.location',
         },
@@ -123,7 +123,7 @@ export const handleSearch = async (
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'X-Goog-Api-Key': 'KEy', // ************************PUT KEY (Consider using environment variables)
+              'X-Goog-Api-Key': 'KEY', // ************************PUT KEY 
               
               'X-Goog-FieldMask': 'routes.distanceMeters',
             },

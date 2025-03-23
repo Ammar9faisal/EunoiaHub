@@ -7,6 +7,7 @@ import './dashboard.css';
 import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
+import dailyExercisesPic from '../assets/DE-Dashboard.png';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -147,6 +148,14 @@ export default function Dashboard() {
               image= {botPic}
               onClick={() => toggleChat()}
             />
+            <DashboardCard
+            title="Daily Exercises"
+            description="Start your daily wellness exercises now"
+            icon={<Rocket className="w-16 h-16 text-gray-600" />}
+            bgColor="dashboard-card"
+            image={dailyExercisesPic}
+            onClick={() => navigate('/DailyExercises')}
+          />
           </div>
         </div>
       </div>

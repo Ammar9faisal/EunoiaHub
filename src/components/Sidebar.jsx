@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book } from 'lucide-react';
+import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book, Wind } from 'lucide-react';
+
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { account } from '../appwrite';
 
+
 export function Sidebar() {
-  const [activeButton, setActiveButton] = useState('dashboard');
+  const [activeButton, setActiveButton] = useState('');
   const navigate = useNavigate();
   const location = useLocation(); // Get current location (page)
 
@@ -37,6 +39,9 @@ export function Sidebar() {
         break;
       case '/resources':
         setActiveButton('resources');
+        break;
+      case '/dailyexercises':
+        setActiveButton('dailyexercises');
         break;
       default:
         setActiveButton('dashboard'); // Default to dashboard if no match
@@ -97,6 +102,13 @@ export function Sidebar() {
         >
           <Star className="sidebar-icon" color="white" />
         </button>
+        <button
+          className={`sidebar-button ${activeButton === 'dailyexercises' ? 'sidebar-button-active' : ''}`}
+          onClick={() => { handleButtonClick('dailyexercises'); navigate('/dailyexercises'); }}
+        >
+          <Wind className="sidebar-icon" color="white" />
+        </button>
+
         <button
           className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/todo")}
