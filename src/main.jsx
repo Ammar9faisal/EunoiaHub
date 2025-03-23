@@ -114,7 +114,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/messageinabottle', 
-    element: <MessageBottle />
+    element: (
+      <ProtectedRoute>
+        <MessageBottle />
+      </ProtectedRoute>
+    ),
   },
 ]);
 

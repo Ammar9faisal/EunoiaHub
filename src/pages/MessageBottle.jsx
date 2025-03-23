@@ -55,7 +55,7 @@ export default function MessageInABottle() {
     if (state.messages.length === 0) return;
 
     const unlockTime = new Date();
-    unlockTime.setMinutes(unlockTime.getMinutes() + 1); // 1 min for testing
+    unlockTime.setMinutes(unlockTime.getDay() + 30); //3o days from now
 
     localStorage.setItem("messageBottle", JSON.stringify({ messages: state.messages, unlockDate: unlockTime }));
     setState({ ...state, unlockDate: unlockTime, sent: true });
