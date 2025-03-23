@@ -8,6 +8,7 @@ import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
+import bottlePic from '../assets/bottle.png';  // Imported bottle image
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -15,10 +16,10 @@ import { fetchWellnessIndexData } from '../services/dashboardService.js';
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [currentQuote, setCurrentQuote] = useState(quotes[0]);   //sets the current quote to the a random quote
-  const [dashboardColor, setDashboardColor] = useState('dashboard-white'); // Default color
-  const [userId, setUserId] = useState(null); // State to store the user ID
-  const [user, setUser] = useState(null); // State to store the user document
+  const [currentQuote, setCurrentQuote] = useState(quotes[0]);  
+  const [dashboardColor, setDashboardColor] = useState('dashboard-white'); 
+  const [userId, setUserId] = useState(null);
+  const [user, setUser] = useState(null);
   const [wellnessIndexData, setWellnessIndexData] = useState([]);
 
   useEffect(() => {
@@ -26,10 +27,10 @@ export default function Dashboard() {
       try {
         const user = await account.get();
         setUserId(user.$id);
-        console.log('Logged-in user ID:', user.$id); // Log the user ID for debugging
+        console.log('Logged-in user ID:', user.$id);
       } catch (error) {
         console.error('Error fetching user account:', error);
-        navigate('/login'); // Redirect to login if not logged in
+        navigate('/login');
       }
     };
 
@@ -40,9 +41,9 @@ export default function Dashboard() {
     const fetchUserDocument = async () => {
       if (userId) {
         try {
-          const response = await db.users.get(userId); // Fetch the user document
+          const response = await db.users.get(userId);
           setUser(response);
-          console.log('User document:', response); // Log the user document for debugging
+          console.log('User document:', response);
         } catch (error) {
           console.error('Error fetching user document:', error);
         }
@@ -52,7 +53,7 @@ export default function Dashboard() {
     fetchUserDocument();
   }, [userId]);
 
-  useEffect(() => {  //fetches the wellness index data
+  useEffect(() => {
     const fetchWellnessData = async () => {
       if (userId) {
         try {
@@ -68,26 +69,24 @@ export default function Dashboard() {
   }, [userId]);
 
   useEffect(() => {
-    const startDate = new Date("03/20/2025"); // First quote date
+    const startDate = new Date("03/20/2025");
     const today = new Date();
-    // Calculate the number of days since the start date
     const diffTime = today - startDate;
     const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    // Get the quote for today, looping back if we exceed the list length
     const index = diffDays % quotes.length;
     setCurrentQuote(quotes[index]);
   }, []);
   
   const toggleChat = () => {
-    const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
+    const chatbot = document.querySelector('.chatbot-container');
     chatbot.classList.toggle('hidden');
   };
 
   return (
     <div className={`dashboard-container ${dashboardColor}`}>
-      <Sidebar />   {/*Displays the sidebar*/}
-      <div className="dashboard-main">  {/*Main dashboard container*/}
-        <div className="dashboard-header">  {/*Displays the header of the dashboard*/}
+      <Sidebar />
+      <div className="dashboard-main">
+        <div className="dashboard-header">
           <div className="dashboard-header-icon">
             <Rocket className="w-6 h-6" />
           </div>
@@ -98,9 +97,9 @@ export default function Dashboard() {
         </div>
 
         <div className="dashboard-content">
-          <ChatBot />  {/*Displays the chatbot*/}
+          <ChatBot />
 
-          <section className="daily-quote">  {/*Displays the daily quote*/}
+          <section className="daily-quote">
             <div className="overlap-group">
               <p className="quote-text">{currentQuote.quote}</p>
               <div className="overlap">
@@ -110,8 +109,8 @@ export default function Dashboard() {
             </div>
           </section>
 
-          <section className="dashboard-section">  
-            <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2> {/*Displays the chart*/}
+          <section className="dashboard-section">
+            <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2>
             <div className="chart-container">
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
@@ -130,32 +129,41 @@ export default function Dashboard() {
           </section>
 
           <div className="dashboard-cards">
-            
-            <DashboardCard    //creates a dashboard card for the daily check-in
+            <DashboardCard
               title="Mindful Check-in"
               description="Complete your daily check-in now"
               icon={<Brain className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
-              image= {mindfulPic}
+              image={mindfulPic}
               onClick={() => navigate('/survey')}
             />
 
-            <DashboardCard  //creates a dashboard card for the wellness bot
+            <DashboardCard
               title="Wellness bot"
               description="Meet your personal wellness bot!"
               icon={<Bot className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
-              image= {botPic}
+              image={botPic}
               onClick={() => toggleChat()}
             />
+
             <DashboardCard
-            title="Daily Exercises"
-            description="Start your daily wellness exercises now"
-            icon={<Rocket className="w-16 h-16 text-gray-600" />}
-            bgColor="dashboard-card"
-            image={dailyExercisesPic}
-            onClick={() => navigate('/DailyExercises')}
-          />
+              title="Daily Exercises"
+              description="Start your daily wellness exercises now"
+              icon={<Rocket className="w-16 h-16 text-gray-600" />}
+              bgColor="dashboard-card"
+              image={dailyExercisesPic}
+              onClick={() => navigate('/DailyExercises')}
+            />
+
+            {/* Bottle Dashboard Card */}
+            <DashboardCard
+              title="Mystery Bottle"
+              description="Click to reveal something special!"
+              bgColor="dashboard-card"
+              image={bottlePic}
+              onClick={() => navigate('/messageinabottle')} // Redirect to a new webpage
+            />
           </div>
         </div>
       </div>
@@ -163,7 +171,7 @@ export default function Dashboard() {
   );
 }
 
-function Badge({ icon, color }) {  //creates constructor for badges with icon and color
+function Badge({ icon, color }) {
   return (
     <div className={`badge ${color}`}>
       {typeof icon === 'string' ? <span className="text-xl font-semibold">{icon}</span> : icon}
@@ -171,13 +179,13 @@ function Badge({ icon, color }) {  //creates constructor for badges with icon an
   );
 }
 
-function DashboardCard({ title, description, image, bgColor, onClick }) {   //creates constructor for dashboard cards with title, description, icon and background color
+function DashboardCard({ title, description, image, bgColor, onClick }) {
   return (
-    <div className={`dashboard-card ${bgColor}`} onClick={onClick}>  
+    <div className={`dashboard-card ${bgColor}`} onClick={onClick}>
       <div className="dashboard-card-header">
         <h3 className="dashboard-card-title">{title}</h3>
       </div>
-      <img className="dashboard-card-image" src={image}/>
+      <img className="dashboard-card-image" src={image} alt={title} />
       <p className="dashboard-card-description">{description}</p>
     </div>
   );
