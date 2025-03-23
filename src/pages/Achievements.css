@@ -1,66 +1,129 @@
 /* Achievements Page Styling */
 .achievements-container {
-    background: url('../assets/Purple.png') no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .achievements-title {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    font-weight: bold;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-  }
-  
+  background: url('../assets/Purple.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.achievements-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.badges-section {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 80%;
+}
+
+.badge {
+  width: 180px;
+  height: 180px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.badge:hover {
+  transform: scale(1.05); /* Slight scale on hover for interactivity */
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.badge img {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s ease;
+}
+
+.badge p {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Improve text readability */
+}
+
+.locked {
+  filter: grayscale(100%);
+  opacity: 0.5;
+}
+
+.unlocked {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Container for the button to position it in the bottom-left */
+.button-container {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Style the Back to Dashboard button */
+.back-to-dashboard-btn {
+  padding: 10px 20px;
+  background-color: #6b48ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-dashboard-btn:hover {
+  background-color: #5a3de6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
   .badges-section {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    max-width: 80%;
+    gap: 10px;
+    max-width: 100%;
   }
-  
+
   .badge {
-    width: 180px;
-    height: 180px;
-    padding: 15px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
   }
-  
+
   .badge img {
-    width: 100px;
-    height: 100px;
-    transition: 0.3s;
+    width: 80px;
+    height: 80px;
   }
-  
+
   .badge p {
-    margin-top: 10px;
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: 0.9rem;
   }
-  
-  .locked {
-    filter: grayscale(100%);
-    opacity: 0.5;
+
+  .button-container {
+    bottom: 10px;
+    left: 10px;
   }
-  
-  .unlocked {
-    filter: none;
-    opacity: 1;
-    transform: scale(1.1);
-  }  
+
+  .back-to-dashboard-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
