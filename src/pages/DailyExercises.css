@@ -1,8 +1,8 @@
 /* Container for the Daily Exercises page */
 .de-container {
-  display: flex; /* Use flexbox to align the sidebar and main content */
-  height: 100vh; /* Full viewport height */
-  overflow: hidden; /* Prevent overflow issues */
+  display: flex; 
+  height: 100vh; 
+  overflow: hidden; 
 
   background-size: cover;
   background-position: center;
@@ -10,25 +10,25 @@
 }
 
 .de-sidebar {
-  width: 20vw; /* Sidebar takes 20% of the viewport width */
-  min-width: 250px; /* Ensure a minimum width for the sidebar */
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  z-index: 2; /* Ensure the sidebar is above other elements */
+  width: 20vw; 
+  min-width: 250px; 
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+  z-index: 2; 
 }
 
 /* Main content area */
 .de-main {
-  flex: 1; /* Main content takes the remaining space */
+  flex: 1; 
   display: flex;
   flex-direction: column;
   background: linear-gradient(to bottom, #7F58BB, #C343B4);
-  overflow-y: auto; /* Allow scrolling for the main content */
-  padding: 2rem; /* Add padding for spacing */
-  background-color: #ffffff; /* Main content background color */
+  overflow-y: auto; 
+  padding: 2rem; 
+  background-color: #ffffff; 
 }
 
 .de-content {
-  flex: 1; /* Ensure the content area grows to fill available space */
+  flex: 1; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,8 +37,8 @@
 
 .de-section {
   width: 100%;
-  max-width: 1200px; /* Limit the width of the content */
-  margin: 0 auto; /* Center the section */
+  max-width: 1200px; 
+  margin: 0 auto; 
   margin-bottom: 2rem;
 }
 
@@ -52,8 +52,8 @@
 /* Grid layout for exercise cards */
 .de-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-  gap: 1.5rem; /* Space between cards */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+  gap: 1.5rem; 
   margin-top: 2rem;
 }
 
