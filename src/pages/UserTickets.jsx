@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './UserTickets.css';
+import Sidebar from '../components/Sidebar';
 
 const UserTickets = () => {
   const [review, setReview] = useState('');
@@ -29,9 +30,10 @@ const UserTickets = () => {
   };
 
   return (
+    <div className="usertickets-page">
+    <Sidebar />
     <div className="usertickets-container">
       <h1 className="usertickets-title">User Reviews and Feedback</h1>
-
       <div className="usertickets-form-section">
         <form className="usertickets-form" onSubmit={handleReviewSubmit}>
           <h2>Leave a Review</h2>
@@ -58,6 +60,7 @@ const UserTickets = () => {
 
       {submissionMessage && <div className="usertickets-submission-message">{submissionMessage}</div>}
 
+    </div>
     </div>
   );
 };
