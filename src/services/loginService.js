@@ -64,7 +64,7 @@ export const handleExistingAccount = async (loginEmail, loginPassword, navigate,
     try {
         const response = await account.createEmailPasswordSession(loginEmail, loginPassword);
         console.log(response); // Success
-
+        await new Promise(resolve => setTimeout(resolve, 100));
         navigate('/dashboard'); // Redirect to dashboard after successful login
     } catch (error) {
         console.log("Login Error: " + error); // Failure
