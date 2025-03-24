@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import BlogPost from "./BlogPost";
-import "./BlogStyle.css";
+import "../../styles/BlogStyle.css";
 import { Sidebar } from '../components/Sidebar.jsx';
 
 const BlogPage = () => {

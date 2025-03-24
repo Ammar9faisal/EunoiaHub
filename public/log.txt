@@ -212,11 +212,6 @@ INDIVIDUAL CONTRIBUTIONS
 
 -> MANJOT KAUR 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> f676db9 (Updated log for Manjpt)
 •	ITR 1: Daily Questionnaire
 Planned Cost: 2 days
 Actual Cost: 2 days
@@ -245,45 +240,6 @@ Feb 20: 6 hr (Designing Logic)
 Feb 21-22: 10 hr (Implementing UI and Logic)
 Feb 24-26: 8 hr (Implementing APIs and Testing)
 March 1- 3 : 8 hr (Testing , Debugging)
-<<<<<<< HEAD
-=======
-ITR 1 Assigned User Story: Daily Questionnaire
-=======
-•	ITR 1: Daily Questionnaire
->>>>>>> 364bf92 (Merge branch 'master' of https://github.com/Ammar9faisal/EunoiaHub)
-Planned Cost: 2 days
-Actual Cost: 2 days
-The user questionnaire is completed by user daily to log their moods and then get a recap after few days. It consists of bunch of questions about feelings, motivation and stress. The task required UI and logic and was done within planned cost.
-Jan 24: 2 hr (Research and planning)
-Jan 26: 3 hr (Learning to implement UI)
-Jan 20: 3 hr (Learning to use React)
-Feb 2: 6 hr (Implementing UI)
-	Feb 3: 3 hr (Implementing UI)
-Feb 4: 8 hr (Implementing Logic)
-Feb 5: 5 hr (Improving design)
-Feb 6: 10 hr (Debugging)
-Feb 7: 5 hr (Testing code)
-Feb 8: 3 hr (Final testing and uploading)
-•	ITR 2 : Find Help near you
-Planned Cost:  2 days
-Actual Cost: 2.5 days
-Find help near you feature allows user to find any resources, counselors or therapists in area by inputting the postal code. The task took .5 day more as it was a bit challenging task. I had to look for API’s and then learning to integrate them properly took some extra time.
-<<<<<<< HEAD
->>>>>>> 99ca1cf (UPDATED LOG.TXT)
-=======
-Feb 11: 3 hr (Research and planning)
-Feb 12: 6 hr (Learning to use API)
-Feb 13: 4 hr (Learning to use API and implementing them in React)
-Feb 15: 2 hr (Made goggle cloud account, generating keys)
-Feb 17: 8 hr (Designing UI)
-Feb 18: 5 hr (Implementing UI)
-Feb 20: 6 hr (Designing Logic)
-Feb 21-22: 10 hr (Implementing UI and Logic)
-Feb 24-26: 8 hr (Implementing APIs and Testing)
-March 1- 3 : 8 hr (Testing , Debugging)
->>>>>>> 364bf92 (Merge branch 'master' of https://github.com/Ammar9faisal/EunoiaHub)
-=======
->>>>>>> f676db9 (Updated log for Manjpt)
 
 -> ABDULLAH BAJWA 
 
@@ -394,13 +350,6 @@ Task: Connecting more pages
 MAR 6 – 1 hr 35 mins
 Task: Fixing layout and interaction issues
 • Polished transition effects for better user experience.
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 364bf92 (Merge branch 'master' of https://github.com/Ammar9faisal/EunoiaHub)
-=======
->>>>>>> 551d457 (ADDED LOG FOR HARNAIN AND BAM)
 • Refined positioning of elements across different screen sizes.
 
 -> HARNAINDEEP KAUR
@@ -567,11 +516,6 @@ Improved "Back to Dashboard" button positioning to ensure it didn’t interfere 
 Checked for any UI inconsistencies before finalizing changes.
 Prepared project for final review and documentation.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6f042ca (commited ammar log)
 ->Ammar Faisal 
 February 18
 
@@ -619,15 +563,5 @@ March 9
 
 Finalized SQL integration for user authentication and data storage.
 Ensured seamless linkage between Appwrite and SQL database.
-<<<<<<< HEAD
 Conducted final test cases for authentication and storage.
-=======
-• Refined positioning of elements across different screen sizes.
->>>>>>> 99ca1cf (UPDATED LOG.TXT)
-=======
->>>>>>> 364bf92 (Merge branch 'master' of https://github.com/Ammar9faisal/EunoiaHub)
-=======
->>>>>>> 551d457 (ADDED LOG FOR HARNAIN AND BAM)
-=======
-Conducted final test cases for authentication and storage.
->>>>>>> 6f042ca (commited ammar log)
+March 11
