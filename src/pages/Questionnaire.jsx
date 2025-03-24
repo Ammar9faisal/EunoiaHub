@@ -21,6 +21,7 @@ function Questionnaire() {
     } = useSurvey();
 
     const navigate = useNavigate(); // Hook to navigate to different pages
+<<<<<<< HEAD
     const renderResultsSection = () => {
         const extraContent = {
             Anxiety: {
@@ -85,6 +86,49 @@ function Questionnaire() {
                             Head to Login
                         </button>
                     </div>
+=======
+
+    // Function to render the result text based on the survey outcome
+    const renderResultText = () => {
+        if (resultText.includes('Anxiety')) {
+            return (
+                <>
+                    Seems like you may have <span className="question-gradient-anxiety">Anxiety</span>.
+                </>
+            );
+        } else if (resultText.includes('Addiction')) {
+            return (
+                <>
+                    Seems like you may have an <span className="question-gradient-addiction">Addiction</span>.
+                </>
+            );
+        } else if (resultText.includes('Depression')) {
+            return (
+                <>
+                    Seems like you may have <span className="question-gradient-depression">Depression</span>.
+                </>
+            );
+        } else {
+            return resultText;
+        }
+    };
+
+    // Function to render the results section
+    const renderResultsSection = () => (
+        <div className="results-page">
+            <img src={background} alt='background' className='results-background' />
+            <div className="results-container">
+                <h1>Survey Results</h1>
+                <p>{renderResultText()}</p>
+                <p>You can now either login with your credentionals or redo the survey</p>
+                <div className="results-buttons">
+                    <button className="results-redo-button" onClick={redoSurvey}>
+                        Redo
+                    </button>
+                    <button className="results-dashboard-button" onClick={() => navigate('/login')}>
+                        Head to Login
+                    </button>
+>>>>>>> d8278c2 (Pulled updates from master branch)
                 </div>
             </div>
         );

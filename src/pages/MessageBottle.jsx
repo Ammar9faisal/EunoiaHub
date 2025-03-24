@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar.jsx";
 import bottleImage from "../assets/bottle.png";
+<<<<<<< HEAD
 import "../../styles/MessageBottle.css";
+=======
+import "./MessageBottle.css";
+>>>>>>> d8278c2 (Pulled updates from master branch)
 
 export default function MessageInABottle() {
   const [state, setState] = useState({
@@ -125,4 +129,8 @@ export default function MessageInABottle() {
       </div>
     </div>
   );
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d8278c2 (Pulled updates from master branch)

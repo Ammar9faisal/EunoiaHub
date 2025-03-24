@@ -78,7 +78,6 @@ export function Sidebar() {
         >
           <BarChart2 className="sidebar-icon" color="white" />
         </button>
-
         <button
           className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/survey")}
@@ -103,7 +102,6 @@ export function Sidebar() {
         >
           <Book className="sidebar-icon" color="white" />
         </button>
-
         <button
           className={`sidebar-button ${activeButton === 'UserTickets' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/usertickets")}    // sets the button as active when a button is clicekd
@@ -123,6 +121,13 @@ export function Sidebar() {
         >
           <CalendarRange className="sidebar-icon" color="white" />
         </button>
+        <button
+          className={`sidebar-button ${activeButton === 'BubbleGame' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/bubblegame")}
+        >
+          <Gamepad2 className="sidebar-icon" color="white" />
+        </button>
+        
 
         <button
           className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
@@ -131,18 +136,18 @@ export function Sidebar() {
           <LayoutList className="sidebar-icon"  color="white"/>
         </button>
         <button
-          title="Resources"
           className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/resources")}
         >
           <Plus className="sidebar-icon" color="white" />
         </button>
       </nav>
-      <button className="sidebar-button" onClick={handleLogout}>
-        <LogOut className="sidebar-icon"  color="white"/>
+
+      <button title="Logout" className="sidebar-button" onClick={handleLogout}>
+        <LogOut className="sidebar-icon" color="white" />
       </button>
     </div>
   );
 }
 
-  export default Sidebar;
+export default Sidebar;

@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
 import "../../styles/Welcome.css";
+=======
+import "./Welcome.css";
+>>>>>>> d8278c2 (Pulled updates from master branch)
 import logo from '../assets/logo.png';
 import sideImage from "../assets/Laptop.png"; 
 import background from "../assets/WelcomeBackground.png"; 
@@ -40,4 +44,8 @@ const WelcomePage = () => {
   );
 };
 
+<<<<<<< HEAD
 export default WelcomePage;
+=======
+export default WelcomePage;
+>>>>>>> d8278c2 (Pulled updates from master branch)

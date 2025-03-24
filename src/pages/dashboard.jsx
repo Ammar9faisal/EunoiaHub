@@ -5,7 +5,6 @@ import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/dashboard.css';
 import botPic from '../assets/botPic.png';
-import Achievements from '../assets/Achievements.png'; // User achievements
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
@@ -164,7 +163,7 @@ export default function Dashboard() {
             <DashboardCard
               title="Mindful Check-in"
               description="Complete your daily check-in now"
-              image={mindfulPic}
+              icon={<Brain className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
               image={mindfulPic}
               onClick={() => navigate('/survey')}
@@ -173,7 +172,7 @@ export default function Dashboard() {
             <DashboardCard
               title="Wellness bot"
               description="Meet your personal wellness bot!"
-              image={botPic}
+              icon={<Bot className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
               image={botPic}
               onClick={() => toggleChat()}
