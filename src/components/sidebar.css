@@ -35,11 +35,11 @@
 }
 
 .sidebar-button:hover {
-    background-color: #d6a3ff; 
+    background-color: #b262f2;
 }
 
 .sidebar-button-active {
-    background-color: #e9d5ff;  
+    background-color: #8c00ff;  
 }
 
 .sidebar-icon {
