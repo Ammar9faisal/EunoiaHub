@@ -5,9 +5,11 @@ import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
 import './dashboard.css';
 import botPic from '../assets/botPic.png';
-import Achievements from '../assets/Achievements.png'; // User achievements
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
+import dailyExercisesPic from '../assets/DE-Dashboard.png';
+import bottlePic from '../assets/bottle.png';
+import achievementsPic from '../assets/Achievements.png'; // ✅ NEW IMPORT
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -29,7 +31,7 @@ export default function Dashboard() {
         console.log('Logged-in user ID:', user.$id);
       } catch (error) {
         console.error('Error fetching user account:', error);
-        navigate('/');
+        navigate('/login');
       }
     };
 
@@ -68,8 +70,12 @@ export default function Dashboard() {
   }, [userId]);
 
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setCurrentQuote(quotes[randomIndex]);
+    const startDate = new Date("03/20/2025");
+    const today = new Date();
+    const diffTime = today - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const index = diffDays % quotes.length;
+    setCurrentQuote(quotes[index]);
   }, []);
 
   const toggleChat = () => {
@@ -127,29 +133,57 @@ export default function Dashboard() {
             <DashboardCard
               title="Mindful Check-in"
               description="Complete your daily check-in now"
-              image={mindfulPic}
+              icon={<Brain className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
+              image={mindfulPic}
               onClick={() => navigate('/survey')}
             />
 
             <DashboardCard
               title="Wellness bot"
               description="Meet your personal wellness bot!"
-              image={botPic}
+              icon={<Bot className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
+              image={botPic}
               onClick={() => toggleChat()}
             />
 
             <DashboardCard
-              title="My Achievements"
-              description="Track your progress and milestones!"
-              image={Achievements}
+              title="Daily Exercises"
+              description="Start your daily wellness exercises now"
+              icon={<Rocket className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
+              image={dailyExercisesPic}
+              onClick={() => navigate('/DailyExercises')}
+            />
+
+            <DashboardCard
+              title="Mystery Bottle"
+              description="Click to reveal something special!"
+              bgColor="dashboard-card"
+              image={bottlePic}
+              onClick={() => navigate('/messageinabottle')}
+            />
+
+            {/* ✅ NEW Achievements Card */}
+            <DashboardCard
+              title="My Achievements"
+              description="See the badges you've unlocked!"
+              bgColor="dashboard-card"
+              image={achievementsPic}
               onClick={() => navigate('/achievements')}
             />
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Badge({ icon, color }) {
+  return (
+    <div className={`badge ${color}`}>
+      {typeof icon === 'string' ? <span className="text-xl font-semibold">{icon}</span> : icon}
     </div>
   );
 }

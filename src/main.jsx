@@ -1,9 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
 import Login from './pages/Login.jsx';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Dashboard from './pages/dashboard.jsx';
 import Survey from './pages/Survey.jsx';
 import Questionnaire from './pages/Questionnaire.jsx';
@@ -12,14 +11,18 @@ import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
 import VisionBoard from './pages/VisionBoard.jsx';
-import Achievements from './pages/Achievements.jsx'; // Import Achievements page
+import DailyExercises from './pages/DailyExercises.jsx';
+import BlogPage from './pages/BlogPage.jsx';
+import WelcomePage from './pages/Welcome.jsx';
+import MessageBottle from './pages/MessageBottle.jsx';
+import Achievements from './pages/Achievements.jsx';
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Login />, 
+    path: '/login',
+    element: <Login />,
   },
   {
     path: '/survey',
@@ -38,14 +41,6 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/achievements',
-    element: (
-      <ProtectedRoute>
-        <Achievements />
-      </ProtectedRoute>
-    ),
-  },
-  {
     path: '/questionnaire',
     element: <Questionnaire />
   },
@@ -54,6 +49,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <FindHelp />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/blogpage',
+    element: (
+      <ProtectedRoute>
+        <BlogPage />
       </ProtectedRoute>
     ),
   },
@@ -96,6 +99,34 @@ const router = createBrowserRouter([
         <VisionBoard />
       </ProtectedRoute>
     ),
+  },
+  {
+    path: '/dailyexercises',
+    element: (
+      <ProtectedRoute>
+        <DailyExercises />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/messageinabottle',
+    element: (
+      <ProtectedRoute>
+        <MessageBottle />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/achievements',
+    element: (
+      <ProtectedRoute>
+        <Achievements />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/',
+    element: <WelcomePage />
   },
 ]);
 

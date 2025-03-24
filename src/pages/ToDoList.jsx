@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './ToDoList.css';
 import { fetchUserAndTasks, addTask, removeTask, startEditing, saveEdit } from '../services/todoService';
+import { Sidebar } from '../components/Sidebar.jsx';
+import { Bold } from 'lucide-react';
 
 const ToDoList = () => {
     const [tasks, setTasks] = useState([]);   //sets up the state for the tasks
@@ -15,6 +17,7 @@ const ToDoList = () => {
 
     return (
         <div className='todo-list'>
+            <Sidebar />
             <div className='to-do-container'>
                 <h1 className='todo-list-title'>To-Do List</h1>
                 <div className='todo-list-input-container'>
@@ -27,6 +30,7 @@ const ToDoList = () => {
                     />
                     <button className="todo-list-add" onClick={() => addTask(userId, newTask, tasks, setTasks, setNewTask)}>+</button>
                 </div>
+                {tasks.length === 0 && <p className="todo-list-empty" >Your to-do list is empty. Add some tasks to get started!</p>}
                 <ul className="todo-list-items">
                     {tasks.map((task, index) => (
                         <li className="todo-list-item" key={task.$id}>
