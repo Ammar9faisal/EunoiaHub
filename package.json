@@ -11,7 +11,8 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage"
+    "test:coverage": "vitest --coverage",
+    "test:achievements": "vitest run test/unitTests/Achievements.test.jsx"
   },
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
