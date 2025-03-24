@@ -1,8 +1,15 @@
-/* Achievements Page Styling */
+.achievements-page {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
 .achievements-container {
   background: url('../assets/Purple.png') no-repeat center center fixed;
   background-size: cover;
-  height: 100vh;
+  flex-grow: 1;
+  margin-left: 5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,7 +51,7 @@
 }
 
 .badge:hover {
-  transform: scale(1.05); /* Slight scale on hover for interactivity */
+  transform: scale(1.05);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
 }
 
@@ -58,7 +65,7 @@
   margin-top: 10px;
   font-size: 1rem;
   font-weight: bold;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3); /* Improve text readability */
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 }
 
 .locked {
@@ -72,30 +79,6 @@
   transform: scale(1.1);
 }
 
-/* Container for the button to position it in the bottom-left */
-.button-container {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-}
-
-/* Style the Back to Dashboard button */
-.back-to-dashboard-btn {
-  padding: 10px 20px;
-  background-color: #6b48ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-.back-to-dashboard-btn:hover {
-  background-color: #5a3de6;
-}
-
-/* Responsive adjustments */
 @media (max-width: 600px) {
   .badges-section {
     gap: 10px;
@@ -115,15 +98,5 @@
 
   .badge p {
     font-size: 0.9rem;
-  }
-
-  .button-container {
-    bottom: 10px;
-    left: 10px;
-  }
-
-  .back-to-dashboard-btn {
-    padding: 8px 16px;
-    font-size: 14px;
   }
 }
