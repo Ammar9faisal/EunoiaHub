@@ -36,6 +36,11 @@ export const handleCreateAccount = async (email, password, name , navigate, setE
         console.log('User document created'); // Debugging log
 
         navigate('/questionnaire'); // Redirect to questionnaire after successful account creation  
+
+        const resp = await account.createEmailPasswordSession(email, password);
+        console.log(resp); // Success
+        await new Promise(resolve => setTimeout(resolve, 100));
+
     } catch (error) {
         console.log(error); // Failure
         if (error.code === 409) {
