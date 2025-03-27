@@ -17,6 +17,7 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
 import MessageBottle from './pages/MessageBottle.jsx'; 
+import BubbleGame from './pages/Bubble.jsx';
 
 const router = createBrowserRouter([
   {
@@ -104,6 +105,15 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <DailyExercises />
+      </ProtectedRoute>
+    ),
+  },
+
+  {
+    path: '/bubblegame',
+    element: (
+      <ProtectedRoute>
+        <BubbleGame />
       </ProtectedRoute>
     ),
   },
