@@ -59,7 +59,7 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #fff; /* White text for better contrast */
+    color: #f5e5f7; /* White text for better contrast */
     font-family: 'Poppins', sans-serif; /* Change to a modern, playful font */
     font-size: 32px; /* Bigger font size */
     font-weight: 600; /* Slightly lighter than bold for better readability */
@@ -75,6 +75,6 @@
 /* Optional: Add a soft glow effect around the score */
 .bubble-score-container span:last-child {
     font-size: 24px; /* Slightly smaller for best score */
-    color: #f8f1f7; /* Light yellow color for best score */
+    color: #f1ddee; /* Light yellow color for best score */
     text-shadow: 2px 2px 10px rgba(103, 20, 245, 0.8), 0 0 15px rgba(255, 255, 255, 0.6); /* Glowing yellow effect for best score */
 }
