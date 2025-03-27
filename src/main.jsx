@@ -110,12 +110,12 @@ const router = createBrowserRouter([
   },
 
   {
-    path: '/bubblegame',
+    path: '/bubblegame', 
     element: (
       <ProtectedRoute>
         <BubbleGame />
       </ProtectedRoute>
-    ),
+    ), 
   },
 
   {
