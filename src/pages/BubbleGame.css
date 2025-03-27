@@ -59,12 +59,12 @@
     position: absolute;
     top: 20px;
     right: 20px;
-    color: #f5e5f7; /* White text for better contrast */
+    color: #edbdf3; /* White text for better contrast */
     font-family: 'Poppins', sans-serif; /* Change to a modern, playful font */
     font-size: 32px; /* Bigger font size */
     font-weight: 600; /* Slightly lighter than bold for better readability */
     letter-spacing: 2px; /* Slightly wider spacing for readability */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.8); /* Glowing effect for contrast */
+    text-shadow: 2px 2px 8px rgba(188, 143, 243, 0.3), 0 0 15px rgba(255, 255, 255, 0.8); /* Glowing effect for contrast */
 }
 
 .bubble-score-container span {

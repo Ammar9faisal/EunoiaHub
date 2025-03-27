@@ -20,6 +20,7 @@ const BubbleGame = () => {
       id: Math.random(),
       size: Math.floor(Math.random() * 40) + 30, // Random size 30-70px
       left: Math.random() * 90 + "%", // Random horizontal position
+      popped: false, // Added 'popped' to each new bubble
     };
     setBubbles((prev) => [...prev, newBubble]);
 
@@ -33,13 +34,6 @@ const BubbleGame = () => {
   };
 
   const handleBubbleClick = (id) => {
-    // Mark the bubble as popped and trigger the pop animation
-    setBubbles((prev) =>
-      prev.map((bubble) =>
-        bubble.id === id ? { ...bubble, popped: true } : bubble
-      )
-    );
-
      // Increment the score when a bubble is popped
      setScore((prevScore) => {
         const newScore = prevScore + 1;
@@ -50,6 +44,12 @@ const BubbleGame = () => {
         return newScore;
       });
 
+      // Mark the bubble as popped and trigger the pop animation
+    setBubbles((prev) =>
+        prev.map((bubble) =>
+          bubble.id === id ? { ...bubble, popped: true } : bubble
+        )
+      );
 
     // After pop animation ends, remove the bubble
     setTimeout(() => {
