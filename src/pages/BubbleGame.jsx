@@ -37,6 +37,18 @@ const BubbleGame = () => {
         bubble.id === id ? { ...bubble, popped: true } : bubble
       )
     );
+
+     // Increment the score when a bubble is popped
+     setScore((prevScore) => {
+        const newScore = prevScore + 1;
+        if (newScore > bestScore) {
+          setBestScore(newScore);
+          localStorage.setItem('bestScore', newScore); // Save the best score to localStorage
+        }
+        return newScore;
+      });
+
+
     // After pop animation ends, remove the bubble
     setTimeout(() => {
       removeBubble(id);
@@ -45,6 +57,10 @@ const BubbleGame = () => {
 
   return (
     <div className="bubble-container">
+         <div className="bubble-score-container">
+        <span>Score: {score}</span>
+        <span>Best Score: {bestScore}</span>
+      </div>
       {bubbles.map((bubble) => (
         <div
           key={bubble.id}
@@ -54,7 +70,7 @@ const BubbleGame = () => {
             height: bubble.size + "px",
             left: bubble.left,
           }}
-          onClick={() => removeBubble(bubble.id)}
+          onClick={() => handleBubbleClick(bubble.id)} // Trigger pop on click
         />
       ))}
     </div>

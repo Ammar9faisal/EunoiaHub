@@ -42,7 +42,7 @@
       opacity: 0;
     }
   }
-  
+
   @keyframes floatUp {
     from {
       transform: translateY(0);
@@ -54,3 +54,20 @@
     }
   }
   
+ /* Score display for bubble game */
+.bubble-score-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  .bubble-score-container span {
+    display: block;
+    margin-bottom: 5px;
+  }
