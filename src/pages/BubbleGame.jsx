@@ -22,12 +22,25 @@ const BubbleGame = () => {
     setBubbles((prev) => [...prev, newBubble]);
 
     setTimeout(() => {
-      removeBubble(newBubble.id);
-    }, 8000); // Bubble disappears after 8 sec if not popped
-  };
+        if (!newBubble.popped) removeBubble(newBubble.id); // Remove bubble after 8 sec if not popped
+      }, 8000); // Bubble disappears after 8 sec
+    };
 
   const removeBubble = (id) => {
     setBubbles((prev) => prev.filter((bubble) => bubble.id !== id));
+  };
+
+  const handleBubbleClick = (id) => {
+    // Mark the bubble as popped and trigger the pop animation
+    setBubbles((prev) =>
+      prev.map((bubble) =>
+        bubble.id === id ? { ...bubble, popped: true } : bubble
+      )
+    );
+    // After pop animation ends, remove the bubble
+    setTimeout(() => {
+      removeBubble(id);
+    }, 500); // Match with the duration of the pop animation (0.5s)
   };
 
   return (
