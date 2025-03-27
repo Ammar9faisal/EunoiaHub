@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./BubbleGame.css";
 
+
 const BubbleGame = () => {
   const [bubbles, setBubbles] = useState([]);
 
