@@ -24,6 +24,9 @@
     background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.2) 70%); /* Brighter iridescent look on hover */
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2), inset 0 6px 12px rgba(255, 255, 255, 0.4); /* Enhanced reflection on hover */
   }
+  .bubble-pop {
+    animation: bubblePopAnimation 0.5s forwards;
+  }
   
   @keyframes floatUp {
     from {
