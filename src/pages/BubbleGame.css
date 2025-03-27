@@ -1,33 +1,27 @@
 .bubble-container {
     position: relative;
     width: 100%;
-    height: 100vh;
-    background: linear-gradient(to top, #a0c4ff, #caffbf);
+    height: 100vh; /* Full screen height */
     overflow: hidden;
   }
   
   .bubble {
     position: absolute;
-    bottom: 0;
-    background-color: rgba(255, 255, 255, 0.7);
+    bottom: -50px; /* Start just below the screen */
+    background-color: rgba(0, 150, 255, 0.7);
     border-radius: 50%;
     cursor: pointer;
-    animation: float-up 5s linear infinite;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-out;
+    animation: floatUp 8s linear forwards; /* Slower movement */
   }
   
-  .bubble:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.9);
-  }
-  
-  @keyframes float-up {
+  @keyframes floatUp {
     from {
-      transform: translateY(100vh);
+      transform: translateY(0);
+      opacity: 1;
     }
     to {
-      transform: translateY(-10vh);
+      transform: translateY(-120vh); /* Higher than the top */
+      opacity: 0;
     }
   }
   
