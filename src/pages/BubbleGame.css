@@ -9,19 +9,20 @@
   .bubble {
     position: absolute;
     bottom: -50px; /* Start just below the screen */
-    background: radial-gradient(circle, #ffffff, #d1c6f6); /* Soft 3D gradient */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.15) 70%); /* Iridescent gradient */
     border-radius: 50%;
     cursor: pointer;
     animation: floatUp 8s linear forwards; /* Slower movement */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), inset 0 4px 10px rgba(255, 255, 255, 0.5); /* 3D shadow */
-    transition: transform 0.2s ease-out;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 4px 8px rgba(255, 255, 255, 0.3); /* Soft shadow to mimic soap bubble shine */
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    opacity: 0.8; /* Slight transparency */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Light reflective border for soap bubble effect */
   }
-
-   
+  
   .bubble:hover {
     transform: scale(1.1) translateY(-10px); /* Slight lift effect */
-    background: radial-gradient(circle, #ffffff, #b6a2f0); /* Darker bubble on hover */
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), inset 0 6px 14px rgba(255, 255, 255, 0.6); /* Enhanced 3D effect */
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.2) 70%); /* Brighter iridescent look on hover */
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2), inset 0 6px 12px rgba(255, 255, 255, 0.4); /* Enhanced reflection on hover */
   }
   
   @keyframes floatUp {
