@@ -8,7 +8,7 @@ const BubbleGame = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       createBubble();
-    }, 1000); // New bubble every second
+    }, 2000); // New bubble every 2 second
 
     return () => clearInterval(interval);
   }, []);
@@ -23,7 +23,7 @@ const BubbleGame = () => {
 
     setTimeout(() => {
       removeBubble(newBubble.id);
-    }, 5000); // Bubble disappears after 5 sec if not popped
+    }, 8000); // Bubble disappears after 8 sec if not popped
   };
 
   const removeBubble = (id) => {
