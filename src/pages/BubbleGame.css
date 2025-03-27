@@ -9,18 +9,19 @@
   .bubble {
     position: absolute;
     bottom: -50px; /* Start just below the screen */
-    background-color: rgba(255, 255, 255, 0.7);
+    background: radial-gradient(circle, #ffffff, #d1c6f6); /* Soft 3D gradient */
     border-radius: 50%;
     cursor: pointer;
     animation: floatUp 8s linear forwards; /* Slower movement */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1), inset 0 4px 10px rgba(255, 255, 255, 0.5); /* 3D shadow */
     transition: transform 0.2s ease-out;
   }
 
    
   .bubble:hover {
-    transform: scale(1.1);
-    background-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1) translateY(-10px); /* Slight lift effect */
+    background: radial-gradient(circle, #ffffff, #b6a2f0); /* Darker bubble on hover */
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2), inset 0 6px 14px rgba(255, 255, 255, 0.6); /* Enhanced 3D effect */
   }
   
   @keyframes floatUp {
