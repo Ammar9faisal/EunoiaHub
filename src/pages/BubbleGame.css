@@ -25,7 +25,7 @@
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2), inset 0 6px 12px rgba(255, 255, 255, 0.4); /* Enhanced reflection on hover */
   }
   .bubble-pop {
-    animation: bubblePopAnimation 0.5s forwards;
+    animation: bubblePopAnimation 0.2s forwards;
   }
   
   @keyframes bubblePopAnimation {

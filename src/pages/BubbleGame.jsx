@@ -57,7 +57,7 @@ const BubbleGame = () => {
     // After pop animation ends, remove the bubble
     setTimeout(() => {
       removeBubble(id);
-    }, 500); // Match with the duration of the pop animation (0.5s)
+    }, 200); // Match with the duration of the pop animation (0.5s)
   };
   
   // Handle the back to dashboard button click
