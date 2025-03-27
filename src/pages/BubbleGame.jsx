@@ -8,6 +8,8 @@ const BubbleGame = () => {
     const [score, setScore] = useState(0); // Initialize score state
     const [bestScore, setBestScore] = useState(localStorage.getItem('bestScore') || 0);
 
+    const navigate = useNavigate(); 
+
   useEffect(() => {
     const interval = setInterval(() => {
       createBubble();
