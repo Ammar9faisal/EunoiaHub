@@ -29,7 +29,7 @@
       opacity: 1;
     }
     to {
-      transform: translateY(-120vh); /* Higher than the top */
+      transform: translateY(-150vh); /* Higher than the top */
       opacity: 0;
     }
   }
