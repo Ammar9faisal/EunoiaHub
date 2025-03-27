@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./BubbleGame.css";
 
 
@@ -56,6 +57,11 @@ const BubbleGame = () => {
       removeBubble(id);
     }, 500); // Match with the duration of the pop animation (0.5s)
   };
+  
+  // Handle the back to dashboard button click
+  const handleBackToDashboard = () => {
+    navigate("/dashboard"); // Redirect to the dashboard
+  };
 
   return (
     <div className="bubble-container">
@@ -75,6 +81,12 @@ const BubbleGame = () => {
           onClick={() => handleBubbleClick(bubble.id)} // Trigger pop on click
         />
       ))}
+
+
+      {/* Add the "Back to Dashboard" button */}
+      <button className="back-to-dashboard-btn" onClick={handleBackToDashboard}>
+        Back to Dashboard
+      </button>
     </div>
   );
 };

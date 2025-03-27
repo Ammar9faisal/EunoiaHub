@@ -78,3 +78,23 @@
     color: #f1ddee; /* Light yellow color for best score */
     text-shadow: 2px 2px 10px rgba(103, 20, 245, 0.8), 0 0 15px rgba(255, 255, 255, 0.6); /* Glowing yellow effect for best score */
 }
+
+/* Add this to your BubbleGame.css */
+.back-to-dashboard-btn {
+    position: absolute;  /* Position relative to its nearest positioned ancestor */
+    top: 20px;           /* Distance from the top */
+    left: 20px;          /* Distance from the left side of the screen */
+    background-color: white; /* White background */
+    color: #6a4ee5;      /* Green text */
+    padding: 10px 20px;
+    border: 2px solid #6a4ee5; /* Green border */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .back-to-dashboard-btn:hover {
+    background-color: #f1f1f1; /* Slightly darker background on hover */
+  }
+  
+  
