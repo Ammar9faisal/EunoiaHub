@@ -36,6 +36,11 @@ export const handleCreateAccount = async (email, password, name , navigate, setE
         console.log('User document created'); // Debugging log
 
         navigate('/questionnaire'); // Redirect to questionnaire after successful account creation  
+
+        const resp = await account.createEmailPasswordSession(email, password);
+        console.log(resp); // Success
+        await new Promise(resolve => setTimeout(resolve, 100));
+
     } catch (error) {
         console.log(error); // Failure
         if (error.code === 409) {
@@ -64,7 +69,7 @@ export const handleExistingAccount = async (loginEmail, loginPassword, navigate,
     try {
         const response = await account.createEmailPasswordSession(loginEmail, loginPassword);
         console.log(response); // Success
-        await new Promise(resolve => setTimeout(resolve, 100)); // Wait for 100ms before redirecting to dashboard to obtain cookie
+        await new Promise(resolve => setTimeout(resolve, 100));
         navigate('/dashboard'); // Redirect to dashboard after successful login
     } catch (error) {
         console.log("Login Error: " + error); // Failure

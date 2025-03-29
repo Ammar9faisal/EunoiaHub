@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar.jsx';
-import './DailyExercises.css';
+import '../../styles/DailyExercises.css';
 import {
   exercises,
   triggersList,
