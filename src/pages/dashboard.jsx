@@ -112,9 +112,9 @@ export default function Dashboard() {
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2>
             <div className="chart-container">
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
-                  <Label value="Wellness Index" offset={0} position="top" />
+              <ResponsiveContainer width="100%" height={300}>   {/* ResponsiveContainer for better chart responsiveness */}
+                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}> {/* Creates a line chart from wellness index data */}
+                  <Label value="Wellness Index" offset={0} position="top" /> 
                   <XAxis dataKey="day">
                     <Label value="Day" offset={-5} position="bottom" />
                   </XAxis>
