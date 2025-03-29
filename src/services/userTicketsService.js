@@ -1,5 +1,6 @@
 export const handleTicketSubmit = async (e, ticket, setTickets, setTicket, setSubmissionMessage) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
   e.preventDefault();
 
   if (ticket.trim()) {  // Check if the ticket is not empty
@@ -99,6 +100,8 @@ export const handleReviewSubmit = async (e, review, setReviews, setReview, setSu
     setTimeout(() => setSubmissionMessage(''), 3000);
   }
 =======
+=======
+>>>>>>> ed6f9a8 (added discord webhooks to user tickets as a helper tool for developers)
     e.preventDefault();
   
     if (ticket.trim()) {  // Check if the ticket is not empty
@@ -197,5 +200,11 @@ export const handleReviewSubmit = async (e, review, setReviews, setReview, setSu
       // Clear the message after 3 seconds
       setTimeout(() => setSubmissionMessage(''), 3000);
     }
+<<<<<<< HEAD
 >>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
 }
+=======
+}
+
+
+>>>>>>> ed6f9a8 (added discord webhooks to user tickets as a helper tool for developers)
