@@ -1,6 +1,6 @@
 import backgroundImage from '../assets/Purple.png';
 import React, { useState, useEffect } from 'react';
-import './Survey.css';
+import '../../styles/Survey.css';
 import { useNavigate } from 'react-router-dom'; //navigation to another page
 import { questions, handleNext, handleBack, handleNumberClick, fetchSurveyResponse, fetchMostRecentWellnessIndex } from '../services/surveyService';
 import { account } from '../appwrite';

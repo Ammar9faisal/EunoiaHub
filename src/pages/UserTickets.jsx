@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './UserTickets.css';
+import '../../styles/UserTickets.css';
 import Sidebar from '../components/Sidebar';
 
 const UserTickets = () => {

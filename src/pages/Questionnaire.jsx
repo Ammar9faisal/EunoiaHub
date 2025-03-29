@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSurvey } from '../services/questionnaireService';
 import background from '../assets/Purple.png';   
-import './Question.css';
-import './QResults.css';
+import '../../styles/Question.css';
+import '../../styles/QResults.css';
 import { useNavigate } from 'react-router-dom';
 
 function Questionnaire() {  

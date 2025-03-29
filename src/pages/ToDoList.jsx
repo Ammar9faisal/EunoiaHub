@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './ToDoList.css';
+import '../../styles/ToDoList.css';
 import { fetchUserAndTasks, addTask, removeTask, startEditing, saveEdit } from '../services/todoService';
 import { Sidebar } from '../components/Sidebar.jsx';
 import { Bold } from 'lucide-react';
