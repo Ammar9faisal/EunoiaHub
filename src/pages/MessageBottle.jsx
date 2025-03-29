@@ -3,6 +3,7 @@ import Sidebar from "../components/Sidebar.jsx";
 import bottleImage from "../assets/bottle.png";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import "../../styles/MessageBottle.css";
 =======
 import "./MessageBottle.css";
@@ -10,6 +11,9 @@ import "./MessageBottle.css";
 =======
 import "../../styles/MessageBottle.css";
 >>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
+=======
+import "../../styles/MessageBottle.css";
+>>>>>>> 386749c (refactored CSS file structure for better coding practices)
 
 export default function MessageInABottle() {
   const [state, setState] = useState({

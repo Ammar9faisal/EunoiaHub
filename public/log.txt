@@ -564,8 +564,14 @@ March 9
 Finalized SQL integration for user authentication and data storage.
 Ensured seamless linkage between Appwrite and SQL database.
 <<<<<<< HEAD
+<<<<<<< HEAD
 Conducted final test cases for authentication and storage.
 March 11
 =======
 Conducted final test cases for authentication and storage.
 >>>>>>> d8278c2 (Pulled updates from master branch)
+=======
+Conducted final test cases for authentication and storage.
+March 11
+
+>>>>>>> 386749c (refactored CSS file structure for better coding practices)

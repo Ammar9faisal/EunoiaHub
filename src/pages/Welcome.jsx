@@ -1,6 +1,7 @@
 import React from "react";
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import "../../styles/Welcome.css";
 =======
 import "./Welcome.css";
@@ -8,6 +9,9 @@ import "./Welcome.css";
 =======
 import "../../styles/Welcome.css";
 >>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
+=======
+import "../../styles/Welcome.css";
+>>>>>>> 386749c (refactored CSS file structure for better coding practices)
 import logo from '../assets/logo.png';
 import sideImage from "../assets/Laptop.png"; 
 import background from "../assets/WelcomeBackground.png"; 
