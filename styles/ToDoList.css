@@ -117,6 +117,22 @@
     font-size: 1rem;
     color: #333;
     cursor: pointer;
+    max-width: 400px;  /* Adjust this value as needed */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.todo-list-task:hover {
+    overflow: visible;
+    white-space: normal;
+    word-wrap: break-word;
+    background-color: rgba(0, 0, 0, 0.1); /* Optional: Light highlight */
+    padding: 5px;
+    position: absolute;
+    z-index: 10;
+    border-radius: 5px;
 }
 
 .todo-list-edit-input {
