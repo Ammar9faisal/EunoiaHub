@@ -1,186 +1,46 @@
-/* Blog Page Container */
 .blog-page-container {
   display: flex;
-  height: 100vh;
-  background: linear-gradient(to bottom, #7F58BB, #C343B4);
+  height: 100vh;  
 }
 
-/* Blog Content */
 .blog-page-content {
   flex-grow: 1;
-  margin: 30px auto;
-  padding: 40px;
-  max-width: 800px;
-  width: 70%;
-  background-color: rgba(255, 255, 255, 0.95);
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-left: 5vw; 
+  padding: 20px;
+  font-family: Arial, sans-serif;
   overflow-y: auto;
-  color: #333;
 }
 
-/* Enhanced Heading Styles */
-.blog-page-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #5a2d82;
-  text-align: center;
-  font-weight: 700;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 15px;
-  letter-spacing: 0.5px;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+.blog-page-post {
+  background: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
 }
 
-.blog-page-content h2 {
-  font-size: 1.8rem;
-  margin: 30px 0 20px;
-  color: #5a2d82;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-/* Blog Post Styles */
-.blog-post {
-  background: #fff;
-  padding: 28px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  margin-bottom: 35px;
-  border-left: 4px solid #5a2d82;
-  transition: all 0.3s ease;
-}
-
-.blog-post:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
-
-.blog-post h2 {
-  font-size: 1.8rem;
-  margin-top: 0;
-  margin-bottom: 12px;
-  color: #5a2d82;
-  line-height: 1.3;
-}
-
-.blog-post p {
-  line-height: 1.7;
-  margin-bottom: 18px;
-  color: #333;
-  font-size: 1.05rem;
-}
-
-.blog-post p:first-of-type {
-  font-size: 0.95rem;
-  color: #666;
-  margin-bottom: 24px;
-  padding-bottom: 18px;
-  border-bottom: 1px solid #eee;
-  font-style: italic;
-}
-
-/* Post List Styles */
 .blog-page-post-list {
   list-style: none;
   padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 18px;
 }
 
 .blog-page-post-item {
-  background-color: white;
-  padding: 18px;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: all 0.3s ease;
-  border-left: 3px solid #7F58BB;
-  font-weight: 500;
-  color: #333;
+  color: blue;
 }
 
 .blog-page-post-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-  background-color: #f9f7ff;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
-/* Post Title Styles */
-.blog-page-post-item .post-title {
-  font-weight: 600;
-  color: #5a2d82;
-  margin-bottom: 6px;
-  font-size: 1.1rem;
-}
-
-/* Post Date Styles */
-.blog-page-post-item .post-date {
-  font-size: 0.8rem;
-  color: #777;
-}
-
-/* Button Styles */
 .blog-page-latest-post-btn {
-  background-color: #5a2d82;
+  background-color: #007bff;
   color: white;
   border: none;
-  padding: 12px 24px;
-  margin-bottom: 25px;
+  padding: 10px 15px;
+  margin-bottom: 10px;
   cursor: pointer;
-  border-radius: 30px;
-  font-weight: 600;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(90, 45, 130, 0.3);
-  letter-spacing: 0.5px;
-  font-size: 1rem;
+  border-radius: 5px;
 }
 
 .blog-page-latest-post-btn:hover {
-  background-color: #7F58BB;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(90, 45, 130, 0.4);
-}
-
-/* Loading and Error Message Styles */
-.loading-indicator, .error-message {
-  text-align: center;
-  padding: 30px;
-  font-size: 1.2rem;
-  color: #5a2d82;
-}
-
-.error-message {
-  color: #e74c3c;
-  background-color: rgba(231, 76, 60, 0.1);
-  border-radius: 8px;
-  padding: 20px;
-}
-
-/* No Posts Message */
-.no-posts-message {
-  text-align: center;
-  color: #777;
-  font-style: italic;
-  padding: 20px 0;
-}
-
-
-/* Responsiveness - NOT CHANGED */
-@media (max-width: 768px) {
-  .blog-page-content {
-    width: 90%;
-    margin: 15px;
-    padding: 20px;
-  }
-  
-  .blog-page-post-list {
-    grid-template-columns: 1fr;
-  }
+  background-color: #0056b3;
 }

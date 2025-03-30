@@ -98,5 +98,3 @@ export const handleReviewSubmit = async (e, review, setReviews, setReview, setSu
       setTimeout(() => setSubmissionMessage(''), 3000);
     }
 }
-
-
