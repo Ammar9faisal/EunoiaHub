@@ -25,7 +25,7 @@ function FindHelp() {
 
   // Load Google Maps API script with the specified API key and libraries
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'KEY', // ************************************************************************PUT KEY 
+    googleMapsApiKey: 'AIzaSyBHxEci9XfJcGLG1uBHwVkZYercCuTxjB4', // ************************************************************************PUT KEY 
     libraries,
   });
 

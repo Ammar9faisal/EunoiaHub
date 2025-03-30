@@ -21,7 +21,7 @@ const Survey = () => {
         setUserId(user.$id);
         const surveyResponse = await fetchSurveyResponse(user.$id);
         if (surveyResponse) {
-          setCurrentPage(8); // If the survey has already been completed, go to the completion page
+          setCurrentPage(8); // If the survey has already been completed, go to the completion page 
         }
       } catch (error) {
         console.error('Error fetching user account or survey response:', error);

@@ -17,6 +17,8 @@ import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
 import MessageBottle from './pages/MessageBottle.jsx'; 
+import HabitTracker from './pages/HabitTracker.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -117,6 +119,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <MessageBottle />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/habittracker', 
+    element: (
+      <ProtectedRoute>
+        <HabitTracker />
       </ProtectedRoute>
     ),
   },
