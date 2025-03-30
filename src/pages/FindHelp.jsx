@@ -4,6 +4,7 @@ import { useLoadScript } from '@react-google-maps/api';
 import '../../styles/FindHelp.css';
 import { handleSearch, handleKeyPress } from '../services/FindHelpServices';
 import Sidebar from '../components/Sidebar.jsx';
+
 // Mock data as backup in case API calls fail or no results are found
 const mockResources = [
   { id: 1, name: 'Therapist A', type: 'Therapist', address: '123 Wellness St, Toronto, ON', distance: '2 km', postalCode: 'M5V2T6' },
@@ -23,15 +24,26 @@ function FindHelp() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
+  // Define the API key as a variable to check its value
+  const googleMapsApiKey = 'KEY'; // ************************************************************************PUT KEY 
+
   // Load Google Maps API script with the specified API key and libraries
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'KEY', // ************************************************************************PUT KEY 
+    googleMapsApiKey: googleMapsApiKey,
     libraries,
   });
 
   // Wrap handleSearch to pass state setters and other dependencies
-  const searchHandler = () =>
+  const searchHandler = () => {
+    // Check if the API key is still the placeholder 'KEY'
+    if (googleMapsApiKey === 'KEY') {
+      setError('API key not present. Please provide a valid Google Maps API key to proceed.');
+      setLoading(false);
+      return;
+    }
+    // Proceed with the search if the API key is not the placeholder
     handleSearch(postalCode, setError, setResources, setLoading, isLoaded, loadError);
+  };
 
   // Renders the UI with an input field, search button, and results list
   return (
