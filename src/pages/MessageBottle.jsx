@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar.jsx";
 import bottleImage from "../assets/bottle.png";
-import "./MessageBottle.css";
+import "../../styles/MessageBottle.css";
 
 export default function MessageInABottle() {
   const [state, setState] = useState({

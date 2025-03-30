@@ -3,13 +3,13 @@ import { Rocket, Brain, Bot } from 'lucide-react';
 import ChatBot from '../components/chatbot.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
-import './dashboard.css';
+import '../../styles/dashboard.css';
 import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
 import bottlePic from '../assets/bottle.png';
-import achievementsPic from '../assets/Achievements.png'; // ✅ NEW IMPORT
+import achievementsPic from '../assets/Achievements.png'; // <-- Import Achievements Image
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -165,7 +165,7 @@ export default function Dashboard() {
               onClick={() => navigate('/messageinabottle')}
             />
 
-            {/* ✅ NEW Achievements Card */}
+            {/* Added Achievements Card */}
             <DashboardCard
               title="My Achievements"
               description="See the badges you've unlocked!"

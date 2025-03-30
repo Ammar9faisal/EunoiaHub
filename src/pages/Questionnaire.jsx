@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSurvey } from '../services/questionnaireService';
 import background from '../assets/Purple.png';   
-import './Question.css';
-import './QResults.css';
+import '../../styles/Question.css';
+import '../../styles/QResults.css';
 import { useNavigate } from 'react-router-dom';
 
 function Questionnaire() {  
@@ -54,13 +54,13 @@ function Questionnaire() {
             <div className="results-container">
                 <h1>Survey Results</h1>
                 <p>{renderResultText()}</p>
-                <p>You can now either login with your credentionals or redo the survey</p>
+                <p>You can now either go to dashboard or redo the survey</p>
                 <div className="results-buttons">
                     <button className="results-redo-button" onClick={redoSurvey}>
                         Redo
                     </button>
-                    <button className="results-dashboard-button" onClick={() => navigate('/login')}>
-                        Head to Login
+                    <button className="results-dashboard-button" onClick={() => navigate('/dashboard')}>
+                        Head to Dashboard
                     </button>
                 </div>
             </div>

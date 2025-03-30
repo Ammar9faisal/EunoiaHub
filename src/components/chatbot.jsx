@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './chatbot.css';
 import { generateResponse } from '../services/chatbotService';
 
@@ -6,6 +6,7 @@ const Chatbot = () => {
     const [messages, setMessages] = useState([{ text: "Hello! I'm here to support you on your wellness journey. How are you feeling today?", user: 'bot' }]);  //stores messages
     const [input, setInput] = useState('');  //stores input
     const [history, setHistory] = useState([]);  //stores history of the chat
+    const messagesEndRef = useRef(null); // Ref for the messages container
 
     const handleSend = async () => {
         if (input.trim()) {  //checks for emptiness or empty spaces
@@ -22,10 +23,17 @@ const Chatbot = () => {
         }
     };
 
-     const toggleChat = () => { //toggles the chatbot
+    const toggleChat = () => { //toggles the chatbot
         const chatbot = document.querySelector('.chatbot-container');  //toggles open and close the chatbot
         chatbot.classList.toggle('hidden');
-    }
+    };
+
+    // Scroll to the bottom of the messages container when messages change
+    useEffect(() => {
+        if (messagesEndRef.current) {
+            messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, [messages]);
 
     return (
         <div className="chatbot">  
@@ -45,6 +53,8 @@ const Chatbot = () => {
                             {message.text}
                         </div>
                     ))}
+                    {/* Add a dummy div to scroll to */}
+                    <div ref={messagesEndRef} />
                 </div>
                 <div>
                     <input placeholder="Talk to AI" className="chatbot-input" type="text" value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => e.key === 'Enter' && handleSend()}/>

@@ -1,4 +1,4 @@
-import './Login.css';
+import '../../styles/Login.css';
 import React, { useState, useEffect } from 'react';
 import { validateEmail, handleCreateAccount, handleExistingAccount } from '../services/loginService';
 import background from '../assets/Purple.png';

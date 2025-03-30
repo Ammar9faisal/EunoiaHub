@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoadScript } from '@react-google-maps/api';
-import './FindHelp.css';
+import '../../styles/FindHelp.css';
 import { handleSearch, handleKeyPress } from '../services/FindHelpServices';
 import Sidebar from '../components/Sidebar.jsx';
 // Mock data as backup in case API calls fail or no results are found
