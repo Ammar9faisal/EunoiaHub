@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
+<<<<<<< HEAD
 import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book, Wind, Gamepad2, CalendarRange } from 'lucide-react';
+=======
+import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book, Wind, CalendarRange, } from 'lucide-react';
+>>>>>>> 7791fc3 (added icon to the side bar)
 
 import './sidebar.css';
 import logo from '../assets/logo.png';
@@ -46,9 +50,16 @@ export function Sidebar() {
       case '/dailyexercises':
         setActiveButton('dailyexercises');
         break;
+<<<<<<< HEAD
       case '/HabitTracker':
           setActiveButton('habittracker');
           break;
+=======
+      case '/habitTracker':
+          setActiveButton('habittracker');
+          break;
+
+>>>>>>> 7791fc3 (added icon to the side bar)
       default:
         setActiveButton('dashboard'); // Default to dashboard if no match
         break;
@@ -121,6 +132,7 @@ export function Sidebar() {
         >
           <CalendarRange className="sidebar-icon" color="white" />
         </button>
+<<<<<<< HEAD
         <button
           className={`sidebar-button ${activeButton === 'BubbleGame' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/bubblegame")}
@@ -128,6 +140,8 @@ export function Sidebar() {
           <Gamepad2 className="sidebar-icon" color="white" />
         </button>
         
+=======
+>>>>>>> 7791fc3 (added icon to the side bar)
 
         <button
           className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
