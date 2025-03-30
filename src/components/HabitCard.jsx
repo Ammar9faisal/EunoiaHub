@@ -6,11 +6,22 @@ const today = dayjs();
 const week = [...Array(7)].map((_, i) =>
   today.subtract(6 - i, 'day').format('YYYY-MM-DD')
 );
+const dayLabels = [...Array(7)].map((_, i) =>
+    today.subtract(6 - i, 'day').format('ddd') // 'Mon', 'Tue', etc.
+  );
 
 const HabitCard = ({ habit, updateLog }) => {
   return (
     <div className="habit-card">
       <h2 className="habit-name">{habit.name}</h2>
+      <div className="habit-day-labels">
+        {dayLabels.map((label, idx) => (
+            <div key={idx} className="habit-day-label">
+            {label}
+            </div>
+        ))}
+        </div>
+
       <div className="habit-grid">
         {week.map((date) => {
           const status = habit.logs[date] || '';

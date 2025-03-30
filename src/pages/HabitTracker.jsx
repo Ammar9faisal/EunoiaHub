@@ -4,48 +4,40 @@ import HabitCard from '../components/HabitCard';
 import { Sidebar } from '../components/Sidebar.jsx';
 import './HabitTracker.css';
 
+const WEEK_DAYS = 7;
+
 const HabitTracker = () => {
   const [habits, setHabits] = useState([]);
   const [newHabit, setNewHabit] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [showGuide, setShowGuide] = useState(true);
 
-  // ✅ Fetch once on mount & filter unique IDs
   useEffect(() => {
     const allHabits = stubDatabase.getCollection('habitLogs') || [];
-
-    // Remove duplicates by ID (just in case)
-    const uniqueHabits = Array.from(
-      new Map(allHabits.map((habit) => [habit.$id, habit])).values()
-    );
-
+    const uniqueHabits = Array.from(new Map(allHabits.map(h => [h.$id, h])).values());
     setHabits(uniqueHabits);
   }, []);
 
-  // ✅ Add habit only if name is new
   const handleAddHabit = () => {
-    const trimmedName = newHabit.trim();
-    if (!trimmedName) return;
+    const trimmed = newHabit.trim();
+    if (!trimmed) return;
 
-    // Prevent duplicates based on name
-    const exists = habits.some(
-      (habit) => habit.name.toLowerCase() === trimmedName.toLowerCase()
-    );
+    const exists = habits.some(h => h.name.toLowerCase() === trimmed.toLowerCase());
     if (exists) return;
 
     const habit = {
       $id: Date.now().toString(),
       userId: 'user123',
-      name: trimmedName,
+      name: trimmed,
       logs: {}
     };
-
     stubDatabase.createDocument('db', 'habitLogs', habit.$id, habit, []);
-    setHabits((prev) => [...prev, habit]);
+    setHabits(prev => [...prev, habit]);
     setNewHabit('');
   };
 
-  // ✅ Update log for a specific day
   const updateLog = (habitId, date, status) => {
-    const updated = habits.map((habit) => {
+    const updated = habits.map(habit => {
       if (habit.$id === habitId) {
         const logs = { ...habit.logs, [date]: status };
         stubDatabase.updateDocument('db', 'habitLogs', habitId, { logs }, []);
@@ -56,33 +48,88 @@ const HabitTracker = () => {
     setHabits(updated);
   };
 
+  const isResetEnabled = () => {
+    return habits.every(habit => {
+      const logValues = Object.values(habit.logs || {});
+      return logValues.length === WEEK_DAYS && logValues.every(val => ['yes', 'no', 'skip'].includes(val));
+    });
+  };
+
+  const handleReset = () => {
+    if (!isResetEnabled()) {
+      setErrorMessage('⚠️ Cannot reset: Each habit must have a log for all 7 days.');
+      setTimeout(() => setErrorMessage(''), 3000);
+      return;
+    }
+
+    const resetHabits = habits.map(habit => {
+      const cleared = { ...habit, logs: {} };
+      stubDatabase.updateDocument('db', 'habitLogs', habit.$id, { logs: {} }, []);
+      return cleared;
+    });
+    setHabits(resetHabits);
+    setErrorMessage('');
+  };
+
   return (
     <div className="habit-page">
       <Sidebar />
-
       <div className="habit-container">
-        <h1 className="habit-title">Habit Tracker</h1>
+        <h1 className="habit-title">Weekly Habit Tracker</h1>
         <p className="habit-description">
           Track your daily progress and stay consistent with your goals.
         </p>
 
-        <div className="habit-input-section">
+        <div className="habit-controls">
           <input
             value={newHabit}
             onChange={(e) => setNewHabit(e.target.value)}
             placeholder="New Habit"
             className="habit-input"
           />
-          <button onClick={handleAddHabit} className="habit-add-button">
-            Add
-          </button>
+          <button onClick={handleAddHabit} className="habit-add-button">Add</button>
+
+          <div className="tooltip-wrapper">
+            <button
+              onClick={() => {
+                if (!isResetEnabled()) {
+                  setErrorMessage('⚠️ Cannot reset: Each habit must have a log for all 7 days.');
+                  setTimeout(() => setErrorMessage(''), 3000);
+                } else {
+                  handleReset();
+                }
+              }}
+              className={`habit-reset-button ${isResetEnabled() ? '' : 'disabled'}`}
+              disabled={!isResetEnabled()}
+            >
+              Reset for New Week
+            </button>
+            {!isResetEnabled() && (
+              <span className="tooltip-text">Complete all 7 logs for each habit first</span>
+            )}
+          </div>
         </div>
+
+        {showGuide && (
+          <div className="habit-instructions">
+            <strong>How It Works:</strong><br />
+            Click on each circle to log your habit progress for the day:
+            <ul>
+              <li>✅ First click: <strong>Done</strong> — You completed the habit</li>
+              <li>❌ Second click: <strong>Not Done</strong> — You didn’t complete it</li>
+              <li>➖ Third click: <strong>Skipped</strong> — You intentionally skipped or it didn’t apply</li>
+            </ul>
+            Your logs are saved automatically and persist until you reset the week.
+          </div>
+        )}
+
+        {errorMessage && <p className="habit-error-message">{errorMessage}</p>}
 
         <div>
           {habits.map((habit) => (
             <HabitCard key={habit.$id} habit={habit} updateLog={updateLog} />
           ))}
-        </div>+
+        </div>
       </div>
     </div>
   );
