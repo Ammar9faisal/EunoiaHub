@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book, Wind } from 'lucide-react';
+import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book, Wind, Gamepad2 } from 'lucide-react';
 
 import './sidebar.css';
 import logo from '../assets/logo.png';
@@ -33,6 +33,9 @@ export function Sidebar() {
         break;
       case '/usertickets':
         setActiveButton('UserTickets');
+        break;
+        case '/bubblegame':
+        setActiveButton('BubbleGame');
         break;
       case '/todo':
         setActiveButton('ToDoList');
@@ -115,6 +118,14 @@ export function Sidebar() {
         >
           <LayoutList className="sidebar-icon" color="white" />
         </button>
+
+        <button
+          className={`sidebar-button ${activeButton === 'BubbleGame' ? 'sidebar-button-active' : ''}`}
+          onClick={() => navigate("/bubblegame")}
+        >
+          <Gamepad2 className="sidebar-icon" color="white" />
+        </button>
+
         <button
           className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
           onClick={() => navigate("/resources")}

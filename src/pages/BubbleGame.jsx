@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
-import "./BubbleGame.css";
+import "./styles/BubbleGame.css";
 
 
 const BubbleGame = () => {
