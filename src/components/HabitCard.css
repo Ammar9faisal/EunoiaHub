@@ -51,4 +51,20 @@
     background-color: #e5e7eb;
     color: #5a2d82;
   }
+
+  .habit-day-labels {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    color: #5a2d82;
+    font-weight: 500;
+    justify-content: start;
+  }
+  
+  .habit-day-label {
+    width: 40px;
+    text-align: center;
+  }
+  
   

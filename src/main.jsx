@@ -27,9 +27,13 @@ import BubbleGame from './pages/BubbleGame.jsx';
 =======
 import MessageBottle from './pages/MessageBottle.jsx'; 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d3f6374 (Revert "Achivements implementation")
 =======
 import HabitTracker from './pages/HabitTracker.jsx';
+=======
+import HabitTracker from './pages/habitTracker.jsx';
+>>>>>>> 0edd851 (Made some UI updates and made it that you cant reset your weekly goals until its all filled out)
 
 >>>>>>> 7955c03 (made some changes to the questionnaire and started on habit tracker)
 

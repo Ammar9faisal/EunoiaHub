@@ -1,12 +1,21 @@
+const LOCAL_STORAGE_KEY = 'stubHabitData';
+
 class StubDatabase {
     constructor() {
-        this.collections = {
+        const savedData = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+
+        this.collections = savedData || {
             users: [],
             surveyResponses: [],
             todoLists: [],
             visionboard: [],
             habitLogs: []
         };
+    }
+
+    // 🔄 Sync current state to localStorage
+    saveToLocalStorage() {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(this.collections));
     }
 
     getCollection(collectionId) {
@@ -21,6 +30,7 @@ class StubDatabase {
         const collection = this.getCollection(collectionId);
         const document = { ...payload, $id: id, permissions };
         collection.push(document);
+        this.saveToLocalStorage(); // ✅ Save after creation
         return document;
     }
 
@@ -29,6 +39,7 @@ class StubDatabase {
         const index = collection.findIndex(doc => doc.$id === id);
         if (index !== -1) {
             collection[index] = { ...collection[index], ...payload, permissions };
+            this.saveToLocalStorage(); // ✅ Save after update
             return collection[index];
         }
         throw new Error('Document not found');
@@ -37,6 +48,7 @@ class StubDatabase {
     async deleteDocument(dbId, collectionId, id) {
         const collection = this.getCollection(collectionId);
         this.collections[collectionId] = collection.filter(doc => doc.$id !== id);
+        this.saveToLocalStorage(); // ✅ Save after delete
         return { $id: id };
     }
 
@@ -61,8 +73,8 @@ class StubDatabase {
     }
 
     async deleteAll(collectionId) {
-        const collection = this.getCollection(collectionId);
         this.collections[collectionId] = [];
+        this.saveToLocalStorage(); // ✅ Save after clearing all
     }
 }
 
