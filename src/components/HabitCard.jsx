@@ -7,20 +7,26 @@ const week = [...Array(7)].map((_, i) =>
   today.subtract(6 - i, 'day').format('YYYY-MM-DD')
 );
 const dayLabels = [...Array(7)].map((_, i) =>
-    today.subtract(6 - i, 'day').format('ddd') // 'Mon', 'Tue', etc.
-  );
+  today.subtract(6 - i, 'day').format('ddd')
+);
 
-const HabitCard = ({ habit, updateLog }) => {
+const HabitCard = ({ habit, updateLog, deleteHabit }) => {
   return (
     <div className="habit-card">
-      <h2 className="habit-name">{habit.name}</h2>
+      <div className="habit-header">
+        <h2 className="habit-name">{habit.name}</h2>
+        <button className="habit-delete-button" onClick={() => deleteHabit(habit.$id)}>
+          Delete Habit
+        </button>
+      </div>
+
       <div className="habit-day-labels">
         {dayLabels.map((label, idx) => (
-            <div key={idx} className="habit-day-label">
+          <div key={idx} className="habit-day-label">
             {label}
-            </div>
+          </div>
         ))}
-        </div>
+      </div>
 
       <div className="habit-grid">
         {week.map((date) => {
