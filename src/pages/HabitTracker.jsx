@@ -110,20 +110,14 @@ const HabitTracker = () => {
 
           <div className="tooltip-wrapper">
             <button
-              onClick={() => {
-                if (!isResetEnabled()) {
-                  setErrorMessage('⚠️ Cannot reset: Each habit must have a log for all 7 days.');
-                  setTimeout(() => setErrorMessage(''), 3000);
-                } else {
-                  handleReset();
-                }
-              }}
+              onClick={handleReset}
               className={`habit-reset-button ${isResetEnabled() ? '' : 'disabled'}`}
+              disabled={!isResetEnabled()}
             >
               Reset for New Week
             </button>
             {!isResetEnabled() && (
-              <span className="tooltip-text">Complete logs for all habits before resetting</span>
+              <span className="tooltip-text">⚠ Complete logs for all habits before resetting</span>
             )}
           </div>
         </div>
