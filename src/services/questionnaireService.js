@@ -198,7 +198,7 @@ export const useSurvey = () => {
             } else if (finalCategory === 'C') {
                 setResultText('Seems like you may have Depression.');
             } else {
-                setResultText('Your responses suggest general uncertainty. No worries, that just means you get the general Dashboard.');
+                setResultText('Your responses suggest general uncertainty. No worries, we are here to help.');
             }
         }
     }, [currentQuestion]);

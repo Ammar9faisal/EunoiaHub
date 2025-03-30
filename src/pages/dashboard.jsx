@@ -8,8 +8,7 @@ import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
-import bottlePic from '../assets/bottle.png';
-import achievementsPic from '../assets/Achievements.png'; // <-- Import Achievements Image
+import bottlePic from '../assets/bottle.png';  // Imported bottle image
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -17,8 +16,8 @@ import { fetchWellnessIndexData } from '../services/dashboardService.js';
 
 export default function Dashboard() {
   const navigate = useNavigate();
-  const [currentQuote, setCurrentQuote] = useState(quotes[0]);
-  const [dashboardColor, setDashboardColor] = useState('dashboard-white');
+  const [currentQuote, setCurrentQuote] = useState(quotes[0]);  
+  const [dashboardColor, setDashboardColor] = useState('dashboard-white'); 
   const [userId, setUserId] = useState(null);
   const [user, setUser] = useState(null);
   const [wellnessIndexData, setWellnessIndexData] = useState([]);
@@ -77,7 +76,7 @@ export default function Dashboard() {
     const index = diffDays % quotes.length;
     setCurrentQuote(quotes[index]);
   }, []);
-
+  
   const toggleChat = () => {
     const chatbot = document.querySelector('.chatbot-container');
     chatbot.classList.toggle('hidden');
@@ -113,9 +112,9 @@ export default function Dashboard() {
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2>
             <div className="chart-container">
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
-                  <Label value="Wellness Index" offset={0} position="top" />
+              <ResponsiveContainer width="100%" height={300}>   {/* ResponsiveContainer for better chart responsiveness */}
+                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}> {/* Creates a line chart from wellness index data */}
+                  <Label value="Wellness Index" offset={0} position="top" /> 
                   <XAxis dataKey="day">
                     <Label value="Day" offset={-5} position="bottom" />
                   </XAxis>
@@ -157,21 +156,13 @@ export default function Dashboard() {
               onClick={() => navigate('/DailyExercises')}
             />
 
+            {/* Bottle Dashboard Card */}
             <DashboardCard
               title="Mystery Bottle"
               description="Click to reveal something special!"
               bgColor="dashboard-card"
               image={bottlePic}
-              onClick={() => navigate('/messageinabottle')}
-            />
-
-            {/* Added Achievements Card */}
-            <DashboardCard
-              title="My Achievements"
-              description="See the badges you've unlocked!"
-              bgColor="dashboard-card"
-              image={achievementsPic}
-              onClick={() => navigate('/achievements')}
+              onClick={() => navigate('/messageinabottle')} // Redirect to a new webpage
             />
           </div>
         </div>
