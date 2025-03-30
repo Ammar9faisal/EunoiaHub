@@ -36,7 +36,7 @@ export const addNote = async (userId, newNote, notes, setNotes, setNewNote) => {
             ]);
 
             if (achievementDocs.documents.length > 0) {
-                // Update existing document
+                
                 await db.achievements.update(achievementDocs.documents[0].$id, {
                     visionBadgeUnlocked: true
                 });

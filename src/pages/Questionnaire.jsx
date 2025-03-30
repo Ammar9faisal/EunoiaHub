@@ -120,13 +120,13 @@ function Questionnaire() {
             <div className="results-container">
                 <h1>Survey Results</h1>
                 <p>{renderResultText()}</p>
-                <p>You can now either login with your credentionals or redo the survey</p>
+                <p>You can now either go to dashboard or redo the survey</p>
                 <div className="results-buttons">
                     <button className="results-redo-button" onClick={redoSurvey}>
                         Redo
                     </button>
-                    <button className="results-dashboard-button" onClick={() => navigate('/login')}>
-                        Head to Login
+                    <button className="results-dashboard-button" onClick={() => navigate('/dashboard')}>
+                        Head to Dashboard
                     </button>
 >>>>>>> d8278c2 (Pulled updates from master branch)
                 </div>

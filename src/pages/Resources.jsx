@@ -14,8 +14,12 @@ import '../../styles/Resources.css';
 =======
 import { podcasts, books, videos, supportGroups, hotlines, workbooks } from '../services/resourcesService';
 import { Sidebar } from '../components/Sidebar.jsx';
+<<<<<<< HEAD
 import './Resources.css';
 >>>>>>> d8278c2 (Pulled updates from master branch)
+=======
+import '../../styles/Resources.css';
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
 
 const resourceSections = [
   { id: 'podcasts', label: '🎧 Podcasts', data: podcasts, cta: 'Listen Here' },

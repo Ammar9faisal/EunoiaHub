@@ -1,9 +1,13 @@
 import React from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import "../../styles/Welcome.css";
 =======
 import "./Welcome.css";
 >>>>>>> d8278c2 (Pulled updates from master branch)
+=======
+import "../../styles/Welcome.css";
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
 import logo from '../assets/logo.png';
 import sideImage from "../assets/Laptop.png"; 
 import background from "../assets/WelcomeBackground.png"; 
@@ -45,7 +49,11 @@ const WelcomePage = () => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default WelcomePage;
 =======
 export default WelcomePage;
 >>>>>>> d8278c2 (Pulled updates from master branch)
+=======
+export default WelcomePage;
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)

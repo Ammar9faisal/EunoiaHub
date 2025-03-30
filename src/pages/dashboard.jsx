@@ -8,7 +8,12 @@ import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
+<<<<<<< HEAD
 import bottlePic from '../assets/bottle.png';  // Imported bottle image
+=======
+import bottlePic from '../assets/bottle.png';
+import achievementsPic from '../assets/Achievements.png'; // <-- Import Achievements Image
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -195,6 +200,11 @@ export default function Dashboard() {
               image={bottlePic}
               onClick={() => navigate('/messageinabottle')} // Redirect to a new webpage
             />
+<<<<<<< HEAD
+=======
+
+            {/* Added Achievements Card */}
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
             <DashboardCard
               title="Weekly Habit Tracker"
               description="Track your weekly habits!"

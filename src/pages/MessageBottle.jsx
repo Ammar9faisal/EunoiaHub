@@ -2,10 +2,14 @@ import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar.jsx";
 import bottleImage from "../assets/bottle.png";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import "../../styles/MessageBottle.css";
 =======
 import "./MessageBottle.css";
 >>>>>>> d8278c2 (Pulled updates from master branch)
+=======
+import "../../styles/MessageBottle.css";
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
 
 export default function MessageInABottle() {
   const [state, setState] = useState({
@@ -130,7 +134,11 @@ export default function MessageInABottle() {
     </div>
   );
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> d8278c2 (Pulled updates from master branch)
+=======
+}
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)

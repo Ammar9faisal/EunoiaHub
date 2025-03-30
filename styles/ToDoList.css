@@ -117,6 +117,7 @@
     font-size: 1rem;
     color: #333;
     cursor: pointer;
+<<<<<<< HEAD
     max-width: 400px;  /* Adjust this value as needed */
     white-space: nowrap;
     overflow: hidden;
@@ -133,6 +134,8 @@
     position: absolute;
     z-index: 10;
     border-radius: 5px;
+=======
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
 }
 
 .todo-list-edit-input {

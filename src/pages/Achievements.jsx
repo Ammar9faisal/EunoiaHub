@@ -1,9 +1,10 @@
 <<<<<<< HEAD
 =======
 import React, { useEffect, useState } from 'react';
-import './Achievements.css';
+import '../../styles/Achievements.css';
 import checkinBadge from '../assets/checkinBadge.png';
 import visionBadge from '../assets/visionBadge.png';
+import backgroundImage from '../assets/Purple Background.png'; // ✅ Import background
 import { useNavigate } from 'react-router-dom';
 import db from '../database.js';
 import { account } from '../appwrite';
@@ -32,18 +33,24 @@ const Achievements = () => {
         setVisionUnlocked(visionEntries.documents.length > 0);
       } catch (error) {
         console.error('Error fetching achievements:', error);
-        navigate('/');
       }
     };
 
     fetchAchievements();
-  }, [navigate]);
+  }, []);
 
   return (
     <div className="achievements-page">
       <Sidebar />
 
-      <div className="achievements-container">
+      {/* ✅ Apply background image inline here */}
+      <div
+        className="achievements-container"
+        style={{
+          background: `url(${backgroundImage}) no-repeat center center fixed`,
+          backgroundSize: 'cover'
+        }}
+      >
         <h1 className="achievements-title">My Achievements</h1>
 
         <div className="badges-section">

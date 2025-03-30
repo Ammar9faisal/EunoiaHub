@@ -87,4 +87,8 @@ const BlogPage = () => {
   );
 };
 
+<<<<<<< HEAD
 export default BlogPage;
+=======
+export default BlogPage;
+>>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
