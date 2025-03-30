@@ -201,6 +201,7 @@ export const handleReviewSubmit = async (e, review, setReviews, setReview, setSu
       setTimeout(() => setSubmissionMessage(''), 3000);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
 }
 =======
@@ -208,3 +209,8 @@ export const handleReviewSubmit = async (e, review, setReviews, setReview, setSu
 
 
 >>>>>>> ed6f9a8 (added discord webhooks to user tickets as a helper tool for developers)
+=======
+}
+
+
+>>>>>>> d3f6374 (Revert "Achivements implementation")

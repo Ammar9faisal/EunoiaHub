@@ -54,6 +54,7 @@ const WelcomePage = () => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 export default WelcomePage;
 =======
 export default WelcomePage;
@@ -61,3 +62,6 @@ export default WelcomePage;
 =======
 export default WelcomePage;
 >>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
+=======
+export default WelcomePage;
+>>>>>>> d3f6374 (Revert "Achivements implementation")

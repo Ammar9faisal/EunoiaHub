@@ -139,6 +139,7 @@ export default function MessageInABottle() {
   );
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
@@ -146,3 +147,6 @@ export default function MessageInABottle() {
 =======
 }
 >>>>>>> 7c59e5a (Refactored Css styling from Master/improve Achievements page styling)
+=======
+}
+>>>>>>> d3f6374 (Revert "Achivements implementation")

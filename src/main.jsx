@@ -10,14 +10,23 @@ import FindHelp from './pages/FindHelp.jsx';
 import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
+<<<<<<< HEAD
 import VisionBoard from './pages/VisionBoard.jsx'
+=======
+import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
+import DailyExercises from './pages/DailyExercises.jsx';
+>>>>>>> d3f6374 (Revert "Achivements implementation")
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
+<<<<<<< HEAD
 import MessageBottle from './pages/MessageBottle.jsx';
 import HabitTracker from './pages/HabitTracker.jsx';
 import BubbleGame from './pages/BubbleGame.jsx';
+=======
+import MessageBottle from './pages/MessageBottle.jsx'; 
+>>>>>>> d3f6374 (Revert "Achivements implementation")
 
 const router = createBrowserRouter([
   {
@@ -69,12 +78,12 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/resources',
+    path: '/resources', 
     element: (
       <ProtectedRoute>
         <Resources />
       </ProtectedRoute>
-    ),
+    ), 
   },
   {
     path: '/usertickets',
@@ -85,10 +94,10 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/visionboard',
+    path: '/visionboard', 
     element: (
       <ProtectedRoute>
-        <VisionBoard />
+        <VisionBoard/>
       </ProtectedRoute>
     ),
   },
@@ -121,6 +130,7 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+<<<<<<< HEAD
   {
     path: '/habittracker', 
     element: (
@@ -138,6 +148,8 @@ const router = createBrowserRouter([
     ),
   },
 
+=======
+>>>>>>> d3f6374 (Revert "Achivements implementation")
 ]);
 
 
