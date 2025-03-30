@@ -119,18 +119,14 @@
     opacity: 1;
   }
   
-  /* === Instruction Section as Card === */
+  /* === Instruction Section === */
   .habit-instructions {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    color: #333;
+    color: white;
     font-size: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     line-height: 1.6;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto 2rem;
   }
   
   .habit-instructions ul {
@@ -159,6 +155,7 @@
     padding: 20px;
     margin-bottom: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
   }
   
   .habit-name {
@@ -168,7 +165,6 @@
     margin-bottom: 10px;
   }
   
-  /* === Weekly Grid === */
   .habit-grid {
     display: flex;
     gap: 10px;
@@ -207,4 +203,45 @@
     background-color: #e5e7eb;
     color: #5a2d82;
   }
+  
+  .habit-delete-button {
+    background-color: #dc2626;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .habit-delete-button:hover {
+    background-color: #b91c1c;
+  }
+  .habit-instructions-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 auto 2rem;
+    max-width: 700px;
+    text-align: left;
+    font-size: 1rem;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    line-height: 1.6;
+  }
+  
+  .habit-instructions-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+  }
+  
+  .habit-instructions-box li {
+    margin: 0.25rem 0;
+  }
+  
   

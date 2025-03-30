@@ -10,14 +10,15 @@ const HabitTracker = () => {
   const [habits, setHabits] = useState([]);
   const [newHabit, setNewHabit] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [showGuide, setShowGuide] = useState(true);
 
+  // Load habits on mount
   useEffect(() => {
     const allHabits = stubDatabase.getCollection('habitLogs') || [];
     const uniqueHabits = Array.from(new Map(allHabits.map(h => [h.$id, h])).values());
     setHabits(uniqueHabits);
   }, []);
 
+  // Add new habit
   const handleAddHabit = () => {
     const trimmed = newHabit.trim();
     if (!trimmed) return;
@@ -36,6 +37,7 @@ const HabitTracker = () => {
     setNewHabit('');
   };
 
+  // Update habit log
   const updateLog = (habitId, date, status) => {
     const updated = habits.map(habit => {
       if (habit.$id === habitId) {
@@ -46,6 +48,12 @@ const HabitTracker = () => {
       return habit;
     });
     setHabits(updated);
+  };
+
+  // Delete habit
+  const deleteHabit = (habitId) => {
+    stubDatabase.deleteDocument('db', 'habitLogs', habitId);
+    setHabits(habits.filter(h => h.$id !== habitId));
   };
 
   const isResetEnabled = () => {
@@ -74,11 +82,22 @@ const HabitTracker = () => {
   return (
     <div className="habit-page">
       <Sidebar />
+
       <div className="habit-container">
         <h1 className="habit-title">Weekly Habit Tracker</h1>
         <p className="habit-description">
           Track your daily progress and stay consistent with your goals.
         </p>
+
+        <div className="habit-instructions-box">
+          <strong>How It Works:</strong>
+          <ul>
+            <li>✅ First click: <strong>Done</strong> — You completed the habit</li>
+            <li>❌ Second click: <strong>Not Done</strong> — You didn’t complete it</li>
+            <li>➖ Third click: <strong>Skipped</strong> — You intentionally skipped or it didn’t apply</li>
+          </ul>
+          <p>Your logs are saved automatically and persist until you reset the week.</p>
+        </div>
 
         <div className="habit-controls">
           <input
@@ -100,34 +119,25 @@ const HabitTracker = () => {
                 }
               }}
               className={`habit-reset-button ${isResetEnabled() ? '' : 'disabled'}`}
-              disabled={!isResetEnabled()}
             >
               Reset for New Week
             </button>
             {!isResetEnabled() && (
-              <span className="tooltip-text">Complete all 7 logs for each habit first</span>
+              <span className="tooltip-text">Complete logs for all habits before resetting</span>
             )}
           </div>
         </div>
-
-        {showGuide && (
-          <div className="habit-instructions">
-            <strong>How It Works:</strong><br />
-            Click on each circle to log your habit progress for the day:
-            <ul>
-              <li>✅ First click: <strong>Done</strong> — You completed the habit</li>
-              <li>❌ Second click: <strong>Not Done</strong> — You didn’t complete it</li>
-              <li>➖ Third click: <strong>Skipped</strong> — You intentionally skipped or it didn’t apply</li>
-            </ul>
-            Your logs are saved automatically and persist until you reset the week.
-          </div>
-        )}
 
         {errorMessage && <p className="habit-error-message">{errorMessage}</p>}
 
         <div>
           {habits.map((habit) => (
-            <HabitCard key={habit.$id} habit={habit} updateLog={updateLog} />
+            <HabitCard
+              key={habit.$id}
+              habit={habit}
+              updateLog={updateLog}
+              deleteHabit={deleteHabit}
+            />
           ))}
         </div>
       </div>
