@@ -42,7 +42,12 @@ const ToDoList = () => {
                                     className="todo-list-edit-input"
                                 />
                             ) : (
-                                <span onClick={() => startEditing(index, task, setEditingIndex, setEditingText)}>{task.description}</span>
+                                <span 
+                                className="todo-list-task" 
+                                onClick={() => startEditing(index, task, setEditingIndex, setEditingText)}
+                                >
+                                    {task.description}
+                                    </span>
                             )}
                             {editingIndex === index ? (
                                 <button className="todo-list-save-edit" onClick={() => saveEdit(index, tasks, setTasks, editingText, setEditingIndex, setEditingText)}>✔</button>
