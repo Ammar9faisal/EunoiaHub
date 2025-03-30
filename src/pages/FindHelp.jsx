@@ -29,7 +29,11 @@ function FindHelp() {
 
   // Load Google Maps API script with the specified API key and libraries
   const { isLoaded, loadError } = useLoadScript({
+<<<<<<< HEAD
     googleMapsApiKey: googleMapsApiKey,
+=======
+    googleMapsApiKey: 'AIzaSyBHxEci9XfJcGLG1uBHwVkZYercCuTxjB4', // ************************************************************************PUT KEY 
+>>>>>>> 7955c03 (made some changes to the questionnaire and started on habit tracker)
     libraries,
   });
 

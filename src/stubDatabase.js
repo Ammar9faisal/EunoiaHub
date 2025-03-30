@@ -4,7 +4,8 @@ class StubDatabase {
             users: [],
             surveyResponses: [],
             todoLists: [],
-            visionboard: []
+            visionboard: [],
+            habitLogs: []
         };
     }
 

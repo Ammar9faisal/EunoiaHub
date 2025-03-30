@@ -26,7 +26,12 @@ import HabitTracker from './pages/HabitTracker.jsx';
 import BubbleGame from './pages/BubbleGame.jsx';
 =======
 import MessageBottle from './pages/MessageBottle.jsx'; 
+<<<<<<< HEAD
 >>>>>>> d3f6374 (Revert "Achivements implementation")
+=======
+import HabitTracker from './pages/HabitTracker.jsx';
+
+>>>>>>> 7955c03 (made some changes to the questionnaire and started on habit tracker)
 
 const router = createBrowserRouter([
   {
@@ -131,6 +136,9 @@ const router = createBrowserRouter([
     ),
   },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7955c03 (made some changes to the questionnaire and started on habit tracker)
   {
     path: '/habittracker', 
     element: (
@@ -139,6 +147,7 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+<<<<<<< HEAD
   {
     path: '/bubblegame', 
     element: (
@@ -150,6 +159,8 @@ const router = createBrowserRouter([
 
 =======
 >>>>>>> d3f6374 (Revert "Achivements implementation")
+=======
+>>>>>>> 7955c03 (made some changes to the questionnaire and started on habit tracker)
 ]);
 
 

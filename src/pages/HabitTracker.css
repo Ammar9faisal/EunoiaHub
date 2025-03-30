@@ -1,0 +1,128 @@
+/* === Habit Tracker Page Layout === */
+.habit-page {
+    display: grid;
+    grid-template-columns: 5vw 1fr;
+    height: 100vh;
+    background: linear-gradient(to bottom, #7F58BB, #C343B4);
+    overflow-y: auto;
+  }
+  
+  .habit-container {
+    grid-column: 2;
+    grid-row: 1;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  
+  /* === Title & Description === */
+  .habit-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .habit-description {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.5;
+  }
+  
+  /* === Input + Add Button === */
+  .habit-input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .habit-input {
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+  }
+  
+  .habit-add-button {
+    background: white;
+    color: #5a2d82;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 2px solid #5a2d82;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .habit-add-button:hover {
+    background: #5a2d82;
+    color: white;
+  }
+  
+  /* === Habit Card === */
+  .habit-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .habit-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #5a2d82;
+    margin-bottom: 10px;
+  }
+  
+  /* === Weekly Grid === */
+  .habit-grid {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .habit-day-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .habit-day-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .habit-day-yes {
+    background-color: #22c55e; /* Tailwind green-500 */
+    color: white;
+  }
+  
+  .habit-day-no {
+    background-color: #ef4444; /* Tailwind red-500 */
+    color: white;
+  }
+  
+  .habit-day-skip {
+    background-color: #9ca3af; /* Tailwind gray-400 */
+    color: white;
+  }
+  
+  .habit-day-empty {
+    background-color: #e5e7eb; /* Tailwind gray-200 */
+    color: #5a2d82;
+  }
+  

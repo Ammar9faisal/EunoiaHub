@@ -22,6 +22,9 @@ function Questionnaire() {
 
     const navigate = useNavigate(); // Hook to navigate to different pages
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7955c03 (made some changes to the questionnaire and started on habit tracker)
     const renderResultsSection = () => {
         const extraContent = {
             Anxiety: {
@@ -86,6 +89,7 @@ function Questionnaire() {
                             Head to Login
                         </button>
                     </div>
+<<<<<<< HEAD
 =======
 
     // Function to render the result text based on the survey outcome
@@ -129,6 +133,8 @@ function Questionnaire() {
                         Head to Dashboard
                     </button>
 >>>>>>> d8278c2 (Pulled updates from master branch)
+=======
+>>>>>>> 7955c03 (made some changes to the questionnaire and started on habit tracker)
                 </div>
             </div>
         );
