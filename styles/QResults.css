@@ -72,3 +72,47 @@
 .results-redo-button:hover, .results-dashboard-button:hover {
     background: darkviolet !important;
 }
+
+.results-gradient-anxiety {
+    background: linear-gradient(90deg, #3AA76D, #8DDC94); /* pink to purple */
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .results-gradient-anxiety:hover {
+    background: linear-gradient(90deg, #6da487, #b1dcb5); /* slightly deeper */
+  }
+  
+  .results-gradient-addiction {
+    background: linear-gradient(90deg, #7F58BB, #C343B4); /* blue to purple */
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .results-gradient-addiction:hover {
+    background: linear-gradient(90deg, #977fbb, #c27ab9);
+  }
+  
+  .results-gradient-depression {
+    background: linear-gradient(90deg, #F59E42, #F8C471); /* soft indigo */
+    color: white;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .results-gradient-depression:hover {
+    background: linear-gradient(90deg, #f6c693, #f7e0ba);
+  }
+
+  
+  
+  .results-buttons button, .results-buttons a.results-resource-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px; /* or whatever matches your buttons */
+  min-width: 200px; /* optional: helps align widths too */
+}
+  
