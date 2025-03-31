@@ -1,0 +1,102 @@
+.achievements-page {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .achievements-container {
+    background: url('../assets/Purple.png') no-repeat center center fixed;
+    background-size: cover;
+    flex-grow: 1;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .achievements-title {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .badges-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 80%;
+  }
+  
+  .badge {
+    width: 180px;
+    height: 180px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+  }
+  
+  .badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  .badge img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+  }
+  
+  .badge p {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  }
+  
+  .locked {
+    filter: grayscale(100%);
+    opacity: 0.5;
+  }
+  
+  .unlocked {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  @media (max-width: 600px) {
+    .badges-section {
+      gap: 10px;
+      max-width: 100%;
+    }
+  
+    .badge {
+      width: 150px;
+      height: 150px;
+      padding: 10px;
+    }
+  
+    .badge img {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .badge p {
+      font-size: 0.9rem;
+    }
+  }

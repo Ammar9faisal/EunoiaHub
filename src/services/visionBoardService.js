@@ -7,7 +7,7 @@ export const fetchUserAndVisionBoard = async (setUserId, setNotes) => {
         const user = await account.get();
         setUserId(user.$id);
         const response = await db.visionboard.list([
-            Query.equal('userID', user.$id) // Query to get vision board items belonging to the user
+            Query.equal('userID', user.$id)
         ]);
         const notes = response.documents.map(doc => doc.description);
         setNotes(notes);
@@ -16,7 +16,7 @@ export const fetchUserAndVisionBoard = async (setUserId, setNotes) => {
     }
 };
 
-export const addNote = async (userId, newNote, notes, setNotes, setNewNote) => {  // Add a new note to the vision board
+export const addNote = async (userId, newNote, notes, setNotes, setNewNote) => {
     if (newNote.trim()) {
         try {
             const response = await db.visionboard.create({
@@ -25,13 +25,17 @@ export const addNote = async (userId, newNote, notes, setNotes, setNewNote) => {
             });
             setNotes([...notes, response.description]);
             setNewNote('');
+
+            if (notes.length === 0) {
+                await db.users.update(userId, { visionBadgeUnlocked: true });
+            }
         } catch (error) {
             console.error('Error adding note:', error);
         }
     }
 };
 
-export const deleteNote = async (index, notes, setNotes, userId) => {  // Delete a note from the vision board
+export const deleteNote = async (index, notes, setNotes, userId) => {
     try {
         const noteToDelete = notes[index];
         const response = await db.visionboard.list([
