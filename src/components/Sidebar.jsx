@@ -14,6 +14,7 @@ import {
   Book,
   Wind,
   CalendarRange,
+  Gamepad2
 } from 'lucide-react';
 
 
@@ -57,7 +58,9 @@ export function Sidebar() {
       case '/dailyexercises':
         setActiveButton('dailyexercises');
         break;
-
+      case '/BubbleGame':
+        setActiveButton('BubbleGame');
+        break;
       case '/HabitTracker':
           setActiveButton('habittracker');
           break;
@@ -148,6 +151,14 @@ export function Sidebar() {
         >
           <Plus className="sidebar-icon" color="white" />
         </button>
+        
+        <button
+          className={`sidebar-button ${activeButton === 'BubbleGame' ? 'sidebar-button-active' : ''}`}
+          onClick={() => handleButtonClick('BubbleGame', '/bubblegame')}
+        >
+          <LayoutList className="sidebar-icon" color="white" />
+        </button>
+
       </nav>
       <button className="sidebar-button" onClick={handleLogout}>
         <LogOut className="sidebar-icon" color="white" />

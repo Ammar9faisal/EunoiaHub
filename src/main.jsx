@@ -18,6 +18,7 @@ import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
 import MessageBottle from './pages/MessageBottle.jsx';
 import Achievements from './pages/Achievements.jsx';
+import BubbleGame from './pages/BubbleGame.jsx';
 import HabitTracker from './pages/HabitTracker.jsx'; // ✅ Added back
 
 
@@ -127,6 +128,14 @@ const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <MessageBottle />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/bubblegame',
+    element: (
+      <ProtectedRoute>
+        <BubbleGame />
       </ProtectedRoute>
     ),
   },
