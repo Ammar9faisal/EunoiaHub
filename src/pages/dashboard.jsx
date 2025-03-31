@@ -13,6 +13,10 @@ import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContaine
 import db from '../database.js';
 import { account } from '../appwrite.js';
 import { fetchWellnessIndexData } from '../services/dashboardService.js';
+import calender from '../assets/calender.png';
+import StreakBadge from '../components/streakBadge.jsx'; // Import StreakBadge component
+import { Query } from 'appwrite';
+
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -21,6 +25,7 @@ export default function Dashboard() {
   const [userId, setUserId] = useState(null);
   const [user, setUser] = useState(null);
   const [wellnessIndexData, setWellnessIndexData] = useState([]);
+  const [streak, setStreak] = useState({ streakCount: 0, lastCompletedDate: null });
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -37,6 +42,30 @@ export default function Dashboard() {
     fetchUser();
   }, [navigate]);
 
+  useEffect(() => {
+    const fetchStreakData = async () => {
+      if (userId) {
+        try {
+          const response = await db.streaks.list([Query.equal('userID', userId)]); // Fetch streak data from the database
+          if (response.documents && response.documents.length > 0) {
+            const streakData = response.documents[0]; // Assuming the first document contains the streak data
+            setStreak({
+              streakCount: streakData.streakCount,
+              lastCompletedDate: streakData.lastCompletedDate,
+            });
+            console.log('Streak count:', streakData.streakCount);
+          } else {
+            console.log('No streak data found for user.');
+          }
+        } catch (error) {
+          console.error('Error fetching streak data:', error);
+        }
+      }
+    };
+
+    fetchStreakData();
+  }, [userId]);
+  
   useEffect(() => {
     const fetchUserDocument = async () => {
       if (userId) {
@@ -109,6 +138,8 @@ export default function Dashboard() {
             </div>
           </section>
 
+          <StreakBadge streakCount={streak.streakCount} />
+
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2>
             <div className="chart-container">
@@ -153,7 +184,7 @@ export default function Dashboard() {
               icon={<Rocket className="w-16 h-16 text-gray-600" />}
               bgColor="dashboard-card"
               image={dailyExercisesPic}
-              onClick={() => navigate('/DailyExercises')}
+              onClick={() => navigate('/dailyexercises')}
             />
 
             {/* Bottle Dashboard Card */}
@@ -163,6 +194,13 @@ export default function Dashboard() {
               bgColor="dashboard-card"
               image={bottlePic}
               onClick={() => navigate('/messageinabottle')} // Redirect to a new webpage
+            />
+            <DashboardCard
+              title="Weekly Habit Tracker"
+              description="Track your weekly habits!"
+              bgColor="dashboard-card"
+              image={calender}
+              onClick={() => navigate('/HabitTracker')} // Redirect to a new webpage
             />
           </div>
         </div>
