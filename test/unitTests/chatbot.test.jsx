@@ -8,6 +8,7 @@ import { generateResponse } from "../../src/services/chatbotService";
 vi.mock("../../src/services/chatbotService", () => ({
     generateResponse: vi.fn(),
 }));
+window.HTMLElement.prototype.scrollIntoView = vi.fn();
 
 describe("Chatbot component testing", () => {
     test("Renders to screen", () => {
