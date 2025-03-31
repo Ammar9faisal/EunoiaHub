@@ -1,0 +1,49 @@
+Blog Page Refactoring: 
+Use a Single Component Instead of Creating a New Page for Each Blog Post
+Identified Code Smell: Primitive Obsession & Duplicate Code
+Issue: The blog page was creating new pages or elements for each post instead of using a single, reusable component.
+Refactoring: Introduced a single BlogPost component to display both the latest and previous blog posts within the same page.
+Benefit: Reduces redundant code and improves maintainability.
+
+
+Message In A Bottle Refactoring:
+Unlock Logic Based on Deterministic Date Instead of Immediate Check
+Identified Code Smell: Immediate State Check for Unlocking
+Issue: The previous implementation checked unlockDate only on component mount and did not dynamically update whether the capsule could be opened.
+Before (Old Approach)
+-Checked if now >= unlockDate only once during the initial useEffect, setting canOpen statically.
+-Did not update canOpen dynamically as time passed.
+-Users had to refresh the page for the unlock state to update.
+After (New Approach)
+-Introduced an interval-based update to continuously check whether the capsule can be opened.
+-Used setInterval to re-evaluate the unlock state in real time.
+-Ensured canOpen updates dynamically without requiring a refresh.
+Fix
+useEffect(() => {
+  const storedCapsule = JSON.parse(localStorage.getItem("timeCapsule"));
+  if (storedCapsule) {
+	setGoals(storedCapsule.goals);
+	const savedUnlockDate = new Date(storedCapsule.unlockDate);
+	setUnlockDate(savedUnlockDate)
+	const interval = setInterval(() => {
+  	setCanOpen(new Date() >= savedUnlockDate);
+	}, 1000);
+	return () => clearInterval(interval);
+  }
+}, []);
+Benefit: Ensures the unlock state updates in real-time,no need for users to refresh the page manually. Improves user experience by making the capsule unlocking process smoother.
+
+
+Quotes Section Refactoring: 
+Select Quote Based on Date Instead of Random Selection
+Identified Code Smell: Uncontrolled Randomness
+Issue: The original implementation picked a random quote, leading to inconsistent user experience.
+Refactoring: Used a deterministic index calculation based on the number of days since a start date.
+Fix: 
+useEffect(() => {
+  const startDate = new Date("03/20/2025");
+  const today = new Date();
+  const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+  setCurrentQuote(quotes[diffDays % quotes.length]);
+}, []);
+Benefit: Ensures each day displays a unique, predetermined quote, improving user experience
