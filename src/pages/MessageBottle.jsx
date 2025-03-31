@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Sidebar from "../components/Sidebar.jsx";
 import bottleImage from "../assets/bottle.png";
-import "./MessageBottle.css";
+import "../../styles/MessageBottle.css";
 
 export default function MessageInABottle() {
   const [state, setState] = useState({
@@ -18,14 +18,22 @@ export default function MessageInABottle() {
     const storedBottle = JSON.parse(localStorage.getItem("messageBottle"));
     if (storedBottle) {
       const savedUnlockDate = new Date(storedBottle.unlockDate);
-      setState({ ...state, messages: storedBottle.messages, unlockDate: savedUnlockDate, sent: true });
+      setState((prevState) => ({
+        ...prevState,
+        messages: storedBottle.messages,
+        unlockDate: savedUnlockDate,
+        sent: true,
+      }));
       updateCountdown(savedUnlockDate);
     }
   }, []);
 
   useEffect(() => {
     if (state.unlockDate) {
-      const interval = setInterval(() => updateCountdown(state.unlockDate), 1000);
+      const interval = setInterval(() => {
+        updateCountdown(state.unlockDate);
+      }, 1000);
+
       return () => clearInterval(interval);
     }
   }, [state.unlockDate]);
@@ -46,23 +54,29 @@ export default function MessageInABottle() {
   };
 
   const addMessage = () => {
-    if (state.input.trim()) {
-      setState({ ...state, messages: [...state.messages, state.input], input: "" });
-    }
+    if (!state.input.trim()) return;
+    setState((prevState) => ({
+      ...prevState,
+      messages: [...prevState.messages, state.input.trim()],
+      input: "",
+    }));
   };
 
   const sendBottle = () => {
     if (state.messages.length === 0) return;
 
     const unlockTime = new Date();
-    unlockTime.setMinutes(unlockTime.getDay() + 30); //3o days from now
+    unlockTime.setDate(unlockTime.getDate() + 30);
 
-    localStorage.setItem("messageBottle", JSON.stringify({ messages: state.messages, unlockDate: unlockTime }));
-    setState({ ...state, unlockDate: unlockTime, sent: true });
+    localStorage.setItem("messageBottle", JSON.stringify({
+      messages: state.messages,
+      unlockDate: unlockTime,
+    }));
+    setState((prevState) => ({ ...prevState, unlockDate: unlockTime, sent: true }));
     updateCountdown(unlockTime);
   };
 
-  const openBottle = () => setState({ ...state, opened: true });
+  const openBottle = () => setState((prevState) => ({ ...prevState, opened: true }));
 
   const resetBottle = () => {
     localStorage.removeItem("messageBottle");
@@ -81,10 +95,12 @@ export default function MessageInABottle() {
               type="text"
               className="message-bottle-input"
               value={state.input}
-              onChange={(e) => setState({ ...state, input: e.target.value })}
+              onChange={(e) => setState((prevState) => ({ ...prevState, input: e.target.value }))}
               placeholder="Write your message..."
             />
-            <button className="message-bottle-button" onClick={addMessage}>Add Message</button>
+            <button className="message-bottle-button" onClick={addMessage} disabled={!state.input.trim()}>
+              Add Message
+            </button>
             <button className="message-bottle-button" onClick={sendBottle} disabled={state.messages.length === 0}>
               Send Bottle
             </button>
@@ -109,7 +125,12 @@ export default function MessageInABottle() {
                   Your bottle will wash ashore on <strong>{state.unlockDate.toDateString()}</strong>!
                 </p>
                 <p className="message-bottle-countdown">
-                  Arrives in: <strong>{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</strong>
+                  Arrives in: <strong>
+                    {timeLeft.days} {timeLeft.days === 1 ? "day" : "days"},
+                    {timeLeft.hours} {timeLeft.hours === 1 ? "hour" : "hours"},
+                    {timeLeft.minutes} {timeLeft.minutes === 1 ? "minute" : "minutes"},
+                    {timeLeft.seconds} {timeLeft.seconds === 1 ? "second" : "seconds"}
+                  </strong>
                 </p>
               </>
             ) : (
@@ -126,3 +147,4 @@ export default function MessageInABottle() {
     </div>
   );
 }
+

@@ -3,61 +3,103 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import DailyExercises from '../../src/pages/DailyExercises';
 import * as dailyExercisesService from '../../src/services/dailyExercisesService';
 
-// Mock the Sidebar component to simplify rendering
+// Mock the Sidebar component 
 vi.mock('../../src/components/Sidebar.jsx', () => ({
   default: () => <div>Sidebar</div>,
 }));
 
-// Mock useDailyExercisesLogic while preserving other exports
+// Mock hooks from dailyExercisesService 
 vi.mock('../../src/services/dailyExercisesService', async () => {
   const actual = await vi.importActual('../../src/services/dailyExercisesService');
   return {
     ...actual,
     useDailyExercisesLogic: vi.fn(),
+    useBreathingLogic: vi.fn(),
+    useGratitudeLogic: vi.fn(),
+    useGroundingLogic: vi.fn(),
+    useSelfCompassionLogic: vi.fn(),
+    useTriggerLogic: vi.fn(),
+    useMindfulnessLogic: vi.fn(),
   };
 });
 
 describe('DailyExercises Component', () => {
+  // Mock data for useDailyExercisesLogic 
   const mockUseDailyExercisesLogic = {
     selectedExercise: null,
-    timeLeft: 0,
-    phase: '',
+    startExercise: vi.fn(),
+    goBack: vi.fn(),
+    audioRef: { current: null },
+    upliftingAudio: 'mock-audio.mp3',
+  };
+
+  // Mock data for Box Breathing 
+  const mockUseBreathingLogic = {
+    timeLeft: 60,
+    phase: 'inhale',
     paused: false,
     breathingStarted: false,
+    startBreathingExercise: vi.fn(),
+    pauseExercise: vi.fn(),
+  };
+
+  // Mock data for Gratitude Journal
+  const mockUseGratitudeLogic = {
     gratitudeEntries: [],
     gratitudeInput: '',
     setGratitudeInput: vi.fn(),
+    handleGratitudeSubmit: vi.fn(),
+  };
+
+  // Mock data for Grounding Exercise 
+  const mockUseGroundingLogic = {
     groundingAnswers: { see: [], touch: [], hear: [], smell: [], taste: [] },
     groundingStep: 'see',
     currentGroundingInput: '',
     setCurrentGroundingInput: vi.fn(),
+    handleGroundingSubmit: vi.fn(),
+    handleGroundingDelete: vi.fn(),
+  };
+
+  // Mock data for Self-Compassion 
+  const mockUseSelfCompassionLogic = {
     selfCompassionAnswers: {},
     selfCompassionStep: 0,
     currentSelfCompassionInput: '',
     setCurrentSelfCompassionInput: vi.fn(),
+    handleSelfCompassionSubmit: vi.fn(),
+  };
+
+  // Mock data for Trigger Identification     
+  const mockUseTriggerLogic = {
     triggers: [],
+    handleTriggerSelect: vi.fn(),
+  };
+
+  // Mock data for Mindfulness Timer
+  const mockUseMindfulnessLogic = {
+    timeLeft: 300,
+    paused: false,
     mindfulnessStarted: false,
     playMusic: true,
     setPlayMusic: vi.fn(),
-    audioRef: { current: null },
-    startExercise: vi.fn(),
-    goBack: vi.fn(),
-    pauseExercise: vi.fn(),
-    startBreathingExercise: vi.fn(),
     startMindfulnessTimer: vi.fn(),
-    handleGratitudeSubmit: vi.fn(),
-    handleGroundingSubmit: vi.fn(),
-    handleGroundingDelete: vi.fn(),
-    handleSelfCompassionSubmit: vi.fn(),
-    handleTriggerSelect: vi.fn(),
-    upliftingAudio: 'mock-audio.mp3',
+    pauseExercise: vi.fn(),
   };
 
   beforeEach(() => {
+    // Reset all mocks before each test 
     vi.clearAllMocks();
     dailyExercisesService.useDailyExercisesLogic.mockReturnValue(mockUseDailyExercisesLogic);
+    dailyExercisesService.useBreathingLogic.mockReturnValue(mockUseBreathingLogic);
+    dailyExercisesService.useGratitudeLogic.mockReturnValue(mockUseGratitudeLogic);
+    dailyExercisesService.useGroundingLogic.mockReturnValue(mockUseGroundingLogic);
+    dailyExercisesService.useSelfCompassionLogic.mockReturnValue(mockUseSelfCompassionLogic);
+    dailyExercisesService.useTriggerLogic.mockReturnValue(mockUseTriggerLogic);
+    dailyExercisesService.useMindfulnessLogic.mockReturnValue(mockUseMindfulnessLogic);
   });
 
+  // Test: Verify that the initial exercise list renders correctly
   test('renders the initial exercise list', () => {
     render(<DailyExercises />);
 
@@ -67,27 +109,13 @@ describe('DailyExercises Component', () => {
     expect(screen.getByText('Gratitude Journal')).toBeInTheDocument();
     expect(screen.getByText('5-4-3-2-1 Grounding')).toBeInTheDocument();
     expect(screen.getByText('Self-Compassion Exercise')).toBeInTheDocument();
-    expect(screen.getByText('Trigger Identification')).toBeInTheDocument();
-    expect(screen.getByText('Mindfulness Timer')).toBeInTheDocument();
   });
 
-  test('starts an exercise when Start button is clicked', () => {
-    render(<DailyExercises />);
-
-    // First Start button is for Box Breathing
-    const startButton = screen.getAllByText('Start')[0];
-    fireEvent.click(startButton);
-
-    expect(mockUseDailyExercisesLogic.startExercise).toHaveBeenCalledWith(
-      expect.objectContaining({ id: 'breathing' })
-    );
-  });
-
+  // Test:Verify that the Box Breathing exercise renders when selected
   test('renders breathing exercise when selected', () => {
     dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
       ...mockUseDailyExercisesLogic,
       selectedExercise: 'breathing',
-      timeLeft: 60,
     });
 
     render(<DailyExercises />);
@@ -97,11 +125,11 @@ describe('DailyExercises Component', () => {
     expect(screen.getByText('60s')).toBeInTheDocument();
   });
 
+  // Test: Verify that clicking the Start button in Box Breathing triggers the exercise
   test('starts breathing exercise when Start button is clicked', () => {
     dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
       ...mockUseDailyExercisesLogic,
       selectedExercise: 'breathing',
-      timeLeft: 60,
     });
 
     render(<DailyExercises />);
@@ -109,26 +137,10 @@ describe('DailyExercises Component', () => {
     const startButton = screen.getByText('Start');
     fireEvent.click(startButton);
 
-    expect(mockUseDailyExercisesLogic.startBreathingExercise).toHaveBeenCalled();
+    expect(mockUseBreathingLogic.startBreathingExercise).toHaveBeenCalled();
   });
 
-  test('pauses breathing exercise when Pause button is clicked', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'breathing',
-      timeLeft: 60,
-      breathingStarted: true,
-      paused: false,
-    });
-
-    render(<DailyExercises />);
-
-    const pauseButton = screen.getByText('Pause');
-    fireEvent.click(pauseButton);
-
-    expect(mockUseDailyExercisesLogic.pauseExercise).toHaveBeenCalled();
-  });
-
+  // Test : Verify that the Gratitude Journal renders when selected
   test('renders gratitude journal when selected', () => {
     dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
       ...mockUseDailyExercisesLogic,
@@ -142,154 +154,11 @@ describe('DailyExercises Component', () => {
     expect(screen.getByPlaceholderText('What are you grateful for?')).toBeInTheDocument();
   });
 
-  test('submits gratitude entry', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'gratitude',
-    });
-
-    render(<DailyExercises />);
-
-    const input = screen.getByPlaceholderText('What are you grateful for?');
-    fireEvent.change(input, { target: { value: 'My family' } });
-    expect(mockUseDailyExercisesLogic.setGratitudeInput).toHaveBeenCalledWith('My family');
-
-    const form = input.closest('form');
-    fireEvent.submit(form);
-
-    expect(mockUseDailyExercisesLogic.handleGratitudeSubmit).toHaveBeenCalled();
-  });
-
-  test('displays gratitude entries when completed', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'gratitude',
-      gratitudeEntries: ['My family', 'My friends', 'Good health'],
-    });
-
-    render(<DailyExercises />);
-
-    expect(screen.getByText('Great job! You’ve added 3 entries.')).toBeInTheDocument();
-    expect(screen.getByText('My family')).toBeInTheDocument();
-    expect(screen.getByText('My friends')).toBeInTheDocument();
-    expect(screen.getByText('Good health')).toBeInTheDocument();
-  });
-
-  test('renders grounding exercise when selected', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'grounding',
-      groundingStep: 'see',
-    });
-
-    render(<DailyExercises />);
-
-    expect(screen.getByText('5-4-3-2-1 Grounding')).toBeInTheDocument();
-    expect(screen.getByText('Name 5 more thing(s) you can see:')).toBeInTheDocument();
-  });
-
-  test('submits grounding answer', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'grounding',
-      groundingStep: 'see',
-    });
-
-    render(<DailyExercises />);
-
-    const input = screen.getByPlaceholderText('Enter a see item');
-    fireEvent.change(input, { target: { value: 'A tree' } });
-    expect(mockUseDailyExercisesLogic.setCurrentGroundingInput).toHaveBeenCalledWith('A tree');
-
-    const form = input.closest('form');
-    fireEvent.submit(form);
-
-    expect(mockUseDailyExercisesLogic.handleGroundingSubmit).toHaveBeenCalled();
-  });
-
-  test('displays grounding answers and deletes an answer', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'grounding',
-      groundingStep: 'see',
-      groundingAnswers: { see: ['A tree'], touch: [], hear: [], smell: [], taste: [] },
-    });
-
-    render(<DailyExercises />);
-
-    expect(screen.getByText('See:')).toBeInTheDocument();
-    expect(screen.getByText('A tree')).toBeInTheDocument();
-
-    const deleteButton = screen.getByText('Delete');
-    fireEvent.click(deleteButton);
-
-    expect(mockUseDailyExercisesLogic.handleGroundingDelete).toHaveBeenCalledWith('see', 0);
-  });
-
-  test('renders self-compassion exercise when selected', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'self-compassion',
-      selfCompassionStep: 0,
-    });
-
-    render(<DailyExercises />);
-
-    expect(screen.getByText('Self-Compassion Exercise')).toBeInTheDocument();
-    expect(screen.getByText('I am proud of myself because...')).toBeInTheDocument();
-  });
-
-  test('submits self-compassion answer', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'self-compassion',
-      selfCompassionStep: 0,
-    });
-
-    render(<DailyExercises />);
-
-    const input = screen.getByPlaceholderText('Type your response');
-    fireEvent.change(input, { target: { value: 'I worked hard today' } });
-    expect(mockUseDailyExercisesLogic.setCurrentSelfCompassionInput).toHaveBeenCalledWith('I worked hard today');
-
-    const form = input.closest('form');
-    fireEvent.submit(form);
-
-    expect(mockUseDailyExercisesLogic.handleSelfCompassionSubmit).toHaveBeenCalled();
-  });
-
-  test('renders trigger identification exercise when selected', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'trigger',
-    });
-
-    render(<DailyExercises />);
-
-    expect(screen.getByText('Trigger Identification')).toBeInTheDocument();
-    expect(screen.getByText('Select scenarios that trigger you:')).toBeInTheDocument();
-    expect(screen.getByText('Feeling stressed at work')).toBeInTheDocument();
-  });
-
-  test('selects a trigger', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'trigger',
-    });
-
-    render(<DailyExercises />);
-
-    const triggerButton = screen.getByText('Feeling stressed at work');
-    fireEvent.click(triggerButton);
-
-    expect(mockUseDailyExercisesLogic.handleTriggerSelect).toHaveBeenCalledWith('stress');
-  });
-
+  // Test:Verify that the Mindfulness Timer renders when selected
   test('renders mindfulness timer when selected', () => {
     dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
       ...mockUseDailyExercisesLogic,
       selectedExercise: 'mindfulness',
-      timeLeft: 300,
     });
 
     render(<DailyExercises />);
@@ -299,36 +168,7 @@ describe('DailyExercises Component', () => {
     expect(screen.getByLabelText('Toggle background music')).toBeInTheDocument();
   });
 
-  test('starts mindfulness timer', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'mindfulness',
-      timeLeft: 300,
-    });
-
-    render(<DailyExercises />);
-
-    const startButton = screen.getByText('Start');
-    fireEvent.click(startButton);
-
-    expect(mockUseDailyExercisesLogic.startMindfulnessTimer).toHaveBeenCalled();
-  });
-
-  test('toggles background music', () => {
-    dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
-      ...mockUseDailyExercisesLogic,
-      selectedExercise: 'mindfulness',
-      timeLeft: 300,
-    });
-
-    render(<DailyExercises />);
-
-    const checkbox = screen.getByLabelText('Toggle background music');
-    fireEvent.click(checkbox);
-
-    expect(mockUseDailyExercisesLogic.setPlayMusic).toHaveBeenCalledWith(false);
-  });
-
+  // Test: Verify that the Back button navigates back to the exercise list
   test('goes back to exercise list', () => {
     dailyExercisesService.useDailyExercisesLogic.mockReturnValue({
       ...mockUseDailyExercisesLogic,

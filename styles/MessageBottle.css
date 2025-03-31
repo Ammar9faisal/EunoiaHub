@@ -10,7 +10,7 @@ body, html {
   justify-content: flex-start;
   min-height: 100vh;
   padding-top: 80px;
-  background: url('../assets/waves.png') center/cover no-repeat; 
+  background: url('/src/assets/waves.png') center/cover no-repeat;
 }
 
 .message-bottle-title {

@@ -1,5 +1,5 @@
 import React from "react";
-import "./Welcome.css";
+import "../../styles/Welcome.css";
 import logo from '../assets/logo.png';
 import sideImage from "../assets/Laptop.png"; 
 import background from "../assets/WelcomeBackground.png"; 

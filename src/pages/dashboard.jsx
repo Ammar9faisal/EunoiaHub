@@ -3,7 +3,7 @@ import { Rocket, Brain, Bot } from 'lucide-react';
 import ChatBot from '../components/chatbot.jsx';
 import Sidebar from '../components/Sidebar.jsx';
 import { useNavigate } from 'react-router-dom';
-import './dashboard.css';
+import '../../styles/dashboard.css';
 import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
@@ -112,9 +112,9 @@ export default function Dashboard() {
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2>
             <div className="chart-container">
-              <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
-                  <Label value="Wellness Index" offset={0} position="top" />
+              <ResponsiveContainer width="100%" height={300}>   {/* ResponsiveContainer for better chart responsiveness */}
+                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}> {/* Creates a line chart from wellness index data */}
+                  <Label value="Wellness Index" offset={0} position="top" /> 
                   <XAxis dataKey="day">
                     <Label value="Day" offset={-5} position="bottom" />
                   </XAxis>

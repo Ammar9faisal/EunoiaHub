@@ -9,7 +9,7 @@ import {
   workbooks,
 } from '../services/resourcesService';
 import { Sidebar } from '../components/Sidebar.jsx';
-import './Resources.css';
+import '../../styles/Resources.css';
 
 const resourceSections = [
   { id: 'podcasts', label: '🎧 Podcasts', data: podcasts, cta: 'Listen Here' },
