@@ -366,7 +366,6 @@ Task: User profile implementation
 • Started structuring user profile page.
 • Defined key sections for user details.
 FEB 9 – 1 hr 10 mins
-
 Task: User profile data handling
 • Ensured dynamic data binding to display user information.
 • Styled input fields and display components.
@@ -407,6 +406,43 @@ MAR 6 – 1 hr 35 mins
 Task: Fixing layout and interaction issues
 • Polished transition effects for better user experience.
 • Refined positioning of elements across different screen sizes.
+MAR 8 – 40 mins
+Task: Initial page structure setup
+• Created foundational layout for the Message in a Bottle webpage.
+• Defined sections for user input, message storage, and retrieval.
+MAR 10 – 20 mins
+Task: Implementing message submission form
+• Developed input fields for users to write and "bury" their messages.
+• Added validation to ensure messages meet length requirements.
+MAR 12 – 1 hr 15 mins
+Task: Styling input and confirmation UI and Welcome Page Creation
+• Designed a clean and minimalistic look for the input fields.
+• Created a confirmation message when a user submits their entry.
+• Designed and implemented Welcome Page 
+
+MAR 15 – 50 mins
+Task: Debugging input form behavior
+• Fixed minor issues with form validation.
+• Ensured messages are properly stored
+
+MAR 17 – 1 hrs
+Task: Implementing message retrieval logic
+• Set up a system to track when messages can be "unburied."
+• Ensured messages remain locked for 30 days before becoming accessible.
+
+MAR 22 – 30 mins
+Task: Debugging retrieval functionality
+• Resolved issues with date tracking for message accessibility.
+• Ensured correct display of messages once unlocked.
+
+MAR 27 – 1 hr 10 mins
+Task: Final testing and refinements
+• Conducted usability testing to ensure a smooth user experience.
+• Adjusted styling for better readability on different devices.
+
+MAR 29 – 55 mins
+Task: Final polishing and optimizations
+• Ensured consistent styling and responsiveness across the page.
 
 -> HARNAINDEEP KAUR
 
