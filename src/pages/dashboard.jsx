@@ -8,7 +8,8 @@ import botPic from '../assets/botPic.png';
 import mindfulPic from '../assets/mindfulPic.png';
 import { quotes } from '../assets/quotesList.js';
 import dailyExercisesPic from '../assets/DE-Dashboard.png';
-import bottlePic from '../assets/bottle.png';  // Imported bottle image
+import bottlePic from '../assets/bottle.png';
+import achievementsPic from '../assets/Achievements.png';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import db from '../database.js';
 import { account } from '../appwrite.js';
@@ -143,8 +144,8 @@ export default function Dashboard() {
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Daily Mindful Check-In Results</h2>
             <div className="chart-container">
-              <ResponsiveContainer width="100%" height={300}>   {/* ResponsiveContainer for better chart responsiveness */}
-                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}> {/* Creates a line chart from wellness index data */}
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={wellnessIndexData} margin={{ top: 5, right: 20, left: 10, bottom: 10 }}>
                   <Label value="Wellness Index" offset={0} position="top" /> 
                   <XAxis dataKey="day">
                     <Label value="Day" offset={-5} position="bottom" />
@@ -187,13 +188,21 @@ export default function Dashboard() {
               onClick={() => navigate('/dailyexercises')}
             />
 
-            {/* Bottle Dashboard Card */}
             <DashboardCard
               title="Mystery Bottle"
               description="Click to reveal something special!"
               bgColor="dashboard-card"
               image={bottlePic}
-              onClick={() => navigate('/messageinabottle')} // Redirect to a new webpage
+              onClick={() => navigate('/messageinabottle')}
+            />
+
+            
+            <DashboardCard
+              title="Achievements"
+              description="View your unlocked progress and badges"
+              bgColor="dashboard-card"
+              image={achievementsPic}
+              onClick={() => navigate('/achievements')}
             />
             <DashboardCard
               title="Weekly Habit Tracker"

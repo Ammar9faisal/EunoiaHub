@@ -10,14 +10,15 @@ import FindHelp from './pages/FindHelp.jsx';
 import ToDoList from './pages/ToDoList.jsx';
 import UserTickets from './pages/UserTickets.jsx';
 import Resources from './pages/Resources.jsx';
-import VisionBoard from './pages/VisionBoard.jsx'; // Added VisionBoard import
+import VisionBoard from './pages/VisionBoard.jsx';
 import DailyExercises from './pages/DailyExercises.jsx';
 import { AuthProvider } from './components/AuthContext.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
-import MessageBottle from './pages/MessageBottle.jsx'; 
-import HabitTracker from './pages/HabitTracker.jsx';
+import MessageBottle from './pages/MessageBottle.jsx';
+import Achievements from './pages/Achievements.jsx';
+import HabitTracker from './pages/HabitTracker.jsx'; // ✅ Added back
 
 
 const router = createBrowserRouter([
@@ -42,8 +43,16 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/achievements',
+    element: (
+      <ProtectedRoute>
+        <Achievements />
+      </ProtectedRoute>
+    ),
+  },
+  {
     path: '/questionnaire',
-    element: <Questionnaire />
+    element: <Questionnaire />,
   },
   {
     path: '/findhelp',
@@ -70,12 +79,12 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/resources', 
+    path: '/resources',
     element: (
       <ProtectedRoute>
         <Resources />
       </ProtectedRoute>
-    ), 
+    ),
   },
   {
     path: '/usertickets',
@@ -86,10 +95,10 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/visionboard', 
+    path: '/visionboard',
     element: (
       <ProtectedRoute>
-        <VisionBoard/>
+        <VisionBoard />
       </ProtectedRoute>
     ),
   },
@@ -109,13 +118,12 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
-
   {
     path: '/',
-    element: <WelcomePage />
+    element: <WelcomePage />,
   },
   {
-    path: '/messageinabottle', 
+    path: '/messageinabottle',
     element: (
       <ProtectedRoute>
         <MessageBottle />
@@ -123,7 +131,9 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: '/habittracker', 
+
+    path: '/habittracker', // ✅ Added back
+
     element: (
       <ProtectedRoute>
         <HabitTracker />

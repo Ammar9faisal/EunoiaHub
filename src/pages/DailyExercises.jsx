@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { account } from '../appwrite';
+import db from '../database.js';
 import Sidebar from '../components/Sidebar.jsx';
 import '../../styles/DailyExercises.css';
 import {
@@ -393,6 +395,27 @@ const DailyExercises = () => {
     upliftingAudio,
   } = useDailyExercisesLogic();
 
+  useEffect(() => {
+    const unlockExerciseBadge = async () => {
+      try {
+        const user = await account.get();
+        const userDoc = await db.users.get(user.$id);
+  
+        if (!userDoc.exerciseBadgeUnlocked) {
+          await db.users.update(user.$id, {
+            exerciseBadgeUnlocked: true,
+          });
+          console.log('🏅 Exercise badge unlocked!');
+        } else {
+          console.log('✅ Exercise badge already unlocked.');
+        }
+      } catch (error) {
+        console.error('⚠️ Error unlocking exercise badge:', error);
+      }
+    };
+  
+    unlockExerciseBadge();
+  }, []);  
 
   const selectedExerciseData = exercises.find((ex) => ex.id === selectedExercise);
   const ExerciseComponent = selectedExerciseData

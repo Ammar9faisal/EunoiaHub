@@ -9,7 +9,9 @@ class StubDatabase {
             surveyResponses: [],
             todoLists: [],
             visionboard: [],
-            habitLogs: []
+
+            habitLogs: [] // ✅ Added for HabitTracker feature
+
         };
     }
 
