@@ -21,51 +21,119 @@ function Questionnaire() {
     } = useSurvey();
 
     const navigate = useNavigate(); // Hook to navigate to different pages
-
-    // Function to render the result text based on the survey outcome
-    const renderResultText = () => {
-        if (resultText.includes('Anxiety')) {
-            return (
-                <>
-                    Seems like you may have <span className="question-gradient-anxiety">Anxiety</span>.
-                </>
-            );
-        } else if (resultText.includes('Addiction')) {
-            return (
-                <>
-                    Seems like you may have an <span className="question-gradient-addiction">Addiction</span>.
-                </>
-            );
-        } else if (resultText.includes('Depression')) {
-            return (
-                <>
-                    Seems like you may have <span className="question-gradient-depression">Depression</span>.
-                </>
-            );
-        } else {
-            return resultText;
-        }
-    };
-
-    // Function to render the results section
-    const renderResultsSection = () => (
-        <div className="results-page">
-            <img src={background} alt='background' className='results-background' />
-            <div className="results-container">
-                <h1>Survey Results</h1>
-                <p>{renderResultText()}</p>
-                <p>You can now either go to dashboard or redo the survey</p>
-                <div className="results-buttons">
-                    <button className="results-redo-button" onClick={redoSurvey}>
-                        Redo
-                    </button>
-                    <button className="results-dashboard-button" onClick={() => navigate('/dashboard')}>
-                        Head to Dashboard
-                    </button>
+    const renderResultsSection = () => {
+        const extraContent = {
+            Anxiety: {
+                label: "Anxiety",
+                text: "You don’t have to control everything to feel safe. Letting go can be a power move, not a weakness.",
+                link: "https://adaa.org/learn-from-us/from-the-experts/blog-posts/consumer/how-cope-uncertainty",
+                linkText: "Coping with Uncertainty"
+            },
+            Addiction: {
+                label: "Addiction",
+                text: "Relapse doesn’t mean failure. Every attempt is practice. Every practice builds strength.",
+                link: "https://jamesclear.com/atomic-habits-summary",
+                linkText: "Science of Habit Change"
+            },
+            Depression: {
+                label: "Depression",
+                text: "Even when you feel nothing, your actions still matter. You don't have to feel better to start — you just have to start to feel better.",
+                link: "https://butyoudontlooksick.com/articles/written-by-christine/the-spoon-theory/",
+                linkText: "The Spoon Theory"
+            }
+        };
+    
+        const match = Object.keys(extraContent).find(key => resultText.includes(key));
+        const resource = match ? extraContent[match] : null;
+    
+        return (
+            <div className="results-page">
+                <img src={background} alt='background' className='results-background' />
+                <div className="results-container">
+                    <h1>Survey Results</h1>
+                    <p>
+                        Seems like you may have{" "}
+                        <span className={`question-gradient-${resource?.label.toLowerCase()}`}>
+                            {resource?.label}
+                        </span>.
+                    </p>
+                    {resource && (
+                        <>
+                            <p>{resource.text}</p>
+                            <p style={{ marginTop: "1rem" }}>
+                                Here is a resource to support you with your <strong>{resource.label.toLowerCase()}</strong>.
+                                You can explore that, or continue below.
+                            </p>
+                        </>
+                    )}
+                    <div className="results-buttons">
+                        {resource && (
+                            <a
+                            href={resource.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`results-resource-button results-gradient-${resource.label.toLowerCase()}`}
+                          >
+                            {resource.linkText}
+                          </a>
+                          
+                        )}
+                        <button className="results-redo-button" onClick={redoSurvey}>
+                            Redo
+                        </button>
+                        <button className="results-dashboard-button" onClick={() => navigate('/login')}>
+                            Head to Login
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    };
+    
+    // // Function to render the result text based on the survey outcome
+    // const renderResultText = () => {
+    //     if (resultText.includes('Anxiety')) {
+    //         return (
+    //             <>
+    //                 Seems like you may have <span className="question-gradient-anxiety">Anxiety</span>.
+    //             </>
+    //         );
+    //     } else if (resultText.includes('Addiction')) {
+    //         return (
+    //             <>
+    //                 Seems like you may have an <span className="question-gradient-addiction">Addiction</span>.
+    //             </>
+    //         );
+    //     } else if (resultText.includes('Depression')) {
+    //         return (
+    //             <>
+    //                 Seems like you may have <span className="question-gradient-depression">Depression</span>.
+    //             </>
+    //         );
+    //     } else {
+    //         return resultText;
+    //     }
+    // };
+
+    // // Function to render the results section
+    // const renderResultsSection = () => (
+    //     <div className="results-page">
+    //         <img src={background} alt='background' className='results-background' />
+    //         <div className="results-container">
+    //             <h1>Survey Results</h1>
+    //             <p>{renderResultText()}</p>
+    //             <p>You can now either login with your credentionals or redo the survey</p>
+    //             <div className="results-buttons">
+    //                 <button className="results-redo-button" onClick={redoSurvey}>
+    //                     Redo
+    //                 </button>
+    //                 <button className="results-dashboard-button" onClick={() => navigate('/login')}>
+    //                     Head to Login
+    //                 </button>
+    //             </div>
+    //         </div>
+    //     </div>
+    // );
 
     // Render the intro section if the current question is -1
     if (currentQuestion === -1) {

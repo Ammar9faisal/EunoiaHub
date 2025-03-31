@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import {
   BarChart2,
   Smile,
@@ -14,6 +15,7 @@ import {
   Wind,
   CalendarRange,
 } from 'lucide-react';
+
 
 import './sidebar.css';
 import logo from '../assets/logo.png';
@@ -55,9 +57,11 @@ export function Sidebar() {
       case '/dailyexercises':
         setActiveButton('dailyexercises');
         break;
-      case '/habittracker':
-        setActiveButton('habittracker');
-        break;
+
+      case '/HabitTracker':
+          setActiveButton('habittracker');
+          break;
+
       default:
         setActiveButton('dashboard');
         break;
@@ -126,10 +130,12 @@ export function Sidebar() {
         </button>
         <button
           className={`sidebar-button ${activeButton === 'habittracker' ? 'sidebar-button-active' : ''}`}
-          onClick={() => handleButtonClick('habittracker', '/habittracker')}
+
+          onClick={() => navigate("/HabitTracker")}
         >
           <CalendarRange className="sidebar-icon" color="white" />
         </button>
+
         <button
           className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
           onClick={() => handleButtonClick('ToDoList', '/todo')}

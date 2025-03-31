@@ -20,6 +20,7 @@ import MessageBottle from './pages/MessageBottle.jsx';
 import Achievements from './pages/Achievements.jsx';
 import HabitTracker from './pages/HabitTracker.jsx'; // ✅ Added back
 
+
 const router = createBrowserRouter([
   {
     path: '/login',
@@ -130,7 +131,9 @@ const router = createBrowserRouter([
     ),
   },
   {
+
     path: '/habittracker', // ✅ Added back
+
     element: (
       <ProtectedRoute>
         <HabitTracker />

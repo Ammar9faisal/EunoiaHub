@@ -29,6 +29,11 @@ const collections = [
         id: import.meta.env.VITE_COLLECTION_ID_VISIONBOARDS,
         name: "visionboard",
     },
+    {
+        dbId: import.meta.env.VITE_DATABASE_ID,
+        id: import.meta.env.VITE_COLLECTION_ID_STREAKS,
+        name: "streaks",
+    },
 ];
 collections.forEach((col) => {  //wrapper for the database methods to simplify the interaction with the Appwrite database
     db[col.name] = {

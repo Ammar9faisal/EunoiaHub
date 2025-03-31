@@ -8,7 +8,7 @@ vi.mock('../../src/appwrite', async (importOriginal) => {
   const actual = await importOriginal();
   return {
     ...actual,
-    account: {
+    account: { 
       ...actual.account,
       get: vi.fn().mockResolvedValue({ $id: '67d7a3d30007a40db90b' }),
     },

@@ -1,6 +1,7 @@
 import db from '../database';
 import { account } from '../appwrite';
 import { Query } from 'appwrite';
+import { handleQuestionnaireCompletion } from './streakService';
 
 export const questions = [
     { id: 1, text: "How happy do you feel today? (1 = Not happy at all, 10 = Extremely happy)" },
@@ -12,7 +13,7 @@ export const questions = [
     { id: 7, text: "How hopeful do you feel about tomorrow? (1 = Not hopeful, 10 = Very hopeful)" },
 ];
 
-export const handleNext = async (pageNum, responses, setResponses, setCurrentPage, navigate, userId) => {  //handleNext function to handle the next button click
+export const handleNext = async (pageNum, responses, setResponses, setCurrentPage, navigate, userId, streak, setStreak) => {
     if (pageNum === 7) {
         const date = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
         const wellnessIndex = happinessIndex(responses);
@@ -22,6 +23,10 @@ export const handleNext = async (pageNum, responses, setResponses, setCurrentPag
                 date,
                 wellnessIndex
             });
+
+            const updatedStreak = await handleQuestionnaireCompletion(userId, db);
+            console.log('Updated streak:', updatedStreak);
+
             setCurrentPage(8);
         } catch (error) {
             console.error('Error creating survey response:', error);
