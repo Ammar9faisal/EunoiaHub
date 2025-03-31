@@ -43,9 +43,10 @@ export function Sidebar() {
       case '/dailyexercises':
         setActiveButton('dailyexercises');
         break;
-      case '/habitTracker':
+      case '/HabitTracker':
           setActiveButton('habittracker');
           break;
+      
 
       default:
         setActiveButton('dashboard'); // Default to dashboard if no match
