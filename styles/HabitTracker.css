@@ -1,0 +1,245 @@
+/* === Habit Tracker Page Layout === */
+.habit-page {
+    display: grid;
+    grid-template-columns: 5vw 1fr;
+    height: 100vh;
+    background: linear-gradient(to bottom, #7F58BB, #C343B4);
+    overflow-y: auto;
+  }
+  
+  .habit-container {
+    grid-column: 2;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+    box-sizing: border-box;
+    overflow-y: auto;
+  }
+  
+  /* === Title & Description === */
+  .habit-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .habit-description {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* === Input + Reset Controls === */
+  .habit-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .habit-input {
+    flex-grow: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: #111;
+    max-width: 300px;
+  }
+  
+  .habit-add-button {
+    background: white;
+    color: #5a2d82;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: 2px solid #5a2d82;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .habit-add-button:hover {
+    background: #5a2d82;
+    color: white;
+  }
+  
+  .habit-reset-button {
+    background-color: white;
+    color: #5a2d82;
+    border: 2px solid #5a2d82;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .habit-reset-button:hover {
+    background-color: #5a2d82;
+    color: white;
+  }
+  
+  .habit-reset-button.disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    border: 1px solid #999;
+  }
+  
+  .tooltip-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip-text {
+    visibility: hidden;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 6px 10px;
+    border-radius: 6px;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    font-size: 0.85rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 2;
+  }
+  
+  .tooltip-wrapper:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  /* === Instruction Section === */
+  .habit-instructions {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    text-align: center;
+    margin: 0 auto 2rem;
+  }
+  
+  .habit-instructions ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+  }
+  
+  .habit-instructions li {
+    margin: 0.25rem 0;
+  }
+  
+  /* === Error === */
+  .habit-error-message {
+    margin-top: 0.5rem;
+    color: #ffdddd;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  /* === Habit Card === */
+  .habit-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    position: relative;
+  }
+  
+  .habit-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #5a2d82;
+    margin-bottom: 10px;
+  }
+  
+  .habit-grid {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .habit-day-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .habit-day-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .habit-day-yes {
+    background-color: #22c55e;
+    color: white;
+  }
+  
+  .habit-day-no {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .habit-day-skip {
+    background-color: #9ca3af;
+    color: white;
+  }
+  
+  .habit-day-empty {
+    background-color: #e5e7eb;
+    color: #5a2d82;
+  }
+  
+  .habit-delete-button {
+    background-color: #dc2626;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .habit-delete-button:hover {
+    background-color: #b91c1c;
+  }
+  .habit-instructions-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 0 auto 2rem;
+    max-width: 700px;
+    text-align: left;
+    font-size: 1rem;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    line-height: 1.6;
+  }
+  
+  .habit-instructions-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+  }
+  
+  .habit-instructions-box li {
+    margin: 0.25rem 0;
+  }

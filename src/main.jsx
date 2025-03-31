@@ -18,6 +18,7 @@ import BlogPage from './pages/BlogPage.jsx';
 import WelcomePage from './pages/Welcome.jsx';
 import MessageBottle from './pages/MessageBottle.jsx';
 import Achievements from './pages/Achievements.jsx';
+import HabitTracker from './pages/HabitTracker.jsx'; // ✅ Added back
 
 const router = createBrowserRouter([
   {
@@ -50,7 +51,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/questionnaire',
-    element: <Questionnaire />
+    element: <Questionnaire />,
   },
   {
     path: '/findhelp',
@@ -118,13 +119,21 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <WelcomePage />
+    element: <WelcomePage />,
   },
   {
     path: '/messageinabottle',
     element: (
       <ProtectedRoute>
         <MessageBottle />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/habittracker', // ✅ Added back
+    element: (
+      <ProtectedRoute>
+        <HabitTracker />
       </ProtectedRoute>
     ),
   },

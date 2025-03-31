@@ -1,0 +1,84 @@
+.habit-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  }
+  
+  .habit-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #5a2d82;
+    margin-bottom: 10px;
+  }
+  
+  .habit-grid {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .habit-day-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .habit-day-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  .habit-day-yes {
+    background-color: #22c55e;
+    color: white;
+  }
+  
+  .habit-day-no {
+    background-color: #ef4444;
+    color: white;
+  }
+  
+  .habit-day-skip {
+    background-color: #9ca3af;
+    color: white;
+  }
+  
+  .habit-day-empty {
+    background-color: #e5e7eb;
+    color: #5a2d82;
+  }
+
+  .habit-day-labels {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    color: #5a2d82;
+    font-weight: 500;
+    justify-content: start;
+  }
+  
+  .habit-day-label {
+    width: 40px;
+    text-align: center;
+  }
+  
+  .habit-delete-button {
+    background-color: #dc2626; /* Tailwind red-600 */
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .habit-delete-button:hover {
+    background-color: #b91c1c; /* Tailwind red-700 */
+  }

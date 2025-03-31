@@ -1,28 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { BarChart2, Smile, NotepadText, Settings, LogOut, Map, Clipboard, Star, LayoutList, Plus, Book, Wind } from 'lucide-react';
+import {
+  BarChart2,
+  Smile,
+  NotepadText,
+  Settings,
+  LogOut,
+  Map,
+  Clipboard,
+  Star,
+  LayoutList,
+  Plus,
+  Book,
+  Wind,
+  CalendarRange,
+} from 'lucide-react';
 
 import './sidebar.css';
 import logo from '../assets/logo.png';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { account } from '../appwrite';
 
-
 export function Sidebar() {
   const [activeButton, setActiveButton] = useState('');
   const navigate = useNavigate();
-  const location = useLocation(); // Get current location (page)
+  const location = useLocation();
 
   // Update activeButton state when location changes
   useEffect(() => {
-    // Map the location pathname to the corresponding active button
-    switch (location.pathname) {
+    switch (location.pathname.toLowerCase()) {
       case '/dashboard':
         setActiveButton('dashboard');
         break;
       case '/survey':
         setActiveButton('checkin');
         break;
-      case '/FindHelp':
+      case '/findhelp':
         setActiveButton('find');
         break;
       case '/visionboard':
@@ -43,14 +55,18 @@ export function Sidebar() {
       case '/dailyexercises':
         setActiveButton('dailyexercises');
         break;
+      case '/habittracker':
+        setActiveButton('habittracker');
+        break;
       default:
-        setActiveButton('dashboard'); // Default to dashboard if no match
+        setActiveButton('dashboard');
         break;
     }
   }, [location]);
 
-  const handleButtonClick = (buttonName) => {
+  const handleButtonClick = (buttonName, route) => {
     setActiveButton(buttonName);
+    navigate(route);
   };
 
   const handleLogout = async () => {
@@ -68,56 +84,61 @@ export function Sidebar() {
       <nav className="sidebar-nav">
         <button
           className={`sidebar-button ${activeButton === 'dashboard' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate('/dashboard')}
+          onClick={() => handleButtonClick('dashboard', '/dashboard')}
         >
           <BarChart2 className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'checkin' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/survey")}
+          onClick={() => handleButtonClick('checkin', '/survey')}
         >
           <Smile className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'find' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/FindHelp")}
+          onClick={() => handleButtonClick('find', '/findhelp')}
         >
           <Map className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'visionboard' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate('/visionboard')}
+          onClick={() => handleButtonClick('visionboard', '/visionboard')}
         >
           <NotepadText className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'BlogPage' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/blogpage")}
+          onClick={() => handleButtonClick('BlogPage', '/blogpage')}
         >
           <Book className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'UserTickets' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/usertickets")}
+          onClick={() => handleButtonClick('UserTickets', '/usertickets')}
         >
           <Star className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'dailyexercises' ? 'sidebar-button-active' : ''}`}
-          onClick={() => { handleButtonClick('dailyexercises'); navigate('/dailyexercises'); }}
+          onClick={() => handleButtonClick('dailyexercises', '/dailyexercises')}
         >
           <Wind className="sidebar-icon" color="white" />
         </button>
-
+        <button
+          className={`sidebar-button ${activeButton === 'habittracker' ? 'sidebar-button-active' : ''}`}
+          onClick={() => handleButtonClick('habittracker', '/habittracker')}
+        >
+          <CalendarRange className="sidebar-icon" color="white" />
+        </button>
         <button
           className={`sidebar-button ${activeButton === 'ToDoList' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/todo")}
+          onClick={() => handleButtonClick('ToDoList', '/todo')}
         >
           <LayoutList className="sidebar-icon" color="white" />
         </button>
         <button
           className={`sidebar-button ${activeButton === 'resources' ? 'sidebar-button-active' : ''}`}
-          onClick={() => navigate("/resources")}
+          onClick={() => handleButtonClick('resources', '/resources')}
         >
           <Plus className="sidebar-icon" color="white" />
         </button>
@@ -130,4 +151,3 @@ export function Sidebar() {
 }
 
 export default Sidebar;
-
