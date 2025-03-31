@@ -30,13 +30,19 @@ const collections = [
         name: "visionboard",
     },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cdaa298 (added streaks to the project)
     {
         dbId: import.meta.env.VITE_DATABASE_ID,
         id: import.meta.env.VITE_COLLECTION_ID_STREAKS,
         name: "streaks",
     },
+<<<<<<< HEAD
 =======
 >>>>>>> d3f6374 (Revert "Achivements implementation")
+=======
+>>>>>>> cdaa298 (added streaks to the project)
 ];
 collections.forEach((col) => {  //wrapper for the database methods to simplify the interaction with the Appwrite database
     db[col.name] = {

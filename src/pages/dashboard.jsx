@@ -219,6 +219,13 @@ export default function Dashboard() {
 =======
 >>>>>>> d3f6374 (Revert "Achivements implementation")
             />
+            <DashboardCard
+              title="Weekly Habit Tracker"
+              description="Track your weekly habits!"
+              bgColor="dashboard-card"
+              image={calender}
+              onClick={() => navigate('/HabitTracker')} // Redirect to a new webpage
+            />
           </div>
         </div>
       </div>
