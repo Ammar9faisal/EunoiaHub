@@ -186,6 +186,35 @@ MAR 6 – 2 hrs 40 mins
 15 mins (6:45 - 7:00) - Ammar Faisal, Harnaindeep Kaur
 1 hr 20 mins(10:10 - 11:30) - Ammar Faisal, Harnaindeep Kaur
 
+MAR 10 – 2 hrs 30 mins
+1 hr 30 mins - everyone
+30 mins - Ammar Faisal, Harnaindeep Kaur
+30 mins - Jakub Przystupa, Abdullah Bajwa,
+
+MAR 12 - 3 hrs
+1 hr - everyone
+1 hr - Manjot Kaur, Oluwagbeminiyi Adewumi
+30 mins - Harnaindeep Kaur, Ammar Faisal
+30 mins - Ammar Faisal, Abdullah Bajwa
+
+MAR 16 - 1 hr - everyone
+
+MAR 18 - 1 hr 15 mins
+30 mins - Jakub Przystupa, Ammar Faisal
+45 mins - everyone
+
+MAR 23 - 2 hrs - everyone
+
+MAR 26 - 2 hrs 15 mins
+1 hr - everyone
+45 mins - Abdullah Bajwa, Manjot Kaur, Harnanindeep Kaur, Ammar Faisal
+
+MAR 29 - 30 mins - everyone
+
+MAR 30 - 3 hrs 45 mins
+2 hrs - everyone
+1 hr - Harnaindeep Kaur, Manjot Kaur
+45 mins - Ammar Faisal, Abdullah Bajwa, Manjot Kaur
 
 
 RATIONALE BEHIND CHANGES ON THE PLAN AND BIG DECISION CHANGES
@@ -207,6 +236,9 @@ decided to keep it as an added feature with low priority
 
 - ADDING TO DO LIST AS PART OF ITR 1 - To do list was something out client also emphasized in the client meeting, so it was
 something we wanted to add early on the project deliverable.
+
+- CHANGING USER STORY IN ITR 3 AS PER CLIENT REQUEST - As per the client request we changed two user stories (color coded, goal setting)
+for ITR 3 with Message in a bottle and Bubble Burst Game
 
 INDIVIDUAL CONTRIBUTIONS
 
