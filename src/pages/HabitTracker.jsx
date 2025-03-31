@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import stubDatabase from '../stubDatabase';
 import HabitCard from '../components/HabitCard';
 import { Sidebar } from '../components/Sidebar.jsx';
-import './HabitTracker.css';
+import '../../styles/HabitTracker.css';
 
 const WEEK_DAYS = 7;
 
