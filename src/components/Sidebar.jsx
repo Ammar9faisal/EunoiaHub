@@ -51,13 +51,18 @@ export function Sidebar() {
         setActiveButton('dailyexercises');
         break;
 <<<<<<< HEAD
+<<<<<<< HEAD
       case '/HabitTracker':
           setActiveButton('habittracker');
           break;
 =======
       case '/habitTracker':
+=======
+      case '/HabitTracker':
+>>>>>>> 8c2ee81 (added dashboard button for habit tracker)
           setActiveButton('habittracker');
           break;
+      
 
 >>>>>>> 7791fc3 (added icon to the side bar)
       default:
