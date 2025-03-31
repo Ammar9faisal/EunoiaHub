@@ -1,0 +1,99 @@
+.bubble-container {
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  background: linear-gradient(to top, #e5b2f3, #94d9f8);
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -50px; /* Start just below the screen */
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, rgba(255, 255, 255, 0.3) 40%, rgba(255, 255, 255, 0.15) 70%); /* Iridescent gradient */
+  border-radius: 50%;
+  cursor: pointer;
+  animation: floatUp 10s linear forwards; /* Slower movement */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 4px 8px rgba(255, 255, 255, 0.3); 
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  opacity: 0.8; /* Slight transparency */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Light reflective border for soap bubble effect */
+}
+
+.bubble:hover {
+  transform: scale(1.1) translateY(-10px); /* Slight lift effect */
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0.4) 40%, rgba(255, 255, 255, 0.2) 70%); /* Brighter iridescent look on hover */
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2), inset 0 6px 12px rgba(255, 255, 255, 0.4); /* Enhanced reflection on hover */
+}
+.bubble-pop {
+  animation: bubblePopAnimation 0.2s forwards;
+}
+
+@keyframes bubblePopAnimation {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-150vh); /* Higher than the top */
+    opacity: 0;
+  }
+}
+
+/* Score display for bubble game */
+.bubble-score-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #edbdf3; /* White text for better contrast */
+  font-family: 'Poppins', sans-serif; /* Change to a modern, playful font */
+  font-size: 32px; /* Bigger font size */
+  font-weight: 600; /* Slightly lighter than bold for better readability */
+  letter-spacing: 2px; /* Slightly wider spacing for readability */
+  text-shadow: 2px 2px 8px rgba(188, 143, 243, 0.3), 0 0 15px rgba(255, 255, 255, 0.8); /* Glowing effect for contrast */
+}
+
+.bubble-score-container span {
+  display: block;
+  margin-bottom: 8px; /* More space between score and best score */
+}
+
+/* Optional: Add a soft glow effect around the score */
+.bubble-score-container span:last-child {
+  font-size: 24px; /* Slightly smaller for best score */
+  color: #f1ddee; /* Light yellow color for best score */
+  text-shadow: 2px 2px 10px rgba(103, 20, 245, 0.8), 0 0 15px rgba(255, 255, 255, 0.6); /* Glowing yellow effect for best score */
+}
+
+/* Add this to your BubbleGame.css */
+.back-to-dashboard-btn {
+  position: absolute;  /* Position relative to its nearest positioned ancestor */
+  top: 20px;           /* Distance from the top */
+  left: 20px;          /* Distance from the left side of the screen */
+  background-color: white; /* White background */
+  color: #6a4ee5;      /* Green text */
+  padding: 10px 20px;
+  border: 2px solid #6a4ee5; /* Green border */
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.back-to-dashboard-btn:hover {
+  background-color: #f1f1f1; /* Slightly darker background on hover */
+}
+
