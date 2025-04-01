@@ -692,3 +692,50 @@ Ensured seamless linkage between Appwrite and SQL database.
 Conducted final test cases for authentication and storage.
 March 11
 
+Fixed sidebar issue to make it compatible with blogpost and dashboard
+Resolved many styling issues and conflicts 
+March 13 - 2hrs
+
+Added testcases for resources and toDO service to ensure each service works 
+Repaired test cases for chatbot and login system which broke due to changes in functions
+March 16 - 3 hours
+
+added integration tests for visionboard
+March 17 - 1.5 hours
+
+added testcases for todoLists 
+resulted in many issues so had to refactor code to resolve them
+March 18 - 3 hours
+
+Created and fixed many bug issues such as the reload issue
+Added sidebar compatiblity to a variety of pages and resolved many styling isses as a result of sidebar
+Managed pull requests and merged after resolving conflicts
+March 21 - 6 hours
+
+Added styling improvements:
+Added sidebar to more pages and fixed sidebar proportions
+Improved the blog page UI from a mostly plain html model to a interactive blog page for good user interface
+Fixed login issue where page is stuck on refresh due to not resolving cookie fast enough
+Also fixed other pages rendering too fast before cookie is set for the first time
+March 24 - 6 hours
+
+Added a feature to automatically log the user in after sign in
+Also added a feature 
+March 25 - 2 hours
+
+Fixed issue with chatbot where is would get underlayed by the graph. So i raised the chatbot z index higher to fix it
+Also added autoscroll to chatbot so it scrolls automatically when there is a new message
+Added discord webhooks to user tickets so the tickets automatically make a user response
+refactored file structure to make it nicer
+March 29 - 7 hours
+
+Revereted and fixed many issues that suddenly occured due to a faulty branch being merged
+This was based on negligence by a group member who did not pull from master for a long time which messed up the master for everyone
+March 30 - 4 hours
+
+finalized streak feature to the app
+merged habit tracker to the app and resolved conflicts
+fixed various test cases and added more integration tests
+added additional testcases to ensure app remains stable when given to user
+March 31 - 7 hours
+
