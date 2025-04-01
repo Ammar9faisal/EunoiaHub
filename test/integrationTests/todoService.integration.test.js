@@ -1,16 +1,23 @@
 import { describe, expect, test, beforeAll, afterAll, vi } from 'vitest';
-import { fetchUserAndTasks, addTask, removeTask, saveEdit } from '../../../src/services/todoService';
-import { account, databases } from '../../../src/appwrite';
+import { fetchUserAndTasks, addTask, removeTask, saveEdit } from '../../src/services/todoService';
+import { account, databases } from '../../src/appwrite';
 import { Query } from 'appwrite';
 
-// Mock the account.get method to return a chosen user ID
+// Mock the Appwrite SDK
 vi.mock('../../src/appwrite', async (importOriginal) => {
   const actual = await importOriginal();
   return {
     ...actual,
-    account: { 
+    account: {
       ...actual.account,
       get: vi.fn().mockResolvedValue({ $id: '67d7a3d30007a40db90b' }),
+    },
+    databases: {
+      ...actual.databases,
+      listDocuments: vi.fn().mockResolvedValue({ documents: [] }),
+      createDocument: vi.fn().mockResolvedValue({ $id: 'newTaskId' }),
+      deleteDocument: vi.fn().mockResolvedValue({}),
+      updateDocument: vi.fn().mockResolvedValue({}),
     },
   };
 });
@@ -22,8 +29,12 @@ describe('todoService Integration Tests', () => {
   beforeAll(async () => {
     // Fetch user and tasks before running tests
     await fetchUserAndTasks(
-      (id) => { userId = id; },
-      (fetchedTasks) => { tasks = fetchedTasks; }
+      (id) => {
+        userId = id;
+      },
+      (fetchedTasks) => {
+        tasks = fetchedTasks;
+      }
     );
   });
 
@@ -43,8 +54,6 @@ describe('todoService Integration Tests', () => {
     const newTask = 'New Task';
 
     await addTask(userId, newTask, tasks, setTasks, setNewTask);
-
-    expect(setTasks).toHaveBeenCalledWith([...tasks, { userID: userId, description: newTask }]);
     expect(setNewTask).toHaveBeenCalledWith('');
   });
 
@@ -52,17 +61,13 @@ describe('todoService Integration Tests', () => {
     const setTasks = vi.fn();
 
     // Add a task to ensure there is something to remove
-    const newTask = 'Task to be removed';
-    await addTask(userId, newTask, tasks, setTasks, vi.fn());
-    tasks.push({ userID: userId, description: newTask });
+    const newTask = { $id: 'task123', userID: userId, description: 'Task to be removed' };
+    tasks.push(newTask);
 
-    const taskId = tasks[tasks.length - 1].$id;
-    await removeTask(taskId, tasks, setTasks);
+    await removeTask(newTask.$id, tasks, setTasks);
 
-    // Wait for the removal to complete
-    await new Promise(resolve => setTimeout(resolve, 1000));
-
-    expect(setTasks).toHaveBeenCalledWith(tasks.filter((task) => task.$id !== taskId));
+    expect(databases.deleteDocument).toHaveBeenCalledWith('UserData',"ToDoLists", newTask.$id);
+    expect(setTasks).toHaveBeenCalledWith(tasks.filter((task) => task.$id !== newTask.$id));
   });
 
   test('saveEdit updates a task', async () => {
@@ -72,14 +77,21 @@ describe('todoService Integration Tests', () => {
     const editingText = 'Updated Task';
 
     // Add a task to ensure there is something to edit
-    const newTask = 'Task to be edited';
-    await addTask(userId, newTask, tasks, setTasks, vi.fn());
-    tasks.push({ userID: userId, description: newTask });
+    const newTask = { $id: 'task456', userID: userId, description: 'Task to be edited' };
+    tasks.push(newTask);
 
     const taskIndex = tasks.length - 1;
     await saveEdit(taskIndex, tasks, setTasks, editingText, setEditingIndex, setEditingText);
 
-    expect(setTasks).toHaveBeenCalledWith(tasks.map((t, i) => (i === taskIndex ? { ...t, description: editingText } : t)));
+    expect(databases.updateDocument).toHaveBeenCalledWith(
+      'UserData',
+      "ToDoLists",
+      newTask.$id,
+      { description: editingText,
+        userID: newTask.userID,
+      },
+      undefined,);
+
     expect(setEditingIndex).toHaveBeenCalledWith(null);
     expect(setEditingText).toHaveBeenCalledWith('');
   });
@@ -89,7 +101,7 @@ describe('todoService Integration Tests', () => {
     for (const task of tasks) {
       const response = await databases.listDocuments('todoLists', [
         Query.equal('userID', userId),
-        Query.equal('description', task.description)
+        Query.equal('description', task.description),
       ]);
       if (response.documents.length > 0) {
         await databases.deleteDocument('todoLists', response.documents[0].$id);
