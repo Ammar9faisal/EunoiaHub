@@ -72,6 +72,13 @@ To get started with the EunoiaHub, follow these steps:
   
     `CTRL` + `C`
 
+## Testing
+To run testing, simply type the following in the terminal: (Note: Install any dependencies before doing this)
+
+    npm run test
+    
+Follow the instructions in the terminal for further actions
+
 ## Usage
 
 Once the development server is running, you can access the application at `http://localhost:<PORT>`. You can create an account, log in, and start using the features of the EunoiaHub. 
