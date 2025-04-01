@@ -1,6 +1,7 @@
 import { describe, expect, test, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import Achievements from '../../src/pages/Achievements';
+import { MemoryRouter } from 'react-router-dom';
 
 // ✅ Mock Sidebar to isolate the test
 vi.mock('../../src/components/Sidebar.jsx', () => ({
@@ -13,34 +14,47 @@ describe('Achievements Page', () => {
   });
 
   test('renders sidebar component', () => {
-    render(<Achievements />);
+    render(
+      <MemoryRouter>
+        <Achievements />
+      </MemoryRouter>
+    );
     expect(screen.getByText('Sidebar')).toBeInTheDocument();
   });
 
   test('displays the main achievements title', () => {
-    render(<Achievements />);
-    expect(screen.getByRole('heading', { name: /achievements/i })).toBeInTheDocument();
+    render(<MemoryRouter>
+      <Achievements />
+    </MemoryRouter>);
+    expect(screen.getByText("My Achievements")).toBeInTheDocument();
   });
 
-  test('renders static progress or badge section', () => {
-    render(<Achievements />);
-    expect(screen.getByText(/progress/i)).toBeInTheDocument(); // Could be "Progress", "Your Progress", etc.
+  test('renders the review badge', () => {
+    render(<MemoryRouter>
+      <Achievements />
+    </MemoryRouter>);
+    expect(screen.getByText("Submit your first review")).toBeInTheDocument(); // Could be "Progress", "Your Progress", etc.
   });
 
-  test('includes a description or subtitle if present', () => {
-    render(<Achievements />);
-    // Assumes there is a line like: <p>Track your growth and unlock badges!</p>
-    expect(screen.getByText(/track your growth/i)).toBeInTheDocument();
+  test('render visionboard badge', () => {
+    render(<MemoryRouter>
+      <Achievements />
+    </MemoryRouter>);
+    expect(screen.getByText("Add your first goal to the Vision Board")).toBeInTheDocument();
   });
 
-  test('renders at least one badge or visual element', () => {
-    render(<Achievements />);
+  test('render daily exercises badge', () => {
+    render(<MemoryRouter>
+      <Achievements />
+    </MemoryRouter>);
     // Assumes a badge container or a sample badge is always shown
-    expect(screen.getByText(/badge/i)).toBeInTheDocument();
+    expect(screen.getByText("Explore the Daily Exercises")).toBeInTheDocument();
   });
 
   test('does not show error messages or crashes', () => {
-    render(<Achievements />);
+    render(<MemoryRouter>
+      <Achievements />
+    </MemoryRouter>);
     expect(screen.queryByText(/error/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/failed/i)).not.toBeInTheDocument();
   });

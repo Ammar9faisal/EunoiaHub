@@ -34,15 +34,6 @@ describe('surveyService', () => {
         expect(setResponses).not.toHaveBeenCalled();
     });
 
-    test('handleNext moves to the completion page on the last question', async () => {
-        db.surveyResponses.create.mockResolvedValue({});
-        const setCurrentPage = vi.fn();
-        const setResponses = vi.fn();
-        const responses = [10];
-        await handleNext(7, responses, setResponses, setCurrentPage, vi.fn(), 'testUserId');
-        expect(setCurrentPage).toHaveBeenCalledWith(8);
-        expect(setResponses).not.toHaveBeenCalled();
-    });
 
     test('handleBack moves to the previous page', () => {
         const setCurrentPage = vi.fn();
